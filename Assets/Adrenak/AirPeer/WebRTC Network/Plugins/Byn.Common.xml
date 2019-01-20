@@ -1,0 +1,467 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Byn.Common</name>
+    </assembly>
+    <members>
+        <member name="T:Byn.Net.ConnectionId">
+            <summary>
+            Connection id idendifies one specific endpoint in a IBaseNetwork.
+            
+            The id is only unique locally for a specific IBaseNetwork. The same connection
+            can have a different id on the other end point of the connection! 
+            </summary>
+        </member>
+        <member name="F:Byn.Net.ConnectionId.INVALID">
+            <summary>
+            Specific id that is used to represent an invalid id.
+            
+            Value might change to 0 in the future to make sure C# initializes empty id's to
+            invalid values.
+            </summary>
+        </member>
+        <member name="F:Byn.Net.ConnectionId.id">
+            <summary>
+            Stores the id as a short.
+            </summary>
+        </member>
+        <member name="M:Byn.Net.ConnectionId.#ctor(System.Int16)">
+            <summary>
+            Creates a new id. Only for internal use.
+            </summary>
+            <param name="lId"></param>
+        </member>
+        <member name="M:Byn.Net.ConnectionId.IsValid">
+            <summary>
+            Returns true if the id has a valid value.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Byn.Net.DefaultValues">
+            <summary>
+            Used to set up some default values such as free ice servers and signaling server. They are only meant
+            to make the use of the library easier at the beginning.
+            
+            Don't use them in production.
+            </summary>
+        </member>
+        <member name="P:Byn.Net.DefaultValues.DefaultIceServers">
+            <summary>
+            Returns a copy of an array containing default ice servers for webrtc.
+            Use this only for testing and easy setup!
+            </summary>
+        </member>
+        <member name="P:Byn.Net.DefaultValues.DefaultSignalingServer">
+            <summary>
+            Returns the default signaling server. Use for testing only!
+            </summary>
+        </member>
+        <member name="P:Byn.Net.DefaultValues.AuthenticateAsClientBugWorkaround">
+            <summary>
+            A work around for the unity.
+            Unity stalls sometimes during SslStream AuthenticateAsClient calls.
+            This workaround will attempt a call for 5 seconds and then kill the stream
+            if it gets stuck and retry with a higher timeout value. It usually works
+            after the first retry.
+            
+            The default is false as the work around might cause other problems on other
+            platforms.
+            </summary>
+        </member>
+        <member name="T:Byn.Net.INetwork">
+            <summary>
+            Interface to a network that doesn't enforce storing any states.
+            
+            Anything more is reusable between multiple different networks.
+            </summary>
+        </member>
+        <member name="M:Byn.Net.INetwork.Dequeue(Byn.Net.NetworkEvent@)">
+            <summary>
+            This will return the incoming network events. Call this method and handle the incoming events until it returns false.
+            </summary>
+            <param name="evt"></param>
+            <returns>Returns true if the parameter evt contains a new event. False if there are no events to process left.</returns>
+        </member>
+        <member name="M:Byn.Net.INetwork.Peek(Byn.Net.NetworkEvent@)">
+            <summary>
+            Will return the first event in the queue without removing it.
+            </summary>
+            <param name="evt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Byn.Net.INetwork.Flush">
+            <summary>
+            Sends buffered data.
+            </summary>
+        </member>
+        <member name="M:Byn.Net.INetwork.SendData(Byn.Net.ConnectionId,System.Byte[],System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Sends the content if a byte array to the given connection.
+            </summary>
+            <param name="id">The id of the recipient</param>
+            <param name="data">Byte array containing the data to send</param>
+            <param name="offset">The index in data where the network should start to send</param>
+            <param name="length">Length in bytes you want to send</param>
+            <param name="reliable">True to send a reliable message(TCP style) and false to send unreliable (UDP style)</param>
+        </member>
+        <member name="M:Byn.Net.INetwork.Disconnect(Byn.Net.ConnectionId)">
+            <summary>
+            Disconnects the given connection
+            </summary>
+            <param name="id">Id of the connection to disconnect.</param>
+        </member>
+        <member name="M:Byn.Net.INetwork.Shutdown">
+            <summary>
+            Disconnects all connection and shuts down the server if started.
+            Dequeue will still return the confirmation messages such as Disconnected event for each connection.
+            
+            </summary>
+        </member>
+        <member name="M:Byn.Net.INetwork.Update">
+            <summary>
+            Call this every frame if you intend to read incoming messages using Dequeue. This will make
+            sure all data is read received by the network.
+            </summary>
+        </member>
+        <member name="T:Byn.Net.IBasicNetwork">
+            <summary>
+            Used to represent a network interface that can allow incoming connections or connect to another network.
+            
+            Address can be any kind of string. This could be a ip address and port, websockets or an key in a dictionary
+            on a server to get the exact connection details from somewhere else.
+            </summary>
+        </member>
+        <member name="M:Byn.Net.IBasicNetwork.StartServer(System.String)">
+            <summary>
+            Starts a server + asking for it to have a certain address.
+            The use of the address is not guaranteed. If the address is in
+            use the underlying system will return ServerConnectionFailed.
+            (This can also be triggered if anything else fails in the process)
+            </summary>
+            <param name="address"></param>
+        </member>
+        <member name="M:Byn.Net.IBasicNetwork.StopServer">
+            <summary>
+            Stops incoming connections. This usually doesn't close existing connections thus can be used
+            to enforce a certain amount of maximum allowed connections.
+            </summary>
+        </member>
+        <member name="M:Byn.Net.IBasicNetwork.Connect(System.String)">
+            <summary>
+            Connects to a given address or room name.
+            
+            This call will result in one of those 2 events in response:
+            * NewConnection if the connection was established
+            * ConnectionFailed if the connection failed.
+            
+            
+            </summary>
+            <param name="address">A string that identifies the target.</param>
+            <returns>Returns the Connection id the established connection will have (only supported by WebRtcNetwork).</returns>
+        </member>
+        <member name="T:Byn.Net.IWebRtcNetwork">
+            <summary>
+            This will allow more detailed access to webrtc for different platforms. Not yet implemented.
+            </summary>
+        </member>
+        <member name="T:Byn.Net.IceServer">
+            <summary>
+            Represents an ice server entry
+            </summary>
+        </member>
+        <member name="P:Byn.Net.IceServer.Urls">
+            <summary>
+            Returns a copy of the given urls
+            </summary>
+        </member>
+        <member name="P:Byn.Net.IceServer.Username">
+            <summary>
+            Returns the username
+            </summary>
+        </member>
+        <member name="P:Byn.Net.IceServer.Credential">
+            <summary>
+            Returns the credential / password
+            </summary>
+        </member>
+        <member name="M:Byn.Net.IceServer.#ctor(System.Collections.Generic.List{System.String},System.String,System.String)">
+            <summary>
+            Creates an ice server entry with the given urls, username and credential (password, tokens might be supported later)
+            </summary>
+            <param name="lUrls"></param>
+            <param name="lUsername"></param>
+            <param name="lCredential"></param>
+        </member>
+        <member name="M:Byn.Net.IceServer.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Creates an ice server entry with the given url, username and credential (password, tokens might be supported later)
+            </summary>
+            <param name="lUrl"></param>
+            <param name="lUsername"></param>
+            <param name="lCredential"></param>
+        </member>
+        <member name="T:Byn.Net.LocalNetwork">
+            <summary>
+            LocalNetwork. Simulate the IBasicNetwork locally in a single applicaiton.
+            
+            </summary>
+        </member>
+        <member name="T:Byn.Net.MessageDataBuffer">
+             <summary>
+             
+             This interface is used to return binary message data.
+            
+             Use MessageDataBuffer.Buffer only to read data between
+             the index Offset and Offset + MessageDataBuffer.ContentLength.
+             
+             After reading use Dispose to allow the network to
+             reuse this buffer and spare the Garbage Collector
+             the work.
+             
+             Make sure not to keep any references to
+             MessageDataBuffer.Buffer after calling Dispose!
+             If you need to store the byte array create a copy
+             of the content before using Dispose.
+             </summary>
+        </member>
+        <member name="P:Byn.Net.MessageDataBuffer.Buffer">
+            <summary>
+            Returns the buffer that contains the message data.
+            Don't use Buffer.Length! The buffer might be longer than the actually message.
+            use ContentLength to get the length of the content
+            </summary>
+        </member>
+        <member name="P:Byn.Net.MessageDataBuffer.ContentLength">
+            <summary>
+            Returns the length of the buffers content.
+            The byte array might be longer than the actual content!
+            Always use this property not Buffer.Length !!!
+            </summary>
+        </member>
+        <member name="M:Byn.Net.MessageDataBufferExt.AsStringUTF8(Byn.Net.MessageDataBuffer)">
+            <summary>
+            Reads the byte buffer as a UTF8 string
+            </summary>
+            <param name="buffer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Byn.Net.MessageDataBufferExt.AsStringUnicode(Byn.Net.MessageDataBuffer)">
+            <summary>
+            Reads the buffer as unicode string
+            </summary>
+            <param name="buffer"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Byn.Net.NetEventType">
+            <summary>
+            Type of the received network event.
+            </summary>
+        </member>
+        <member name="T:Byn.Net.NetworkEvent">
+            <summary>
+            Contains information about events received by the network.
+            
+            The type of the network event decides the content it can contain.
+            
+            Most important are:
+            
+            UnreliableMessageReceived / ReliableMessageReceived:
+            A new message was received. The property MessageData will return
+            a buffer + byte array containing the data received.
+            
+            ServerInitialized:
+            A call to StartServer was successful. The Info property will return the address
+            the server can be accessed by.
+            
+            
+            </summary>
+        </member>
+        <member name="P:Byn.Net.NetworkEvent.Type">
+            <summary>
+            Returns the type of the message.
+            </summary>
+        </member>
+        <member name="P:Byn.Net.NetworkEvent.ConnectionId">
+            <summary>
+            Returns the related connection id or ConnecitonId.Invalid if there is none.
+            </summary>
+        </member>
+        <member name="P:Byn.Net.NetworkEvent.RawData">
+            <summary>
+            Returns an object belonging to the event.
+            This can be a MessageDataBuffer containing a byte array or a string.
+            </summary>
+        </member>
+        <member name="P:Byn.Net.NetworkEvent.MessageData">
+            <summary>
+            Returns the content of the messages if the event type is
+            UnreliableMessageReceived or ReliableMessageReceived.
+            
+            null for all other message types.
+            </summary>
+        </member>
+        <member name="M:Byn.Net.NetworkEvent.GetDataAsByteArray">
+            <summary>
+            Returns the a copy of the message data as a new byte array with the exact size of the content
+            instead of the buffer.
+            </summary>
+            <returns>Copy of the message data or null if no message data available</returns>
+        </member>
+        <member name="P:Byn.Net.NetworkEvent.Info">
+            <summary>
+            Contains additional information or null
+            Only used so far for NetEventType.ServerInitialized to return the servers address information.
+            </summary>
+        </member>
+        <member name="M:Byn.Net.NetworkEvent.#ctor(Byn.Net.NetEventType)">
+            <summary>
+            Creates a new network event of a certain type setting 
+            connection id to invalid and data to null.
+            
+            Internal only. Do not use.
+            </summary>
+            <param name="t">The type of this event</param>
+        </member>
+        <member name="M:Byn.Net.NetworkEvent.#ctor(Byn.Net.NetEventType,Byn.Net.ConnectionId,System.Object)">
+            <summary>
+            Creates a network event with the given content
+            
+            Internal only. Do not use.
+            </summary>
+            <param name="t">Type name</param>
+            <param name="conId">ConnectionId the event is from / relates to</param>
+            <param name="dt">Data. String or MessageDataBuffer</param>
+        </member>
+        <member name="M:Byn.Net.NetworkEvent.ToString">
+            <summary>
+            Converts the event to string. Use for debugging only.
+            </summary>
+            <returns>A string representation of the network event.</returns>
+        </member>
+        <member name="M:Byn.Net.NetworkEvent.FromByteArray(System.Byte[])">
+            <summary>
+            Reverse of ToByteArray.
+            </summary>
+            <param name="arr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Byn.Net.NetworkEvent.ToByteArray(Byn.Net.NetworkEvent)">
+            <summary>
+            Mainly used by WebsocketNetwork. It serializes network events into a byte array to allow
+            to process the events on a different system than where it actually occurred.
+            
+            e.g. WebsocketNetwork uses a server that will receive incoming connects and then
+            serializes that event into a byte array and send it to the client which holds the
+            address of the incoming connection to process the event
+            
+            NOTE: This method is not optimized and shouldn't be used with a lot of data!
+            </summary>
+            <param name="evt">Network event to be serialized</param>
+            <returns>Newly created byte array representing the network event</returns>
+        </member>
+        <member name="T:Byn.Common.SLog">
+            <summary>
+            Logger used in the Byn namespace. Use SetLogger
+            to log custom messages and implement your own filter.
+            Object is the source of the log and string contains a list of
+            tags related to the message to make filtering easier.
+            
+            Note the logging system isn't fully implemented.
+            </summary>
+        </member>
+        <member name="F:Byn.Common.SLog.TAG_WARNING">
+            <summary>
+            Special tag always used in LW calls
+            
+            Used for calls that might negatively affect the program.
+            </summary>
+        </member>
+        <member name="F:Byn.Common.SLog.TAG_ERROR">
+            <summary>
+            Always used in LE calls.
+            Used for calls that affect the behavior of the program
+            </summary>
+        </member>
+        <member name="F:Byn.Common.SLog.TAG_EXCEPTION">
+            <summary>
+            Always used in LogException calls
+            </summary>
+        </member>
+        <member name="F:Byn.Common.SLog.TAG_INFO">
+            <summary>
+            Always used L calls.
+            Log message that should always be delivered to the end user but
+            are not essential.
+            
+            </summary>
+        </member>
+        <member name="F:Byn.Common.SLog.TAG_DEBUG">
+            <summary>
+            Used for LD calls
+            </summary>
+        </member>
+        <member name="F:Byn.Common.SLog.TAG_VERBOSE">
+            <summary>
+            Used for LV calls
+            </summary>
+        </member>
+        <member name="M:Byn.Common.SLog.SetLogger(System.Action{System.Object,System.String[]})">
+            <summary>
+            Used to receive the logging messages.
+            
+            Use the string[] in the callback to filter the log messages
+            based on tags.
+            </summary>
+            <param name="logger"></param>
+        </member>
+        <member name="M:Byn.Common.SLog.LogException(System.Object,System.String[])">
+            <summary>
+            Logs an exception.
+            </summary>
+            <param name="msg">message as string or object that implements toString</param>
+            <param name="tags"></param>
+        </member>
+        <member name="M:Byn.Common.SLog.LE(System.Object,System.String[])">
+            <summary>
+            Logs an error.
+            </summary>
+            <param name="msg">message as string or object that implements toString</param>
+            <param name="tags"></param>
+        </member>
+        <member name="M:Byn.Common.SLog.LW(System.Object,System.String[])">
+            <summary>
+            Logs a warning
+            </summary>
+            <param name="msg">message as string or object that implements toString</param>
+            <param name="tags"></param>
+        </member>
+        <member name="M:Byn.Common.SLog.LV(System.Object,System.String[])">
+            <summary>
+            Verbose log. Only available in debug mode!
+            Used for logging pretty much anything.
+            
+            Might require an additional flag for verbose mode in the future to avoid
+            wasting CPU time / generating too much garbage for the GC
+            </summary>
+            <param name="msg">message as string or object that implements toString</param>
+            <param name="tags"></param>
+        </member>
+        <member name="M:Byn.Common.SLog.LD(System.Object,System.String[])">
+            <summary>
+            Used for debugging. Only used for current updates that need to be tested!
+            </summary>
+            <param name="msg"></param>
+            <param name="tags"></param>
+        </member>
+        <member name="M:Byn.Common.SLog.L(System.Object,System.String[])">
+            <summary>
+            Default log. Unless LD and LV this log will always be available.
+            
+            Used to log important events that might help debugging crashes but not
+            something that happens on a frame - frame basis!
+            </summary>
+            <param name="msg"></param>
+            <param name="tags"></param>
+        </member>
+    </members>
+</doc>
