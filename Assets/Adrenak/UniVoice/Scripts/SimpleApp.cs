@@ -29,7 +29,7 @@ namespace Adrenak.UniVoice.Examples {
 		}
 
 		public void AskForPermission() {
-	#if UNITY_ANDROID && !UNITY_EDITOR
+#if UNITY_ANDROID && !UNITY_EDITOR
 			AndroidPermissionsManager.RequestPermission("android.permission.RECORD_AUDIO", new AndroidPermissionCallback(
 				onGrantedCallback => {
 					message.text = "RECORD_AUDIO permission granted!";
@@ -38,16 +38,16 @@ namespace Adrenak.UniVoice.Examples {
 					message.text = "Please grant RECORD_AUDIO permission! Click the mic button to do so.";
 				}
 			));
-	#endif
+#endif
 		}
 
 		public void Init() {
-	#if UNITY_ANDROID && !UNITY_EDITOR
+#if UNITY_ANDROID && !UNITY_EDITOR
 			if (!AndroidPermissionsManager.IsPermissionGranted("android.permission.RECORD_AUDIO")) {
 				message.text = "Please grant RECORD_AUDIO permission! Click the mic button to do so.";
 				return;
 			}
-	#endif
+#endif
 
 			voice = Voice.New(GetComponent<AudioSource>());
 			voice.Speaking = true;
@@ -78,6 +78,25 @@ namespace Adrenak.UniVoice.Examples {
 					message.text = "Create success. Ask other device to Join using the same room name.";
 				else
 					message.text = "Could not create room. Try 1) another room name 2) on cellphone data.";
+			});
+		}
+
+		void asd() {
+			// USER 1
+			voice.Speaking = true;
+			voice.Create("MY_VOICE_CHAT_ROOM", success => {
+				if (success)
+					Debug.Log("Started voice chat");
+			});
+			voice.OnJoin += id => {
+				Debug.Log("Someone has joined the chat");
+			};
+
+			// USER 2
+			voice.Speaking = true;
+			voice.Join("MY_VOICE_CHAT_ROOM", success => {
+				if (success)
+					Debug.Log("Joined voice chat");
 			});
 		}
 

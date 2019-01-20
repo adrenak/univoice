@@ -28,6 +28,10 @@ voice.Join("a3b4cd", success => Debug.Log("Room join success: " + success));
   
 - `Voice.OnGetVoiceSegment(int index, float[] segment)` event fired everytime an audio segment is received over the network. `segment` is the `float` representation of the audio and `index` represents the index of the segment. Eg. The first segment is indexed as 0
 
+## Known Issues
+- Room creation/join fails. This happens less often on mobile data (as compared to WiFi).
+- [More](https://www.github.com/adrenak/univoice/issues)
+
 ## Contact
 [@www](http://www.vatsalambastha.com)  
 [@github](https://www.github.com/adrenak)
