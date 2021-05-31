@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 using Adrenak.AirPeer;
@@ -41,27 +40,42 @@ namespace Adrenak.UniVoice {
             node.OnClientLeft += id => OnPeerLeft?.Invoke(id);
 
             node.OnPacketReceived += (sender, packet) => {
+                if (packet.Tag.Equals("audio")) {
+                    var reader = new BytesReader(packet.Payload);
+                    var index = reader.ReadInt();
+                    var frequency = reader.ReadInt();
+                    var channels = reader.ReadInt();
+                    var samples = reader.ReadFloatArray();
 
+                    OnAudioReceived?.Invoke(sender, index, frequency, channels, samples);
+                }
             };
         }
 
-        public void CreateChatroom(string chatroomName) =>
-            node.StartServer(chatroomName);
+        public void CreateChatroom(string chatroomName) => node.StartServer(chatroomName);
 
-        public void CloseChatroom() =>
-            node.StopServer();
+        public void CloseChatroom() => node.StopServer();
 
-        public void JoinChatroom(string chatroomName) =>
-            node.Connect(chatroomName);
+        public void JoinChatroom(string chatroomName) => node.Connect(chatroomName);
 
-        public void LeaveChatroom() =>
-            node.Disconnect();
+        public void LeaveChatroom() => node.Disconnect();
 
         public void SendAudioSegment(short recipientID, int segmentIndex, int frequency, int channelCount, float[] samples) {
+            if (ID == -1) return;
 
+            var packet = new Packet().WithTag("audio")
+                .WithPayload(new BytesWriter()
+                    .WriteInt(segmentIndex)
+                    .WriteInt(frequency)
+                    .WriteInt(channelCount)
+                    .WriteFloatArray(samples)
+                    .Bytes
+                );
+
+            node.SendPacket(recipientID, packet, false);
+            OnAudioSent?.Invoke(recipientID, segmentIndex, frequency, channelCount, samples);
         }
 
-        public void Dispose() =>
-            node.Dispose();
+        public void Dispose() => node.Dispose();
     }
 }

@@ -121,9 +121,7 @@ namespace Adrenak.UniVoice {
 
         void Init() {
             // Node server events
-            Network.OnChatroomCreated += () => {
-                MyMode = Mode.Host;
-            };
+            Network.OnChatroomCreated += () => MyMode = Mode.Host;
             Network.OnChatroomClosed += () => {
                 MyMode = Mode.Unconnected;
                 PeerConfigs.Keys.ToList().ForEach(x => RemovePeer(x));
@@ -134,15 +132,9 @@ namespace Adrenak.UniVoice {
                 MyMode = Mode.Guest;
                 EnsurePeerConfig(0);
             };
-            Network.OnLeft += () => {
-                PeerConfigs.Keys.ToList().ForEach(x => RemovePeer(x));
-            };
-            Network.OnPeerJoined += id => {
-                EnsurePeerConfig(id);
-            };
-            Network.OnPeerLeft += id => {
-                RemovePeer(id);
-            };
+            Network.OnLeft += () => PeerConfigs.Keys.ToList().ForEach(x => RemovePeer(x));
+            Network.OnPeerJoined += id =>  EnsurePeerConfig(id);
+            Network.OnPeerLeft += id => RemovePeer(id);
 
             // Client data events
             // On receiving a message from a peer,

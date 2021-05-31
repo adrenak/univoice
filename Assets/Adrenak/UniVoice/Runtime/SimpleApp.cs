@@ -115,6 +115,8 @@ namespace Adrenak.UniVoice.Examples {
 		}
 
 		public void Leave() {
+			if (voice == null) return;
+
 			if (voice.MyMode == VoiceChatAgent.Mode.Host)
 				voice.Network.CloseChatroom();
 			else
