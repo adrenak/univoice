@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Adrenak/UniVoice/Demo/Voice.unity
+    path: Assets/Adrenak/UniVoice/Samples/Voice.unity
     guid: 067577b24609c4b4da7d369abeca5824
   m_configObjects: {}

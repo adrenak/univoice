@@ -4,6 +4,10 @@ using System.Linq;
 using UnityEngine;
 
 namespace Adrenak.UniVoice {
+    /*
+     * This is a standard implementaiton of IAudioOutput that comes with UniVoice.
+     * You can create your own implementations.
+     */
     /// <summary>
     /// This class feeds incoming segments of audio to an AudioBuffer and plays the buffer's clip on 
     /// an AudioSource. It also clears segments of the buffer based on the AudioSource's current position.
@@ -95,7 +99,7 @@ namespace Adrenak.UniVoice {
         /// the absolute position of the segment on the buffer
         /// </param>
         /// <param name="audioSamples">The audio samples to be added to the buffer for playback</param>
-        public void Stream(int index, float[] audioSamples) {
+        public void Feed(int index, int frequency, int channelCount, float[] audioSamples) {
             // If we already have this index, don't bother
             // It's been passed already without playing.
             if (segments.ContainsKey(index)) return;

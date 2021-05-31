@@ -4,25 +4,32 @@ using UnityEngine;
 using Adrenak.UniMic;
 
 namespace Adrenak.UniVoice {
-    public class UniMicAudioInput : Mic, IAudioInput {
+    /// <summary>
+    /// An <see cref="IAudioInput"/> implementation based on UniMic.
+    /// For more on UniMic, visit https://www.github.com/adrenak/unimic
+    /// </summary>
+    public class UniMicAudioInput : IAudioInput {
         public event Action<int, float[]> OnSegmentReady;
 
-        new int Frequency => Frequency;
+        public int Frequency => mic.Frequency;
 
-        public int ChannelCount => AudioClip == null ? 0 : AudioClip.channels;
+        public int ChannelCount => mic.AudioClip == null ? 0 : mic.AudioClip.channels;
 
-        public int SegmentRate => 1000 / SampleDurationMS;
+        public int SegmentRate => 1000 / mic.SampleDurationMS;
 
-        UniMicAudioInput() { }
+        readonly Mic mic;
 
-        public static UniMicAudioInput New() {
-            var go = new GameObject("UniMicAudioInput");
-            DontDestroyOnLoad(go);
-            var cted = go.AddComponent<UniMicAudioInput>();
-            cted.OnSampleReady += (index, samples) =>
-                cted.OnSegmentReady?.Invoke(index, samples);
+        public UniMicAudioInput(Mic mic) {
+            this.mic = mic;
+            mic.OnSampleReady += Mic_OnSampleReady;
+        }
 
-            return cted;
+        void Mic_OnSampleReady(int segmentIndex, float[] samples) {
+            OnSegmentReady?.Invoke(segmentIndex, samples);
+        }
+
+        public void Dispose() {
+            mic.OnSampleReady -= Mic_OnSampleReady;
         }
     }
 }

@@ -4,6 +4,8 @@
 [Bb]uild/
 [Bb]uilds/
 Assets/AssetStoreTools*
+Assets/ParrelSync
+Assets/ParrelSync.meta
 
 # Visual Studio cache directory
 .vs/
