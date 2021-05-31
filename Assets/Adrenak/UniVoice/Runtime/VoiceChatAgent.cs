@@ -168,8 +168,6 @@ namespace Adrenak.UniVoice {
         /// </summary>
         public event Action OnDispose;
 
-        public IAudioInput AudioInput { get; set; }
-
         /// <summary>
         /// Fired when we receive audio from a peer
         /// </summary>
@@ -179,6 +177,10 @@ namespace Adrenak.UniVoice {
         /// Fired when we send audio to a peer
         /// </summary>
         public event Action<short[], int, float[]> OnSendAudio;
+
+        public Func<short, int, AudioSource, IAudioOutput> AudioOutputProvider { get; set; }
+
+        public IAudioInput AudioInput { get; set; }
 
         /// <summary>
         /// The current <see cref="Mode"/> of this agent
@@ -398,15 +400,8 @@ namespace Adrenak.UniVoice {
 
         void EnsurePeerStreamer(short id, int channels) {
             if (!streamers.ContainsKey(id) && PeerConfigs.ContainsKey(id)) {
-                var segDataLen = MIC_FREQUENCY / SEGMENTS_PER_SEC;
-                var segCount = BUFFER_SEGMENT_COUNT;
-                var streamer = DefaultAudioOutput.New(
-                    new AudioBuffer(MIC_FREQUENCY, channels, segDataLen, segCount, $"Peer #{id} Clip"),
-                    PeerConfigs[id].audioSource,
-                    STREAMER_MIN_SEGMENT_COUNT
-                );
-                streamer.transform.SetParent(transform);
-                streamers.Add(id, streamer);
+                var output = AudioOutputProvider?.Invoke(id, channels, PeerConfigs[id].audioSource);
+                streamers.Add(id, output);
             }
         }
     }

@@ -46,8 +46,20 @@ namespace Adrenak.UniVoice.Examples {
 			}
 #endif
 
-			voice = VoiceChatAgent.New("ws://167.71.17.13:11000/", UniMicAudioInput.New());
-			(voice.AudioInput as UniMicAudioInput).StartRecording(16000, 1600);
+			var mic = UniMicAudioInput.New();
+			mic.StartRecording(16000, 100);
+			voice = VoiceChatAgent.New("ws://167.71.17.13:11000/", mic);
+			voice.AudioOutputProvider = (id, channels, audioSource) => {
+				var segDataLen = mic.Frequency / 10;
+				var segCount = 5;
+				var streamer = DefaultAudioOutput.New(
+					new AudioBuffer(16000, channels, segDataLen, segCount, $"Peer #{id} Clip"),
+					audioSource,
+					3
+				);
+				streamer.transform.SetParent(voice.transform);
+				return streamer;
+			};
 
             voice.Mute = false;
 
