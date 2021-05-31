@@ -4,4 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Adrenak/UniVoice/Demo/Voice.unity
+    guid: 067577b24609c4b4da7d369abeca5824
+  m_configObjects: {}
