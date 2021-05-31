@@ -49,7 +49,7 @@ namespace Adrenak.UniVoice.Examples {
 			IAudioInput mic = UniMicAudioInput.New();
 			(mic as UniMicAudioInput).StartRecording(16000, 100);
 			
-			voice = VoiceChatAgent.New(new AirPeerChatroomNetwork("ws://167.71.17.13:11000"), mic);
+			voice = new VoiceChatAgent(new AirPeerChatroomNetwork("ws://167.71.17.13:11000"), mic);
 			voice.AudioOutputProvider = (id, frequency, channels, audioSource) => {
 				var segDataLen = mic.Frequency * mic.ChannelCount / mic.SegmentRate;
 				var segCount = 5;
@@ -58,7 +58,6 @@ namespace Adrenak.UniVoice.Examples {
 					audioSource,
 					3
 				);
-				streamer.transform.SetParent(voice.transform);
 				return streamer;
 			};
 
@@ -117,7 +116,7 @@ namespace Adrenak.UniVoice.Examples {
 		public void Leave() {
 			if (voice == null) return;
 
-			if (voice.MyMode == VoiceChatAgent.Mode.Host)
+			if (voice.CurrentMode == VoiceChatAgentMode.Host)
 				voice.Network.CloseChatroom();
 			else
 				voice.Network.LeaveChatroom();
