@@ -1,28 +1,22 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace Adrenak.UniVoice {
     /// <summary>
-    /// Represents a set of config values associated
-    /// with a peer in the chatroom
+    /// Represents settings associated with a peer in the chatroom
     /// </summary>
-    public class VoiceChatPeerConfig {
+    public class VoiceChatPeerAudioSettings {
         /// <summary>
-        /// Whether this peer is muted
+        /// Whether this peer is muted. Use this to ignore a person.
         /// </summary>
         public bool muteIncoming = false;
 
         /// <summary>
-        /// Whether this peer will receive out voice
+        /// Whether this peer will receive out voice. Use this to keep
+        /// say something without a person hearing.
         /// </summary>
         public bool muteOutgoing = false;
-
-        /// <summary>
-        /// The <see cref="AudioSource"/> from where the audio coming from this peer will be played. 
-        /// </summary>
-        public AudioSource audioSource;
     }
 
     /// <summary>
@@ -47,7 +41,7 @@ namespace Adrenak.UniVoice {
 
         public IAudioInput AudioInput { get; set; }
 
-        public Func<short, int, int, AudioSource, IAudioOutput> AudioOutputProvider { get; set; }
+        public Func<short, int, int, IAudioOutput> AudioOutputProvider { get; set; }
 
         public Dictionary<short, IAudioOutput> AudioOutputs;
 
@@ -80,9 +74,9 @@ namespace Adrenak.UniVoice {
         public List<short> Peers => Network?.Peers;
 
         /// <summary>
-        /// <see cref="VoiceChatPeerConfig"/> associated with each entry in <see cref="Peers"/>
+        /// <see cref="VoiceChatPeerAudioSettings"/> associated with each entry in <see cref="Peers"/>
         /// </summary>
-        public Dictionary<short, VoiceChatPeerConfig> PeerConfigs;     
+        public Dictionary<short, VoiceChatPeerAudioSettings> PeerAudioSettings;     
 
         /// <summary>
         /// Creates a new agent using a signalling server URL
@@ -92,7 +86,7 @@ namespace Adrenak.UniVoice {
         public VoiceChatAgent(IChatroomNetwork network, IAudioInput input) {
             AudioInput = input;
             Network = network;
-            PeerConfigs = new Dictionary<short, VoiceChatPeerConfig>();
+            PeerAudioSettings = new Dictionary<short, VoiceChatPeerAudioSettings>();
             AudioOutputs = new Dictionary<short, IAudioOutput>();
 
             Init();
@@ -103,7 +97,7 @@ namespace Adrenak.UniVoice {
         /// </summary>
         public void Dispose() {
             Network.Dispose();
-            PeerConfigs.Clear();
+            PeerAudioSettings.Clear();
             AudioOutputs.Clear();
             Mute = false;
         }
@@ -113,16 +107,16 @@ namespace Adrenak.UniVoice {
             Network.OnChatroomCreated += () => CurrentMode = VoiceChatAgentMode.Host;
             Network.OnChatroomClosed += () => {
                 CurrentMode = VoiceChatAgentMode.Unconnected;
-                PeerConfigs.Keys.ToList().ForEach(x => RemovePeer(x));
+                PeerAudioSettings.Keys.ToList().ForEach(x => RemovePeer(x));
             };
 
             // Node client events
             Network.OnJoined += id => {
                 CurrentMode = VoiceChatAgentMode.Guest;
-                EnsurePeerConfig(0);
+                PeerAudioSettings.EnsureKey((short)0, new VoiceChatPeerAudioSettings());
             };
-            Network.OnLeft += () => PeerConfigs.Keys.ToList().ForEach(x => RemovePeer(x));
-            Network.OnPeerJoined += id => EnsurePeerConfig(id);
+            Network.OnLeft += () => PeerAudioSettings.Keys.ToList().ForEach(x => RemovePeer(x));
+            Network.OnPeerJoined += id => PeerAudioSettings.EnsureKey(id, new VoiceChatPeerAudioSettings());
             Network.OnPeerLeft += id => RemovePeer(id);
 
             // Client data events
@@ -131,7 +125,7 @@ namespace Adrenak.UniVoice {
             // right streamer if we're not muting the peer
             Network.OnAudioReceived += (id, index, frequency, channels, data) => {
                 EnsurePeerStreamer(id, frequency, channels);
-                if (PeerConfigs.ContainsKey(id) && !PeerConfigs[id].muteIncoming)
+                if (PeerAudioSettings.ContainsKey(id) && !PeerAudioSettings[id].muteIncoming)
                     AudioOutputs[id].Stream(index, data);
             };
 
@@ -141,7 +135,7 @@ namespace Adrenak.UniVoice {
             AudioInput.OnSegmentReady += (index, samples) => {
                 if (Mute) return;
 
-                var recipients = Network.Peers.Where(x => PeerConfigs.ContainsKey(x) && !PeerConfigs[x].muteOutgoing);
+                var recipients = Network.Peers.Where(x => PeerAudioSettings.ContainsKey(x) && !PeerAudioSettings[x].muteOutgoing);
 
                 foreach (var recipient in recipients)
                     Network.SendAudioSegment(recipient, index, AudioInput.Frequency, AudioInput.ChannelCount, samples);
@@ -149,28 +143,17 @@ namespace Adrenak.UniVoice {
         }
 
         void RemovePeer(short id) {
-            if (PeerConfigs.ContainsKey(id)) {
-                MonoBehaviour.Destroy(PeerConfigs[id].audioSource.gameObject);
-                PeerConfigs.Remove(id);
-            }
+            if (PeerAudioSettings.ContainsKey(id)) 
+                PeerAudioSettings.Remove(id);           
             if (AudioOutputs.ContainsKey(id)) {
                 AudioOutputs[id].Dispose();
                 AudioOutputs.Remove(id);
             }
         }
 
-        void EnsurePeerConfig(short id) {
-            if (!PeerConfigs.ContainsKey(id)) {
-                var audioSource = new GameObject($"Peer #{id}").AddComponent<AudioSource>();
-                audioSource.playOnAwake = false;
-                var config = new VoiceChatPeerConfig { audioSource = audioSource };
-                PeerConfigs.Add(id, config);
-            }
-        }
-
         void EnsurePeerStreamer(short id, int frequency, int channels) {
-            if (!AudioOutputs.ContainsKey(id) && PeerConfigs.ContainsKey(id)) {
-                var output = AudioOutputProvider?.Invoke(id, frequency, channels, PeerConfigs[id].audioSource);
+            if (!AudioOutputs.ContainsKey(id) && PeerAudioSettings.ContainsKey(id)) {
+                var output = AudioOutputProvider?.Invoke(id, frequency, channels);
                 AudioOutputs.Add(id, output);
             }
         }
