@@ -3,7 +3,9 @@
 namespace Adrenak.UniVoice {
     public interface IAudioInput {
         event Action<int, float[]> OnSegmentReady;
-        int ChannelCount { get; }
 
+        int Frequency { get; }
+        int ChannelCount { get; }
+        int SegmentRate { get; }
     }
 }

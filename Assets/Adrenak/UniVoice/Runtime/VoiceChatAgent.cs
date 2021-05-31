@@ -178,7 +178,7 @@ namespace Adrenak.UniVoice {
         /// </summary>
         public event Action<short[], int, float[]> OnSendAudio;
 
-        public Func<short, int, AudioSource, IAudioOutput> AudioOutputProvider { get; set; }
+        public Func<short, int, int, AudioSource, IAudioOutput> AudioOutputProvider { get; set; }
 
         public IAudioInput AudioInput { get; set; }
 
@@ -335,8 +335,9 @@ namespace Adrenak.UniVoice {
                 if (packet.Tag.Equals("audio")) {
                     var reader = new BytesReader(packet.Payload);
                     var index = reader.ReadInt();
+                    var frequency = reader.ReadInt();
                     var channels = reader.ReadInt();
-                    EnsurePeerStreamer(id, channels);
+                    EnsurePeerStreamer(id, frequency, channels);
 
                     if (PeerConfigs.ContainsKey(id) && !PeerConfigs[id].muteIncoming) {
                         var data = reader.ReadFloatArray();
@@ -350,7 +351,7 @@ namespace Adrenak.UniVoice {
             // package and send it to all the peers that we 
             // are not muting ourselves to.
             AudioInput.OnSegmentReady += (index, segment) => {
-                if (ID == -1 && Mute) return;
+                if (ID == -1 || Mute) return;
 
                 foreach (var gate in Gates)
                     if (!gate.Evaluate(segment))
@@ -362,6 +363,7 @@ namespace Adrenak.UniVoice {
                 var packet = new Packet().WithTag("audio")
                     .WithPayload(new BytesWriter()
                         .WriteInt(index)
+                        .WriteInt(AudioInput.Frequency)
                         .WriteInt(AudioInput.ChannelCount)
                         .WriteFloatArray(segment)
                         .Bytes
@@ -398,9 +400,9 @@ namespace Adrenak.UniVoice {
             }
         }
 
-        void EnsurePeerStreamer(short id, int channels) {
+        void EnsurePeerStreamer(short id, int frequency, int channels) {
             if (!streamers.ContainsKey(id) && PeerConfigs.ContainsKey(id)) {
-                var output = AudioOutputProvider?.Invoke(id, channels, PeerConfigs[id].audioSource);
+                var output = AudioOutputProvider?.Invoke(id, frequency, channels, PeerConfigs[id].audioSource);
                 streamers.Add(id, output);
             }
         }
