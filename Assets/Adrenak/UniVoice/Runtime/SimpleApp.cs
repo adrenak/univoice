@@ -49,7 +49,7 @@ namespace Adrenak.UniVoice.Examples {
 			IAudioInput mic = UniMicAudioInput.New();
 			(mic as UniMicAudioInput).StartRecording(16000, 100);
 			
-			voice = VoiceChatAgent.New(default, mic);
+			voice = VoiceChatAgent.New(new AirPeerChatroomNetwork("ws://167.71.17.13:11000"), mic);
 			voice.AudioOutputProvider = (id, frequency, channels, audioSource) => {
 				var segDataLen = mic.Frequency * mic.ChannelCount / mic.SegmentRate;
 				var segCount = 5;
