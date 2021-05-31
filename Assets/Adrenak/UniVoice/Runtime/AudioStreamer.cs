@@ -8,7 +8,7 @@ namespace Adrenak.UniVoice {
     /// This class feeds incoming segments of audio to an AudioBuffer and plays the buffer's clip on 
     /// an AudioSource. It also clears segments of the buffer based on the AudioSource's current position.
     /// </summary>
-    public class AudioStreamer : MonoBehaviour {
+    public class AudioStreamer : MonoBehaviour, IAudioStreamer {
         public enum Status {
             Ahead,
             Current,
@@ -108,6 +108,10 @@ namespace Adrenak.UniVoice {
             // Finally write into the buffer 
             segments.Add(index, Status.Ahead);
             AudioBuffer.Write(index, audioSamples);
+        }
+
+        public void Dispose() {
+            Destroy(gameObject);
         }
     }
 }
