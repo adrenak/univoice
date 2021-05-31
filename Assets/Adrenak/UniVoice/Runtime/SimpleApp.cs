@@ -49,7 +49,7 @@ namespace Adrenak.UniVoice.Examples {
 			IAudioInput mic = UniMicAudioInput.New();
 			(mic as UniMicAudioInput).StartRecording(16000, 100);
 			
-			voice = VoiceChatAgent.New("ws://167.71.17.13:11000/", mic);
+			voice = VoiceChatAgent.New(default, mic);
 			voice.AudioOutputProvider = (id, frequency, channels, audioSource) => {
 				var segDataLen = mic.Frequency * mic.ChannelCount / mic.SegmentRate;
 				var segCount = 5;
@@ -64,34 +64,34 @@ namespace Adrenak.UniVoice.Examples {
 
             voice.Mute = false;
 
-			voice.OnCreateChatroom += () => {
+			voice.Network.OnChatroomCreated += () => {
 				message.text = "Create success. Ask other device to Join using the same room name.";
 			};
-			voice.OnCouldNotCreeateChatroom += ex => {
+			voice.Network.OnChatroomCreationFailed += ex => {
 				message.text = "Chatroom Create failure. Try changing our internet conenctivity.";
 			};
-			voice.OnShutdownChatroom += () => {
+			voice.Network.OnChatroomClosed += () => {
 				message.text = "Chatroom shutdown";
 			};
 
 
-			voice.OnJoined += id => {
+			voice.Network.OnJoined += id => {
 				message.text = $"Joined chatroom {voice.ChatRoomName}. Your ID is {voice.ID}";
 			};
-			voice.OnLeft += () => {
+			voice.Network.OnLeft += () => {
 				message.text = "You left the chatroom";
 			};
-			voice.OnPeerJoined += id => {
+			voice.Network.OnPeerJoined += id => {
 				message.text = $"Peer #{id} has joined your room. Speak now!";
 			};
-			voice.OnPeerLeft += id => {
+			voice.Network.OnPeerLeft += id => {
 				message.text = $"Peer #{id} disconnected. You can't talk to anyone now.";
 			};
 
-			voice.OnGetAudio += delegate (short id, int index, float[] segment) {
+			voice.Network.OnAudioReceived += delegate (short id, int index, int frequency, int channels, float[] segment) {
 				receivingIndex.text = "Received index : \n" + index;
 			};
-			voice.OnSendAudio += delegate (short[] id, int index, float[] segment) {
+			voice.Network.OnAudioSent += delegate (short id, int index, int frequency, int channels, float[] segment) {
 				sendingIndex.text = "Sent index : \n" + index;
 				vol.text = segment.Max().ToString();
 			};
@@ -105,20 +105,20 @@ namespace Adrenak.UniVoice.Examples {
 			Init();
 			message.text = "Initializing network...";
 
-			voice.CreateChatroom(input.text);
+			voice.Network.CreateChatroom(input.text);
 		}
 
 		public void Join(InputField input) {
 			Init();
 			message.text = "Joining network...";
-			voice.JoinChatroom(input.text);
+			voice.Network.JoinChatroom(input.text);
 		}
 
 		public void Leave() {
 			if (voice.MyMode == VoiceChatAgent.Mode.Host)
-				voice.ShutdownChatroom();
+				voice.Network.CloseChatroom();
 			else
-				voice.LeaveChatroom();
+				voice.Network.LeaveChatroom();
 			message.text = "Left room";
 		}
 	}
