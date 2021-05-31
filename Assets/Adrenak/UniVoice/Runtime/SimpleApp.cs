@@ -46,7 +46,9 @@ namespace Adrenak.UniVoice.Examples {
 			}
 #endif
 
-			voice = VoiceChatAgent.New("ws://167.71.17.13:11000/");            
+			voice = VoiceChatAgent.New("ws://167.71.17.13:11000/", UniMicAudioInput.New());
+			(voice.AudioInput as UniMicAudioInput).StartRecording(16000, 1600);
+
             voice.Mute = false;
 
 			voice.OnCreateChatroom += () => {

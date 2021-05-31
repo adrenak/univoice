@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace Adrenak.UniVoice {
-    public interface IAudioStreamer : IDisposable {
+    public interface IAudioOutput : IDisposable {
         void Stream(int index, float[] audioSamples);
     }
 }

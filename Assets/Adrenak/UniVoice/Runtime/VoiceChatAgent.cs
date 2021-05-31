@@ -45,7 +45,6 @@ namespace Adrenak.UniVoice {
 
         /// <summary>
         /// The sampling frequency at which the Mic should operate.
-        /// .
         /// Must be constant and the same for all clients. Different values on different clients is NOT supported.
         /// </summary>
         const int MIC_FREQUENCY = 16000;
@@ -77,7 +76,7 @@ namespace Adrenak.UniVoice {
         /// <para>
         /// INFERENCE
         /// The value of 500 ms derived above means the buffer holds upto 500 milliseconds of audio. The 500 ms
-        /// is then made available to <see cref="IAudioStreamer"/> as internal latency that can be used to fix
+        /// is then made available to <see cref="IAudioOutput"/> as internal latency that can be used to fix
         /// issues in audio reception caused due to network irregularities at runtime.
         /// 
         /// A value of 500 ms also means that at any given time, network error can cause the internal latency to
@@ -95,12 +94,12 @@ namespace Adrenak.UniVoice {
         const int BUFFER_SEGMENT_COUNT = 5;
 
         /// <summary>
-        /// The minimum number of segments the <see cref="AudioBuffer"/> should have for the <see cref="IAudioStreamer"/> 
+        /// The minimum number of segments the <see cref="AudioBuffer"/> should have for the <see cref="IAudioOutput"/> 
         /// to play the audio. 
         /// .
         /// -- Equations --
         /// 1000 / <see cref="SEGMENTS_PER_SEC"/> * <see cref="BUFFER_SEGMENT_COUNT"/> * <see cref="STREAMER_MIN_SEGMENT_COUNT"/>
-        /// is the duration of audio the <see cref="AudioBuffer"/> should have filled ahead of time for the <see cref="IAudioStreamer"/>
+        /// is the duration of audio the <see cref="AudioBuffer"/> should have filled ahead of time for the <see cref="IAudioOutput"/>
         /// to play. 
         /// .
         /// In case of network problems, the streamer uses up to the maximum latency (as determined by <see cref="BUFFER_SEGMENT_COUNT"/>
@@ -169,6 +168,8 @@ namespace Adrenak.UniVoice {
         /// </summary>
         public event Action OnDispose;
 
+        public IAudioInput AudioInput { get; set; }
+
         /// <summary>
         /// Fired when we receive audio from a peer
         /// </summary>
@@ -221,7 +222,7 @@ namespace Adrenak.UniVoice {
         public List<IAudioGate> Gates { get; private set; }
 
         APNode node;
-        Dictionary<short, IAudioStreamer> streamers;
+        Dictionary<short, IAudioOutput> streamers;
 
         // Prevent creating instance using 'new' keyword
         VoiceChatAgent() { }
@@ -231,16 +232,17 @@ namespace Adrenak.UniVoice {
         /// </summary>
         /// <param name="signallingServer"></param>
         /// <returns></returns>
-        public static VoiceChatAgent New(string signallingServer) {
+        public static VoiceChatAgent New(string signallingServer, IAudioInput input) {
             var go = new GameObject("UniVoice");
             DontDestroyOnLoad(go);
             var cted = go.AddComponent<VoiceChatAgent>();
 
+            cted.AudioInput = input;
             cted.node = new APNode(signallingServer);
             cted.Gates = new List<IAudioGate>();
             cted.Filters = new List<IAudioOperation>();
             cted.PeerConfigs = new Dictionary<short, PeerConfig>();
-            cted.streamers = new Dictionary<short, IAudioStreamer>();
+            cted.streamers = new Dictionary<short, IAudioOutput>();
 
             cted.Init();
             return cted;
@@ -287,9 +289,6 @@ namespace Adrenak.UniVoice {
         }
 
         void Init() {
-            var mic = Mic.Instance;
-            mic.StartRecording(MIC_FREQUENCY, 1000 / SEGMENTS_PER_SEC);
-
             // Node server events
             node.OnServerStartSuccess += () => {
                 MyMode = Mode.Host;
@@ -348,7 +347,7 @@ namespace Adrenak.UniVoice {
             // When an audio sample from the mic is ready,
             // package and send it to all the peers that we 
             // are not muting ourselves to.
-            mic.OnSampleReady += (index, segment) => {
+            AudioInput.OnSegmentReady += (index, segment) => {
                 if (ID == -1 && Mute) return;
 
                 foreach (var gate in Gates)
@@ -361,7 +360,7 @@ namespace Adrenak.UniVoice {
                 var packet = new Packet().WithTag("audio")
                     .WithPayload(new BytesWriter()
                         .WriteInt(index)
-                        .WriteInt(mic.AudioClip.channels)
+                        .WriteInt(AudioInput.ChannelCount)
                         .WriteFloatArray(segment)
                         .Bytes
                     );
@@ -401,7 +400,7 @@ namespace Adrenak.UniVoice {
             if (!streamers.ContainsKey(id) && PeerConfigs.ContainsKey(id)) {
                 var segDataLen = MIC_FREQUENCY / SEGMENTS_PER_SEC;
                 var segCount = BUFFER_SEGMENT_COUNT;
-                var streamer = AudioStreamer.New(
+                var streamer = DefaultAudioOutput.New(
                     new AudioBuffer(MIC_FREQUENCY, channels, segDataLen, segCount, $"Peer #{id} Clip"),
                     PeerConfigs[id].audioSource,
                     STREAMER_MIN_SEGMENT_COUNT
