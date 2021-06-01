@@ -14,6 +14,8 @@ namespace Adrenak.UniVoice.Samples {
 
         IAudioInput input;
         IChatroomNetwork network;
+        IAudioOutputFactory outputFactory;
+        OutputLifecycle peerOutputLifecycle;
         VoiceChatAgent agent;
 
         void Start() {
@@ -46,24 +48,27 @@ namespace Adrenak.UniVoice.Samples {
 			}
 #endif
             network = new AirPeerChatroomNetwork("ws://167.71.17.13:11000");
-            
+
             input = new UniMicAudioInput(Mic.Instance);
-            if(!Mic.Instance.IsRecording)
+            if (!Mic.Instance.IsRecording)
                 Mic.Instance.StartRecording(16000, 100);
 
-            agent = new VoiceChatAgent(network, input);
-            agent.PeerOutputLifecycle = new PeerOutputLifecycle {
-                provider = (id, frequency, channels) => {
+
+
+            peerOutputLifecycle = new OutputLifecycle(
+                (id, frequency, channels) => {
                     return DefaultAudioOutput.New(
                         new AudioBuffer(frequency, channels, input.GetSegmentLength(), 5, $"Peer #{id} Clip"),
                         new GameObject($"UniVoice Peer #{id}").AddComponent<AudioSource>(),
                         3
                     );
                 },
-                disposer = iAudioOutput => Destroy((iAudioOutput as DefaultAudioOutput).gameObject)
-            };
+                iAudioOutput => Destroy((iAudioOutput as DefaultAudioOutput).gameObject)
+            );
 
-            agent.Mute = false;
+            agent = new VoiceChatAgent(network, input, outputFactory) {
+                Mute = false
+            };
 
             agent.Network.OnChatroomCreated += () => {
                 message.text = "Create success. Ask other device to Join using the same room name.";

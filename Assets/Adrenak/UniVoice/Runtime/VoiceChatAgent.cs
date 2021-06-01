@@ -3,9 +3,19 @@ using System.Linq;
 using System.Collections.Generic;
 
 namespace Adrenak.UniVoice {
-    public class PeerOutputLifecycle {
-        public Func<short, int, int, IAudioOutput> provider;
-        public Action<IAudioOutput> disposer;
+    public interface IAudioOutputFactory {
+        IAudioOutput Create(short peerID, int samplingRate, int channelCount);
+        void Destroy(IAudioOutput audioOutput);
+    }
+
+    public class OutputLifecycle {
+        public Func<short, int, int, IAudioOutput> OnCreate { get; private set; }
+        public Action<IAudioOutput> OnDestroy { get; private set; }
+
+        public OutputLifecycle(Func<short, int, int, IAudioOutput> onCreate, Action<IAudioOutput> onDestroy) {
+            OnCreate = onCreate ?? throw new ArgumentNullException(nameof(onCreate));
+            OnDestroy = onDestroy ?? throw new ArgumentNullException(nameof(onDestroy));
+        }
     }
 
     /// <summary>
@@ -24,18 +34,7 @@ namespace Adrenak.UniVoice {
         /// </summary>
         // public Func<short, int, int, IAudioOutput> PeerOutputProvider { get; set; }
 
-        PeerOutputLifecycle peerOutputLifecycle;
-        public PeerOutputLifecycle PeerOutputLifecycle {
-            get => peerOutputLifecycle;
-            set {
-                if (value.disposer == null)
-                    throw new ArgumentNullException(nameof(value.disposer));
-
-                if (value.provider == null)
-                    throw new ArgumentNullException(nameof(value.provider));
-                peerOutputLifecycle = value;
-            }
-        }
+        public IAudioOutputFactory AudioOutputFactory { get; private set; }
 
         /// <summary>
         /// Responsible for playing the audio that we receive from peers. There is a 
@@ -75,9 +74,10 @@ namespace Adrenak.UniVoice {
         /// <param name="network">The network for accessing chatrooms and sending data to peers</param>
         /// <param name="input">The source of the local user's audio</param>
         /// <returns></returns>
-        public VoiceChatAgent(IChatroomNetwork network, IAudioInput input) {
+        public VoiceChatAgent(IChatroomNetwork network, IAudioInput input, IAudioOutputFactory peerOutputLifecycle) {
             AudioInput = input ?? throw new ArgumentNullException(nameof(input));
             Network = network ?? throw new ArgumentNullException(nameof(network));
+            AudioOutputFactory = peerOutputLifecycle ?? throw new ArgumentNullException(nameof(peerOutputLifecycle));
 
             CurrentMode = VoiceChatAgentMode.Unconnected;
             Mute = false;
@@ -154,7 +154,7 @@ namespace Adrenak.UniVoice {
             if (PeerSettings.ContainsKey(id))
                 PeerSettings.Remove(id);
             if (PeerOutputs.ContainsKey(id)) {
-                PeerOutputLifecycle.disposer?.Invoke(PeerOutputs[id]);
+                AudioOutputFactory.Destroy(PeerOutputs[id]);
                 PeerOutputs[id].Dispose();
                 PeerOutputs.Remove(id);
             }
@@ -170,7 +170,7 @@ namespace Adrenak.UniVoice {
 
         void EnsurePeerStreamer(short id, int frequency, int channels) {
             if (!PeerOutputs.ContainsKey(id) && PeerSettings.ContainsKey(id)) {
-                var output = PeerOutputLifecycle.provider?.Invoke(id, frequency, channels);
+                var output = AudioOutputFactory.Create(id, frequency, channels);
                 PeerOutputs.Add(id, output);
             }
         }
