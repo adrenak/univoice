@@ -3,128 +3,138 @@ using System.Linq;
 using System.Collections.Generic;
 
 namespace Adrenak.UniVoice {
-    public interface IAudioOutputFactory {
-        IAudioOutput Create(short peerID, int samplingRate, int channelCount);
-        void Destroy(IAudioOutput audioOutput);
-    }
-
-    public class OutputLifecycle {
-        public Func<short, int, int, IAudioOutput> OnCreate { get; private set; }
-        public Action<IAudioOutput> OnDestroy { get; private set; }
-
-        public OutputLifecycle(Func<short, int, int, IAudioOutput> onCreate, Action<IAudioOutput> onDestroy) {
-            OnCreate = onCreate ?? throw new ArgumentNullException(nameof(onCreate));
-            OnDestroy = onDestroy ?? throw new ArgumentNullException(nameof(onDestroy));
-        }
-    }
-
     /// <summary>
-    /// Provides the means to host or connect to a chatroom using concrete implementations
-    /// of <see cref="IChatroomNetwork"/>, <see cref="IAudioInput"/> and <see cref="IAudioOutput"/>
+    /// Provides the means to host or connect to a chatroom using concrete 
+    /// implementations of <see cref="IChatroomNetwork"/>, 
+    /// <see cref="IAudioInput"/> and <see cref="IAudioOutputFactory"/>
     /// </summary>
     public class VoiceChatAgent : IDisposable {
+        // ================================================
+        // DEPENDENCIES
+        // ================================================
         /// <summary>
-        /// Source of audio input that can be transmitted over the network to peers
+        /// The underlying network which the agent uses to connect to 
+        /// chatrooms and send and receive data to and from peers
         /// </summary>
-        public IAudioInput AudioInput { get; set; }
+        public IChatroomNetwork ChatroomNetwork { get; private set; }
 
         /// <summary>
-        /// A "provider" that returns an <see cref="IAudioOutput"/> instance every time
-        /// a Peer connects for that peer.
+        /// Source of audio input that can be 
+        /// transmitted over the network to peers
         /// </summary>
-        // public Func<short, int, int, IAudioOutput> PeerOutputProvider { get; set; }
+        public IAudioInput AudioInput { get; private set; }
 
+        /// <summary>
+        /// A "provider" that returns an <see cref="IAudioOutput"/> 
+        /// instance every time a Peer connects for that peer.
+        /// </summary>
         public IAudioOutputFactory AudioOutputFactory { get; private set; }
 
+        // ================================================
+        // STATE
+        // ================================================                                                            
         /// <summary>
-        /// Responsible for playing the audio that we receive from peers. There is a 
-        /// <see cref="IAudioOutput"/> for each peer. The <see cref="IAudioOutput"/>
-        /// are populated using <see cref="PeerOutputProvider"/> which can be configured.
+        /// Responsible for playing the audio that we receive from peers. 
+        /// There is a <see cref="IAudioOutput"/> for each peer that gets
+        /// created using the provided <see cref="AudioOutputFactory"/>
         /// </summary>
         public Dictionary<short, IAudioOutput> PeerOutputs;
 
         /// <summary>
-        /// The underlying network which the agent uses to connect to chatrooms and 
-        /// send and receive data to and from peers
-        /// </summary>
-        public IChatroomNetwork Network { get; private set; }
-
-        /// <summary>
-        /// The current mode of this agent described by <see cref="VoiceChatAgentMode"/>
+        /// The current <see cref="VoiceChatAgentMode"/> of this agent
         /// </summary>
         public VoiceChatAgentMode CurrentMode { get; private set; }
 
         /// <summary>
-        /// Whether this agent is muted or not. If set to true, voice data will not be
-        /// sent to ANY peer. If you want to selectively mute yourself to peers, use
-        /// the <see cref="VoiceChatPeerSettings.muteOutgoing"/> flag in 
-        /// <see cref="PeerSettings"/>
+        /// Whether this agent is muted or not. If set to true, voice data will
+        /// not be sent to ANY peer.  If you want to selectively mute yourself 
+        /// to peers, use the <see cref="VoiceChatPeerSettings.muteOutgoing"/> 
+        /// flag in the <see cref="PeerSettings"/> instance for that peer.
         /// </summary>
-        public bool Mute { get; set; } = false;
+        public bool Mute { get; set; }
 
         /// <summary>
-        /// <see cref="VoiceChatPeerSettings"/> associated with each entry in <see cref="Peers"/>
+        /// <see cref="VoiceChatPeerSettings"/> for each peer
         /// </summary>
         public Dictionary<short, VoiceChatPeerSettings> PeerSettings;
 
         /// <summary>
-        /// Creates a new agent using the provided <see cref="IChatroomNetwork"/> and 
-        /// <see cref="IAudioInput"/> implementations.
+        /// Creates and returns a new agent using the provided dependencies.
         /// </summary>
-        /// <param name="network">The network for accessing chatrooms and sending data to peers</param>
-        /// <param name="input">The source of the local user's audio</param>
-        /// <returns></returns>
-        public VoiceChatAgent(IChatroomNetwork network, IAudioInput input, IAudioOutputFactory peerOutputLifecycle) {
-            AudioInput = input ?? throw new ArgumentNullException(nameof(input));
-            Network = network ?? throw new ArgumentNullException(nameof(network));
-            AudioOutputFactory = peerOutputLifecycle ?? throw new ArgumentNullException(nameof(peerOutputLifecycle));
+        /// 
+        /// <param name="chatroomNetwork">The chatroom network implementation for 
+        /// accessing chatrooms and sending data to peers
+        /// </param>
+        /// 
+        /// <param name="audioInput">The source of the outgoing audio</param>
+        /// 
+        /// <param name="audioOutputFactory">
+        /// The factory used for creating and destroying
+        /// <see cref="IAudioOutput"/> instances for peers
+        /// </param>
+        public VoiceChatAgent(
+            IChatroomNetwork chatroomNetwork,
+            IAudioInput audioInput,
+            IAudioOutputFactory audioOutputFactory
+        ) {
+            AudioInput = audioInput ?? 
+            throw new ArgumentNullException(nameof(audioInput));
+
+            ChatroomNetwork = chatroomNetwork ?? 
+            throw new ArgumentNullException(nameof(chatroomNetwork));
+            
+            AudioOutputFactory = audioOutputFactory ?? 
+            throw new ArgumentNullException(nameof(audioOutputFactory));
 
             CurrentMode = VoiceChatAgentMode.Unconnected;
             Mute = false;
             PeerSettings = new Dictionary<short, VoiceChatPeerSettings>();
             PeerOutputs = new Dictionary<short, IAudioOutput>();
 
-            InitializeListeners();
+            Init();
         }
 
         /// <summary>
-        /// Disposes the internal network and resets the instance state
+        /// Disposes the internal network and resets state
         /// </summary>
         public void Dispose() {
             RemoveAllPeers();
             PeerSettings.Clear();
             PeerOutputs.Clear();
-            Mute = false;
-            Network.Dispose();
+            ChatroomNetwork.Dispose();
             AudioInput.Dispose();
         }
 
-        void InitializeListeners() {
+        void Init() {
             // Node server events
-            Network.OnChatroomCreated += () => CurrentMode = VoiceChatAgentMode.Host;
-            Network.OnChatroomClosed += () => {
+            ChatroomNetwork.OnChatroomCreated += () =>
+                CurrentMode = VoiceChatAgentMode.Host;
+            ChatroomNetwork.OnChatroomClosed += () => {
                 CurrentMode = VoiceChatAgentMode.Unconnected;
                 RemoveAllPeers();
             };
 
             // Node client events
-            Network.OnJoined += id => {
+            ChatroomNetwork.OnJoined += id => {
                 CurrentMode = VoiceChatAgentMode.Guest;
                 EnsurePeerSettings(0);
             };
-            Network.OnLeft += () => RemoveAllPeers();
-            Network.OnPeerJoined += id => EnsurePeerSettings(id);
-            Network.OnPeerLeft += id => RemovePeer(id);
+            ChatroomNetwork.OnLeft += () =>
+                RemoveAllPeers();
+            ChatroomNetwork.OnPeerJoined += id =>
+                EnsurePeerSettings(id);
+            ChatroomNetwork.OnPeerLeft += id =>
+                RemovePeer(id);
 
             // Stream the incoming audio data using the right peer output
-            Network.OnAudioReceived += data => {
+            ChatroomNetwork.OnAudioReceived += data => {
                 var id = data.id;
                 var index = data.segmentIndex;
                 var frequency = data.frequency;
                 var channels = data.channelCount;
                 var samples = data.samples;
 
-                EnsurePeerStreamer(id, frequency, channels);
+                EnsurePeerStreamer(id, frequency, channels, samples.Length);
 
                 if (HasSettingsForPeer(id) && !PeerSettings[id].muteIncoming)
                     PeerOutputs[id].Feed(index, frequency, channels, samples);
@@ -135,12 +145,15 @@ namespace Adrenak.UniVoice {
                 if (Mute) return;
 
                 // Get all the recipients we haven't muted ourselves to
-                var recipients = Network.PeerIDs
-                    .Where(x => HasSettingsForPeer(x) && !PeerSettings[x].muteOutgoing);
+                var recipients = ChatroomNetwork.PeerIDs
+                    .Where(x => {
+                        return HasSettingsForPeer(x)
+                        && !PeerSettings[x].muteOutgoing;
+                    });
 
                 // Send the audio segment to every deserving recipient
                 foreach (var recipient in recipients)
-                    Network.SendAudioSegment(new ChatroomAudioDTO {
+                    ChatroomNetwork.SendAudioSegment(new ChatroomAudioDTO {
                         id = recipient,
                         segmentIndex = index,
                         frequency = AudioInput.Frequency,
@@ -160,17 +173,23 @@ namespace Adrenak.UniVoice {
             }
         }
 
-        void RemoveAllPeers() {
+        void RemoveAllPeers() =>
             PeerSettings.Keys.ToList().ForEach(x => RemovePeer(x));
-        }
 
-        void EnsurePeerSettings(short id) => PeerSettings.EnsureKey(id, new VoiceChatPeerSettings());
+        void EnsurePeerSettings(short id) =>
+            PeerSettings.EnsureKey(id, new VoiceChatPeerSettings());
 
         bool HasSettingsForPeer(short id) => PeerSettings.ContainsKey(id);
 
-        void EnsurePeerStreamer(short id, int frequency, int channels) {
+        void EnsurePeerStreamer
+        (short id, int frequency, int channels, int segmentLength) {
             if (!PeerOutputs.ContainsKey(id) && PeerSettings.ContainsKey(id)) {
-                var output = AudioOutputFactory.Create(id, frequency, channels);
+                var output = AudioOutputFactory.Create(
+                    frequency,
+                    channels,
+                    segmentLength
+                );
+                output.ID = id.ToString();
                 PeerOutputs.Add(id, output);
             }
         }

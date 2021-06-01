@@ -15,7 +15,6 @@ namespace Adrenak.UniVoice.Samples {
         IAudioInput input;
         IChatroomNetwork network;
         IAudioOutputFactory outputFactory;
-        OutputLifecycle peerOutputLifecycle;
         VoiceChatAgent agent;
 
         void Start() {
@@ -53,49 +52,38 @@ namespace Adrenak.UniVoice.Samples {
             if (!Mic.Instance.IsRecording)
                 Mic.Instance.StartRecording(16000, 100);
 
-
-
-            peerOutputLifecycle = new OutputLifecycle(
-                (id, frequency, channels) => {
-                    return DefaultAudioOutput.New(
-                        new AudioBuffer(frequency, channels, input.GetSegmentLength(), 5, $"Peer #{id} Clip"),
-                        new GameObject($"UniVoice Peer #{id}").AddComponent<AudioSource>(),
-                        3
-                    );
-                },
-                iAudioOutput => Destroy((iAudioOutput as DefaultAudioOutput).gameObject)
-            );
+            outputFactory = new DefaultAudioOutputFactory();
 
             agent = new VoiceChatAgent(network, input, outputFactory) {
                 Mute = false
             };
 
-            agent.Network.OnChatroomCreated += () => {
+            agent.ChatroomNetwork.OnChatroomCreated += () => {
                 message.text = "Create success. Ask other device to Join using the same room name.";
             };
-            agent.Network.OnChatroomCreationFailed += ex => {
+            agent.ChatroomNetwork.OnChatroomCreationFailed += ex => {
                 message.text = "Chatroom Create failure. Try changing our internet conenctivity.";
             };
-            agent.Network.OnChatroomClosed += () => {
+            agent.ChatroomNetwork.OnChatroomClosed += () => {
                 Debug.Log("Chatroom shutdown");
                 message.text = "Chatroom shutdown";
             };
 
-            agent.Network.OnJoiningFailed += ex =>
+            agent.ChatroomNetwork.OnJoiningFailed += ex =>
                 message.text = "Failed to join chatroom";
-            agent.Network.OnJoined += id => {
-                message.text = $"Joined chatroom {agent.Network.CurrentChatroomName}. Your ID is {agent.Network.OwnID}";
+            agent.ChatroomNetwork.OnJoined += id => {
+                message.text = $"Joined chatroom {agent.ChatroomNetwork.CurrentChatroomName}. Your ID is {agent.ChatroomNetwork.OwnID}";
             };
-            agent.Network.OnLeft += () => {
+            agent.ChatroomNetwork.OnLeft += () => {
                 Debug.Log("You left the chatroom");
                 message.text = "You left the chatroom";
             };
-            agent.Network.OnPeerJoined += id => {
+            agent.ChatroomNetwork.OnPeerJoined += id => {
                 message.text = $"Peer #{id} has joined your room. Speak now!";
             };
-            agent.Network.OnPeerLeft += id => {
+            agent.ChatroomNetwork.OnPeerLeft += id => {
                 var msg = $"Peer #{id} disconnected.";
-                if (agent.Network.PeerIDs.Count == 0)
+                if (agent.ChatroomNetwork.PeerIDs.Count == 0)
                     msg += " No more peers.";
                 message.text = msg;
                 Debug.Log(msg);
@@ -104,21 +92,21 @@ namespace Adrenak.UniVoice.Samples {
 
         public void Create(InputField input) {
             message.text = "Initializing network...";
-            agent.Network.HostChatroom(input.text);
+            agent.ChatroomNetwork.HostChatroom(input.text);
         }
 
         public void Join(InputField input) {
             message.text = "Joining network...";
-            agent.Network.JoinChatroom(input.text);
+            agent.ChatroomNetwork.JoinChatroom(input.text);
         }
 
         public void Leave() {
             if (agent == null) return;
 
             if (agent.CurrentMode == VoiceChatAgentMode.Host)
-                agent.Network.CloseChatroom();
+                agent.ChatroomNetwork.CloseChatroom();
             else
-                agent.Network.LeaveChatroom();
+                agent.ChatroomNetwork.LeaveChatroom();
             message.text = "Left room";
         }
 

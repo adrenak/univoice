@@ -13,7 +13,8 @@ namespace Adrenak.UniVoice {
 
         public int Frequency => mic.Frequency;
 
-        public int ChannelCount => mic.AudioClip == null ? 0 : mic.AudioClip.channels;
+        public int ChannelCount => 
+        mic.AudioClip == null ? 0 : mic.AudioClip.channels;
 
         public int SegmentRate => 1000 / mic.SampleDurationMS;
 

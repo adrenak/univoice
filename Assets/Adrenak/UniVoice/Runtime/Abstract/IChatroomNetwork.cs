@@ -3,9 +3,8 @@ using System.Collections.Generic;
 
 namespace Adrenak.UniVoice {
     /// <summary>
-    /// A chatroom specific networking interface for creating and
-    /// joining chatrooms as well as sending and receiving data to
-    /// and from chatroom peers. Provides events for relevant things.
+    /// A chatroom specific networking interface for creating and joining 
+    /// chatrooms and sending & receiving data to and from chatroom peers. 
     /// </summary>
     public interface IChatroomNetwork : IDisposable {       
         /// <summary>
@@ -14,7 +13,8 @@ namespace Adrenak.UniVoice {
         event Action OnChatroomCreated;
 
         /// <summary>
-        /// Fired when the attempt to create a chatroom fails. Provides an exception.
+        /// Fired when the attempt to create a chatroom fails. 
+        /// Provides an exception as event data.
         /// </summary>
         event Action<Exception> OnChatroomCreationFailed;
         
@@ -24,12 +24,14 @@ namespace Adrenak.UniVoice {
         event Action OnChatroomClosed;
 
         /// <summary>
-        /// Fired when the local user joins a chatroom. Provides the chatroom ID assigned.
+        /// Fired when the local user joins a chatroom. 
+        /// Provides the chatroom ID assigned as event data.
         /// </summary>
         event Action<short> OnJoined;
 
         /// <summary>
-        /// Fired when an attempt to join a chatroom fails. Provides an exception.
+        /// Fired when an attempt to join a chatroom fails. 
+        /// Provides an exception as event data.
         /// </summary>
         event Action<Exception> OnJoiningFailed;
 
@@ -39,12 +41,14 @@ namespace Adrenak.UniVoice {
         event Action OnLeft;
 
         /// <summary>
-        /// Fired when a peer (another user in the chatroom) joins the chatroom. Provides the ID of the peer.
+        /// Fired when a peer joins the chatroom. 
+        /// Provides the ID of the peer as event data.
         /// </summary>
         event Action<short> OnPeerJoined;
 
         /// <summary>
-        /// Fired when a peer (another user in the chatroom) leaves the chatroom. Provides the ID of the peer.
+        /// Fired when a peer leaves the chatroom. 
+        /// Provides the ID of the peer as event data.
         /// </summary>
         event Action<short> OnPeerLeft;
 
@@ -76,7 +80,7 @@ namespace Adrenak.UniVoice {
         /// <summary>
         /// Creates a chatroom 
         /// </summary>
-        /// <param name="chatroomName">Name of the chatroom to be created</param>
+        /// <param name="chatroomName">Name of the chatroom</param>
         void HostChatroom(string chatroomName);
 
         /// <summary>

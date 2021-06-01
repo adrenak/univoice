@@ -1,11 +1,21 @@
 ﻿namespace Adrenak.UniVoice {
     /// <summary>
-    /// Represents the mode that the <see cref="VoiceChatAgent"/>
-    /// instance is operating in.
+    /// Represents the mode that a <see cref="VoiceChatAgent"/> is in.
     /// </summary>
     public enum VoiceChatAgentMode {
+        /// <summary>
+        /// The agent is neither connected to a chatroom nor hosting one.
+        /// </summary>
         Unconnected,
+
+        /// <summary>
+        /// The agent is hosting a chatroom. May or may not have guests
+        /// </summary>
         Host,
+
+        /// <summary>
+        /// The agent has joined a chatroom and is a guest there
+        /// </summary>
         Guest
     }
 }

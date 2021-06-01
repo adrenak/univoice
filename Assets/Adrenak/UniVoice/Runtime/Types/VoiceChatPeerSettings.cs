@@ -9,8 +9,8 @@
         public bool muteIncoming = false;
 
         /// <summary>
-        /// Whether this peer will receive out voice. Use this to keep
-        /// say something without a person hearing.
+        /// Whether this peer will receive out voice. Use this to 
+        /// stop sending your audio to a peer.
         /// </summary>
         public bool muteOutgoing = false;
     }
