@@ -25,6 +25,7 @@ namespace Adrenak.UniVoice.Samples {
         Dictionary<short, PeerView> peerViews = new Dictionary<short, PeerView>();
 
         void Start() {
+            Screen.sleepTimeout = SleepTimeout.NeverSleep;
             InitializeInput();
             InitializeAgent();
 
