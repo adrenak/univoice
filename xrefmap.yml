@@ -972,6 +972,38 @@ references:
   commentId: T:Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory
   fullName: Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory
   nameWithType: InbuiltAudioOutputFactory
+- uid: Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.#ctor
+  name: InbuiltAudioOutputFactory()
+  href: api/Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.html#Adrenak_UniVoice_InbuiltImplementations_InbuiltAudioOutputFactory__ctor
+  commentId: M:Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.#ctor
+  fullName: Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.InbuiltAudioOutputFactory()
+  nameWithType: InbuiltAudioOutputFactory.InbuiltAudioOutputFactory()
+- uid: Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.#ctor(System.Int32,System.Int32)
+  name: InbuiltAudioOutputFactory(Int32, Int32)
+  href: api/Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.html#Adrenak_UniVoice_InbuiltImplementations_InbuiltAudioOutputFactory__ctor_System_Int32_System_Int32_
+  commentId: M:Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.#ctor(System.Int32,System.Int32)
+  fullName: Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.InbuiltAudioOutputFactory(System.Int32, System.Int32)
+  nameWithType: InbuiltAudioOutputFactory.InbuiltAudioOutputFactory(Int32, Int32)
+- uid: Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.#ctor*
+  name: InbuiltAudioOutputFactory
+  href: api/Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.html#Adrenak_UniVoice_InbuiltImplementations_InbuiltAudioOutputFactory__ctor_
+  commentId: Overload:Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.#ctor
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.InbuiltAudioOutputFactory
+  nameWithType: InbuiltAudioOutputFactory.InbuiltAudioOutputFactory
+- uid: Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.BufferSegCount
+  name: BufferSegCount
+  href: api/Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.html#Adrenak_UniVoice_InbuiltImplementations_InbuiltAudioOutputFactory_BufferSegCount
+  commentId: P:Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.BufferSegCount
+  fullName: Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.BufferSegCount
+  nameWithType: InbuiltAudioOutputFactory.BufferSegCount
+- uid: Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.BufferSegCount*
+  name: BufferSegCount
+  href: api/Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.html#Adrenak_UniVoice_InbuiltImplementations_InbuiltAudioOutputFactory_BufferSegCount_
+  commentId: Overload:Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.BufferSegCount
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.BufferSegCount
+  nameWithType: InbuiltAudioOutputFactory.BufferSegCount
 - uid: Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.Create(System.Int32,System.Int32,System.Int32)
   name: Create(Int32, Int32, Int32)
   href: api/Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.html#Adrenak_UniVoice_InbuiltImplementations_InbuiltAudioOutputFactory_Create_System_Int32_System_Int32_System_Int32_
@@ -985,6 +1017,19 @@ references:
   isSpec: "True"
   fullName: Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.Create
   nameWithType: InbuiltAudioOutputFactory.Create
+- uid: Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.MinSegCount
+  name: MinSegCount
+  href: api/Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.html#Adrenak_UniVoice_InbuiltImplementations_InbuiltAudioOutputFactory_MinSegCount
+  commentId: P:Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.MinSegCount
+  fullName: Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.MinSegCount
+  nameWithType: InbuiltAudioOutputFactory.MinSegCount
+- uid: Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.MinSegCount*
+  name: MinSegCount
+  href: api/Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.html#Adrenak_UniVoice_InbuiltImplementations_InbuiltAudioOutputFactory_MinSegCount_
+  commentId: Overload:Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.MinSegCount
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.MinSegCount
+  nameWithType: InbuiltAudioOutputFactory.MinSegCount
 - uid: Adrenak.UniVoice.InbuiltImplementations.InbuiltChatroomAgentFactory
   name: InbuiltChatroomAgentFactory
   href: api/Adrenak.UniVoice.InbuiltImplementations.InbuiltChatroomAgentFactory.html
