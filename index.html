@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>UniVoice | UniVoice documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="UniVoice | UniVoice documentation ">
+    <meta name="generator" content="docfx 2.57.2.0">
+    
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="index.html">
+                <img id="logo" class="svg" src="logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="univoice">UniVoice</h1>
+
+<p>UniVoice is a voice chat/VoIP solution for Unity.</p>
+<p>It comes with ready-to-use P2P (peer to peer) conenctivity which allows devices to communicate nearly free of cost*. For the underlying P2P solution, please visit <a href="https://www.github.com/adrenak/airpeer">AirPeer</a>  </p>
+<p>Some features of UniVoice:</p>
+<ul>
+<li><p>👥 Group voice chat. Multiple peers can join a chatroom and exchange audio.  </p>
+</li>
+<li><p>⚙ Peer specific settings. Don&#39;t want to listen to a peer? Mute them. Don&#39;t want someone listening to you? Mute yourself against them.</p>
+</li>
+<li><p>✍ Edit outgoing and incoming audio with filters and effects. (No filters or effects provided out of the box currently)</p>
+</li>
+<li><p>🎨 Customise your audio input, output and networking layer. </p>
+<ul>
+<li><p>🎤 <strong>Configurable Audio Input</strong>: Decide what the input of your outgoing audio is. Let it be from <a href="https://docs.unity3d.com/ScriptReference/Microphone.html">Unity&#39;s Microphone</a> class, or a live streaming audio, or an MP4 file on the disk.</p>
+</li>
+<li><p>🔊 <strong>Configurable Audio Output</strong>:  Decide where the incoming peer audio goes. Let the output of incoming audio be <a href="https://docs.unity3d.com/ScriptReference/AudioSource.html">Unity AudioSource</a> to play the audio in-game, or write it into an MP4 on the disk, or stream it to an online service.</p>
+</li>
+<li><p>🌐 <strong>Configurable Network</strong>: Want to use UniVoice in a WLAN project using <a href="https://github.com/vis2k/Telepathy">Telepathy?</a> Just adapt its API for UniVoice with a simple the <code>IChatroomNetwork</code> interface. Using your own backend for multiplayer? Create and expose your audio API and write a UniVoice implementation, again with the same interface.</p>
+</li>
+</ul>
+</li>
+<li><p>📦 Provides out-of-the-box implementation for audio input, output and networking. Just run the group chat sample in Unity. UniVoice comes packaged with:</p>
+<ul>
+<li><p>🎤 <strong>Audio Input</strong>: based on <a href="https://www.github.com/adrenak/unimic">UniMic</a> which sends your microphone input over the network.  </p>
+</li>
+<li><p>🔊 <strong>Audio Output</strong>: source that plays incoming peer audio on <a href="https://docs.unity3d.com/ScriptReference/AudioSource.html">Unity AudioSource</a>  </p>
+</li>
+<li><p>🌐 <strong>P2P network</strong>: implementation based on <a href="https://www.github.com/adrenak/airpeer">AirPeer</a> which uses WebRTC for free-of-cost networking between peers. </p>
+<p>Plus, to get started you don&#39;t need to worry about hosting your own WebRTC signalling server as a server that&#39;s good enough for testing is already available. (See the project samples for more details)</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><em>*signalling server costs still apply, but they are minimal and sometimes free on platforms such as Heroku</em></p>
+<h1 id="documentation">Documentation</h1>
+<p>For the API documentation, please visit <a href="http://www.vatsalambastha.com/univoice">http://www.vatsalambastha.com/univoice</a></p>
+<p>Manuals, Wiki, Tutorials, etc. are not available yet.</p>
+<h1 id="usage">Usage</h1>
+<h2 id="creating-a-chatroom-agent">Creating a chatroom agent</h2>
+<ul>
+<li>To be able to host and join voice chatrooms, you need a <code>ChatroomAgent</code> instance. To get the inbuilt implementation, use this
+<code>var agent = agent = new InbuiltChatroomAgentFactory(SIGNALLING_SERVER_URL).Create();
+// Don&#39;t worry, a signalling server URL is available inside the repositories samples code.</code></li>
+</ul>
+<h2 id="hosting-and-joining-chatrooms">Hosting and joining chatrooms</h2>
+<p>Every peer in the chatroom is assigned an ID by the host. And every peer has a peer list, representing the other peers in the chatroom.</p>
+<ul>
+<li>To get your ID<br><code>agent.ID;</code></li>
+</ul>
+<p><code>ChatroomAgent</code> exposes <code>Network</code>, an implementation of <code>IChatroomNetwork</code></p>
+<ul>
+<li>To get a list of the other peers in the chatroom, use this:<br><code>agent.Network.Peers</code></li>
+</ul>
+<p><code>agent.Network</code> also provides methods to host or join a chatroom. Here is how you use them:</p>
+<pre><code>// Host a chatroom using a name
+agent.Network.HostChatroom(&quot;ROOM_NAME&quot;); 
+
+// Join an existing chatroom using a name
+agent.Network.JoinChatroom(&quot;ROOM_NAME&quot;);
+
+// Leave the chatroom, if connected to one
+agent.Network.LeaveChatroom();
+
+// Closes a chatroom, if was hosting one
+agent.Network.CloseChatroom();
+</code></pre><h2 id="muting-audio">Muting Audio</h2>
+<p>To mute everyone in the chatroom, use <code>agent.MuteOthers = true;</code> or set it to <code>false</code> to unmute them all.  </p>
+<p>To mute yourself use <code>agent.MuteSelf = true;</code> or set it to <code>false</code> to unmute yourself. This will stop sending your audio to all the peers in the chatroom.</p>
+<p>For muting a specific peer, first get the peers settings object using this:  </p>
+<pre><code>var settings = agent.PeerSettings[id]; // where id belongs to the peer in question
+settings.muteThem = true;
+</code></pre><p>If you want to mute yourself towards a specific peer, use this:</p>
+<pre><code>var settings = agent.PeerSettings[id]; // where id belongs to the peer in question
+settings.muteSelf = true;
+</code></pre><h2 id="events">Events</h2>
+<p><code>agent.Network</code> provides several network related events. Refer to the API reference for them.</p>
+<h1 id="known-issues">Known Issues</h1>
+<p>UniVoice is based on <a href="https://www.github.com/adrenak/airpeer">AirPeer</a> which currently has an issue where peers on different networks are often unable to connect.</p>
+<p>Eg. two mobile phone in different geographical locations are trying to have a voice chat. Both are connected to their respective WiFi. One hosts and waits for the other. The one trying to join may fail and only succeed when the connection is changed from its Wifi to cellular data.</p>
+<p>This issue will be addressed inside AirPeer itself. For more see the &#39;Connectivity issues&#39; section at the <a href="http://www.vatsalambastha.com/airpeer">AirPeer Homepage</a> </p>
+<h1 id="license-and-support">License and Support</h1>
+<p>This project under the <a href="https://github.com/adrenak/univoice/blob/master/LICENSE">MIT license</a>.</p>
+<p>Updates and maintenance are not gaurunteed and the project is maintained by the original developer in his free time. Community contributions are welcome.</p>
+<p><strong>Commercial consultation and development can be arranged</strong> but is subject to schedule and availability.  </p>
+<h1 id="contact">Contact</h1>
+<p>The developer can be reached at the following links:</p>
+<p><a href="http://www.vatsalambastha.com">Website</a><br><a href="https://www.linkedin.com/in/vatsalAmbastha">LinkedIn</a><br><a href="https://www.github.com/adrenak">GitHub</a><br><a href="https://www.twitter.com/vatsalAmbastha">Twitter</a>  </p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/adrenak/univoice/blob/master/Documentation/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            UniVoice documentation
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

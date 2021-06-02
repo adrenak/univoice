@@ -1,0 +1,399 @@
+{
+  "sitemap": {
+    "fileOptions": {
+      "api/*": {
+        "baseUrl": "https://adrenak.github.io/univoice/",
+        "changefreq": "daily"
+      }
+    },
+    "baseUrl": "https://adrenak.github.io/univoice/",
+    "changefreq": "weekly"
+  },
+  "homepages": [],
+  "source_base_path": "D:/a/univoice/univoice/Documentation",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      },
+      "is_incremental": false
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.ChatroomAgent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.ChatroomAgent.html",
+          "hash": "Ik0b0hgbEd+AlYrRDbEPrfF6FxyhxQfP2XyVY55FpyE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.ChatroomAgentMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.ChatroomAgentMode.html",
+          "hash": "luJrzsrVGsLwZeGP+/aw2CXfA3rU7XcC+WhwGCo0NGs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.ChatroomAudioDTO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.ChatroomAudioDTO.html",
+          "hash": "jagIbY2Zot2t1i+hCXfgKYLBFE8oHRMqtBYS3GiJpU4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.ChatroomPeerSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.ChatroomPeerSettings.html",
+          "hash": "3VsFhRivgJOoP4+hUjhJTl/YPHnUF78q72lt3wfM+pQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.Extensions.html",
+          "hash": "uzHc7HeQVivqhNIqfX1M+lJgaeDESVzy2TI3fEGg+fk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.IAudioInput.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.IAudioInput.html",
+          "hash": "mMxJHIfLx0J30/lbvht6D4BM+rjWEp605v2XKPLaz84="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.IAudioOutput.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.IAudioOutput.html",
+          "hash": "s9b7tHL/glwa1U1k9UwLiXe1XXKiq+QXt0FqdAmH5Y0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.IAudioOutputFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.IAudioOutputFactory.html",
+          "hash": "dXl1kWaHlGFAbppdxRD3aqe7csBing2YSZR3TFEthcA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.IChatroomAgentFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.IChatroomAgentFactory.html",
+          "hash": "YpZiENcrpWRfEy1ePV8FA+TnjLlk1qryHb5+RVnrt94="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.IChatroomNetwork.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.IChatroomNetwork.html",
+          "hash": "rMbZdkhgwR8G41BCR5+Yg1BKqDui1MrZBvTP1cPHboM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.AirPeerUniVoiceNetwork.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.AirPeerUniVoiceNetwork.html",
+          "hash": "Mtx+f9dazD9nRC2xYLLbxkZUXr3z6mDS33SjlRs61yw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioBuffer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioBuffer.html",
+          "hash": "pPVf25YlHz+hCdakDvX3IuRD3f1uF/LRPT678g0BSug="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutput.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutput.html",
+          "hash": "ftfy0rZBEBqpm+gBG5AWOgu0YJufgtrydLa9aVnlXEg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.html",
+          "hash": "Va+emlaHQXx+bZTdIYXOxuMNf0u3DZL7TgVsnbFC8QI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.InbuiltChatroomAgentFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.InbuiltChatroomAgentFactory.html",
+          "hash": "pSTpWX0w9YKLs3WeTljNI9lwukyx/Mm+dnDlTC95Jr8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.UniMicAudioInput.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.UniMicAudioInput.html",
+          "hash": "Fe/+TnBAnIt61uYQYW8VISdS35o2GwxGJLZw3oN8UlU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.html",
+          "hash": "adyDsQfSGQ4zAteTDww9MIVIIBXZ0yfbD2thJmNn1aQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.Samples.AndroidPermissionCallback.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.Samples.AndroidPermissionCallback.html",
+          "hash": "QvqP6jpjaEK4qeVkoYsp2K32m5VCawiDMNjL2e9HqS0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.Samples.AndroidPermissionsManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.Samples.AndroidPermissionsManager.html",
+          "hash": "HE8qtjvp8K3P12icTy0SIqwbUgE3t4bLk8+ZkWXnzAM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.Samples.GroupVoiceCallSample.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.Samples.GroupVoiceCallSample.html",
+          "hash": "PlGJgqkplvH2NX4pscc8CR7xpgWFWoJYTXdF7QZq6/g="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.Samples.PeerView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.Samples.PeerView.html",
+          "hash": "KM0wSvOJdGXm17PAdaqtxcLtchvTN924s86/BrxUfYU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.Samples.ToggleExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.Samples.ToggleExtension.html",
+          "hash": "c9S0My70S0sT2kKUZ4ozM928zwzUNlbD7HZkLRpoEMs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.Samples.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.Samples.html",
+          "hash": "wHkAX6E1jWqQYFYSPnydjQKvEOR/EXySAvj6u4SQKoo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.html",
+          "hash": "TK/wyuj6HGqdNz03dq4X3KBfYUsDSP/iCebl9GrpZcc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "wwGPpBR/v5/hys4T1w52rdHJidM/w/47P9zSdpW/e3U="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "b0JsyznEyFCKam/o5Suy8rE0PwlXYLBwuDtWKu/Nz+A="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "cBffZGYANJBfJAM3Uw0BLUCLy4qk1OS5d2seAwAo8yE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 1,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 24,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
