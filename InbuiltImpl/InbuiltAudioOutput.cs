@@ -160,14 +160,24 @@ namespace Adrenak.UniVoice.InbuiltImplementations {
     /// Creates <see cref="InbuiltAudioOutput"/> instances
     /// </summary>
     public class InbuiltAudioOutputFactory : IAudioOutputFactory {
+        public int BufferSegCount { get; private set; }
+        public int MinSegCount{ get; private set; }
+
+        public InbuiltAudioOutputFactory() : this(10, 5) { }
+
+        public InbuiltAudioOutputFactory(int bufferSegCount, int minSegCount) {
+            BufferSegCount = bufferSegCount;
+            MinSegCount = minSegCount;
+        }
+
         public IAudioOutput Create
         (int samplingRate, int channelCount, int segmentLength) {
             return InbuiltAudioOutput.New(
                 new InbuiltAudioBuffer(
-                    samplingRate, channelCount, segmentLength, 5
+                    samplingRate, channelCount, segmentLength, BufferSegCount
                 ),
                 new GameObject($"UniVoice Peer").AddComponent<AudioSource>(),
-                3
+                MinSegCount
             );
         }
     }
