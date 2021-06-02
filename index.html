@@ -111,11 +111,11 @@
 <h1 id="usage">Usage</h1>
 <h2 id="creating-a-chatroom-agent">Creating a chatroom agent</h2>
 <ul>
-<li>To be able to host and join voice chatrooms, you need a <code>ChatroomAgent</code> instance. To get the inbuilt implementation, use this
-<code>var agent = agent = new InbuiltChatroomAgentFactory(SIGNALLING_SERVER_URL).Create();
-// Don&#39;t worry, a signalling server URL is available inside the repositories samples code.</code></li>
+<li>To be able to host and join voice chatrooms, you need a <code>ChatroomAgent</code> instance. To get the ready-to-use inbuilt implementation, use this</li>
 </ul>
-<h2 id="hosting-and-joining-chatrooms">Hosting and joining chatrooms</h2>
+<pre><code>var agent = new InbuiltChatroomAgentFactory(SIGNALLING_SERVER_URL).Create();
+// Don&#39;t worry, a signalling server URL is available inside the repositories samples code. 
+</code></pre><h2 id="hosting-and-joining-chatrooms">Hosting and joining chatrooms</h2>
 <p>Every peer in the chatroom is assigned an ID by the host. And every peer has a peer list, representing the other peers in the chatroom.</p>
 <ul>
 <li>To get your ID<br><code>agent.ID;</code></li>
