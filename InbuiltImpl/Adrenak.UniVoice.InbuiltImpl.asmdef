@@ -1,0 +1,16 @@
+{
+    "name": "Adrenak.UniVoice.InbuiltImpl",
+    "references": [
+        "Adrenak.UniVoice.Runtime",
+        "Adrenak.AirPeer.Runtime",
+        "Adrenak.UniMic.Runtime"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}
