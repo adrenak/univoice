@@ -1,6 +1,6 @@
 {
 	"name": "com.adrenak.univoice",
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"displayName": "Adrenak.UniVoice",
 	"description": "Voice chat/VoIP solution for Unity.",
 	"unity": "2018.4",
@@ -9,7 +9,7 @@
 		"email": "ambastha.vatsal@gmail.com",
 		"url": "http://www.vatsalambastha.com"
 	},
-	"license":"MIT",
+	"license": "MIT",
 	"keywords": [
 		"Peer To Peer",
 		"WebRTC",
@@ -19,25 +19,25 @@
 		"voip"
 	],
 	"samples": [
-        {
-            "displayName": "All samples",
-            "description": "Includes a group void chat sample.",
-            "path": "Samples~/"
-        }
-    ],
+		{
+			"displayName": "All samples",
+			"description": "Includes a group void chat sample.",
+			"path": "Samples~/"
+		}
+	],
 	"dependencies": {
-		"com.adrenak.unimic":"1.0.3",
-		"com.adrenak.airpeer":"1.2.0"
+		"com.adrenak.unimic": "1.0.3",
+		"com.adrenak.airpeer": "1.2.0"
 	},
 	"scopedRegistries": [
 		{
-		  	"name": "registry.npmjs.org",
-		  	"url": "https://registry.npmjs.org",
-		  	"scopes": [
-				  "com.adrenak.unimic",
-				  "com.adrenak.airpeer",
+			"name": "registry.npmjs.org",
+			"url": "https://registry.npmjs.org",
+			"scopes": [
+				"com.adrenak.unimic",
+				"com.adrenak.airpeer",
 				"org.npmjs"
-		  	]
+			]
 		}
 	],
 	"publishConfig": {
