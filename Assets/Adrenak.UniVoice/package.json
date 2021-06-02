@@ -1,6 +1,6 @@
 {
 	"name": "com.adrenak.univoice",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"displayName": "Adrenak.UniVoice",
 	"description": "Voice chat/VoIP solution for Unity.",
 	"unity": "2018.4",
