@@ -161,11 +161,12 @@ namespace Adrenak.UniVoice.InbuiltImplementations {
     /// </summary>
     public class InbuiltAudioOutputFactory : IAudioOutputFactory {
         public int BufferSegCount { get; private set; }
-        public int MinSegCount{ get; private set; }
+        public int MinSegCount { get; private set; }
 
         public InbuiltAudioOutputFactory() : this(10, 5) { }
 
-        public InbuiltAudioOutputFactory(int bufferSegCount, int minSegCount) {
+        public InbuiltAudioOutputFactory(
+        int bufferSegCount, int minSegCount) {
             BufferSegCount = bufferSegCount;
             MinSegCount = minSegCount;
         }
