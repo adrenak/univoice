@@ -35,9 +35,10 @@ Manuals, Wiki, Tutorials, etc. are not available yet.
   
 # Usage
 ## Creating a chatroom agent
-- To be able to host and join voice chatrooms, you need a `ChatroomAgent` instance. To get the inbuilt implementation, use this
+- To be able to host and join voice chatrooms, you need a `ChatroomAgent` instance. To get the ready-to-use inbuilt implementation, use this
+  
 ```
-var agent = agent = new InbuiltChatroomAgentFactory(SIGNALLING_SERVER_URL).Create();
+var agent = new InbuiltChatroomAgentFactory(SIGNALLING_SERVER_URL).Create();
 // Don't worry, a signalling server URL is available inside the repositories samples code. 
 ```
 
