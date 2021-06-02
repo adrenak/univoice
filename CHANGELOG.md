@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/adrenak/univoice/compare/v1.1.1...v1.1.2) (2021-06-02)
+
+
+### Bug Fixes
+
+* README fix ([d03db44](https://github.com/adrenak/univoice/commit/d03db449e1fe2557a57df75ccfc8fe4a310f308f))
+
 ## [1.1.1](https://github.com/adrenak/univoice/compare/v1.1.0...v1.1.1) (2021-06-02)
 
 
