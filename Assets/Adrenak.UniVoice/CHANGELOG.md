@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/adrenak/univoice/compare/v1.1.0...v1.1.1) (2021-06-02)
+
+
+### Bug Fixes
+
+* Prevent sample app screen from sleeping. ([545d96f](https://github.com/adrenak/univoice/commit/545d96f16b858ba1dbdb01de5298ba62c06c2725))
+
 # [1.1.0](https://github.com/adrenak/univoice/compare/v1.0.0...v1.1.0) (2021-06-02)
 
 
