@@ -96,6 +96,10 @@ Eg. two mobile phone in different geographical locations are trying to have a vo
     
 This issue will be addressed inside AirPeer itself. For more see the 'Connectivity issues' section at the [AirPeer Homepage](http://www.vatsalambastha.com/airpeer) 
 
+Alternatively, a [Unity WebRTC](https://github.com/Unity-Technologies/com.unity.webrtc) based implementation of UniVoice's network interface may be directly introduced.
+
+In either case, there a need to have a newer underlying networking solution.
+
 # License and Support
 This project under the [MIT license](https://github.com/adrenak/univoice/blob/master/LICENSE).
 
