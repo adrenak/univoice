@@ -1,0 +1,15 @@
+{
+    "name": "Adrenak.UniVoice.Samples",
+    "references": [
+        "Adrenak.UniVoice.Runtime",
+        "Adrenak.UniVoice.InbuiltImpl"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

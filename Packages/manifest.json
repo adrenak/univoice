@@ -31,9 +31,8 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0",
-    "com.adrenak.airpeer": "file:E:/Open Source/AirPeer/Assets/Adrenak.AirPeer",
-    "com.adrenak.unimic": "1.0.3",
-    "com.yasirkula.androidruntimepermissions": "1.1.6"
+    "com.adrenak.airpeer": "1.2.0",
+    "com.adrenak.unimic": "1.0.3"
   },
   "scopedRegistries": [
     {
@@ -43,14 +42,6 @@
         "com.adrenak.airpeer",
         "com.adrenak.unimic",
         "org.npmjs"
-      ]
-    },
-    {
-      "name": "package.openupm.com",
-      "url": "https://package.openupm.com",
-      "scopes": [
-        "com.openupm",
-        "com.yasirkula.androidruntimepermissions"
       ]
     }
   ]

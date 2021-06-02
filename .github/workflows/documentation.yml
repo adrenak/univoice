@@ -1,0 +1,55 @@
+name: Example documentation
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  # Build the documentation
+  build:
+    runs-on: windows-latest # Required by DocFX
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        # with:
+        #   submodules: true
+
+      - name: Install DocFX
+        run: choco install -y docfx
+
+      - name: Use README.md as index.md
+        run: cp README.md Documentation/index.md
+
+      - name: Build
+        run: docfx Documentation/docfx.json
+
+      # Upload the generated documentation
+      - name: Upload site artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: _site
+          path: _site # Must equals the 'build.dest' value on your docfx.json
+
+  # Deploy the generated documentation to the gh-pages branch
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        # with:
+        #   submodules: true
+
+      # Download the generated documentation
+      - name: Download site artifact
+        uses: actions/download-artifact@v1
+        with:
+          name: _site
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: _site

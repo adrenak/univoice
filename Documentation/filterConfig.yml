@@ -1,0 +1,7 @@
+apiRules:
+- include:
+    uidRegex: ^Adrenak.UniVoice
+    type: Namespace
+- exclude:
+    uidRegex: .*
+    type: Namespace
