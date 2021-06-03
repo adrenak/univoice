@@ -1271,12 +1271,6 @@ references:
   commentId: F:Adrenak.UniVoice.Samples.GroupVoiceCallSample.exitButton
   fullName: Adrenak.UniVoice.Samples.GroupVoiceCallSample.exitButton
   nameWithType: GroupVoiceCallSample.exitButton
-- uid: Adrenak.UniVoice.Samples.GroupVoiceCallSample.globalOutgoingToggle
-  name: globalOutgoingToggle
-  href: api/Adrenak.UniVoice.Samples.GroupVoiceCallSample.html#Adrenak_UniVoice_Samples_GroupVoiceCallSample_globalOutgoingToggle
-  commentId: F:Adrenak.UniVoice.Samples.GroupVoiceCallSample.globalOutgoingToggle
-  fullName: Adrenak.UniVoice.Samples.GroupVoiceCallSample.globalOutgoingToggle
-  nameWithType: GroupVoiceCallSample.globalOutgoingToggle
 - uid: Adrenak.UniVoice.Samples.GroupVoiceCallSample.hostButton
   name: hostButton
   href: api/Adrenak.UniVoice.Samples.GroupVoiceCallSample.html#Adrenak_UniVoice_Samples_GroupVoiceCallSample_hostButton
@@ -1307,6 +1301,18 @@ references:
   commentId: F:Adrenak.UniVoice.Samples.GroupVoiceCallSample.menuMessage
   fullName: Adrenak.UniVoice.Samples.GroupVoiceCallSample.menuMessage
   nameWithType: GroupVoiceCallSample.menuMessage
+- uid: Adrenak.UniVoice.Samples.GroupVoiceCallSample.muteOthersToggle
+  name: muteOthersToggle
+  href: api/Adrenak.UniVoice.Samples.GroupVoiceCallSample.html#Adrenak_UniVoice_Samples_GroupVoiceCallSample_muteOthersToggle
+  commentId: F:Adrenak.UniVoice.Samples.GroupVoiceCallSample.muteOthersToggle
+  fullName: Adrenak.UniVoice.Samples.GroupVoiceCallSample.muteOthersToggle
+  nameWithType: GroupVoiceCallSample.muteOthersToggle
+- uid: Adrenak.UniVoice.Samples.GroupVoiceCallSample.muteSelfToggle
+  name: muteSelfToggle
+  href: api/Adrenak.UniVoice.Samples.GroupVoiceCallSample.html#Adrenak_UniVoice_Samples_GroupVoiceCallSample_muteSelfToggle
+  commentId: F:Adrenak.UniVoice.Samples.GroupVoiceCallSample.muteSelfToggle
+  fullName: Adrenak.UniVoice.Samples.GroupVoiceCallSample.muteSelfToggle
+  nameWithType: GroupVoiceCallSample.muteSelfToggle
 - uid: Adrenak.UniVoice.Samples.GroupVoiceCallSample.peerViewContainer
   name: peerViewContainer
   href: api/Adrenak.UniVoice.Samples.GroupVoiceCallSample.html#Adrenak_UniVoice_Samples_GroupVoiceCallSample_peerViewContainer
