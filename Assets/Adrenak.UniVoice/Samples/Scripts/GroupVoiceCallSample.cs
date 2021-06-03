@@ -19,7 +19,8 @@ namespace Adrenak.UniVoice.Samples {
         public Transform peerViewContainer;
         public PeerView peerViewTemplate;
         public Text chatroomMessage;
-        public Toggle globalOutgoingToggle;
+        public Toggle muteSelfToggle;
+        public Toggle muteOthersToggle;
 
         ChatroomAgent agent;
         Dictionary<short, PeerView> peerViews = new Dictionary<short, PeerView>();
@@ -31,9 +32,13 @@ namespace Adrenak.UniVoice.Samples {
 
             menuGO.SetActive(true);
             chatroomGO.SetActive(false);
-            globalOutgoingToggle.SetIsOnWithoutNotify(!agent.MuteSelf);
-            globalOutgoingToggle.onValueChanged.AddListener(value =>
+            muteSelfToggle.SetIsOnWithoutNotify(!agent.MuteSelf);
+            muteSelfToggle.onValueChanged.AddListener(value =>
                 agent.MuteSelf = !value);
+
+            muteOthersToggle.SetIsOnWithoutNotify(!agent.MuteOthers);
+            muteOthersToggle.onValueChanged.AddListener(value =>
+                agent.MuteOthers = !value);
         }
 
         void InitializeInput() {
