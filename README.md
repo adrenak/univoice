@@ -103,7 +103,7 @@ In either case, there a need to have a newer underlying networking solution.
 # License and Support
 This project under the [MIT license](https://github.com/adrenak/univoice/blob/master/LICENSE).
 
-Updates and maintenance are not gaurunteed and the project is maintained by the original developer in his free time. Community contributions are welcome.
+Updates and maintenance are not guaranteed and the project is maintained by the original developer in his free time. Community contributions are welcome.
   
 __Commercial consultation and development can be arranged__ but is subject to schedule and availability.  
   
