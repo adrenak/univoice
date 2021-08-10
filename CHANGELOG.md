@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/adrenak/univoice/compare/v1.1.3...v1.1.4) (2021-08-10)
+
+
+### Bug Fixes
+
+* Spell-fix in README ([fcbc7c6](https://github.com/adrenak/univoice/commit/fcbc7c6c28c84415a50050d7014ecdfc39347309))
+
 ## [1.1.3](https://github.com/adrenak/univoice/compare/v1.1.2...v1.1.3) (2021-06-03)
 
 
