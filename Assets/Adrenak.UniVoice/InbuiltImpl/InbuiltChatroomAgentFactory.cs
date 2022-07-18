@@ -2,13 +2,13 @@
 
 namespace Adrenak.UniVoice.InbuiltImplementations {
     public class InbuiltChatroomAgentFactory : IChatroomAgentFactory {
-        public string SignallingServerURL { get; set; }
+        public string SignalingServerURL { get; set; }
 
-        public InbuiltChatroomAgentFactory(string signallingServerURL) =>
-            this.SignallingServerURL = signallingServerURL;
+        public InbuiltChatroomAgentFactory(string signalingServerURL) =>
+            this.SignalingServerURL = signalingServerURL;
 
         public ChatroomAgent Create() {
-            var network = new AirPeerUniVoiceNetwork(SignallingServerURL);
+            var network = new AirPeerUniVoiceNetwork(SignalingServerURL);
 
             var input = new UniMicAudioInput(Mic.Instance);
             if (!Mic.Instance.IsRecording)

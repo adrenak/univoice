@@ -30,7 +30,7 @@ namespace Adrenak.UniVoice.InbuiltImplementations {
         public AudioSource AudioSource { get; private set; }
         public int MinSegCount { get; private set; }
 
-        // Prevent contruction using 'new' as this is a MonoBehaviour class
+        // Prevent construction using 'new' as this is a MonoBehaviour class
         InbuiltAudioOutput() { }
 
         public string ID {
@@ -50,7 +50,7 @@ namespace Adrenak.UniVoice.InbuiltImplementations {
         /// </param>
         /// 
         /// <param name="source">
-        /// The AudioSource from where the incomming audio is played.
+        /// The AudioSource from where the incoming audio is played.
         /// </param>
         /// 
         /// <param name="minSegCount">
@@ -92,7 +92,7 @@ namespace Adrenak.UniVoice.InbuiltImplementations {
             // Check every frame to see if the AudioSource has 
             // just moved to a new segment in the AudioBuffer 
             if (lastIndex != index) {
-                // If so, clear the audio buffer so that in case tha 
+                // If so, clear the audio buffer so that in case the
                 // AudioSource loops around, the old contents are not played.
                 AudioBuffer.Clear(lastIndex);
 
@@ -204,7 +204,7 @@ namespace Adrenak.UniVoice.InbuiltImplementations {
         /// </summary>
         /// <param name="frequency">The frequency of the audio</param>
         /// <param name="channels">Number of channels in the audio</param>
-        /// <param name="segDataLen">Numer of samples in the audio </param>
+        /// <param name="segDataLen">Number of samples in the audio </param>
         /// <param name="segCount">Number of segments stored in buffer </param>
         public InbuiltAudioBuffer(
             int frequency,

@@ -130,7 +130,7 @@ namespace Adrenak.UniVoice {
             // Node server events
             Network.OnCreatedChatroom += () =>
                 CurrentMode = ChatroomAgentMode.Host;
-            Network.OnlosedChatroom += () => {
+            Network.OnClosedChatroom += () => {
                 CurrentMode = ChatroomAgentMode.Unconnected;
                 RemoveAllPeers();
             };

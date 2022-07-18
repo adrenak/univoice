@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine.UI;
@@ -53,7 +53,7 @@ namespace Adrenak.UniVoice.Samples {
             // is neither secure nor gaurunteed to be online which will cause your
             // apps to fail. 
             // 
-            // Host your own signalling server on something like DigitalOcean, AWS etc.
+            // Host your own signaling server on something like DigitalOcean, AWS etc.
             // The test server is node based and its code is here: github.com/adrenak/airsignal
             agent = new InbuiltChatroomAgentFactory("ws://167.71.17.13:11000").Create();
 
@@ -70,7 +70,7 @@ namespace Adrenak.UniVoice.Samples {
                 ShowMessage("Chatroom creation failed");
             };
 
-            agent.Network.OnlosedChatroom += () => {
+            agent.Network.OnClosedChatroom += () => {
                 ShowMessage("You closed the chatroom! All peers have been kicked");
                 menuGO.SetActive(true);
                 chatroomGO.SetActive(false);
