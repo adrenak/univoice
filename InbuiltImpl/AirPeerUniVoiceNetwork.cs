@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 using Adrenak.AirPeer;
@@ -21,7 +21,7 @@ namespace Adrenak.UniVoice.InbuiltImplementations {
     public class AirPeerUniVoiceNetwork : IChatroomNetwork {
         public event Action OnCreatedChatroom;
         public event Action<Exception> OnChatroomCreationFailed;
-        public event Action OnlosedChatroom;
+        public event Action OnClosedChatroom;
 
         public event Action<short> OnJoinedChatroom;
         public event Action<Exception> OnChatroomJoinFailed;
@@ -45,20 +45,20 @@ namespace Adrenak.UniVoice.InbuiltImplementations {
         /// <summary>
         /// Creates an AirPeer based chatroom network 
         /// </summary>
-        /// <param name="signallingServerURL">The signalling server URL</param>
+        /// <param name="signalingServerURL">The signaling server URL</param>
         /// <param name="iceServerURLs">ICE server urls</param>
         public AirPeerUniVoiceNetwork
-        (string signallingServerURL, string iceServerURLs) {
-            node = new APNode(signallingServerURL, iceServerURLs);
+        (string signalingServerURL, string iceServerURLs) {
+            node = new APNode(signalingServerURL, iceServerURLs);
             Init();
         }
 
         /// <summary>
         /// Creates an AirPeer based chatroom network
         /// </summary>
-        /// <param name="signallingServerURL">The signalling server URL</param>
-        public AirPeerUniVoiceNetwork(string signallingServerURL) {
-            node = new APNode(signallingServerURL);
+        /// <param name="signalingServerURL">The signaling server URL</param>
+        public AirPeerUniVoiceNetwork(string signalingServerURL) {
+            node = new APNode(signalingServerURL);
             Init();
         }
 
@@ -66,7 +66,7 @@ namespace Adrenak.UniVoice.InbuiltImplementations {
             node.OnServerStartSuccess += () => OnCreatedChatroom?.Invoke();
             node.OnServerStartFailure += e =>
                 OnChatroomCreationFailed?.Invoke(e);
-            node.OnServerStop += () => OnlosedChatroom?.Invoke();
+            node.OnServerStop += () => OnClosedChatroom?.Invoke();
 
             node.OnConnectionFailed += ex => OnChatroomJoinFailed?.Invoke(ex);
             node.OnReceiveID += id => {

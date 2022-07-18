@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace Adrenak.UniVoice {
@@ -24,7 +24,7 @@ namespace Adrenak.UniVoice {
         /// <summary>
         /// Fired when a chatroom is closed.
         /// </summary>
-        event Action OnlosedChatroom;
+        event Action OnClosedChatroom;
 
         /// <summary>
         /// Fired when the local user joins a chatroom. 
