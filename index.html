@@ -80,31 +80,17 @@
 </li>
 <li><p>⚙ Peer specific settings. Don&#39;t want to listen to a peer? Mute them. Don&#39;t want someone listening to you? Mute yourself against them.</p>
 </li>
-<li><p>✍ Edit outgoing and incoming audio with filters and effects. (No filters or effects provided out of the box currently)</p>
-</li>
 <li><p>🎨 Customize your audio input, output and networking layer. </p>
 <ul>
 <li><p>🎤 <strong>Configurable Audio Input</strong>: Decide what the input of your outgoing audio is. Let it be from <a href="https://docs.unity3d.com/ScriptReference/Microphone.html">Unity&#39;s Microphone</a> class, or a live streaming audio, or an MP4 file on the disk.</p>
 </li>
-<li><p>🔊 <strong>Configurable Audio Output</strong>:  Decide where the incoming peer audio ges. Let the output of incoming audio be <a href="https://docs.unity3d.com/ScriptReference/AudioSource.html">Unity AudioSource</a> to play the audio in-game, or write it into an MP4 on the disk, or stream it to an online service.</p>
+<li><p>🔊 <strong>Configurable Audio Output</strong>:  Decide where the incoming peer audio goes. Let the output of incoming audio be <a href="https://docs.unity3d.com/ScriptReference/AudioSource.html">Unity AudioSource</a> to play the audio in-game, or write it into an MP4 on the disk, or stream it to an online service.</p>
 </li>
 <li><p>🌐 <strong>Configurable Network</strong>: Want to use UniVoice in a WLAN project using <a href="https://github.com/vis2k/Telepathy">Telepathy?</a> Just adapt its API for UniVoice with a simple the <code>IChatroomNetwork</code> interface. Using your own backend for multiplayer? Create and expose your audio API and write a UniVoice implementation, again with the same interface.</p>
 </li>
 </ul>
 </li>
-<li><p>📦 Provides out-of-the-box implementation for audio input, output and networking. Just run the group chat sample in Unity. UniVoice comes packaged with:</p>
-<ul>
-<li><p>🎤 <strong>Audio Input</strong>: based on <a href="https://www.github.com/adrenak/unimic">UniMic</a> which sends your microphone input over the network.  </p>
-</li>
-<li><p>🔊 <strong>Audio Output</strong>: source that plays incoming peer audio on <a href="https://docs.unity3d.com/ScriptReference/AudioSource.html">Unity AudioSource</a>  </p>
-</li>
-<li><p>🌐 <strong>P2P network</strong>: implementation based on <a href="https://www.github.com/adrenak/airpeer">AirPeer</a> which uses WebRTC for free-of-cost networking between peers. </p>
-<p>Plus, to get started you don&#39;t need to worry about hosting your own WebRTC signaling server as a server that&#39;s good enough for testing is already available. (See the project samples for more details)</p>
-</li>
 </ul>
-</li>
-</ul>
-<p><em>*signaling server costs still apply, but they are minimal and sometimes free on platforms such as Heroku</em></p>
 <h1 id="documentation">Documentation</h1>
 <p>For the API documentation, please visit <a href="http://www.vatsalambastha.com/univoice">http://www.vatsalambastha.com/univoice</a></p>
 <p>Manuals, Wiki, Tutorials, etc. are not available yet.</p>
@@ -113,48 +99,39 @@
 <ul>
 <li>To be able to host and join voice chatrooms, you need a <code>ChatroomAgent</code> instance. To get the ready-to-use inbuilt implementation, use this</li>
 </ul>
-<pre><code>var agent = new InbuiltChatroomAgentFactory(SIGNALING_SERVER_URL).Create();
-// Don&#39;t worry, a signaling server URL is available inside the repositories samples code. 
+<pre><code>var agent = new ChatroomAgent(IChatroomNetwork network, IAudioInput audioInput, IAudioOutput audioOutput);
 </code></pre><h2 id="hosting-and-joining-chatrooms">Hosting and joining chatrooms</h2>
+<p><code>ChatroomAgent</code> exposes <code>Network</code>, an implementation of <code>IChatroomNetwork</code></p>
 <p>Every peer in the chatroom is assigned an ID by the host. And every peer has a peer list, representing the other peers in the chatroom.</p>
 <ul>
-<li>To get your ID<br><code>agent.ID;</code></li>
-</ul>
-<p><code>ChatroomAgent</code> exposes <code>Network</code>, an implementation of <code>IChatroomNetwork</code></p>
-<ul>
-<li>To get a list of the other peers in the chatroom, use this:<br><code>agent.Network.Peers</code></li>
+<li><p>To get your ID<br><code>agent.Network.OwnID;</code></p>
+</li>
+<li><p>To get a list of the other peers in the chatroom, use this:<br><code>agent.Network.PeersIDs</code></p>
+</li>
 </ul>
 <p><code>agent.Network</code> also provides methods to host or join a chatroom. Here is how you use them:</p>
 <pre><code>// Host a chatroom using a name
-agent.Network.HostChatroom(&quot;ROOM_NAME&quot;); 
+agent.Network.HostChatroom(optional_data);
 
 // Join an existing chatroom using a name
-agent.Network.JoinChatroom(&quot;ROOM_NAME&quot;);
+agent.Network.JoinChatroom(optional_data);
 
 // Leave the chatroom, if connected to one
-agent.Network.LeaveChatroom();
+agent.Network.LeaveChatroom(optional_data);
 
-// Closes a chatroom, if was hosting one
-agent.Network.CloseChatroom();
+// Closes a chatroom, if is hosting one
+agent.Network.CloseChatroom(optional_data);
 </code></pre><h2 id="muting-audio">Muting Audio</h2>
 <p>To mute everyone in the chatroom, use <code>agent.MuteOthers = true;</code> or set it to <code>false</code> to unmute them all.  </p>
 <p>To mute yourself use <code>agent.MuteSelf = true;</code> or set it to <code>false</code> to unmute yourself. This will stop sending your audio to all the peers in the chatroom.</p>
 <p>For muting a specific peer, first get the peers settings object using this:  </p>
-<pre><code>var settings = agent.PeerSettings[id]; // where id belongs to the peer in question
-settings.muteThem = true;
-</code></pre><p>If you want to mute yourself towards a specific peer, use this:</p>
-<pre><code>var settings = agent.PeerSettings[id]; // where id belongs to the peer in question
-settings.muteSelf = true;
-</code></pre><h2 id="events">Events</h2>
+<pre><code>agent.PeerSettings[id].muteThem = true; // where id belongs to the peer in question
+</code></pre><p>If you want to mute yourself towards a specific peer, use this:
+<code>agent.PeerSettings[id].muteSelf = true; // where id belongs to the peer in question</code></p>
+<h2 id="events">Events</h2>
 <p><code>agent.Network</code> provides several network related events. Refer to the API reference for them.</p>
-<h1 id="known-issues">Known Issues</h1>
-<p>UniVoice is based on <a href="https://www.github.com/adrenak/airpeer">AirPeer</a> which currently has an issue where peers on different networks are often unable to connect.</p>
-<p>Eg. two mobile phone in different geographical locations are trying to have a voice chat. Both are connected to their respective WiFi. One hosts and waits for the other. The one trying to join may fail and only succeed when the connection is changed from its Wifi to cellular data.</p>
-<p>This issue will be addressed inside AirPeer itself. For more see the &#39;Connectivity issues&#39; section at the <a href="http://www.vatsalambastha.com/airpeer">AirPeer Homepage</a> </p>
-<p>Alternatively, a <a href="https://github.com/Unity-Technologies/com.unity.webrtc">Unity WebRTC</a> based implementation of UniVoice&#39;s network interface may be directly introduced.</p>
-<p>In either case, there a need to have a newer underlying networking solution.</p>
 <h1 id="license-and-support">License and Support</h1>
-<p>This project under the <a href="https://github.com/adrenak/univoice/blob/master/LICENSE">MIT license</a>.</p>
+<p>This project is under the <a href="https://github.com/adrenak/univoice/blob/master/LICENSE">MIT license</a>.</p>
 <p>Updates and maintenance are not guaranteed and the project is maintained by the original developer in his free time. Community contributions are welcome.</p>
 <p><strong>Commercial consultation and development can be arranged</strong> but is subject to schedule and availability.  </p>
 <h1 id="contact">Contact</h1>

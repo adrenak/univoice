@@ -28,7 +28,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.ChatroomAgent.html",
-          "hash": "L1YQ5FopWiGgG2wKBfrvgC52irvOHSbNJMHTXsw95do="
+          "hash": "8NKZil9TKjniv1XVfV2bpOUBfs7KSd59YO7cAmQdb+Y="
         }
       },
       "is_incremental": false,
@@ -48,11 +48,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Adrenak.UniVoice.ChatroomAudioDTO.yml",
+      "source_relative_path": "api/Adrenak.UniVoice.ChatroomAudioSegment.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Adrenak.UniVoice.ChatroomAudioDTO.html",
-          "hash": "XUnM4HPf6AbpxJdLr+ASaVPVJMPBuQBl3xsNE35vuX0="
+          "relative_path": "api/Adrenak.UniVoice.ChatroomAudioSegment.html",
+          "hash": "NafjINrmAbNHQCaKz9xMOKzOdUvY5MTzJgWk+DrSWL4="
         }
       },
       "is_incremental": false,
@@ -120,179 +120,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Adrenak.UniVoice.IChatroomAgentFactory.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Adrenak.UniVoice.IChatroomAgentFactory.html",
-          "hash": "8u8KmzUFu623QBVKUL2qe4/X4UhseFi86Ib0PuWTqmk="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/Adrenak.UniVoice.IChatroomNetwork.yml",
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.IChatroomNetwork.html",
-          "hash": "/BWFcU0OtExPaccvDhkkoVrKrjUw0OYxWfIADdwZmtY="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.AirPeerUniVoiceNetwork.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.AirPeerUniVoiceNetwork.html",
-          "hash": "t1LXuZsIisbMDbfy2Md6JigOW0OrZIY2CBIw2PYNqv4="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioBuffer.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioBuffer.html",
-          "hash": "qj6RxQBOJa1T8KtqJi8b+WQhDHh93kcq0Xk8/aNBhUE="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutput.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutput.html",
-          "hash": "NvuEsunWcaWNuGEcEkGaki+SOlFpbkXljMpHi3ko5BQ="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.html",
-          "hash": "uU3QT7zeXu+A52S9q6XsUAUXN6Ud4PRuiHAaC1DyKaQ="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.InbuiltChatroomAgentFactory.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.InbuiltChatroomAgentFactory.html",
-          "hash": "iJQG8uJD2wUvjffDwcOyDoaYBq+rfftZivJSYDqgqc8="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.UniMicAudioInput.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.UniMicAudioInput.html",
-          "hash": "snxbFc7pjVBm8Z9jdgOnx3nAr1ARHnExF0eOYfK42HQ="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.html",
-          "hash": "WzZzEeVaZC0R4gl14ZbtHwz/V7dQwMPMprVLmWOifhY="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Adrenak.UniVoice.Samples.AndroidPermissionCallback.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Adrenak.UniVoice.Samples.AndroidPermissionCallback.html",
-          "hash": "vLwY/ShAZbekWmwa/ee0mbC3clBjitqzplX5T67Nx0g="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Adrenak.UniVoice.Samples.AndroidPermissionsManager.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Adrenak.UniVoice.Samples.AndroidPermissionsManager.html",
-          "hash": "vnW+vWboMtnhIjaULCtjtafE2F/XSXdsReJdS96Hk/Y="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Adrenak.UniVoice.Samples.GroupVoiceCallSample.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Adrenak.UniVoice.Samples.GroupVoiceCallSample.html",
-          "hash": "GzB4/qsWo4wd75qK7yijdLW4iDYRNog4U+r+dQgqYw8="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Adrenak.UniVoice.Samples.PeerView.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Adrenak.UniVoice.Samples.PeerView.html",
-          "hash": "83W0VI8jbXygbVXEY4iLPWs7mWWUQIJ0nzxoiD8XGgs="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Adrenak.UniVoice.Samples.ToggleExtension.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Adrenak.UniVoice.Samples.ToggleExtension.html",
-          "hash": "GmLHFilZzizT8J0lMFaDHWPWvkKRVEkG6PPOcEtAO7M="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Adrenak.UniVoice.Samples.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Adrenak.UniVoice.Samples.html",
-          "hash": "3/vrYJw+0XpA6BxckGvdvGU8Hyk+BC568q264fqtoCE="
+          "hash": "9Bez/XrK/FcLx2A9xzYBvex6MiiCghmsEWPTcT6IaH8="
         }
       },
       "is_incremental": false,
@@ -304,7 +136,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.html",
-          "hash": "ytlWqlcZBZlJ//MMSYjGubrzQomJIgmpu5LFLLkOxpc="
+          "hash": "jMKe14SOeOgORJQ6n6x4pboTaWdn8d5VNZS4Lw1lL/c="
         }
       },
       "is_incremental": false,
@@ -316,7 +148,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "wwGPpBR/v5/hys4T1w52rdHJidM/w/47P9zSdpW/e3U="
+          "hash": "B9F1WPKvu9VSzjVC1kHYIS2CPJxMw4NZOq+CO9V5bzw="
         }
       },
       "is_incremental": false,
@@ -328,7 +160,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "Au0pknz85KGkXsleEhVFQ14bJv0MEaDGCNqHC3FwGLQ="
+          "hash": "h3p16mfg1Mloany7mznDFlnQGqYxiMlwFrtEA75ilio="
         }
       },
       "is_incremental": false,
@@ -367,7 +199,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 24,
+          "total_file_count": 10,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {
