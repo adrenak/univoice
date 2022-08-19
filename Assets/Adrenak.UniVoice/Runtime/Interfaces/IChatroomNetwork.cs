@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace Adrenak.UniVoice {
@@ -58,12 +58,12 @@ namespace Adrenak.UniVoice {
         /// <summary>
         /// Fired when the network receives audio data from a peer. 
         /// </summary>
-        event Action<ChatroomAudioDTO> OnAudioReceived;
+        event Action<ChatroomAudioSegment> OnAudioReceived;
 
         /// <summary>
         /// Fired when the local user sets audio data to a peer.
         /// </summary>
-        event Action<ChatroomAudioDTO> OnAudioSent;
+        event Action<ChatroomAudioSegment> OnAudioSent;
         #endregion
 
         // ====================================================================
@@ -78,11 +78,6 @@ namespace Adrenak.UniVoice {
         /// IDs of all the peers in the current chatroom
         /// </summary>
         List<short> PeerIDs { get; }
-
-        /// <summary>
-        /// Name of of the chatroom we are currently in
-        /// </summary>
-        string CurrentChatroomName { get; }
         #endregion
 
         // ====================================================================
@@ -91,30 +86,32 @@ namespace Adrenak.UniVoice {
         /// <summary>
         /// Creates a chatroom 
         /// </summary>
-        /// <param name="chatroomName">Name of the chatroom</param>
-        void HostChatroom(string chatroomName);
+        /// <param name="data">Name of the chatroom</param>
+        void HostChatroom(object data = null);
 
         /// <summary>
         /// Closes a chatroom that the local user is hosting
         /// </summary>
-        void CloseChatroom();
+        /// <param name="data">Any arguments for closing the room</param>
+        void CloseChatroom(object data = null);
 
         /// <summary>
         /// Joins a chatroom
         /// </summary>
-        /// <param name="chatroomName">The name of the chatroom to join</param>
-        void JoinChatroom(string chatroomName);
+        /// <param name="data">The name of the chatroom to join</param>
+        void JoinChatroom(object data = null);
 
         /// <summary>
         /// Leaves the chatroom the local user is currently in, if any
         /// </summary>
-        void LeaveChatroom();
+        /// <param name="data">Any arguments for leaving the room</param>
+        void LeaveChatroom(object data = null);
 
         /// <summary>
-        /// Sends audio data over the network to a peer.
+        /// Sends audio data over the network
         /// </summary>
         /// <param name="data">The data to be transmitted.</param>
-        void SendAudioSegment(ChatroomAudioDTO data);
+        void SendAudioSegment(ChatroomAudioSegment data);
         #endregion
     }
 }

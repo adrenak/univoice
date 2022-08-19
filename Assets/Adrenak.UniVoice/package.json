@@ -3,7 +3,7 @@
 	"version": "1.1.4",
 	"displayName": "Adrenak.UniVoice",
 	"description": "Voice chat/VoIP solution for Unity.",
-	"unity": "2018.4",
+	"unity": "2019.4",
 	"author": {
 		"name": "Vatsal Ambastha",
 		"email": "ambastha.vatsal@gmail.com",
@@ -17,28 +17,6 @@
 		"Networking",
 		"Voice Chat",
 		"voip"
-	],
-	"samples": [
-		{
-			"displayName": "All samples",
-			"description": "Includes a group void chat sample.",
-			"path": "Samples~/"
-		}
-	],
-	"dependencies": {
-		"com.adrenak.unimic": "1.0.3",
-		"com.adrenak.airpeer": "1.2.0"
-	},
-	"scopedRegistries": [
-		{
-			"name": "registry.npmjs.org",
-			"url": "https://registry.npmjs.org",
-			"scopes": [
-				"com.adrenak.unimic",
-				"com.adrenak.airpeer",
-				"org.npmjs"
-			]
-		}
 	],
 	"publishConfig": {
 		"registry": "https://registry.npmjs.org"
