@@ -47,6 +47,7 @@ namespace Adrenak.UniVoice {
         /// peers will be played. If you want to selectively mute a peer, use
         /// the <see cref="ChatroomPeerSettings.muteThem"/> flag in the 
         /// <see cref="PeerSettings"/> instance for that peer.
+        /// Note that setting this will not change <see cref="PeerSettings"/>
         /// </summary>
         public bool MuteOthers { get; set; }
 
@@ -55,6 +56,7 @@ namespace Adrenak.UniVoice {
         /// not be sent to ANY peer. If you want to selectively mute yourself 
         /// to a peer, use the <see cref="ChatroomPeerSettings.muteSelf"/> 
         /// flag in the <see cref="PeerSettings"/> instance for that peer.
+        /// Note that setting this will not change <see cref="PeerSettings"/>
         /// </summary>
         public bool MuteSelf { get; set; }
 
@@ -177,7 +179,7 @@ namespace Adrenak.UniVoice {
 
                 // Send the audio segment to every deserving recipient
                 foreach (var recipient in recipients)
-                    Network.SendAudioSegment(new ChatroomAudioDTO {
+                    Network.SendAudioSegment(new ChatroomAudioSegment {
                         id = recipient,
                         segmentIndex = index,
                         frequency = AudioInput.Frequency,
@@ -205,8 +207,12 @@ namespace Adrenak.UniVoice {
 
         bool HasSettingsForPeer(short id) => PeerSettings.ContainsKey(id);
 
-        void EnsurePeerStreamer
-        (short id, int frequency, int channels, int segmentLength) {
+        void EnsurePeerStreamer(
+            short id, 
+            int frequency, 
+            int channels, 
+            int segmentLength
+        ) {
             if (!PeerOutputs.ContainsKey(id) && PeerSettings.ContainsKey(id)) {
                 var output = AudioOutputFactory.Create(
                     frequency,
