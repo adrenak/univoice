@@ -19,7 +19,7 @@
         public int frequency;
 
         /// <summary>
-        /// THe numer of channels in the audio
+        /// THe number of channels in the audio
         /// </summary>
         public int channelCount;
 

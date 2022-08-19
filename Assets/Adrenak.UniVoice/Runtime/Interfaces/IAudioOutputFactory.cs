@@ -5,7 +5,7 @@
     /// </summary>
     public interface IAudioOutputFactory {
         /// <summary>
-        /// Creates an instnace of a concrete <see cref="IAudioOutput"/> class
+        /// Creates an instance of a concrete <see cref="IAudioOutput"/> class
         /// </summary>
         /// <param name="peerID">The ID of the peer for which </param>
         /// <param name="frequency">Frequency/sample rate of the audio </param>

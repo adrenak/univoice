@@ -1,7 +1,7 @@
 # UniVoice
 UniVoice is a voice chat/VoIP solution for Unity.
   
-It comes with ready-to-use P2P (peer to peer) conenctivity which allows devices to communicate nearly free of cost*. For the underlying P2P solution, please visit [AirPeer](https://www.github.com/adrenak/airpeer)  
+It comes with ready-to-use P2P (peer to peer) connectivity which allows devices to communicate nearly free of cost*. For the underlying P2P solution, please visit [AirPeer](https://www.github.com/adrenak/airpeer)  
 
 Some features of UniVoice:
 - 👥 Group voice chat. Multiple peers can join a chatroom and exchange audio.  
@@ -10,10 +10,10 @@ Some features of UniVoice:
 
 - ✍ Edit outgoing and incoming audio with filters and effects. (No filters or effects provided out of the box currently)
   
-- 🎨 Customise your audio input, output and networking layer. 
+- 🎨 Customize your audio input, output and networking layer. 
   * 🎤 __Configurable Audio Input__: Decide what the input of your outgoing audio is. Let it be from [Unity's Microphone](https://docs.unity3d.com/ScriptReference/Microphone.html) class, or a live streaming audio, or an MP4 file on the disk.
     
-  * 🔊 __Configurable Audio Output__:  Decide where the incoming peer audio goes. Let the output of incoming audio be [Unity AudioSource](https://docs.unity3d.com/ScriptReference/AudioSource.html) to play the audio in-game, or write it into an MP4 on the disk, or stream it to an online service.
+  * 🔊 __Configurable Audio Output__:  Decide where the incoming peer audio ges. Let the output of incoming audio be [Unity AudioSource](https://docs.unity3d.com/ScriptReference/AudioSource.html) to play the audio in-game, or write it into an MP4 on the disk, or stream it to an online service.
 
   * 🌐 __Configurable Network__: Want to use UniVoice in a WLAN project using [Telepathy?](https://github.com/vis2k/Telepathy) Just adapt its API for UniVoice with a simple the `IChatroomNetwork` interface. Using your own backend for multiplayer? Create and expose your audio API and write a UniVoice implementation, again with the same interface.
   
@@ -24,9 +24,9 @@ Some features of UniVoice:
 
   * 🌐 __P2P network__: implementation based on [AirPeer](https://www.github.com/adrenak/airpeer) which uses WebRTC for free-of-cost networking between peers. 
   
-    Plus, to get started you don't need to worry about hosting your own WebRTC signalling server as a server that's good enough for testing is already available. (See the project samples for more details)
+    Plus, to get started you don't need to worry about hosting your own WebRTC signaling server as a server that's good enough for testing is already available. (See the project samples for more details)
 
-_*signalling server costs still apply, but they are minimal and sometimes free on platforms such as Heroku_
+_*signaling server costs still apply, but they are minimal and sometimes free on platforms such as Heroku_
 
 # Documentation
 For the API documentation, please visit http://www.vatsalambastha.com/univoice
@@ -38,8 +38,8 @@ Manuals, Wiki, Tutorials, etc. are not available yet.
 - To be able to host and join voice chatrooms, you need a `ChatroomAgent` instance. To get the ready-to-use inbuilt implementation, use this
   
 ```
-var agent = new InbuiltChatroomAgentFactory(SIGNALLING_SERVER_URL).Create();
-// Don't worry, a signalling server URL is available inside the repositories samples code. 
+var agent = new InbuiltChatroomAgentFactory(SIGNALING_SERVER_URL).Create();
+// Don't worry, a signaling server URL is available inside the repositories samples code. 
 ```
 
 ## Hosting and joining chatrooms
