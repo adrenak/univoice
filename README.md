@@ -1,3 +1,5 @@
+Note: Inbuilt implementations and samples have been removed from this repository. They'll be added to separate repositories soon.
+
 # UniVoice
 UniVoice is a voice chat/VoIP solution for Unity.
   
