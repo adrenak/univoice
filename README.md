@@ -3,8 +3,6 @@ Note: Inbuilt implementations and samples have been removed from this repository
 # UniVoice
 UniVoice is a voice chat/VoIP solution for Unity.
   
-It comes with ready-to-use P2P (peer to peer) connectivity which allows devices to communicate nearly free of cost*. For the underlying P2P solution, please visit [AirPeer](https://www.github.com/adrenak/airpeer)  
-
 Some features of UniVoice:
 - 👥 Group voice chat. Multiple peers can join a chatroom and exchange audio.  
 
@@ -17,21 +15,18 @@ Some features of UniVoice:
 
   * 🌐 __Configurable Network__: Want to use UniVoice in a WLAN project using [Telepathy?](https://github.com/vis2k/Telepathy) Just adapt its API for UniVoice with a simple the `IChatroomNetwork` interface. Using your own backend for multiplayer? Create and expose your audio API and write a UniVoice implementation, again with the same interface.
   
-# Documentation
-For the API documentation, please visit http://www.vatsalambastha.com/univoice
-  
-Manuals, Wiki, Tutorials, etc. are not available yet.
+# Docs
+Manuals and sample projects are not available yet. For the API reference, please visit http://www.vatsalambastha.com/univoice
   
 # Usage
 ## Creating a chatroom agent
-- To be able to host and join voice chatrooms, you need a `ChatroomAgent` instance. To get the ready-to-use inbuilt implementation, use this
+- To be able to host and join voice chatrooms, you need a `ChatroomAgent` instance.
   
 ```
 var agent = new ChatroomAgent(IChatroomNetwork network, IAudioInput audioInput, IAudioOutput audioOutput);
 ```
 
 ## Hosting and joining chatrooms
-`ChatroomAgent` exposes `Network`, an implementation of `IChatroomNetwork`
 
 Every peer in the chatroom is assigned an ID by the host. And every peer has a peer list, representing the other peers in the chatroom.
 
@@ -71,7 +66,7 @@ If you want to mute yourself towards a specific peer, use this:
 `agent.PeerSettings[id].muteSelf = true; // where id belongs to the peer in question`
   
 ## Events
-`agent.Network` provides several network related events. Refer to the API reference for them.
+`agent.Network` provides several network related events. Refer to the [API reference](http://www.vatsalambastha.com/univoice/api/Adrenak.UniVoice.ChatroomAgent.html) for them.
 
 # License and Support
 This project is under the [MIT license](https://github.com/adrenak/univoice/blob/master/LICENSE).
