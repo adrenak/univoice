@@ -28,7 +28,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.ChatroomAgent.html",
-          "hash": "Ui6U4yjRm0gUTIZfLTuL6iRx7ORXcndCPy6fQQOQIy8="
+          "hash": "L1YQ5FopWiGgG2wKBfrvgC52irvOHSbNJMHTXsw95do="
         }
       },
       "is_incremental": false,
@@ -40,7 +40,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.ChatroomAgentMode.html",
-          "hash": "va302hmDGZsFglDmvIwJDNLcz8Lm4YcPyhfsOIl4K4Q="
+          "hash": "yETPXcnWoYWnlDOHMzMs9ZQ1KGjKZ+C2/wPpVq7sRBg="
         }
       },
       "is_incremental": false,
@@ -52,7 +52,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.ChatroomAudioDTO.html",
-          "hash": "rjLDB5TUuzIIuQNxlN/qaUm8t7msl9c1psdangyPW5E="
+          "hash": "XUnM4HPf6AbpxJdLr+ASaVPVJMPBuQBl3xsNE35vuX0="
         }
       },
       "is_incremental": false,
@@ -64,7 +64,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.ChatroomPeerSettings.html",
-          "hash": "NjWiVrRQe93xMfJolqQ7uo87g3orQys7utNNWZp35Ns="
+          "hash": "rx7uBfTnt8KgtcRijogmB3Xgfl472FK26YOMEqMxl1Y="
         }
       },
       "is_incremental": false,
@@ -76,7 +76,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.Extensions.html",
-          "hash": "7XcmkPD/bdmUku9tbW56fzTPIJKzTpscYHj1i9go6Hk="
+          "hash": "j1/AGYQ8/W/VLqwRiiwPq/c3ZGIOlNqHn3ss/mQcdOU="
         }
       },
       "is_incremental": false,
@@ -88,7 +88,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.IAudioInput.html",
-          "hash": "PAWYMPd+JanXODkMyq56Rl6uZFfCak1eFThGzUYOw08="
+          "hash": "B6cKAeBt/Ujqa+Cs7sLzfbx8QXVD6vugLQl/OHKHk+w="
         }
       },
       "is_incremental": false,
@@ -100,7 +100,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.IAudioOutput.html",
-          "hash": "+E80hWkdcWkz4bmBaypgA5IEGClTJ42dvSQbvaK7erw="
+          "hash": "vxHXa/j0gjjRfzByAu5VYO/S5+qo4JrR0uVF0UfnFRY="
         }
       },
       "is_incremental": false,
@@ -112,7 +112,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.IAudioOutputFactory.html",
-          "hash": "N/EROazKXMfdo7rqPLyv6AjWP1cibi4YGd0w8hp+XNQ="
+          "hash": "1OzEeApk6QEH6ndcxGnWeHvXE44blzhFoOSX4y4AWZg="
         }
       },
       "is_incremental": false,
@@ -124,7 +124,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.IChatroomAgentFactory.html",
-          "hash": "O6XA64KrHN8UFAB1N4ckHZ4WsdBiRvdydrzPdQ4wrns="
+          "hash": "8u8KmzUFu623QBVKUL2qe4/X4UhseFi86Ib0PuWTqmk="
         }
       },
       "is_incremental": false,
@@ -136,7 +136,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.IChatroomNetwork.html",
-          "hash": "Bx3EKg/tz8KnNW3GjilmDUZG1gseX1+C+TG7VwS5YPI="
+          "hash": "/BWFcU0OtExPaccvDhkkoVrKrjUw0OYxWfIADdwZmtY="
         }
       },
       "is_incremental": false,
@@ -148,7 +148,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.AirPeerUniVoiceNetwork.html",
-          "hash": "h4XZ0LvQNRpqA4VH2vrqA5hcYjzSm07aFPLGvZj8Oso="
+          "hash": "t1LXuZsIisbMDbfy2Md6JigOW0OrZIY2CBIw2PYNqv4="
         }
       },
       "is_incremental": false,
@@ -160,7 +160,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioBuffer.html",
-          "hash": "zZte7OKQ5V3RUJ9OjhHWg7EZoQoF8JodXO9uS9JMhjg="
+          "hash": "qj6RxQBOJa1T8KtqJi8b+WQhDHh93kcq0Xk8/aNBhUE="
         }
       },
       "is_incremental": false,
@@ -172,7 +172,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutput.html",
-          "hash": "7Z4sLtYIxVyqxOUSLsCB4kppSSfmo/zOWvhjZLT8eSU="
+          "hash": "NvuEsunWcaWNuGEcEkGaki+SOlFpbkXljMpHi3ko5BQ="
         }
       },
       "is_incremental": false,
@@ -184,7 +184,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.InbuiltAudioOutputFactory.html",
-          "hash": "ToPZei3z+fWa69HljZzSM6kTxK0alhXohz/fx2r244I="
+          "hash": "uU3QT7zeXu+A52S9q6XsUAUXN6Ud4PRuiHAaC1DyKaQ="
         }
       },
       "is_incremental": false,
@@ -196,7 +196,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.InbuiltChatroomAgentFactory.html",
-          "hash": "MGEr5P6so2lKNkf5WTkxb8RuGUGxV1NPoYTn1/UZ8Qc="
+          "hash": "iJQG8uJD2wUvjffDwcOyDoaYBq+rfftZivJSYDqgqc8="
         }
       },
       "is_incremental": false,
@@ -208,7 +208,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.UniMicAudioInput.html",
-          "hash": "3QijLGXWYSU0vq0H1LlPpx3/+q6K9XQgZV0DIkWu5dI="
+          "hash": "snxbFc7pjVBm8Z9jdgOnx3nAr1ARHnExF0eOYfK42HQ="
         }
       },
       "is_incremental": false,
@@ -220,7 +220,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.InbuiltImplementations.html",
-          "hash": "cUqYm3r1ag9dYfhfdnLVRm1Q6HDdz6N7TvseavLY4S0="
+          "hash": "WzZzEeVaZC0R4gl14ZbtHwz/V7dQwMPMprVLmWOifhY="
         }
       },
       "is_incremental": false,
@@ -232,7 +232,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.Samples.AndroidPermissionCallback.html",
-          "hash": "TUqMM1qq6BGt924jjzddJ5VwwEtdGs91VRkPWsNdqO4="
+          "hash": "vLwY/ShAZbekWmwa/ee0mbC3clBjitqzplX5T67Nx0g="
         }
       },
       "is_incremental": false,
@@ -244,7 +244,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.Samples.AndroidPermissionsManager.html",
-          "hash": "CLZ4EGcm5VNViNhLoiWOxdK2wQbTdNXow+j08r+a1hU="
+          "hash": "vnW+vWboMtnhIjaULCtjtafE2F/XSXdsReJdS96Hk/Y="
         }
       },
       "is_incremental": false,
@@ -256,7 +256,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.Samples.GroupVoiceCallSample.html",
-          "hash": "OvMyNL/UCItg/mpvtKluZesGOt4zoNzB1eT83mP50rA="
+          "hash": "GzB4/qsWo4wd75qK7yijdLW4iDYRNog4U+r+dQgqYw8="
         }
       },
       "is_incremental": false,
@@ -268,7 +268,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.Samples.PeerView.html",
-          "hash": "oV1Oz2o0byQlrY3BFhn04ycned3EDjjcS5zlxrLhI40="
+          "hash": "83W0VI8jbXygbVXEY4iLPWs7mWWUQIJ0nzxoiD8XGgs="
         }
       },
       "is_incremental": false,
@@ -280,7 +280,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.Samples.ToggleExtension.html",
-          "hash": "1ISgx18XGclSETNJvAzKPxc6RLDVofqYssz1MR5Sjrk="
+          "hash": "GmLHFilZzizT8J0lMFaDHWPWvkKRVEkG6PPOcEtAO7M="
         }
       },
       "is_incremental": false,
@@ -292,7 +292,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.Samples.html",
-          "hash": "cOUslswzdfoD2Gx4jfKnFOP4ZoPupPKPt8uAA4IWZnY="
+          "hash": "3/vrYJw+0XpA6BxckGvdvGU8Hyk+BC568q264fqtoCE="
         }
       },
       "is_incremental": false,
@@ -304,7 +304,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.html",
-          "hash": "YZ39WYWivGIqKceClgXwTdEvlZiqVXpqHr+uN6xRmx4="
+          "hash": "ytlWqlcZBZlJ//MMSYjGubrzQomJIgmpu5LFLLkOxpc="
         }
       },
       "is_incremental": false,
@@ -328,7 +328,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "nTQLvCf/DowB9rlnuQ7eEwqgSFz6CxwwJJJdcabW/Co="
+          "hash": "Au0pknz85KGkXsleEhVFQ14bJv0MEaDGCNqHC3FwGLQ="
         }
       },
       "is_incremental": false,

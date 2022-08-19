@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class AirPeerUniVoiceNetwork
    | UniVoice documentation ">
-    <meta name="generator" content="docfx 2.58.0.0">
+    <meta name="generator" content="docfx 2.59.3.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -100,7 +100,7 @@ after joining. We don&apos;t let anyone know we have connected until th</p>
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><span class="xref">AirPeerUniVoiceNetwork</span></div>
   </div>
-  <div classs="implements">
+  <div class="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="Adrenak.UniVoice.IChatroomNetwork.html">IChatroomNetwork</a></div>
   </div>
@@ -121,7 +121,7 @@ after joining. We don&apos;t let anyone know we have connected until th</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public AirPeerUniVoiceNetwork(string signallingServerURL)</code></pre>
+    <pre><code class="lang-csharp hljs">public AirPeerUniVoiceNetwork(string signalingServerURL)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -135,8 +135,8 @@ after joining. We don&apos;t let anyone know we have connected until th</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">signallingServerURL</span></td>
-        <td><p>The signalling server URL</p>
+        <td><span class="parametername">signalingServerURL</span></td>
+        <td><p>The signaling server URL</p>
 </td>
       </tr>
     </tbody>
@@ -150,7 +150,7 @@ after joining. We don&apos;t let anyone know we have connected until th</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public AirPeerUniVoiceNetwork(string signallingServerURL, string iceServerURLs)</code></pre>
+    <pre><code class="lang-csharp hljs">public AirPeerUniVoiceNetwork(string signalingServerURL, string iceServerURLs)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -164,8 +164,8 @@ after joining. We don&apos;t let anyone know we have connected until th</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">signallingServerURL</span></td>
-        <td><p>The signalling server URL</p>
+        <td><span class="parametername">signalingServerURL</span></td>
+        <td><p>The signaling server URL</p>
 </td>
       </tr>
       <tr>
@@ -466,6 +466,30 @@ after joining. We don&apos;t let anyone know we have connected until th</p>
   </table>
   
   
+  <h4 id="Adrenak_UniVoice_InbuiltImplementations_AirPeerUniVoiceNetwork_OnClosedChatroom" data-uid="Adrenak.UniVoice.InbuiltImplementations.AirPeerUniVoiceNetwork.OnClosedChatroom">OnClosedChatroom</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action OnClosedChatroom</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.action">Action</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <h4 id="Adrenak_UniVoice_InbuiltImplementations_AirPeerUniVoiceNetwork_OnCreatedChatroom" data-uid="Adrenak.UniVoice.InbuiltImplementations.AirPeerUniVoiceNetwork.OnCreatedChatroom">OnCreatedChatroom</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
@@ -520,30 +544,6 @@ after joining. We don&apos;t let anyone know we have connected until th</p>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event Action OnLeftChatroom</code></pre>
-  </div>
-  <h5 class="eventType">Event Type</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.action">Action</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="Adrenak_UniVoice_InbuiltImplementations_AirPeerUniVoiceNetwork_OnlosedChatroom" data-uid="Adrenak.UniVoice.InbuiltImplementations.AirPeerUniVoiceNetwork.OnlosedChatroom">OnlosedChatroom</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event Action OnlosedChatroom</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">

@@ -477,6 +477,12 @@ references:
   commentId: E:Adrenak.UniVoice.IChatroomNetwork.OnChatroomJoinFailed
   fullName: Adrenak.UniVoice.IChatroomNetwork.OnChatroomJoinFailed
   nameWithType: IChatroomNetwork.OnChatroomJoinFailed
+- uid: Adrenak.UniVoice.IChatroomNetwork.OnClosedChatroom
+  name: OnClosedChatroom
+  href: api/Adrenak.UniVoice.IChatroomNetwork.html#Adrenak_UniVoice_IChatroomNetwork_OnClosedChatroom
+  commentId: E:Adrenak.UniVoice.IChatroomNetwork.OnClosedChatroom
+  fullName: Adrenak.UniVoice.IChatroomNetwork.OnClosedChatroom
+  nameWithType: IChatroomNetwork.OnClosedChatroom
 - uid: Adrenak.UniVoice.IChatroomNetwork.OnCreatedChatroom
   name: OnCreatedChatroom
   href: api/Adrenak.UniVoice.IChatroomNetwork.html#Adrenak_UniVoice_IChatroomNetwork_OnCreatedChatroom
@@ -495,12 +501,6 @@ references:
   commentId: E:Adrenak.UniVoice.IChatroomNetwork.OnLeftChatroom
   fullName: Adrenak.UniVoice.IChatroomNetwork.OnLeftChatroom
   nameWithType: IChatroomNetwork.OnLeftChatroom
-- uid: Adrenak.UniVoice.IChatroomNetwork.OnlosedChatroom
-  name: OnlosedChatroom
-  href: api/Adrenak.UniVoice.IChatroomNetwork.html#Adrenak_UniVoice_IChatroomNetwork_OnlosedChatroom
-  commentId: E:Adrenak.UniVoice.IChatroomNetwork.OnlosedChatroom
-  fullName: Adrenak.UniVoice.IChatroomNetwork.OnlosedChatroom
-  nameWithType: IChatroomNetwork.OnlosedChatroom
 - uid: Adrenak.UniVoice.IChatroomNetwork.OnPeerJoinedChatroom
   name: OnPeerJoinedChatroom
   href: api/Adrenak.UniVoice.IChatroomNetwork.html#Adrenak_UniVoice_IChatroomNetwork_OnPeerJoinedChatroom
@@ -685,6 +685,12 @@ references:
   commentId: E:Adrenak.UniVoice.InbuiltImplementations.AirPeerUniVoiceNetwork.OnChatroomJoinFailed
   fullName: Adrenak.UniVoice.InbuiltImplementations.AirPeerUniVoiceNetwork.OnChatroomJoinFailed
   nameWithType: AirPeerUniVoiceNetwork.OnChatroomJoinFailed
+- uid: Adrenak.UniVoice.InbuiltImplementations.AirPeerUniVoiceNetwork.OnClosedChatroom
+  name: OnClosedChatroom
+  href: api/Adrenak.UniVoice.InbuiltImplementations.AirPeerUniVoiceNetwork.html#Adrenak_UniVoice_InbuiltImplementations_AirPeerUniVoiceNetwork_OnClosedChatroom
+  commentId: E:Adrenak.UniVoice.InbuiltImplementations.AirPeerUniVoiceNetwork.OnClosedChatroom
+  fullName: Adrenak.UniVoice.InbuiltImplementations.AirPeerUniVoiceNetwork.OnClosedChatroom
+  nameWithType: AirPeerUniVoiceNetwork.OnClosedChatroom
 - uid: Adrenak.UniVoice.InbuiltImplementations.AirPeerUniVoiceNetwork.OnCreatedChatroom
   name: OnCreatedChatroom
   href: api/Adrenak.UniVoice.InbuiltImplementations.AirPeerUniVoiceNetwork.html#Adrenak_UniVoice_InbuiltImplementations_AirPeerUniVoiceNetwork_OnCreatedChatroom
@@ -703,12 +709,6 @@ references:
   commentId: E:Adrenak.UniVoice.InbuiltImplementations.AirPeerUniVoiceNetwork.OnLeftChatroom
   fullName: Adrenak.UniVoice.InbuiltImplementations.AirPeerUniVoiceNetwork.OnLeftChatroom
   nameWithType: AirPeerUniVoiceNetwork.OnLeftChatroom
-- uid: Adrenak.UniVoice.InbuiltImplementations.AirPeerUniVoiceNetwork.OnlosedChatroom
-  name: OnlosedChatroom
-  href: api/Adrenak.UniVoice.InbuiltImplementations.AirPeerUniVoiceNetwork.html#Adrenak_UniVoice_InbuiltImplementations_AirPeerUniVoiceNetwork_OnlosedChatroom
-  commentId: E:Adrenak.UniVoice.InbuiltImplementations.AirPeerUniVoiceNetwork.OnlosedChatroom
-  fullName: Adrenak.UniVoice.InbuiltImplementations.AirPeerUniVoiceNetwork.OnlosedChatroom
-  nameWithType: AirPeerUniVoiceNetwork.OnlosedChatroom
 - uid: Adrenak.UniVoice.InbuiltImplementations.AirPeerUniVoiceNetwork.OnPeerJoinedChatroom
   name: OnPeerJoinedChatroom
   href: api/Adrenak.UniVoice.InbuiltImplementations.AirPeerUniVoiceNetwork.html#Adrenak_UniVoice_InbuiltImplementations_AirPeerUniVoiceNetwork_OnPeerJoinedChatroom
@@ -1062,19 +1062,19 @@ references:
   isSpec: "True"
   fullName: Adrenak.UniVoice.InbuiltImplementations.InbuiltChatroomAgentFactory.Create
   nameWithType: InbuiltChatroomAgentFactory.Create
-- uid: Adrenak.UniVoice.InbuiltImplementations.InbuiltChatroomAgentFactory.SignallingServerURL
-  name: SignallingServerURL
-  href: api/Adrenak.UniVoice.InbuiltImplementations.InbuiltChatroomAgentFactory.html#Adrenak_UniVoice_InbuiltImplementations_InbuiltChatroomAgentFactory_SignallingServerURL
-  commentId: P:Adrenak.UniVoice.InbuiltImplementations.InbuiltChatroomAgentFactory.SignallingServerURL
-  fullName: Adrenak.UniVoice.InbuiltImplementations.InbuiltChatroomAgentFactory.SignallingServerURL
-  nameWithType: InbuiltChatroomAgentFactory.SignallingServerURL
-- uid: Adrenak.UniVoice.InbuiltImplementations.InbuiltChatroomAgentFactory.SignallingServerURL*
-  name: SignallingServerURL
-  href: api/Adrenak.UniVoice.InbuiltImplementations.InbuiltChatroomAgentFactory.html#Adrenak_UniVoice_InbuiltImplementations_InbuiltChatroomAgentFactory_SignallingServerURL_
-  commentId: Overload:Adrenak.UniVoice.InbuiltImplementations.InbuiltChatroomAgentFactory.SignallingServerURL
+- uid: Adrenak.UniVoice.InbuiltImplementations.InbuiltChatroomAgentFactory.SignalingServerURL
+  name: SignalingServerURL
+  href: api/Adrenak.UniVoice.InbuiltImplementations.InbuiltChatroomAgentFactory.html#Adrenak_UniVoice_InbuiltImplementations_InbuiltChatroomAgentFactory_SignalingServerURL
+  commentId: P:Adrenak.UniVoice.InbuiltImplementations.InbuiltChatroomAgentFactory.SignalingServerURL
+  fullName: Adrenak.UniVoice.InbuiltImplementations.InbuiltChatroomAgentFactory.SignalingServerURL
+  nameWithType: InbuiltChatroomAgentFactory.SignalingServerURL
+- uid: Adrenak.UniVoice.InbuiltImplementations.InbuiltChatroomAgentFactory.SignalingServerURL*
+  name: SignalingServerURL
+  href: api/Adrenak.UniVoice.InbuiltImplementations.InbuiltChatroomAgentFactory.html#Adrenak_UniVoice_InbuiltImplementations_InbuiltChatroomAgentFactory_SignalingServerURL_
+  commentId: Overload:Adrenak.UniVoice.InbuiltImplementations.InbuiltChatroomAgentFactory.SignalingServerURL
   isSpec: "True"
-  fullName: Adrenak.UniVoice.InbuiltImplementations.InbuiltChatroomAgentFactory.SignallingServerURL
-  nameWithType: InbuiltChatroomAgentFactory.SignallingServerURL
+  fullName: Adrenak.UniVoice.InbuiltImplementations.InbuiltChatroomAgentFactory.SignalingServerURL
+  nameWithType: InbuiltChatroomAgentFactory.SignalingServerURL
 - uid: Adrenak.UniVoice.InbuiltImplementations.UniMicAudioInput
   name: UniMicAudioInput
   href: api/Adrenak.UniVoice.InbuiltImplementations.UniMicAudioInput.html

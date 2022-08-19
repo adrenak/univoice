@@ -8,7 +8,7 @@
     <title>UniVoice | UniVoice documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="UniVoice | UniVoice documentation ">
-    <meta name="generator" content="docfx 2.58.0.0">
+    <meta name="generator" content="docfx 2.59.3.0">
     
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="styles/docfx.vendor.css">
@@ -73,7 +73,7 @@
 <h1 id="univoice">UniVoice</h1>
 
 <p>UniVoice is a voice chat/VoIP solution for Unity.</p>
-<p>It comes with ready-to-use P2P (peer to peer) conenctivity which allows devices to communicate nearly free of cost*. For the underlying P2P solution, please visit <a href="https://www.github.com/adrenak/airpeer">AirPeer</a>  </p>
+<p>It comes with ready-to-use P2P (peer to peer) connectivity which allows devices to communicate nearly free of cost*. For the underlying P2P solution, please visit <a href="https://www.github.com/adrenak/airpeer">AirPeer</a>  </p>
 <p>Some features of UniVoice:</p>
 <ul>
 <li><p>👥 Group voice chat. Multiple peers can join a chatroom and exchange audio.  </p>
@@ -82,11 +82,11 @@
 </li>
 <li><p>✍ Edit outgoing and incoming audio with filters and effects. (No filters or effects provided out of the box currently)</p>
 </li>
-<li><p>🎨 Customise your audio input, output and networking layer. </p>
+<li><p>🎨 Customize your audio input, output and networking layer. </p>
 <ul>
 <li><p>🎤 <strong>Configurable Audio Input</strong>: Decide what the input of your outgoing audio is. Let it be from <a href="https://docs.unity3d.com/ScriptReference/Microphone.html">Unity&#39;s Microphone</a> class, or a live streaming audio, or an MP4 file on the disk.</p>
 </li>
-<li><p>🔊 <strong>Configurable Audio Output</strong>:  Decide where the incoming peer audio goes. Let the output of incoming audio be <a href="https://docs.unity3d.com/ScriptReference/AudioSource.html">Unity AudioSource</a> to play the audio in-game, or write it into an MP4 on the disk, or stream it to an online service.</p>
+<li><p>🔊 <strong>Configurable Audio Output</strong>:  Decide where the incoming peer audio ges. Let the output of incoming audio be <a href="https://docs.unity3d.com/ScriptReference/AudioSource.html">Unity AudioSource</a> to play the audio in-game, or write it into an MP4 on the disk, or stream it to an online service.</p>
 </li>
 <li><p>🌐 <strong>Configurable Network</strong>: Want to use UniVoice in a WLAN project using <a href="https://github.com/vis2k/Telepathy">Telepathy?</a> Just adapt its API for UniVoice with a simple the <code>IChatroomNetwork</code> interface. Using your own backend for multiplayer? Create and expose your audio API and write a UniVoice implementation, again with the same interface.</p>
 </li>
@@ -99,12 +99,12 @@
 <li><p>🔊 <strong>Audio Output</strong>: source that plays incoming peer audio on <a href="https://docs.unity3d.com/ScriptReference/AudioSource.html">Unity AudioSource</a>  </p>
 </li>
 <li><p>🌐 <strong>P2P network</strong>: implementation based on <a href="https://www.github.com/adrenak/airpeer">AirPeer</a> which uses WebRTC for free-of-cost networking between peers. </p>
-<p>Plus, to get started you don&#39;t need to worry about hosting your own WebRTC signalling server as a server that&#39;s good enough for testing is already available. (See the project samples for more details)</p>
+<p>Plus, to get started you don&#39;t need to worry about hosting your own WebRTC signaling server as a server that&#39;s good enough for testing is already available. (See the project samples for more details)</p>
 </li>
 </ul>
 </li>
 </ul>
-<p><em>*signalling server costs still apply, but they are minimal and sometimes free on platforms such as Heroku</em></p>
+<p><em>*signaling server costs still apply, but they are minimal and sometimes free on platforms such as Heroku</em></p>
 <h1 id="documentation">Documentation</h1>
 <p>For the API documentation, please visit <a href="http://www.vatsalambastha.com/univoice">http://www.vatsalambastha.com/univoice</a></p>
 <p>Manuals, Wiki, Tutorials, etc. are not available yet.</p>
@@ -113,8 +113,8 @@
 <ul>
 <li>To be able to host and join voice chatrooms, you need a <code>ChatroomAgent</code> instance. To get the ready-to-use inbuilt implementation, use this</li>
 </ul>
-<pre><code>var agent = new InbuiltChatroomAgentFactory(SIGNALLING_SERVER_URL).Create();
-// Don&#39;t worry, a signalling server URL is available inside the repositories samples code. 
+<pre><code>var agent = new InbuiltChatroomAgentFactory(SIGNALING_SERVER_URL).Create();
+// Don&#39;t worry, a signaling server URL is available inside the repositories samples code. 
 </code></pre><h2 id="hosting-and-joining-chatrooms">Hosting and joining chatrooms</h2>
 <p>Every peer in the chatroom is assigned an ID by the host. And every peer has a peer list, representing the other peers in the chatroom.</p>
 <ul>
