@@ -1,24 +1,20 @@
 {
-	"name": "com.adrenak.univoice",
-	"version": "1.1.4",
-	"displayName": "Adrenak.UniVoice",
-	"description": "Voice chat/VoIP solution for Unity.",
-	"unity": "2019.4",
-	"author": {
-		"name": "Vatsal Ambastha",
-		"email": "ambastha.vatsal@gmail.com",
-		"url": "http://www.vatsalambastha.com"
-	},
-	"license": "MIT",
-	"keywords": [
-		"Peer To Peer",
-		"WebRTC",
-		"P2P",
-		"Networking",
-		"Voice Chat",
-		"voip"
-	],
-	"publishConfig": {
-		"registry": "https://registry.npmjs.org"
-	}
+  "name": "com.adrenak.univoice",
+  "version": "1.2.1",
+  "displayName": "Adrenak.UniVoice",
+  "description": "Voice chat/VoIP solution for Unity.",
+  "unity": "2019.4",
+  "author": "Vatsal Ambastha <ambastha.vatsal@gmail.com> (http://www.vatsalambastha.com)",
+  "license": "MIT",
+  "keywords": [
+    "Peer To Peer",
+    "WebRTC",
+    "P2P",
+    "Networking",
+    "Voice Chat",
+    "voip"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  }
 }
