@@ -150,22 +150,20 @@ namespace Adrenak.UniVoice {
                 RemovePeer(id);
 
             // Stream the incoming audio data using the right peer output
-            Network.OnAudioReceived += data => {
+            Network.OnAudioReceived += (peerID, data) => {
                 // if we're muting all, no point continuing.
                 if (MuteOthers) return;
 
-                var id = data.id;
                 var index = data.segmentIndex;
                 var frequency = data.frequency;
                 var channels = data.channelCount;
                 var samples = data.samples;
 
-                EnsurePeerStreamer(id, frequency, channels, samples.Length);
+                EnsurePeerStreamer(peerID, frequency, channels, samples.Length);
 
-                if (HasSettingsForPeer(id) && !PeerSettings[id].muteThem)
-                    PeerOutputs[id].Feed(index, frequency, channels, samples);
+                if (HasSettingsForPeer(peerID) && !PeerSettings[peerID].muteThem)
+                    PeerOutputs[peerID].Feed(index, frequency, channels, samples);
             };
-
 
             AudioInput.OnSegmentReady += (index, samples) => {
                 if (MuteSelf) return;
@@ -179,8 +177,7 @@ namespace Adrenak.UniVoice {
 
                 // Send the audio segment to every deserving recipient
                 foreach (var recipient in recipients)
-                    Network.SendAudioSegment(new ChatroomAudioSegment {
-                        id = recipient,
+                    Network.SendAudioSegment(recipient, new ChatroomAudioSegment {
                         segmentIndex = index,
                         frequency = AudioInput.Frequency,
                         channelCount = AudioInput.ChannelCount,
@@ -208,9 +205,9 @@ namespace Adrenak.UniVoice {
         bool HasSettingsForPeer(short id) => PeerSettings.ContainsKey(id);
 
         void EnsurePeerStreamer(
-            short id, 
-            int frequency, 
-            int channels, 
+            short id,
+            int frequency,
+            int channels,
             int segmentLength
         ) {
             if (!PeerOutputs.ContainsKey(id) && PeerSettings.ContainsKey(id)) {

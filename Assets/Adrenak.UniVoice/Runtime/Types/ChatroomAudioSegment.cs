@@ -5,11 +5,6 @@
     /// </summary>
     public struct ChatroomAudioSegment {
         /// <summary>
-        /// ID of the peer that has sent the data
-        /// </summary>
-        public short id;
-
-        /// <summary>
         /// The segment index of the audio samples
         /// </summary>
         public int segmentIndex;
