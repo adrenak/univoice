@@ -171,12 +171,6 @@ references:
   commentId: F:Adrenak.UniVoice.ChatroomAudioSegment.frequency
   fullName: Adrenak.UniVoice.ChatroomAudioSegment.frequency
   nameWithType: ChatroomAudioSegment.frequency
-- uid: Adrenak.UniVoice.ChatroomAudioSegment.id
-  name: id
-  href: api/Adrenak.UniVoice.ChatroomAudioSegment.html#Adrenak_UniVoice_ChatroomAudioSegment_id
-  commentId: F:Adrenak.UniVoice.ChatroomAudioSegment.id
-  fullName: Adrenak.UniVoice.ChatroomAudioSegment.id
-  nameWithType: ChatroomAudioSegment.id
 - uid: Adrenak.UniVoice.ChatroomAudioSegment.samples
   name: samples
   href: api/Adrenak.UniVoice.ChatroomAudioSegment.html#Adrenak_UniVoice_ChatroomAudioSegment_samples
@@ -507,12 +501,12 @@ references:
   isSpec: "True"
   fullName: Adrenak.UniVoice.IChatroomNetwork.PeerIDs
   nameWithType: IChatroomNetwork.PeerIDs
-- uid: Adrenak.UniVoice.IChatroomNetwork.SendAudioSegment(Adrenak.UniVoice.ChatroomAudioSegment)
-  name: SendAudioSegment(ChatroomAudioSegment)
-  href: api/Adrenak.UniVoice.IChatroomNetwork.html#Adrenak_UniVoice_IChatroomNetwork_SendAudioSegment_Adrenak_UniVoice_ChatroomAudioSegment_
-  commentId: M:Adrenak.UniVoice.IChatroomNetwork.SendAudioSegment(Adrenak.UniVoice.ChatroomAudioSegment)
-  fullName: Adrenak.UniVoice.IChatroomNetwork.SendAudioSegment(Adrenak.UniVoice.ChatroomAudioSegment)
-  nameWithType: IChatroomNetwork.SendAudioSegment(ChatroomAudioSegment)
+- uid: Adrenak.UniVoice.IChatroomNetwork.SendAudioSegment(System.Int16,Adrenak.UniVoice.ChatroomAudioSegment)
+  name: SendAudioSegment(Int16, ChatroomAudioSegment)
+  href: api/Adrenak.UniVoice.IChatroomNetwork.html#Adrenak_UniVoice_IChatroomNetwork_SendAudioSegment_System_Int16_Adrenak_UniVoice_ChatroomAudioSegment_
+  commentId: M:Adrenak.UniVoice.IChatroomNetwork.SendAudioSegment(System.Int16,Adrenak.UniVoice.ChatroomAudioSegment)
+  fullName: Adrenak.UniVoice.IChatroomNetwork.SendAudioSegment(System.Int16, Adrenak.UniVoice.ChatroomAudioSegment)
+  nameWithType: IChatroomNetwork.SendAudioSegment(Int16, ChatroomAudioSegment)
 - uid: Adrenak.UniVoice.IChatroomNetwork.SendAudioSegment*
   name: SendAudioSegment
   href: api/Adrenak.UniVoice.IChatroomNetwork.html#Adrenak_UniVoice_IChatroomNetwork_SendAudioSegment_
