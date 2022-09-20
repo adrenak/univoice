@@ -20,7 +20,7 @@ namespace Adrenak.UniVoice {
         /// Provides an exception as event data.
         /// </summary>
         event Action<Exception> OnChatroomCreationFailed;
-        
+
         /// <summary>
         /// Fired when a chatroom is closed.
         /// </summary>
@@ -58,12 +58,12 @@ namespace Adrenak.UniVoice {
         /// <summary>
         /// Fired when the network receives audio data from a peer. 
         /// </summary>
-        event Action<ChatroomAudioSegment> OnAudioReceived;
+        event Action<short, ChatroomAudioSegment> OnAudioReceived;
 
         /// <summary>
         /// Fired when the local user sets audio data to a peer.
         /// </summary>
-        event Action<ChatroomAudioSegment> OnAudioSent;
+        event Action<short, ChatroomAudioSegment> OnAudioSent;
         #endregion
 
         // ====================================================================
@@ -111,7 +111,7 @@ namespace Adrenak.UniVoice {
         /// Sends audio data over the network
         /// </summary>
         /// <param name="data">The data to be transmitted.</param>
-        void SendAudioSegment(ChatroomAudioSegment data);
+        void SendAudioSegment(short peerID, ChatroomAudioSegment data);
         #endregion
     }
 }

@@ -1,4 +1,5 @@
 ﻿namespace Adrenak.UniVoice {
+    [System.Serializable]
     /// <summary>
     /// Represents the mode that a <see cref="ChatroomAgent"/> is in.
     /// </summary>

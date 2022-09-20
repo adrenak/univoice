@@ -1,4 +1,5 @@
 ﻿namespace Adrenak.UniVoice {
+    [System.Serializable]
     /// <summary>
     /// Represents settings associated with a peer in the chatroom
     /// </summary>
