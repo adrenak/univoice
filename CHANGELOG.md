@@ -1,3 +1,15 @@
+# [1.2.0](https://github.com/adrenak/univoice/compare/v1.1.4...v1.2.0) (2022-09-20)
+
+
+### Bug Fixes
+
+* Update README.md ([5c234ee](https://github.com/adrenak/univoice/commit/5c234ee1e6aad430f72b4879a401bb98f3e68b88))
+
+
+### Features
+
+* Remove inbuilt implementations. Remove samples. ([dbfc4c0](https://github.com/adrenak/univoice/commit/dbfc4c0a1ffd99d03aefe72aec0e27debe68525a))
+
 ## [1.1.4](https://github.com/adrenak/univoice/compare/v1.1.3...v1.1.4) (2021-08-10)
 
 
