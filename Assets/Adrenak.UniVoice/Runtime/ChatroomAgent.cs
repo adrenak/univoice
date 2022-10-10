@@ -140,12 +140,11 @@ namespace Adrenak.UniVoice {
             // Node client events
             Network.OnJoinedChatroom += id => {
                 CurrentMode = ChatroomAgentMode.Guest;
-                EnsurePeerSettings(0);
             };
             Network.OnLeftChatroom += () =>
                 RemoveAllPeers();
-            Network.OnPeerJoinedChatroom += id =>
-                EnsurePeerSettings(id);
+            Network.OnPeerJoinedChatroom += id => 
+                AddPeer(id);
             Network.OnPeerLeftChatroom += id =>
                 RemovePeer(id);
 
@@ -159,8 +158,6 @@ namespace Adrenak.UniVoice {
                 var channels = data.channelCount;
                 var samples = data.samples;
 
-                EnsurePeerStreamer(peerID, frequency, channels, samples.Length);
-
                 if (HasSettingsForPeer(peerID) && !PeerSettings[peerID].muteThem)
                     PeerOutputs[peerID].Feed(index, frequency, channels, samples);
             };
@@ -171,8 +168,7 @@ namespace Adrenak.UniVoice {
                 // Get all the recipients we haven't muted ourselves to
                 var recipients = Network.PeerIDs
                     .Where(x => {
-                        return HasSettingsForPeer(x)
-                        && !PeerSettings[x].muteSelf;
+                        return HasSettingsForPeer(x) && !PeerSettings[x].muteSelf;
                     });
 
                 // Send the audio segment to every deserving recipient
@@ -186,11 +182,24 @@ namespace Adrenak.UniVoice {
             };
         }
 
+        void AddPeer(short id) {
+            if (!PeerSettings.ContainsKey(id))
+                PeerSettings.Add(id, new ChatroomPeerSettings());
+            if(!PeerOutputs.ContainsKey(id)) {
+                var output = AudioOutputFactory.Create(
+                    AudioInput.Frequency,
+                    AudioInput.ChannelCount,
+                    AudioInput.Frequency * AudioInput.ChannelCount / AudioInput.SegmentRate
+                );
+                output.ID = id.ToString();
+                PeerOutputs.Add(id, output);
+            }
+        }
+
         void RemovePeer(short id) {
             if (PeerSettings.ContainsKey(id))
                 PeerSettings.Remove(id);
             if (PeerOutputs.ContainsKey(id)) {
-                PeerOutputs[id].Dispose();
                 PeerOutputs[id].Dispose();
                 PeerOutputs.Remove(id);
             }
@@ -199,27 +208,7 @@ namespace Adrenak.UniVoice {
         void RemoveAllPeers() =>
             PeerSettings.Keys.ToList().ForEach(x => RemovePeer(x));
 
-        void EnsurePeerSettings(short id) =>
-            PeerSettings.EnsureKey(id, new ChatroomPeerSettings());
-
         bool HasSettingsForPeer(short id) => PeerSettings.ContainsKey(id);
-
-        void EnsurePeerStreamer(
-            short id,
-            int frequency,
-            int channels,
-            int segmentLength
-        ) {
-            if (!PeerOutputs.ContainsKey(id) && PeerSettings.ContainsKey(id)) {
-                var output = AudioOutputFactory.Create(
-                    frequency,
-                    channels,
-                    segmentLength
-                );
-                output.ID = id.ToString();
-                PeerOutputs.Add(id, output);
-            }
-        }
         #endregion
     }
 }
