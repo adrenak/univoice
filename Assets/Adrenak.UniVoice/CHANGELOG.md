@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/adrenak/univoice/compare/v1.2.0...v1.2.1) (2022-10-10)
+
+
+### Bug Fixes
+
+* PeersOutputs gets filled as peers join, not when they start ([42eaeb9](https://github.com/adrenak/univoice/commit/42eaeb95eef4eea7ee559da9fdbcac78ceb941b4))
+
 # [1.2.0](https://github.com/adrenak/univoice/compare/v1.1.4...v1.2.0) (2022-09-20)
 
 
