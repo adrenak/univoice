@@ -155,8 +155,10 @@ an input and the source doesn&apos;t matter.</p>
   <h4 id="Adrenak_UniVoice_IAudioInput_SegmentRate" data-uid="Adrenak.UniVoice.IAudioInput.SegmentRate">SegmentRate</h4>
   <div class="markdown level1 summary"><p>The number of segments (a segment is a sequence of audio samples)
 that are emitted from the source every second.
-A 16000 Hz source with a rate of 10 will output an array of
-1600 samples every 100 milliseconds.</p>
+A 16000 Hz source with one channel at a rate of 10 
+will output an array of 1600 samples every 100 milliseconds.
+A 44000 Hz source with two channels at a rate of 10 
+will output an array of 8800 samples every 100 milliseconds.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
