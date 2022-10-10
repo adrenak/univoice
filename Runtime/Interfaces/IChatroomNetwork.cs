@@ -46,6 +46,8 @@ namespace Adrenak.UniVoice {
         /// <summary>
         /// Fired when a peer joins the chatroom. 
         /// Provides the ID of the peer as event data.
+        /// This action also MUST be called for all previously
+        /// existing peers when we connect to a network.
         /// </summary>
         event Action<short> OnPeerJoinedChatroom;
 
