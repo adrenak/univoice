@@ -1,6 +1,6 @@
-Note: Inbuilt implementations and samples have been removed from this repository. They'll be added to separate repositories soon.
+⚠️ Inbuilt implementations and samples have been removed from this repository. They're being moved to separate modules and projects. This is a relatively major change and the univoice project may be unstable for a while. 
 
-CI is currently brokern.
+CI is currently broken.
 
 # UniVoice
 UniVoice is a voice chat/VoIP solution for Unity.
