@@ -239,19 +239,19 @@ references:
   fullName.vb: Adrenak.UniVoice.Extensions.EnsurePair(Of T, K)(System.Collections.Generic.Dictionary(Of T, K), T, K)
   nameWithType: Extensions.EnsurePair<T, K>(Dictionary<T, K>, T, K)
   nameWithType.vb: Extensions.EnsurePair(Of T, K)(Dictionary(Of T, K), T, K)
-- uid: Adrenak.UniVoice.Extensions.Position(AudioSource)
-  name: Position(AudioSource)
-  href: api/Adrenak.UniVoice.Extensions.html#Adrenak_UniVoice_Extensions_Position_AudioSource_
-  commentId: M:Adrenak.UniVoice.Extensions.Position(AudioSource)
-  fullName: Adrenak.UniVoice.Extensions.Position(AudioSource)
-  nameWithType: Extensions.Position(AudioSource)
-- uid: Adrenak.UniVoice.Extensions.Position*
-  name: Position
-  href: api/Adrenak.UniVoice.Extensions.html#Adrenak_UniVoice_Extensions_Position_
-  commentId: Overload:Adrenak.UniVoice.Extensions.Position
+- uid: Adrenak.UniVoice.Extensions.GetCurrentPosition(AudioSource)
+  name: GetCurrentPosition(AudioSource)
+  href: api/Adrenak.UniVoice.Extensions.html#Adrenak_UniVoice_Extensions_GetCurrentPosition_AudioSource_
+  commentId: M:Adrenak.UniVoice.Extensions.GetCurrentPosition(AudioSource)
+  fullName: Adrenak.UniVoice.Extensions.GetCurrentPosition(AudioSource)
+  nameWithType: Extensions.GetCurrentPosition(AudioSource)
+- uid: Adrenak.UniVoice.Extensions.GetCurrentPosition*
+  name: GetCurrentPosition
+  href: api/Adrenak.UniVoice.Extensions.html#Adrenak_UniVoice_Extensions_GetCurrentPosition_
+  commentId: Overload:Adrenak.UniVoice.Extensions.GetCurrentPosition
   isSpec: "True"
-  fullName: Adrenak.UniVoice.Extensions.Position
-  nameWithType: Extensions.Position
+  fullName: Adrenak.UniVoice.Extensions.GetCurrentPosition
+  nameWithType: Extensions.GetCurrentPosition
 - uid: Adrenak.UniVoice.IAudioInput
   name: IAudioInput
   href: api/Adrenak.UniVoice.IAudioInput.html
