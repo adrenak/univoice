@@ -123,7 +123,7 @@
   
   <a id="Adrenak_UniVoice_IChatroomNetwork_PeerIDs_" data-uid="Adrenak.UniVoice.IChatroomNetwork.PeerIDs*"></a>
   <h4 id="Adrenak_UniVoice_IChatroomNetwork_PeerIDs" data-uid="Adrenak.UniVoice.IChatroomNetwork.PeerIDs">PeerIDs</h4>
-  <div class="markdown level1 summary"><p>IDs of all the peers in the current chatroom</p>
+  <div class="markdown level1 summary"><p>IDs of all the peers in the current chatroom (excluding <a class="xref" href="Adrenak.UniVoice.IChatroomNetwork.html#Adrenak_UniVoice_IChatroomNetwork_OwnID">OwnID</a>)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -200,7 +200,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></td>
         <td><span class="parametername">data</span></td>
-        <td><p>Name of the chatroom</p>
+        <td><p>Any arguments for hosting a chatroom</p>
 </td>
       </tr>
     </tbody>
@@ -534,7 +534,9 @@ existing peers when we connect to a network.</p>
   
   <h4 id="Adrenak_UniVoice_IChatroomNetwork_OnPeerLeftChatroom" data-uid="Adrenak.UniVoice.IChatroomNetwork.OnPeerLeftChatroom">OnPeerLeftChatroom</h4>
   <div class="markdown level1 summary"><p>Fired when a peer leaves the chatroom. 
-Provides the ID of the peer as event data.</p>
+Provides the ID of the peer as event data.
+This also also MUST be called for all peers
+when we leave a network.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
