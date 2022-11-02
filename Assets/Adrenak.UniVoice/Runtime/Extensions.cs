@@ -7,7 +7,7 @@ namespace Adrenak.UniVoice {
         /// <summary>
         /// Returns the normalized position of the AudioSource on its AudioClip
         /// </summary>
-        public static float Position(this AudioSource source) {
+        public static float GetCurrentPosition(this AudioSource source) {
             return (float)source.timeSamples / source.clip.samples;
         }
 
