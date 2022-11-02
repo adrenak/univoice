@@ -9,13 +9,13 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         fetch-depth: 0
 
     - name: Semantic Release
       id: semantic
-      uses: cycjimmy/semantic-release-action@v3.0.0
+      uses: cycjimmy/semantic-release-action@v3
       with:
         extra_plugins: |
           @semantic-release/changelog
@@ -26,7 +26,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-    - name: Create UPM branch
+    - name: Create/Update upm branch
       run: |
         git branch -d upm &> /dev/null || echo upm branch not found
         git subtree split -P "$PKG_ROOT" -b upm
@@ -41,11 +41,3 @@ jobs:
         git push -f -u origin upm
       env:
         PKG_ROOT: "Assets/Adrenak.UniVoice"
-
-    - name: Create UPM git tag
-      if: steps.semantic.outputs.new_release_published == 'true'
-      run: |
-        git tag $TAG upm
-        git push origin --tags
-      env:
-        TAG: upm/v${{ steps.semantic.outputs.new_release_version }}

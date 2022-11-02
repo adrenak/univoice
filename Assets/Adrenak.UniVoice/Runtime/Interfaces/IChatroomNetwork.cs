@@ -54,6 +54,8 @@ namespace Adrenak.UniVoice {
         /// <summary>
         /// Fired when a peer leaves the chatroom. 
         /// Provides the ID of the peer as event data.
+        /// This also also MUST be called for all peers
+        /// when we leave a network.
         /// </summary>
         event Action<short> OnPeerLeftChatroom;
 
@@ -77,7 +79,7 @@ namespace Adrenak.UniVoice {
         short OwnID { get; }
 
         /// <summary>
-        /// IDs of all the peers in the current chatroom
+        /// IDs of all the peers in the current chatroom (excluding <see cref="OwnID"/>)
         /// </summary>
         List<short> PeerIDs { get; }
         #endregion
@@ -88,7 +90,7 @@ namespace Adrenak.UniVoice {
         /// <summary>
         /// Creates a chatroom 
         /// </summary>
-        /// <param name="data">Name of the chatroom</param>
+        /// <param name="data">Any arguments for hosting a chatroom</param>
         void HostChatroom(object data = null);
 
         /// <summary>

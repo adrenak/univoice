@@ -73,6 +73,7 @@ namespace Adrenak.UniVoice {
         // ====================================================================
         /// <summary>
         /// Creates and returns a new agent using the provided dependencies.
+        /// The instance then makes the dependencies work together.
         /// </summary>
         /// 
         /// <param name="chatroomNetwork">The chatroom network implementation
@@ -105,7 +106,7 @@ namespace Adrenak.UniVoice {
             PeerSettings = new Dictionary<short, ChatroomPeerSettings>();
             PeerOutputs = new Dictionary<short, IAudioOutput>();
 
-            Init();
+            LinkDependencies();
         }
 
         /// <summary>
@@ -128,21 +129,21 @@ namespace Adrenak.UniVoice {
         // ====================================================================
         #region INTERNAL 
         // ====================================================================
-        void Init() {
-            // Node server events
+        void LinkDependencies() {
+            // Network events
             Network.OnCreatedChatroom += () =>
                 CurrentMode = ChatroomAgentMode.Host;
             Network.OnClosedChatroom += () => {
                 CurrentMode = ChatroomAgentMode.Unconnected;
                 RemoveAllPeers();
             };
-
-            // Node client events
             Network.OnJoinedChatroom += id => {
                 CurrentMode = ChatroomAgentMode.Guest;
             };
-            Network.OnLeftChatroom += () =>
+            Network.OnLeftChatroom += () => {
                 RemoveAllPeers();
+                CurrentMode = ChatroomAgentMode.Unconnected;
+            };
             Network.OnPeerJoinedChatroom += id => 
                 AddPeer(id);
             Network.OnPeerLeftChatroom += id =>
@@ -158,18 +159,17 @@ namespace Adrenak.UniVoice {
                 var channels = data.channelCount;
                 var samples = data.samples;
 
-                if (HasSettingsForPeer(peerID) && !PeerSettings[peerID].muteThem)
+                if (PeerSettings.ContainsKey(peerID) && !PeerSettings[peerID].muteThem)
                     PeerOutputs[peerID].Feed(index, frequency, channels, samples);
             };
 
             AudioInput.OnSegmentReady += (index, samples) => {
+                // If we're muting ourselves to all, no point continuing
                 if (MuteSelf) return;
 
                 // Get all the recipients we haven't muted ourselves to
                 var recipients = Network.PeerIDs
-                    .Where(x => {
-                        return HasSettingsForPeer(x) && !PeerSettings[x].muteSelf;
-                    });
+                    .Where(x => PeerSettings.ContainsKey(x) && !PeerSettings[x].muteSelf);
 
                 // Send the audio segment to every deserving recipient
                 foreach (var recipient in recipients)
@@ -205,10 +205,11 @@ namespace Adrenak.UniVoice {
             }
         }
 
-        void RemoveAllPeers() =>
-            PeerSettings.Keys.ToList().ForEach(x => RemovePeer(x));
-
-        bool HasSettingsForPeer(short id) => PeerSettings.ContainsKey(id);
+        void RemoveAllPeers() {
+            var peers = Network.PeerIDs;
+            foreach(var peer in peers) 
+                RemovePeer(peer);
+        }
         #endregion
     }
 }
