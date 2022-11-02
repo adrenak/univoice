@@ -10,8 +10,6 @@ namespace Adrenak.UniVoice {
     /// destination doesn't matter.
     /// </summary>
     public interface IAudioOutput : IDisposable {
-        // TODO: Maybe introduce a PeerID property?
-
         /// <summary>
         /// An ID associated with this audio output
         /// </summary>
