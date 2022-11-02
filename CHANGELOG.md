@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/adrenak/univoice/compare/v2.0.1...v2.0.2) (2022-11-02)
+
+
+### Bug Fixes
+
+* remove comment about possible PeerID in IAudioOutput ([2246bb2](https://github.com/adrenak/univoice/commit/2246bb2bef234b84bdf6cd55a9faf87e09133953))
+
 ## [1.2.1](https://github.com/adrenak/univoice/compare/v1.2.0...v1.2.1) (2022-10-10)
 
 
