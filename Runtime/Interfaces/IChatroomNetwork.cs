@@ -46,26 +46,30 @@ namespace Adrenak.UniVoice {
         /// <summary>
         /// Fired when a peer joins the chatroom. 
         /// Provides the ID of the peer as event data.
-        /// This action also MUST be called for all previously
-        /// existing peers when we connect to a network.
+        /// NOTE: This action also MUST be called for all previously
+        /// existing peers when a local user connects to a network.
+        /// This allows the local user to know about the users that
+        /// were in the chatroom before they joined.
         /// </summary>
         event Action<short> OnPeerJoinedChatroom;
 
         /// <summary>
         /// Fired when a peer leaves the chatroom. 
         /// Provides the ID of the peer as event data.
-        /// This also also MUST be called for all peers
-        /// when we leave a network.
         /// </summary>
         event Action<short> OnPeerLeftChatroom;
 
         /// <summary>
         /// Fired when the network receives audio data from a peer. 
+        /// The first argument is the ID of the user the audio came from.
+        /// The second is the audio segment.
         /// </summary>
         event Action<short, ChatroomAudioSegment> OnAudioReceived;
 
         /// <summary>
         /// Fired when the local user sets audio data to a peer.
+        /// The first argument is the ID of the user the audio was sent to.
+        /// The second is the audio segment.
         /// </summary>
         event Action<short, ChatroomAudioSegment> OnAudioSent;
         #endregion
@@ -96,19 +100,19 @@ namespace Adrenak.UniVoice {
         /// <summary>
         /// Closes a chatroom that the local user is hosting
         /// </summary>
-        /// <param name="data">Any arguments for closing the room</param>
+        /// <param name="data">Any arguments used for closing the chatroom</param>
         void CloseChatroom(object data = null);
 
         /// <summary>
         /// Joins a chatroom
         /// </summary>
-        /// <param name="data">The name of the chatroom to join</param>
+        /// <param name="data">Any arguments used to join a chatroom</param>
         void JoinChatroom(object data = null);
 
         /// <summary>
         /// Leaves the chatroom the local user is currently in, if any
         /// </summary>
-        /// <param name="data">Any arguments for leaving the room</param>
+        /// <param name="data">Any arguments used to leave a chatroom</param>
         void LeaveChatroom(object data = null);
 
         /// <summary>
