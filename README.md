@@ -121,8 +121,10 @@ You guessed it. UniVoice is network agnostic. This means, it doesn't care how th
 
 Creating your own network requires you to implement the [`IChatroomNetwork` interface](http://www.vatsalambastha.com/univoice/api/Adrenak.UniVoice.IChatroomNetwork.html)
   
-# Docs
-Manuals and sample projects are not available yet. For the API reference, please visit http://www.vatsalambastha.com/univoice
+# Docs and samples
+Manual is not available yet. For the API reference, please visit http://www.vatsalambastha.com/univoice
+
+A sample app is [available here](https://github.com/adrenak/univoice-sample)
   
 # License and Support
 This project is under the [MIT license](https://github.com/adrenak/univoice/blob/master/LICENSE).
@@ -132,7 +134,7 @@ Updates and maintenance are not guaranteed and the project is maintained by the 
 __Commercial consultation and development can be arranged__ but is subject to schedule and availability.  
   
 # Contact
-The developer can be reached at the following links:
+The developer Vatsal Ambastha can be reached at the following links:
   
 [Website](http://www.vatsalambastha.com)  
 [LinkedIn](https://www.linkedin.com/in/vatsalAmbastha)  

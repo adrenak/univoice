@@ -5,9 +5,9 @@ namespace Adrenak.UniVoice {
     /// Responsible for playing audio that is sent to it. 
     /// You'd normally want a <see cref="UnityEngine.AudioSource"/> 
     /// based implementation to play the audio in Unity. But this class can 
-    /// be used in other ways just as streaming the received audio to a server
+    /// be used in other ways such as streaming the received audio to a server
     /// or writing it to a local file. It's just an audio output and the 
-    /// destination doesn't matter.
+    /// destination depends on your implementation.
     /// </summary>
     public interface IAudioOutput : IDisposable {
         /// <summary>
@@ -34,10 +34,12 @@ namespace Adrenak.UniVoice {
         /// <param name="audioSamples">
         /// The audio samples/segment being fed
         /// </param>
-        void Feed(int segmentIndex,
-            int frequency,
-            int channelCount,
-            float[] audioSamples
-        );
+        void Feed(int segmentIndex, int frequency, int channelCount, float[] audioSamples);
+
+        /// <summary>
+        /// Feeds a <see cref="ChatroomAudioSegment"/> object to the audio output.
+        /// </summary>
+        /// <param name="segment">The audio data to be sent.</param>
+        void Feed(ChatroomAudioSegment segment);
     }
 }
