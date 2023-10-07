@@ -86,9 +86,9 @@
   <div class="markdown level0 summary"><p>Responsible for playing audio that is sent to it. 
 You&apos;d normally want a <see cref="!:UnityEngine.AudioSource"></see> 
 based implementation to play the audio in Unity. But this class can 
-be used in other ways just as streaming the received audio to a server
+be used in other ways such as streaming the received audio to a server
 or writing it to a local file. It&apos;s just an audio output and the 
-destination doesn&apos;t matter.</p>
+destination depends on your implementation.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Adrenak.UniVoice.html">Adrenak.UniVoice</a></h6>
@@ -127,6 +127,35 @@ destination doesn&apos;t matter.</p>
   </table>
   <h3 id="methods">Methods
   </h3>
+  
+  
+  <a id="Adrenak_UniVoice_IAudioOutput_Feed_" data-uid="Adrenak.UniVoice.IAudioOutput.Feed*"></a>
+  <h4 id="Adrenak_UniVoice_IAudioOutput_Feed_Adrenak_UniVoice_ChatroomAudioSegment_" data-uid="Adrenak.UniVoice.IAudioOutput.Feed(Adrenak.UniVoice.ChatroomAudioSegment)">Feed(ChatroomAudioSegment)</h4>
+  <div class="markdown level1 summary"><p>Feeds a <a class="xref" href="Adrenak.UniVoice.ChatroomAudioSegment.html">ChatroomAudioSegment</a> object to the audio output.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Feed(ChatroomAudioSegment segment)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Adrenak.UniVoice.ChatroomAudioSegment.html">ChatroomAudioSegment</a></td>
+        <td><span class="parametername">segment</span></td>
+        <td><p>The audio data to be sent.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="Adrenak_UniVoice_IAudioOutput_Feed_" data-uid="Adrenak.UniVoice.IAudioOutput.Feed*"></a>

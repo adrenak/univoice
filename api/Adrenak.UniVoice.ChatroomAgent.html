@@ -124,8 +124,7 @@ The instance then makes the dependencies work together.</p>
       <tr>
         <td><a class="xref" href="Adrenak.UniVoice.IChatroomNetwork.html">IChatroomNetwork</a></td>
         <td><span class="parametername">chatroomNetwork</span></td>
-        <td><p>The chatroom network implementation
-for chatroom access and sending data to peers in a chatroom.</p>
+        <td><p>The chatroom network implementation<br>for chatroom access and sending data to peers in a chatroom.</p>
 </td>
       </tr>
       <tr>
@@ -147,11 +146,36 @@ for peers so that incoming audio from peers can be played.</p>
   </h3>
   
   
+  <h4 id="Adrenak_UniVoice_ChatroomAgent_OnModeChanged" data-uid="Adrenak.UniVoice.ChatroomAgent.OnModeChanged">OnModeChanged</h4>
+  <div class="markdown level1 summary"><p>Fired when the <a class="xref" href="Adrenak.UniVoice.ChatroomAgent.html#Adrenak_UniVoice_ChatroomAgent_CurrentMode">CurrentMode</a> changes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Action&lt;ChatroomAgentMode&gt; OnModeChanged</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Adrenak.UniVoice.ChatroomAgentMode.html">ChatroomAgentMode</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <h4 id="Adrenak_UniVoice_ChatroomAgent_PeerOutputs" data-uid="Adrenak.UniVoice.ChatroomAgent.PeerOutputs">PeerOutputs</h4>
   <div class="markdown level1 summary"><p>There is a <a class="xref" href="Adrenak.UniVoice.IAudioOutput.html">IAudioOutput</a> for each peer that gets
 created using the provided <a class="xref" href="Adrenak.UniVoice.ChatroomAgent.html#Adrenak_UniVoice_ChatroomAgent_AudioOutputFactory">AudioOutputFactory</a>
 The <a class="xref" href="Adrenak.UniVoice.IAudioOutput.html">IAudioOutput</a> instance corresponding to a peer is
-responsible for playing the audio that we receive that peer. </p>
+responsible for playing the audio that we receive from that peer. </p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>

@@ -171,7 +171,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></td>
         <td><span class="parametername">data</span></td>
-        <td><p>Any arguments for closing the room</p>
+        <td><p>Any arguments used for closing the chatroom</p>
 </td>
       </tr>
     </tbody>
@@ -229,7 +229,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></td>
         <td><span class="parametername">data</span></td>
-        <td><p>The name of the chatroom to join</p>
+        <td><p>Any arguments used to join a chatroom</p>
 </td>
       </tr>
     </tbody>
@@ -258,7 +258,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></td>
         <td><span class="parametername">data</span></td>
-        <td><p>Any arguments for leaving the room</p>
+        <td><p>Any arguments used to leave a chatroom</p>
 </td>
       </tr>
     </tbody>
@@ -302,7 +302,9 @@
   
   
   <h4 id="Adrenak_UniVoice_IChatroomNetwork_OnAudioReceived" data-uid="Adrenak.UniVoice.IChatroomNetwork.OnAudioReceived">OnAudioReceived</h4>
-  <div class="markdown level1 summary"><p>Fired when the network receives audio data from a peer. </p>
+  <div class="markdown level1 summary"><p>Fired when the network receives audio data from a peer. 
+The first argument is the ID of the user the audio came from.
+The second is the audio segment.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -327,7 +329,9 @@
   
   
   <h4 id="Adrenak_UniVoice_IChatroomNetwork_OnAudioSent" data-uid="Adrenak.UniVoice.IChatroomNetwork.OnAudioSent">OnAudioSent</h4>
-  <div class="markdown level1 summary"><p>Fired when the local user sets audio data to a peer.</p>
+  <div class="markdown level1 summary"><p>Fired when the local user sets audio data to a peer.
+The first argument is the ID of the user the audio was sent to.
+The second is the audio segment.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -507,8 +511,10 @@ Provides the chatroom ID assigned as event data.</p>
   <h4 id="Adrenak_UniVoice_IChatroomNetwork_OnPeerJoinedChatroom" data-uid="Adrenak.UniVoice.IChatroomNetwork.OnPeerJoinedChatroom">OnPeerJoinedChatroom</h4>
   <div class="markdown level1 summary"><p>Fired when a peer joins the chatroom. 
 Provides the ID of the peer as event data.
-This action also MUST be called for all previously
-existing peers when we connect to a network.</p>
+NOTE: This action also MUST be called for all previously
+existing peers when a local user connects to a network.
+This allows the local user to know about the users that
+were in the chatroom before they joined.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -534,9 +540,7 @@ existing peers when we connect to a network.</p>
   
   <h4 id="Adrenak_UniVoice_IChatroomNetwork_OnPeerLeftChatroom" data-uid="Adrenak.UniVoice.IChatroomNetwork.OnPeerLeftChatroom">OnPeerLeftChatroom</h4>
   <div class="markdown level1 summary"><p>Fired when a peer leaves the chatroom. 
-Provides the ID of the peer as event data.
-This also also MUST be called for all peers
-when we leave a network.</p>
+Provides the ID of the peer as event data.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>

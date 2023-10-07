@@ -117,6 +117,12 @@ references:
   isSpec: "True"
   fullName: Adrenak.UniVoice.ChatroomAgent.Network
   nameWithType: ChatroomAgent.Network
+- uid: Adrenak.UniVoice.ChatroomAgent.OnModeChanged
+  name: OnModeChanged
+  href: api/Adrenak.UniVoice.ChatroomAgent.html#Adrenak_UniVoice_ChatroomAgent_OnModeChanged
+  commentId: F:Adrenak.UniVoice.ChatroomAgent.OnModeChanged
+  fullName: Adrenak.UniVoice.ChatroomAgent.OnModeChanged
+  nameWithType: ChatroomAgent.OnModeChanged
 - uid: Adrenak.UniVoice.ChatroomAgent.PeerOutputs
   name: PeerOutputs
   href: api/Adrenak.UniVoice.ChatroomAgent.html#Adrenak_UniVoice_ChatroomAgent_PeerOutputs
@@ -201,57 +207,6 @@ references:
   commentId: F:Adrenak.UniVoice.ChatroomPeerSettings.muteThem
   fullName: Adrenak.UniVoice.ChatroomPeerSettings.muteThem
   nameWithType: ChatroomPeerSettings.muteThem
-- uid: Adrenak.UniVoice.Extensions
-  name: Extensions
-  href: api/Adrenak.UniVoice.Extensions.html
-  commentId: T:Adrenak.UniVoice.Extensions
-  fullName: Adrenak.UniVoice.Extensions
-  nameWithType: Extensions
-- uid: Adrenak.UniVoice.Extensions.EnsureKey*
-  name: EnsureKey
-  href: api/Adrenak.UniVoice.Extensions.html#Adrenak_UniVoice_Extensions_EnsureKey_
-  commentId: Overload:Adrenak.UniVoice.Extensions.EnsureKey
-  isSpec: "True"
-  fullName: Adrenak.UniVoice.Extensions.EnsureKey
-  nameWithType: Extensions.EnsureKey
-- uid: Adrenak.UniVoice.Extensions.EnsureKey``2(System.Collections.Generic.Dictionary{``0,``1},``0,``1)
-  name: EnsureKey<T, K>(Dictionary<T, K>, T, K)
-  href: api/Adrenak.UniVoice.Extensions.html#Adrenak_UniVoice_Extensions_EnsureKey__2_System_Collections_Generic_Dictionary___0___1____0___1_
-  commentId: M:Adrenak.UniVoice.Extensions.EnsureKey``2(System.Collections.Generic.Dictionary{``0,``1},``0,``1)
-  name.vb: EnsureKey(Of T, K)(Dictionary(Of T, K), T, K)
-  fullName: Adrenak.UniVoice.Extensions.EnsureKey<T, K>(System.Collections.Generic.Dictionary<T, K>, T, K)
-  fullName.vb: Adrenak.UniVoice.Extensions.EnsureKey(Of T, K)(System.Collections.Generic.Dictionary(Of T, K), T, K)
-  nameWithType: Extensions.EnsureKey<T, K>(Dictionary<T, K>, T, K)
-  nameWithType.vb: Extensions.EnsureKey(Of T, K)(Dictionary(Of T, K), T, K)
-- uid: Adrenak.UniVoice.Extensions.EnsurePair*
-  name: EnsurePair
-  href: api/Adrenak.UniVoice.Extensions.html#Adrenak_UniVoice_Extensions_EnsurePair_
-  commentId: Overload:Adrenak.UniVoice.Extensions.EnsurePair
-  isSpec: "True"
-  fullName: Adrenak.UniVoice.Extensions.EnsurePair
-  nameWithType: Extensions.EnsurePair
-- uid: Adrenak.UniVoice.Extensions.EnsurePair``2(System.Collections.Generic.Dictionary{``0,``1},``0,``1)
-  name: EnsurePair<T, K>(Dictionary<T, K>, T, K)
-  href: api/Adrenak.UniVoice.Extensions.html#Adrenak_UniVoice_Extensions_EnsurePair__2_System_Collections_Generic_Dictionary___0___1____0___1_
-  commentId: M:Adrenak.UniVoice.Extensions.EnsurePair``2(System.Collections.Generic.Dictionary{``0,``1},``0,``1)
-  name.vb: EnsurePair(Of T, K)(Dictionary(Of T, K), T, K)
-  fullName: Adrenak.UniVoice.Extensions.EnsurePair<T, K>(System.Collections.Generic.Dictionary<T, K>, T, K)
-  fullName.vb: Adrenak.UniVoice.Extensions.EnsurePair(Of T, K)(System.Collections.Generic.Dictionary(Of T, K), T, K)
-  nameWithType: Extensions.EnsurePair<T, K>(Dictionary<T, K>, T, K)
-  nameWithType.vb: Extensions.EnsurePair(Of T, K)(Dictionary(Of T, K), T, K)
-- uid: Adrenak.UniVoice.Extensions.GetCurrentPosition(AudioSource)
-  name: GetCurrentPosition(AudioSource)
-  href: api/Adrenak.UniVoice.Extensions.html#Adrenak_UniVoice_Extensions_GetCurrentPosition_AudioSource_
-  commentId: M:Adrenak.UniVoice.Extensions.GetCurrentPosition(AudioSource)
-  fullName: Adrenak.UniVoice.Extensions.GetCurrentPosition(AudioSource)
-  nameWithType: Extensions.GetCurrentPosition(AudioSource)
-- uid: Adrenak.UniVoice.Extensions.GetCurrentPosition*
-  name: GetCurrentPosition
-  href: api/Adrenak.UniVoice.Extensions.html#Adrenak_UniVoice_Extensions_GetCurrentPosition_
-  commentId: Overload:Adrenak.UniVoice.Extensions.GetCurrentPosition
-  isSpec: "True"
-  fullName: Adrenak.UniVoice.Extensions.GetCurrentPosition
-  nameWithType: Extensions.GetCurrentPosition
 - uid: Adrenak.UniVoice.IAudioInput
   name: IAudioInput
   href: api/Adrenak.UniVoice.IAudioInput.html
@@ -309,6 +264,12 @@ references:
   commentId: T:Adrenak.UniVoice.IAudioOutput
   fullName: Adrenak.UniVoice.IAudioOutput
   nameWithType: IAudioOutput
+- uid: Adrenak.UniVoice.IAudioOutput.Feed(Adrenak.UniVoice.ChatroomAudioSegment)
+  name: Feed(ChatroomAudioSegment)
+  href: api/Adrenak.UniVoice.IAudioOutput.html#Adrenak_UniVoice_IAudioOutput_Feed_Adrenak_UniVoice_ChatroomAudioSegment_
+  commentId: M:Adrenak.UniVoice.IAudioOutput.Feed(Adrenak.UniVoice.ChatroomAudioSegment)
+  fullName: Adrenak.UniVoice.IAudioOutput.Feed(Adrenak.UniVoice.ChatroomAudioSegment)
+  nameWithType: IAudioOutput.Feed(ChatroomAudioSegment)
 - uid: Adrenak.UniVoice.IAudioOutput.Feed(System.Int32,System.Int32,System.Int32,System.Single[])
   name: Feed(Int32, Int32, Int32, Single[])
   href: api/Adrenak.UniVoice.IAudioOutput.html#Adrenak_UniVoice_IAudioOutput_Feed_System_Int32_System_Int32_System_Int32_System_Single___
