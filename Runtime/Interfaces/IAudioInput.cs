@@ -9,9 +9,9 @@ namespace Adrenak.UniVoice {
     /// </summary>
     public interface IAudioInput : IDisposable {
         /// <summary>
-        /// Fired when a segment (sequence of audio samples) is ready
+        /// Fired when a audio samples are ready.
         /// </summary>
-        event Action<int, float[]> OnSegmentReady;
+        event Action<long, byte[]> OnSamplesReady;
 
         /// <summary>
         /// The sampling frequency of the audio
@@ -32,5 +32,11 @@ namespace Adrenak.UniVoice {
         /// will output an array of 8800 samples every 100 milliseconds.
         /// </summary>
         int SegmentRate { get; }
+    }
+    
+    public static class ExtensionsForIAudioInput { 
+        public static int SegmentSamplesLength(this IAudioInput input) {
+            return input.Frequency * input.ChannelCount / input.SegmentRate;
+        }
     }
 }

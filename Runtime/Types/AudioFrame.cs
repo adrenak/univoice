@@ -3,11 +3,11 @@
     /// <summary>
     /// A data structure representing the audio transmitted over the network.
     /// </summary>
-    public struct ChatroomAudioSegment {
+    public struct AudioFrame {
         /// <summary>
-        /// The segment index of the audio samples
+        /// The UTC Unix timestamp (in ms) when the samples were captured
         /// </summary>
-        public int segmentIndex;
+        public long timestamp;
 
         /// <summary>
         /// The frequency (or sampling rate) of the audio
@@ -20,8 +20,8 @@
         public int channelCount;
 
         /// <summary>
-        /// A float array representing the audio sample data
+        /// A byte array representing the audio sample data
         /// </summary>
-        public float[] samples;
+        public byte[] samples;
     }
 }

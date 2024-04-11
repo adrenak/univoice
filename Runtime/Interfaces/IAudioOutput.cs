@@ -11,35 +11,9 @@ namespace Adrenak.UniVoice {
     /// </summary>
     public interface IAudioOutput : IDisposable {
         /// <summary>
-        /// An ID associated with this audio output
-        /// </summary>
-        string ID { get; set; }
-
-        /// <summary>
-        /// Feeds the data to the output implementation 
-        /// </summary>
-        /// 
-        /// <param name="segmentIndex">
-        /// The index of the segment of samples from the audio
-        /// </param>
-        /// 
-        /// <param name="frequency">
-        /// The frequency/sampling rate of the audio
-        /// </param>
-        /// 
-        /// <param name="channelCount">
-        /// The number of channels in the audio
-        /// </param>
-        /// 
-        /// <param name="audioSamples">
-        /// The audio samples/segment being fed
-        /// </param>
-        void Feed(int segmentIndex, int frequency, int channelCount, float[] audioSamples);
-
-        /// <summary>
-        /// Feeds a <see cref="ChatroomAudioSegment"/> object to the audio output.
+        /// Feeds a <see cref="AudioFrame"/> object to the audio output.
         /// </summary>
         /// <param name="segment">The audio data to be sent.</param>
-        void Feed(ChatroomAudioSegment segment);
+        void Feed(AudioFrame segment);
     }
 }
