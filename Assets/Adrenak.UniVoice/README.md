@@ -1,5 +1,3 @@
-Note: Inbuilt implementations and samples have been removed from this repository. They'll be added to separate repositories soon.
-
 # UniVoice
 UniVoice is a voice chat/VoIP solution for Unity.
   
@@ -9,73 +7,50 @@ Some features of UniVoice:
 - ⚙ Peer specific settings. Don't want to listen to a peer? Mute them. Don't want someone listening to you? Mute yourself against them.
  
 - 🎨 Customize your audio input, output and networking layer. 
-  * 🎤 __Configurable Audio Input__: Decide what the input of your outgoing audio is. Let it be from [Unity's Microphone](https://docs.unity3d.com/ScriptReference/Microphone.html) class, or a live streaming audio, or an MP4 file on the disk.
+  * 🎤 __Configurable Audio Input__: UniVoice is audio input agnostic. It supports mic audio input out of the box and you can change the source of outgoing audio by implementing the `IAudioInput` interrace.  
     
-  * 🔊 __Configurable Audio Output__:  Decide where the incoming peer audio goes. Let the output of incoming audio be [Unity AudioSource](https://docs.unity3d.com/ScriptReference/AudioSource.html) to play the audio in-game, or write it into an MP4 on the disk, or stream it to an online service.
+  * 🔊 __Configurable Audio Output__:  UniVoice is audio output agnostic. Out of the box is supports playing peer audio using Unity AudioSource. You can divert incoming audio to anywhere you want by implementing the `IAudioOutput` interface.  
 
-  * 🌐 __Configurable Network__: Want to use UniVoice in a WLAN project using [Telepathy?](https://github.com/vis2k/Telepathy) Just adapt its API for UniVoice with a simple the `IChatroomNetwork` interface. Using your own backend for multiplayer? Create and expose your audio API and write a UniVoice implementation, again with the same interface.
+  * 🌐 __Configurable Network__: UniVoice is network agnostic and supports Mirror out of the box. You can implement the `IAudioClient` and `IAudioServer` interfaces using the networking plugin of your choice to make it compatible with it.
   
-# Docs
-Manuals and sample projects are not available yet. For the API reference, please visit http://www.vatsalambastha.com/univoice
-  
-# Usage
-## Creating a chatroom agent
-- To be able to host and join voice chatrooms, you need a `ChatroomAgent` instance.
-  
+## Installation
+⚠️ [OpenUPM](https://openupm.com/packages/com.adrenak.univoice/?subPage=versions) may not have up to date releases. Install using NPM registry instead 👇
+
+Ensure you have the NPM registry in the `packages.json` file of your Unity project with the following scopes:
 ```
-var agent = new ChatroomAgent(IChatroomNetwork network, IAudioInput audioInput, IAudioOutput audioOutput);
+"scopedRegistries": [
+    {
+        "name": "npmjs",
+        "url": "https://registry.npmjs.org",
+        "scopes": [
+            "com.npmjs",
+            "com.adrenak.unimic",
+            "com.adrenak.brw",
+            "com.adrenak.unimic",
+            "com.adrenak.unityopus"
+        ]
+    }
+}
 ```
 
-## Hosting and joining chatrooms
-
-Every peer in the chatroom is assigned an ID by the host. And every peer has a peer list, representing the other peers in the chatroom.
-
-- To get your ID  
-`agent.Network.OwnID;`
+## Docs and getting started
+This repository contains a sample scene for the Mirror network, which is the best place to see how UniVoice can be integrated into your project.  
   
-- To get a list of the other peers in the chatroom, use this:  
-`agent.Network.PeersIDs`
-
-`agent.Network` also provides methods to host or join a chatroom. Here is how you use them:
+For the API reference, please visit http://www.vatsalambastha.com/univoice
   
-```
-// Host a chatroom using a name
-agent.Network.HostChatroom(optional_data);
+## Dependencies
+[com.adrenak.brw](https://www.github.com/adrenak/brw)`@1.0.1` for reading and writing messages for communication. See `MirrorServer.cs` and `MirrorClient.cs` where they're used.  
 
-// Join an existing chatroom using a name
-agent.Network.JoinChatroom(optional_data);
+[com.adrenak.unimic](https://www.github.com/adrenak/unimic)`@3.2.1` for easily capturing audio from any connected mic devices. See `UniMicInput.cs` for usage.  
 
-// Leave the chatroom, if connected to one
-agent.Network.LeaveChatroom(optional_data);
+[com.adrenak.unityopus](https://www.github.com/adrenak/unityopus)`@1.0.0` for Opus encoding and decoding. See `OpusFilter.cs` for usage
 
-// Closes a chatroom, if is hosting one
-agent.Network.CloseChatroom(optional_data);
-
-```
-## Muting Audio
-To mute everyone in the chatroom, use `agent.MuteOthers = true;` or set it to `false` to unmute them all.  
-  
-To mute yourself use `agent.MuteSelf = true;` or set it to `false` to unmute yourself. This will stop sending your audio to all the peers in the chatroom.
-
-For muting a specific peer, first get the peers settings object using this:  
-```
-agent.PeerSettings[id].muteThem = true; // where id belongs to the peer in question
-```
-  
-If you want to mute yourself towards a specific peer, use this:
-`agent.PeerSettings[id].muteSelf = true; // where id belongs to the peer in question`
-  
-## Events
-`agent.Network` provides several network related events. Refer to the [API reference](http://www.vatsalambastha.com/univoice/api/Adrenak.UniVoice.ChatroomAgent.html) for them.
-
-# License and Support
+## License and Support
 This project is under the [MIT license](https://github.com/adrenak/univoice/blob/master/LICENSE).
 
-Updates and maintenance are not guaranteed and the project is maintained by the original developer in his free time. Community contributions are welcome.
+Community contributions are welcome.
   
-__Commercial consultation and development can be arranged__ but is subject to schedule and availability.  
-  
-# Contact
+## Contact
 The developer can be reached at the following links:
   
 [Website](http://www.vatsalambastha.com)  

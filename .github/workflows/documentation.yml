@@ -12,8 +12,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        # with:
-        #   submodules: true
+        with:
+          fetch-depth: 0 # Ensure full history is fetched for the reset to work next
+
+      - name: Hard Reset
+        run: |
+          git reset --hard HEAD
+          git clean -fdx # Remove untracked files and directories
 
       - name: Install DocFX
         run: choco install -y docfx
@@ -21,34 +26,14 @@ jobs:
       - name: Use README.md as index.md
         run: cp README.md Documentation/index.md
 
-      - name: Build
+      - name: Build DocFX
         run: docfx Documentation/docfx.json
 
-      # Upload the generated documentation
-      - name: Upload site artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: _site
-          path: _site # Must equals the 'build.dest' value on your docfx.json
+      - name: List generated site files
+        run: dir _site
 
-  # Deploy the generated documentation to the gh-pages branch
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        # with:
-        #   submodules: true
-
-      # Download the generated documentation
-      - name: Download site artifact
-        uses: actions/download-artifact@v1
-        with:
-          name: _site
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Deploy site
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages

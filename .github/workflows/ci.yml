@@ -5,28 +5,34 @@ on:
     - master
 jobs:
   release:
-    if: "!contains(github.event.head_commit.message, 'skip ci')"
     name: Release
     runs-on: ubuntu-latest
+    env:
+      PKG_ROOT: "Assets/Adrenak.UniVoice"
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
       with:
         fetch-depth: 0
 
-    - name: Semantic Release
-      id: semantic
-      uses: cycjimmy/semantic-release-action@v3
-      with:
-        extra_plugins: |
-          @semantic-release/changelog
-          @semantic-release/npm
-          @semantic-release/git
-        branch: master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    - name: Check if README.md has changed
+      id: readme_check
+      run: |
+        if git diff --name-only HEAD~1 HEAD | grep -q "README.md"; then
+          echo "README_CHANGED=true" >> $GITHUB_ENV
+        else
+          echo "README_CHANGED=false" >> $GITHUB_ENV
+        fi
 
-    - name: Create/Update upm branch
+    - name: Update package README
+      if: env.README_CHANGED == 'true'
+      run: |
+        cp README.md "$PKG_ROOT/README.md"
+        git config --global user.name 'github-bot'
+        git config --global user.email 'github-bot@users.noreply.github.com'
+        git commit -am "Updated package README from root README"
+        git push -f -u origin master
+      
+    - name: Create UPM branch
       run: |
         git branch -d upm &> /dev/null || echo upm branch not found
         git subtree split -P "$PKG_ROOT" -b upm
@@ -39,5 +45,3 @@ jobs:
           git commit -am "fix: Samples => Samples~"
         fi
         git push -f -u origin upm
-      env:
-        PKG_ROOT: "Assets/Adrenak.UniVoice"

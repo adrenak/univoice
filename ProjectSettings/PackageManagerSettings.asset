@@ -27,7 +27,7 @@ MonoBehaviour:
     - com.npmjs
     - com.adrenak.brw
     - com.adrenak.unimic
-    - com.adrenak.airpeer
+    - com.adrenak.unityopus
     m_IsDefault: 0
   - m_Id: scoped:OpenUPM
     m_Name: OpenUPM
@@ -48,7 +48,7 @@ MonoBehaviour:
       - com.npmjs
       - com.adrenak.brw
       - com.adrenak.unimic
-      - com.adrenak.airpeer
+      - com.adrenak.unityopus
       m_IsDefault: 0
     m_Modified: 0
     m_Name: NPM
@@ -57,5 +57,5 @@ MonoBehaviour:
     - com.npmjs
     - com.adrenak.brw
     - com.adrenak.unimic
-    - com.adrenak.airpeer
+    - com.adrenak.unityopus
     m_SelectedScopeIndex: 0

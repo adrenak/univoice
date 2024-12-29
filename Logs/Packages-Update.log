@@ -61,3 +61,11 @@ The following packages were added:
   com.unity.xr.legacyinputhelpers@2.1.8
 The following packages were removed:
   com.unity.package-manager-ui@2.2.0
+
+=== Sun Dec 29 20:04:06 2024
+
+Packages were changed.
+Update Mode: mergeDefaultDependencies
+
+The following packages were updated:
+  com.unity.nuget.newtonsoft-json from version 3.0.2 to 3.2.1
