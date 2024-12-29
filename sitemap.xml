@@ -2,163 +2,163 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://adrenak.github.io/univoice/api/Adrenak.UniVoice.AudioFrame.html</loc>
-    <lastmod>2024-12-29T03:04:46+00:00</lastmod>
+    <lastmod>2024-12-29T06:11:13+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://adrenak.github.io/univoice/api/Adrenak.UniVoice.ClientSession-1.html</loc>
-    <lastmod>2024-12-29T03:04:46+00:00</lastmod>
+    <lastmod>2024-12-29T06:11:13+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://adrenak.github.io/univoice/api/Adrenak.UniVoice.Extensions.html</loc>
-    <lastmod>2024-12-29T03:04:46+00:00</lastmod>
+    <lastmod>2024-12-29T06:11:13+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://adrenak.github.io/univoice/api/Adrenak.UniVoice.GaussianAudioBlur.html</loc>
-    <lastmod>2024-12-29T03:04:46+00:00</lastmod>
+    <lastmod>2024-12-29T06:11:13+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://adrenak.github.io/univoice/api/Adrenak.UniVoice.IAudioClient-1.html</loc>
-    <lastmod>2024-12-29T03:04:46+00:00</lastmod>
+    <lastmod>2024-12-29T06:11:13+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://adrenak.github.io/univoice/api/Adrenak.UniVoice.IAudioFilter.html</loc>
-    <lastmod>2024-12-29T03:04:46+00:00</lastmod>
+    <lastmod>2024-12-29T06:11:13+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://adrenak.github.io/univoice/api/Adrenak.UniVoice.IAudioInput.html</loc>
-    <lastmod>2024-12-29T03:04:46+00:00</lastmod>
+    <lastmod>2024-12-29T06:11:13+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://adrenak.github.io/univoice/api/Adrenak.UniVoice.IAudioOutput.html</loc>
-    <lastmod>2024-12-29T03:04:46+00:00</lastmod>
+    <lastmod>2024-12-29T06:11:13+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://adrenak.github.io/univoice/api/Adrenak.UniVoice.IAudioOutputFactory.html</loc>
-    <lastmod>2024-12-29T03:04:46+00:00</lastmod>
+    <lastmod>2024-12-29T06:11:13+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://adrenak.github.io/univoice/api/Adrenak.UniVoice.IAudioServer-1.html</loc>
-    <lastmod>2024-12-29T03:04:46+00:00</lastmod>
+    <lastmod>2024-12-29T06:11:13+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://adrenak.github.io/univoice/api/Adrenak.UniVoice.Inputs.UniMicInput.html</loc>
-    <lastmod>2024-12-29T03:04:46+00:00</lastmod>
+    <lastmod>2024-12-29T06:11:13+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://adrenak.github.io/univoice/api/Adrenak.UniVoice.Inputs.html</loc>
-    <lastmod>2024-12-29T03:04:46+00:00</lastmod>
+    <lastmod>2024-12-29T06:11:13+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://adrenak.github.io/univoice/api/Adrenak.UniVoice.OpusDecodeFilter.html</loc>
-    <lastmod>2024-12-29T03:04:46+00:00</lastmod>
+    <lastmod>2024-12-29T06:11:13+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://adrenak.github.io/univoice/api/Adrenak.UniVoice.OpusEncodeFilter.html</loc>
-    <lastmod>2024-12-29T03:04:46+00:00</lastmod>
+    <lastmod>2024-12-29T06:11:13+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://adrenak.github.io/univoice/api/Adrenak.UniVoice.Outputs.StreamedAudioSourceOutput.Factory.html</loc>
-    <lastmod>2024-12-29T03:04:46+00:00</lastmod>
+    <lastmod>2024-12-29T06:11:13+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://adrenak.github.io/univoice/api/Adrenak.UniVoice.Outputs.StreamedAudioSourceOutput.html</loc>
-    <lastmod>2024-12-29T03:04:46+00:00</lastmod>
+    <lastmod>2024-12-29T06:11:13+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://adrenak.github.io/univoice/api/Adrenak.UniVoice.Outputs.html</loc>
-    <lastmod>2024-12-29T03:04:46+00:00</lastmod>
+    <lastmod>2024-12-29T06:11:13+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://adrenak.github.io/univoice/api/Adrenak.UniVoice.Samples.PeerView.html</loc>
-    <lastmod>2024-12-29T03:04:46+00:00</lastmod>
+    <lastmod>2024-12-29T06:11:13+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://adrenak.github.io/univoice/api/Adrenak.UniVoice.Samples.ToggleExtension.html</loc>
-    <lastmod>2024-12-29T03:04:46+00:00</lastmod>
+    <lastmod>2024-12-29T06:11:13+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://adrenak.github.io/univoice/api/Adrenak.UniVoice.Samples.html</loc>
-    <lastmod>2024-12-29T03:04:46+00:00</lastmod>
+    <lastmod>2024-12-29T06:11:13+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://adrenak.github.io/univoice/api/Adrenak.UniVoice.Utils.Audio.html</loc>
-    <lastmod>2024-12-29T03:04:46+00:00</lastmod>
+    <lastmod>2024-12-29T06:11:13+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://adrenak.github.io/univoice/api/Adrenak.UniVoice.Utils.Bytes.html</loc>
-    <lastmod>2024-12-29T03:04:46+00:00</lastmod>
+    <lastmod>2024-12-29T06:11:13+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://adrenak.github.io/univoice/api/Adrenak.UniVoice.Utils.Network.html</loc>
-    <lastmod>2024-12-29T03:04:46+00:00</lastmod>
+    <lastmod>2024-12-29T06:11:13+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://adrenak.github.io/univoice/api/Adrenak.UniVoice.Utils.html</loc>
-    <lastmod>2024-12-29T03:04:46+00:00</lastmod>
+    <lastmod>2024-12-29T06:11:13+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://adrenak.github.io/univoice/api/Adrenak.UniVoice.VoiceSettings.html</loc>
-    <lastmod>2024-12-29T03:04:46+00:00</lastmod>
+    <lastmod>2024-12-29T06:11:13+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://adrenak.github.io/univoice/api/Adrenak.UniVoice.html</loc>
-    <lastmod>2024-12-29T03:04:46+00:00</lastmod>
+    <lastmod>2024-12-29T06:11:13+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://adrenak.github.io/univoice/index.html</loc>
-    <lastmod>2024-12-29T03:04:46+00:00</lastmod>
+    <lastmod>2024-12-29T06:11:13+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
