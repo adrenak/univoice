@@ -83,7 +83,7 @@
   
   <h1 id="Adrenak_UniVoice_IAudioOutput" data-uid="Adrenak.UniVoice.IAudioOutput" class="text-break">Interface IAudioOutput
   </h1>
-  <div class="markdown level0 summary"><p>Responsible for playing audio that is sent to it. 
+  <div class="markdown level0 summary"><p>Responsible for handling incoming audio.
 You&apos;d normally want a <see cref="!:UnityEngine.AudioSource"></see> 
 based implementation to play the audio in Unity. But this class can 
 be used in other ways such as streaming the received audio to a server
@@ -97,46 +97,18 @@ destination depends on your implementation.</p>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public interface IAudioOutput : IDisposable</code></pre>
   </div>
-  <h3 id="properties">Properties
-  </h3>
-  
-  
-  <a id="Adrenak_UniVoice_IAudioOutput_ID_" data-uid="Adrenak.UniVoice.IAudioOutput.ID*"></a>
-  <h4 id="Adrenak_UniVoice_IAudioOutput_ID" data-uid="Adrenak.UniVoice.IAudioOutput.ID">ID</h4>
-  <div class="markdown level1 summary"><p>An ID associated with this audio output</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">string ID { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="methods">Methods
   </h3>
   
   
   <a id="Adrenak_UniVoice_IAudioOutput_Feed_" data-uid="Adrenak.UniVoice.IAudioOutput.Feed*"></a>
-  <h4 id="Adrenak_UniVoice_IAudioOutput_Feed_Adrenak_UniVoice_ChatroomAudioSegment_" data-uid="Adrenak.UniVoice.IAudioOutput.Feed(Adrenak.UniVoice.ChatroomAudioSegment)">Feed(ChatroomAudioSegment)</h4>
-  <div class="markdown level1 summary"><p>Feeds a <a class="xref" href="Adrenak.UniVoice.ChatroomAudioSegment.html">ChatroomAudioSegment</a> object to the audio output.</p>
+  <h4 id="Adrenak_UniVoice_IAudioOutput_Feed_Adrenak_UniVoice_AudioFrame_" data-uid="Adrenak.UniVoice.IAudioOutput.Feed(Adrenak.UniVoice.AudioFrame)">Feed(AudioFrame)</h4>
+  <div class="markdown level1 summary"><p>Feeds a <a class="xref" href="Adrenak.UniVoice.AudioFrame.html">AudioFrame</a> object to the audio output.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void Feed(ChatroomAudioSegment segment)</code></pre>
+    <pre><code class="lang-csharp hljs">void Feed(AudioFrame frame)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -149,56 +121,9 @@ destination depends on your implementation.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Adrenak.UniVoice.ChatroomAudioSegment.html">ChatroomAudioSegment</a></td>
-        <td><span class="parametername">segment</span></td>
+        <td><a class="xref" href="Adrenak.UniVoice.AudioFrame.html">AudioFrame</a></td>
+        <td><span class="parametername">frame</span></td>
         <td><p>The audio data to be sent.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Adrenak_UniVoice_IAudioOutput_Feed_" data-uid="Adrenak.UniVoice.IAudioOutput.Feed*"></a>
-  <h4 id="Adrenak_UniVoice_IAudioOutput_Feed_System_Int32_System_Int32_System_Int32_System_Single___" data-uid="Adrenak.UniVoice.IAudioOutput.Feed(System.Int32,System.Int32,System.Int32,System.Single[])">Feed(Int32, Int32, Int32, Single[])</h4>
-  <div class="markdown level1 summary"><p>Feeds the data to the output implementation </p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void Feed(int segmentIndex, int frequency, int channelCount, float[] audioSamples)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td><span class="parametername">segmentIndex</span></td>
-        <td><p>The index of the segment of samples from the audio</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td><span class="parametername">frequency</span></td>
-        <td><p>The frequency/sampling rate of the audio</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td><span class="parametername">channelCount</span></td>
-        <td><p>The number of channels in the audio</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">Single</a>[]</td>
-        <td><span class="parametername">audioSamples</span></td>
-        <td><p>The audio samples/segment being fed</p>
 </td>
       </tr>
     </tbody>

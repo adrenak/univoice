@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Namespace Adrenak.UniVoice
+    <title>Class Utils.Bytes
    | UniVoice documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Namespace Adrenak.UniVoice
+    <meta name="title" content="Class Utils.Bytes
    | UniVoice documentation ">
     <meta name="generator" content="docfx 2.59.4.0">
     
@@ -78,72 +78,110 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Adrenak.UniVoice">
+            <article class="content wrap" id="_content" data-uid="Adrenak.UniVoice.Utils.Bytes">
   
-  <h1 id="Adrenak_UniVoice" data-uid="Adrenak.UniVoice" class="text-break">Namespace Adrenak.UniVoice
+  
+  <h1 id="Adrenak_UniVoice_Utils_Bytes" data-uid="Adrenak.UniVoice.Utils.Bytes" class="text-break">Class Utils.Bytes
   </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
-  <div class="markdown level0 remarks"></div>
-    <h3 id="classes">Classes
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Utils.Bytes</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Adrenak.UniVoice.html">Adrenak.UniVoice</a></h6>
+  <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
+  <h5 id="Adrenak_UniVoice_Utils_Bytes_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Bytes</code></pre>
+  </div>
+  <h3 id="methods">Methods
   </h3>
-      <h4><a class="xref" href="Adrenak.UniVoice.ClientSession-1.html">ClientSession&lt;T&gt;</a></h4>
-      <section></section>
-      <h4><a class="xref" href="Adrenak.UniVoice.Extensions.html">Extensions</a></h4>
-      <section></section>
-      <h4><a class="xref" href="Adrenak.UniVoice.GaussianAudioBlur.html">GaussianAudioBlur</a></h4>
-      <section><p>A filter that applies Gaussian blur over audio data to smoothen it.
-This is somewhat effective in removing noise from the audio.</p>
-</section>
-      <h4><a class="xref" href="Adrenak.UniVoice.OpusDecodeFilter.html">OpusDecodeFilter</a></h4>
-      <section><p>Decodes Opus encoded audio. Use this as a filter for incoming client audio.</p>
-</section>
-      <h4><a class="xref" href="Adrenak.UniVoice.OpusEncodeFilter.html">OpusEncodeFilter</a></h4>
-      <section><p>A filter that encodes audio using Opus. Use this as an output filter
-to reduce the size of outgoing client audio</p>
-</section>
-      <h4><a class="xref" href="Adrenak.UniVoice.Utils.html">Utils</a></h4>
-      <section></section>
-      <h4><a class="xref" href="Adrenak.UniVoice.Utils.Audio.html">Utils.Audio</a></h4>
-      <section></section>
-      <h4><a class="xref" href="Adrenak.UniVoice.Utils.Bytes.html">Utils.Bytes</a></h4>
-      <section></section>
-      <h4><a class="xref" href="Adrenak.UniVoice.Utils.Network.html">Utils.Network</a></h4>
-      <section></section>
-      <h4><a class="xref" href="Adrenak.UniVoice.VoiceSettings.html">VoiceSettings</a></h4>
-      <section></section>
-    <h3 id="structs">Structs
-  </h3>
-      <h4><a class="xref" href="Adrenak.UniVoice.AudioFrame.html">AudioFrame</a></h4>
-      <section></section>
-    <h3 id="interfaces">Interfaces
-  </h3>
-      <h4><a class="xref" href="Adrenak.UniVoice.IAudioClient-1.html">IAudioClient&lt;T&gt;</a></h4>
-      <section></section>
-      <h4><a class="xref" href="Adrenak.UniVoice.IAudioFilter.html">IAudioFilter</a></h4>
-      <section><p>Offers ways to modify audio after being captured.
-To prevent the audio from being sent (for example when performing some pass or gating)
-return an empty byte array (new byte[0])</p>
-</section>
-      <h4><a class="xref" href="Adrenak.UniVoice.IAudioInput.html">IAudioInput</a></h4>
-      <section><p>Source of user voice input. This would usually be implemented 
-over a microphone to get the users voice. But it can also be used
-in other ways such as streaming an mp4 file from disk. It&apos;s just 
-an input and the source doesn&apos;t matter.</p>
-</section>
-      <h4><a class="xref" href="Adrenak.UniVoice.IAudioOutput.html">IAudioOutput</a></h4>
-      <section><p>Responsible for handling incoming audio.
-You&apos;d normally want a <see cref="!:UnityEngine.AudioSource"></see> 
-based implementation to play the audio in Unity. But this class can 
-be used in other ways such as streaming the received audio to a server
-or writing it to a local file. It&apos;s just an audio output and the 
-destination depends on your implementation.</p>
-</section>
-      <h4><a class="xref" href="Adrenak.UniVoice.IAudioOutputFactory.html">IAudioOutputFactory</a></h4>
-      <section><p>An abstract factory that creates a concrete <a class="xref" href="Adrenak.UniVoice.IAudioOutput.html">IAudioOutput</a> </p>
-</section>
-      <h4><a class="xref" href="Adrenak.UniVoice.IAudioServer-1.html">IAudioServer&lt;T&gt;</a></h4>
-      <section></section>
+  
+  
+  <a id="Adrenak_UniVoice_Utils_Bytes_BytesToFloats_" data-uid="Adrenak.UniVoice.Utils.Bytes.BytesToFloats*"></a>
+  <h4 id="Adrenak_UniVoice_Utils_Bytes_BytesToFloats_System_Byte___" data-uid="Adrenak.UniVoice.Utils.Bytes.BytesToFloats(System.Byte[])">BytesToFloats(Byte[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float[] BytesToFloats(byte[] bytes)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">bytes</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Adrenak_UniVoice_Utils_Bytes_FloatsToBytes_" data-uid="Adrenak.UniVoice.Utils.Bytes.FloatsToBytes*"></a>
+  <h4 id="Adrenak_UniVoice_Utils_Bytes_FloatsToBytes_System_Single___" data-uid="Adrenak.UniVoice.Utils.Bytes.FloatsToBytes(System.Single[])">FloatsToBytes(Single[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] FloatsToBytes(float[] floats)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span>[]</td>
+        <td><span class="parametername">floats</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 </article>
           </div>
           

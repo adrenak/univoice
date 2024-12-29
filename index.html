@@ -72,115 +72,54 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="univoice">UniVoice</h1>
 
-<p>An extensible voice chat/VoIP solution for Unity.</p>
-<h1 id="features">Features</h1>
+<p>UniVoice is a voice chat/VoIP solution for Unity.</p>
+<p>Some features of UniVoice:</p>
 <ul>
-<li>## 👥 Group Voice Chat<ul>
-<li>Multiple peers can join a chatroom and exchange audio. </li>
-<li>APIs to mute audio on a per peer basis  </li>
-</ul>
+<li><p>👥 Group voice chat. Multiple peers can join a chatroom and exchange audio.  </p>
 </li>
-<li>## 📦 Plug-And-Play <ul>
-<li>No need to write audio and networking code for most use cases  </li>
-<li>Support for multiple network types, including PUN2 and WLAN</li>
-</ul>
+<li><p>⚙ Peer specific settings. Don&#39;t want to listen to a peer? Mute them. Don&#39;t want someone listening to you? Mute yourself against them.</p>
 </li>
-<li>## 🎛️ Customizable<ul>
-<li>UniVoice is pretty much collection of interfaces, you can make your own implementations</li>
-<li>For more info, see the Customization section below</li>
-</ul>
+<li><p>🎨 Customize your audio input, output and networking layer. </p>
+<ul>
+<li><p>🎤 <strong>Configurable Audio Input</strong>: UniVoice is audio input agnostic. It supports mic audio input out of the box and you can change the source of outgoing audio by implementing the <code>IAudioInput</code> interrace.  </p>
+</li>
+<li><p>🔊 <strong>Configurable Audio Output</strong>:  UniVoice is audio output agnostic. Out of the box is supports playing peer audio using Unity AudioSource. You can divert incoming audio to anywhere you want by implementing the <code>IAudioOutput</code> interface.  </p>
+</li>
+<li><p>🌐 <strong>Configurable Network</strong>: UniVoice is network agnostic and supports Mirror out of the box. You can implement the <code>IAudioClient</code> and <code>IAudioServer</code> interfaces using the networking plugin of your choice to make it compatible with it.</p>
 </li>
 </ul>
-<h1 id="installation">Installation</h1>
-<p>The recommended installation is via the UniVoice UPM package named <code>com.adrenak.univoice</code> available on npmjs.org  </p>
-<ol>
-<li><p><em>Add the NPM registry with UniVoice as a scope</em>. To do this, go to <code>Edit/Project Settings/Package Manager</code>, add the NPM scope registry with the URL <code>https://registry.npmjs.org</code> and add <code>com.adrenak.univoice</code> as a scope. </p>
 </li>
-<li><p><em>Install the package from NPM registry</em> To do this, go to <code>Window/Package Manager</code> and refresh packages. Select in the <code>My Registries</code> view (located at the top left, the default selection is <code>Unity Registry</code>), locate UniVoice and click install. After installation, the package will show up in the <code>In Project</code> view as well.</p>
-<h1 id="usage">Usage</h1>
-<h2 id="creating-a-chatroom-agent">Creating a chatroom agent</h2>
-<p>To be able to host and join voice chatrooms, you need a <code>ChatroomAgent</code> instance.</p>
-</li>
-</ol>
-<pre><code>var agent = new ChatroomAgent(IChatroomNetwork network, IAudioInput audioInput, IAudioOutputFactory audioOutputFactory);
-</code></pre><h2 id="hosting-and-joining-chatrooms">Hosting and joining chatrooms</h2>
-<p><code>agent.Network</code> is the most commonly accessed object to do things with UniVoice.  </p>
-<pre><code>// Host a chatroom 
-agent.Network.HostChatroom(optional_data);
-
-// Join an existing
-agent.Network.JoinChatroom(optional_data);
-
-// Leave the chatroom
-agent.Network.LeaveChatroom(optional_data);
-
-// Closes a chatroom
-agent.Network.CloseChatroom(optional_data);
-</code></pre><p>The current mode of the <code>ChatroomAgent</code> can be accessed using <code>agent.Network.CurrentMode</code>, this will return a <code>ChatroomAgentMode</code> enum object, the possible values are:</p>
-<ul>
-<li><code>Unconnected</code>: The agent is neither hosting or currently a guest of a chatroom</li>
-<li><code>Host</code>: The agent is currently hosting a chatroom</li>
-<li><code>Guest</code>: The agent is currently a guest in a chatroom</li>
 </ul>
-<h2 id="interacting-with-peers">Interacting with peers</h2>
-<p>Everyone in the chatroom is assigned an ID by the host. And everyone has a list of IDs of their peers. An ID in UniVoice is a C# <code>short</code> that is unique for each member in the chatroom  </p>
-<p>To get your ID  </p>
-<pre><code>short myID = agent.Network.OwnID;
-</code></pre><p>To get a list of the other peers in the chatroom, use this:  </p>
-<pre><code>short others = agent.Network.PeerIDs
-</code></pre><p>To mute everyone in the chatroom, use <code>agent.MuteOthers = true;</code>, set it to <code>false</code> to unmute. This will stop audio from every peer in the chatroom.  </p>
-<p>To mute yourself to everyone in the chatroom use <code>agent.MuteSelf = true;</code> set it to <code>false</code> to unmute. This will stop sending your audio to the peers in the chatroom.</p>
-<p>For muting a specific peer, first get the peers settings object using this:  </p>
-<pre><code>agent.PeerSettings[id].muteThem = true; // where id belongs to the peer you want to mute
-</code></pre><p>If you want to mute yourself towards a specific peer, use this:  </p>
-<pre><code>agent.PeerSettings[id].muteSelf = true; // where id belongs to the peer you don&#39;t want to hear you
-</code></pre><h2 id="events">Events</h2>
-<p><code>agent.Network</code> provides several network related events. Refer to the <a href="http://www.vatsalambastha.com/univoice/api/Adrenak.UniVoice.ChatroomAgent.html">API reference</a> for them.</p>
-<h1 id="-customization">⚙️ Customization</h1>
-<p>UniVoice is a plug-and-play solution with several pre-existing modules. The most common use case (which is probably 3D/spatial audio group chat) doesn&#39;t need you to write any audio or networking code yourself</p>
-<p>But it also offers you ways to extend and modify it.  </p>
-<h2 id="-audio-input">🎤 Audio Input</h2>
-<p>UniVoice is audio input source agnostic. This means, it doesn&#39;t care where it is getting the audio from. It only cares about getting the audio data, giving you freedom to change where it gets that from. </p>
-<ul>
-<li>transmit real-time mic input</li>
-<li>send audio by reading an mp3 file from disk</li>
-<li>send the audio track of a video file.  </li>
-<li>send in-game audio</li>
-</ul>
-<p>The most common input source is real-time mic input. If this is what you&#39;re looking for, an official input implementation based on <a href="https://github.com/adrenak/unimic">UniMic</a> is available <a href="https://github.com/adrenak/univoice-unimic-input/">here</a> which can be used for this.  </p>
-<p>The <code>IAudioInput</code> interface API reference is <a href="http://www.vatsalambastha.com/univoice/api/Adrenak.UniVoice.IAudioInput.html">here</a>  </p>
-<h2 id="-audio-output">🔊 Audio Output</h2>
-<p>UniVoice is also audio output agnostic. This means, it doesn&#39;t care what you do with the audio you receive from peers. It just gives you the data and forgets about it, leaving it up to you what you want to do with it.</p>
-<ul>
-<li>you can play it back in Unity using an AudioSource</li>
-<li>you can save it to disk</li>
-<li>you can use it as input for a speech-to-text </li>
-<li>stream it to a server</li>
-</ul>
-<p>The most common use output source is playing it inside your app. An official output implementation that plays peer audio on Unity AudioSource is available <a href="https://github.com/adrenak/univoice-audiosource-output">here</a>  </p>
-<p>Creating an audio output requires implementing two interfaces. They are <a href="http://www.vatsalambastha.com/univoice/api/Adrenak.UniVoice.IAudioOutput.html"><code>IAudioOutput</code></a> and <a href="http://www.vatsalambastha.com/univoice/api/Adrenak.UniVoice.IAudioOutputFactory.html"><code>IAudioOutputFactory</code></a>  </p>
-<h2 id="-network">🌐 Network</h2>
-<p>You guessed it. UniVoice is network agnostic. This means, it doesn&#39;t care how the audio is exchanged between peers. It just needs a networking implementation of its <code>IChatroomNetwork</code> interface, which allows you to adapt it to different kinds of network infra.</p>
-<ul>
-<li>you can send audio over WLAN  </li>
-<li>or webrtc</li>
-<li>or popular networking solution providers such as Photon</li>
-<li>or your own custom backend solution</li>
-</ul>
-<!-- Currently the following networks implementations are available:
-- [PUN2 based](https://github.com/adrenak/univoice-pun2-network). Learn more about PUN2 [here](https://assetstore.unity.com/packages/tools/network/pun-2-free-119922)
-- [Telepathy based](https://github.com/adrenak/univoice-telepathy-network). Telepathy is a TCP based networking library, available [here](https://github.com/vis2k/Telepathy). Currently only tested on and made with WLAN in mind. 
-- [AirPeer based](https://github.com/adrenak/univoice-airpeer-network/). AirPeer is a P2P networking library, available [here](https://github.com/adrenak/airpeer) -->
-<p>Creating your own network requires you to implement the <a href="http://www.vatsalambastha.com/univoice/api/Adrenak.UniVoice.IChatroomNetwork.html"><code>IChatroomNetwork</code> interface</a></p>
-<h1 id="docs-and-samples">Docs and samples</h1>
-<p>Manual is not available yet. For the API reference, please visit <a href="http://www.vatsalambastha.com/univoice">http://www.vatsalambastha.com/univoice</a></p>
-<p>A sample app is <a href="https://github.com/adrenak/univoice-sample">available here</a></p>
-<h1 id="license-and-support">License and Support</h1>
+<h2 id="installation">Installation</h2>
+<p>⚠️ <a href="https://openupm.com/packages/com.adrenak.univoice/?subPage=versions">OpenUPM</a> may not have up to date releases. Install using NPM registry instead 👇</p>
+<p>Ensure you have the NPM registry in the <code>packages.json</code> file of your Unity project with the following scopes:</p>
+<pre><code>&quot;scopedRegistries&quot;: [
+    {
+        &quot;name&quot;: &quot;npmjs&quot;,
+        &quot;url&quot;: &quot;https://registry.npmjs.org&quot;,
+        &quot;scopes&quot;: [
+            &quot;com.npmjs&quot;,
+            &quot;com.adrenak.unimic&quot;,
+            &quot;com.adrenak.brw&quot;,
+            &quot;com.adrenak.unimic&quot;,
+            &quot;com.adrenak.unityopus&quot;
+        ]
+    }
+}
+</code></pre><h2 id="docs">Docs</h2>
+<p>Am API reference is available: <a href="http://www.vatsalambastha.com/univoice">http://www.vatsalambastha.com/univoice</a></p>
+<h2 id="samples">Samples</h2>
+<p>This repository contains a sample scene for the Mirror network, which is the best place to see how UniVoice can be integrated into your project.  </p>
+<p>To try the sample, import Mirror and add the <code>UNIVOICE_MIRROR_NETWORK</code> compilation symbol to your project.</p>
+<h2 id="dependencies">Dependencies</h2>
+<p><a href="https://www.github.com/adrenak/brw">com.adrenak.brw</a><code>@1.0.1</code> for reading and writing messages for communication. See <code>MirrorServer.cs</code> and <code>MirrorClient.cs</code> where they&#39;re used.  </p>
+<p><a href="https://www.github.com/adrenak/unimic">com.adrenak.unimic</a><code>@3.2.1</code> for easily capturing audio from any connected mic devices. See <code>UniMicInput.cs</code> for usage.  </p>
+<p><a href="https://www.github.com/adrenak/unityopus">com.adrenak.unityopus</a><code>@1.0.0</code> for Opus encoding and decoding. See <code>OpusFilter.cs</code> for usage</p>
+<h2 id="license-and-support">License and Support</h2>
 <p>This project is under the <a href="https://github.com/adrenak/univoice/blob/master/LICENSE">MIT license</a>.</p>
-<p>Updates and maintenance are not guaranteed and the project is maintained by the original developer in his free time. Community contributions are welcome.</p>
-<p><strong>Commercial consultation and development can be arranged</strong> but is subject to schedule and availability.  </p>
-<h1 id="contact">Contact</h1>
-<p>The developer Vatsal Ambastha can be reached at the following links:</p>
+<p>Community contributions are welcome.</p>
+<h2 id="contact">Contact</h2>
+<p>The developer can be reached at the following links:</p>
 <p><a href="http://www.vatsalambastha.com">Website</a><br><a href="https://www.linkedin.com/in/vatsalAmbastha">LinkedIn</a><br><a href="https://www.github.com/adrenak">GitHub</a><br><a href="https://www.twitter.com/vatsalAmbastha">Twitter</a>  </p>
 </article>
           </div>

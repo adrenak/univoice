@@ -1,0 +1,408 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IAudioClient&lt;T&gt;
+   | UniVoice documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IAudioClient&lt;T&gt;
+   | UniVoice documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Adrenak.UniVoice.IAudioClient`1">
+  
+  
+  <h1 id="Adrenak_UniVoice_IAudioClient_1" data-uid="Adrenak.UniVoice.IAudioClient`1" class="text-break">Interface IAudioClient&lt;T&gt;
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Adrenak.UniVoice.html">Adrenak.UniVoice</a></h6>
+  <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
+  <h5 id="Adrenak_UniVoice_IAudioClient_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IAudioClient&lt;T&gt; : IDisposable</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Adrenak_UniVoice_IAudioClient_1_ID_" data-uid="Adrenak.UniVoice.IAudioClient`1.ID*"></a>
+  <h4 id="Adrenak_UniVoice_IAudioClient_1_ID" data-uid="Adrenak.UniVoice.IAudioClient`1.ID">ID</h4>
+  <div class="markdown level1 summary"><p>The clients peer ID in the voice chat</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">T ID { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Adrenak_UniVoice_IAudioClient_1_PeerIDs_" data-uid="Adrenak.UniVoice.IAudioClient`1.PeerIDs*"></a>
+  <h4 id="Adrenak_UniVoice_IAudioClient_1_PeerIDs" data-uid="Adrenak.UniVoice.IAudioClient`1.PeerIDs">PeerIDs</h4>
+  <div class="markdown level1 summary"><p>IDs of all the peers (except this client) in the voice chat</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">List&lt;T&gt; PeerIDs { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Adrenak_UniVoice_IAudioClient_1_YourVoiceSettings_" data-uid="Adrenak.UniVoice.IAudioClient`1.YourVoiceSettings*"></a>
+  <h4 id="Adrenak_UniVoice_IAudioClient_1_YourVoiceSettings" data-uid="Adrenak.UniVoice.IAudioClient`1.YourVoiceSettings">YourVoiceSettings</h4>
+  <div class="markdown level1 summary"><p>The voice settings of this client. Call <a class="xref" href="Adrenak.UniVoice.IAudioClient-1.html#Adrenak_UniVoice_IAudioClient_1_SubmitVoiceSettings">SubmitVoiceSettings()</a>
+after making changes to this object to submit the updates to the server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">VoiceSettings YourVoiceSettings { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Adrenak.UniVoice.VoiceSettings.html">VoiceSettings</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Adrenak_UniVoice_IAudioClient_1_SendAudioFrame_" data-uid="Adrenak.UniVoice.IAudioClient`1.SendAudioFrame*"></a>
+  <h4 id="Adrenak_UniVoice_IAudioClient_1_SendAudioFrame_Adrenak_UniVoice_AudioFrame_" data-uid="Adrenak.UniVoice.IAudioClient`1.SendAudioFrame(Adrenak.UniVoice.AudioFrame)">SendAudioFrame(AudioFrame)</h4>
+  <div class="markdown level1 summary"><p>Sends an audio frame to the server for being
+broadcasted to the other peers</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SendAudioFrame(AudioFrame frame)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Adrenak.UniVoice.AudioFrame.html">AudioFrame</a></td>
+        <td><span class="parametername">frame</span></td>
+        <td><p>The audio frame to be sent</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Adrenak_UniVoice_IAudioClient_1_SubmitVoiceSettings_" data-uid="Adrenak.UniVoice.IAudioClient`1.SubmitVoiceSettings*"></a>
+  <h4 id="Adrenak_UniVoice_IAudioClient_1_SubmitVoiceSettings" data-uid="Adrenak.UniVoice.IAudioClient`1.SubmitVoiceSettings">SubmitVoiceSettings()</h4>
+  <div class="markdown level1 summary"><p>Submits <a class="xref" href="Adrenak.UniVoice.IAudioClient-1.html#Adrenak_UniVoice_IAudioClient_1_YourVoiceSettings">YourVoiceSettings</a> to the server</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SubmitVoiceSettings()</code></pre>
+  </div>
+  <h3 id="events">Events
+  </h3>
+  
+  
+  <h4 id="Adrenak_UniVoice_IAudioClient_1_OnJoined" data-uid="Adrenak.UniVoice.IAudioClient`1.OnJoined">OnJoined</h4>
+  <div class="markdown level1 summary"><p>Fired when this client connects and joins the voice chat
+Includes the following parameters</p>
+<ul>
+<li>own peer ID (int). This should also get assigned to <a class="xref" href="Adrenak.UniVoice.IAudioClient-1.html#Adrenak_UniVoice_IAudioClient_1_ID">ID</a></li>
+<li>IDs of other peers. This should also get assigned to <a class="xref" href="Adrenak.UniVoice.IAudioClient-1.html#Adrenak_UniVoice_IAudioClient_1_PeerIDs">PeerIDs</a></li>
+</ul>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event Action&lt;T, List&lt;T&gt;&gt; OnJoined</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;T, <span class="xref">System.Collections.Generic.List</span>&lt;T&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Adrenak_UniVoice_IAudioClient_1_OnLeft" data-uid="Adrenak.UniVoice.IAudioClient`1.OnLeft">OnLeft</h4>
+  <div class="markdown level1 summary"><p>Fired when this client disconnects and leaves the voice chat</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event Action OnLeft</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Adrenak_UniVoice_IAudioClient_1_OnPeerJoined" data-uid="Adrenak.UniVoice.IAudioClient`1.OnPeerJoined">OnPeerJoined</h4>
+  <div class="markdown level1 summary"><p>Fired when a new peer joins the voice chat.
+Provides the ID of the client as event data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event Action&lt;T&gt; OnPeerJoined</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Adrenak_UniVoice_IAudioClient_1_OnPeerLeft" data-uid="Adrenak.UniVoice.IAudioClient`1.OnPeerLeft">OnPeerLeft</h4>
+  <div class="markdown level1 summary"><p>Fired when a client leaves the chatroom. 
+Provides the ID of the client as event data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event Action&lt;T&gt; OnPeerLeft</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Adrenak_UniVoice_IAudioClient_1_OnReceivedPeerAudioFrame" data-uid="Adrenak.UniVoice.IAudioClient`1.OnReceivedPeerAudioFrame">OnReceivedPeerAudioFrame</h4>
+  <div class="markdown level1 summary"><p>Event fired when an audio frame is received from
+another peer via the server. Parameters:</p>
+<ul>
+<li>peer ID: the ID of the peer that sent the audio frame</li>
+<li>AudioFrame: the frame containing audio data</li>
+</ul>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event Action&lt;T, AudioFrame&gt; OnReceivedPeerAudioFrame</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;T, <a class="xref" href="Adrenak.UniVoice.AudioFrame.html">AudioFrame</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            UniVoice documentation
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
