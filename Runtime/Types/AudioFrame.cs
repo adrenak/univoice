@@ -5,7 +5,8 @@
     /// </summary>
     public struct AudioFrame {
         /// <summary>
-        /// The UTC Unix timestamp (in ms) when the samples were captured
+        /// The UTC Unix timestamp (in ms) when the samples were captured.
+        /// The timestamp is local to the client the audio was captured from.
         /// </summary>
         public long timestamp;
 
@@ -15,12 +16,12 @@
         public int frequency;
 
         /// <summary>
-        /// THe number of channels in the audio
+        /// The number of channels in the audio
         /// </summary>
         public int channelCount;
 
         /// <summary>
-        /// A byte array representing the audio sample data
+        /// A byte array representing the audio data
         /// </summary>
         public byte[] samples;
     }

@@ -1,5 +1,4 @@
-﻿#if UNIVOICE_UNIMIC_INPUT
-using System;
+﻿using System;
 
 using Adrenak.UniMic;
 
@@ -13,32 +12,28 @@ namespace Adrenak.UniVoice.Inputs {
     public class UniMicInput : IAudioInput {
         const string TAG = "UniMicInput";
 
-        public event Action<long, byte[]> OnSamplesReady;
+        public event Action<AudioFrame> OnFrameReady;
 
-        public int Frequency => Mic.Instance.Frequency;
+        public Mic.Device Device { get; private set; }
 
-        public int ChannelCount =>
-            Mic.Instance.AudioClip == null ? 0 : Mic.Instance.AudioClip.channels;
-
-        public int SegmentRate => 1000 / Mic.Instance.SampleDurationMS;
-
-        public UniMicInput(int deviceIndex = 0, int frequency = 16000, int sampleLen = 100) {
-            if (Mic.Instance.Devices.Count == 0)
-                throw new Exception("Must have recording devices for Microphone input");
-
-            Mic.Instance.SetDeviceIndex(deviceIndex);
-            Mic.Instance.StartRecording(frequency, sampleLen);
-            Debug.unityLogger.Log(TAG, "Start recording.");
-            Mic.Instance.OnTimestampedSampleReady += Mic_OnTimestampedSampleReady;
+        public UniMicInput(Mic.Device device) {
+            Device = device;
+            device.OnFrameCollected += OnFrameCollected;
         }
 
-        void Mic_OnTimestampedSampleReady(long timestamp, float[] samples) {
-             OnSamplesReady?.Invoke(timestamp, Utils.Bytes.FloatsToBytes(samples));
+        private void OnFrameCollected(int frequency, int channels, float[] samples) {
+            var frame = new AudioFrame {
+                timestamp = 0,
+                frequency = frequency,
+                channelCount = channels,
+                samples = Utils.Bytes.FloatsToBytes(samples)
+            };
+            OnFrameReady?.Invoke(frame);
         }
 
         public void Dispose() {
-            Mic.Instance.OnTimestampedSampleReady -= Mic_OnTimestampedSampleReady;
+            Device.OnFrameCollected -= OnFrameCollected;
+            Debug.unityLogger.Log(TAG, "Disposed");
         }
     }
 }
-#endif

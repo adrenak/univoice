@@ -2,28 +2,36 @@
 
 using UnityEngine;
 
-namespace Adrenak.UniVoice.Filters {
-    public class GaussianAudioDenoising : IAudioFilter {
+namespace Adrenak.UniVoice {
+    /// <summary>
+    /// A filter that applies Gaussian blur over audio data to smoothen it.
+    /// This is somewhat effective in removing noise from the audio.
+    /// </summary>
+    public class GaussianAudioBlur : IAudioFilter {
         readonly float sigma;
         readonly int range;
         byte[] lastInput;
 
-        public GaussianAudioDenoising(float sigma, int range) {
+        public GaussianAudioBlur(float sigma = 2, int range = 2) {
             this.sigma = sigma;
             this.range = range;
         }
 
-        public byte[] Run(byte[] input) {
-            if (input == null || input.Length == 0) 
-                return new byte[0];
+        public AudioFrame Run(AudioFrame frame) {
+            var input = frame.samples;
+            if (input == null || input.Length == 0) {
+                frame.samples = null;
+                return frame;
+            }
 
             // If this is the first audio input we've received, we simply apply the gaussian filter
             // and return the result.
-            if(lastInput == null) {
+            if (lastInput == null) {
                 lastInput = input;
-                return Utils.Bytes.FloatsToBytes(
+                frame.samples = Utils.Bytes.FloatsToBytes(
                     ApplyGaussianFilter(Utils.Bytes.BytesToFloats(input))
                 );
+                return frame;
             }
 
             // Else, if we've had some input before, we also consider the previously processed 
@@ -46,7 +54,8 @@ namespace Adrenak.UniVoice.Filters {
                 Buffer.BlockCopy(allInputSmooth, lastInput.Length, result, 0, input.Length);
 
                 lastInput = input;
-                return result;
+                frame.samples = result;
+                return frame;
             }
         }
 
@@ -74,7 +83,7 @@ namespace Adrenak.UniVoice.Filters {
         }
 
         float Gaussian(int x, float sigma) {
-            return (float)Mathf.Exp(-(x * x) / (2 * sigma * sigma)) 
+            return (float)Mathf.Exp(-(x * x) / (2 * sigma * sigma))
             / ((float)Mathf.Sqrt(2 * Mathf.PI) * sigma);
         }
     }
