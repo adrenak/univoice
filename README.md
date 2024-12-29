@@ -24,7 +24,7 @@ Ensure you have the NPM registry in the `packages.json` file of your Unity proje
         "url": "https://registry.npmjs.org",
         "scopes": [
             "com.npmjs",
-            "com.adrenak.unimic",
+            "com.adrenak.univoice",
             "com.adrenak.brw",
             "com.adrenak.unimic",
             "com.adrenak.unityopus"
