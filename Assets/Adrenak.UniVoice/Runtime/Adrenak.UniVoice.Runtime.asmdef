@@ -1,3 +1,19 @@
-﻿{
-	"name": "Adrenak.UniVoice.Runtime"
+{
+    "name": "Adrenak.UniVoice.Runtime",
+    "references": [
+        "GUID:f87ecb857e752164ab814a3de8eb0262",
+        "GUID:1f776cd02c03a7b4280b6b649d7758e2",
+        "GUID:30817c1a0e6d646d99c048fc403f5979",
+        "GUID:725ee7191c021de4dbf9269590ded755",
+        "GUID:34d15e3fb5fa4b541b5a93a6dc182cc5"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
