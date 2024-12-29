@@ -33,10 +33,13 @@ Ensure you have the NPM registry in the `packages.json` file of your Unity proje
 }
 ```
 
-## Docs and getting started
+## Docs
+Am API reference is available: http://www.vatsalambastha.com/univoice
+
+## Samples
 This repository contains a sample scene for the Mirror network, which is the best place to see how UniVoice can be integrated into your project.  
   
-For the API reference, please visit http://www.vatsalambastha.com/univoice
+To try the sample, import Mirror and add the `UNIVOICE_MIRROR_NETWORK` compilation symbol to your project.
   
 ## Dependencies
 [com.adrenak.brw](https://www.github.com/adrenak/brw)`@1.0.1` for reading and writing messages for communication. See `MirrorServer.cs` and `MirrorClient.cs` where they're used.  
