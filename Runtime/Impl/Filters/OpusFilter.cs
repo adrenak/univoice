@@ -7,7 +7,7 @@ using System;
  * encoding the size of audio data is much (over 10x) larger.
  * For more info see https://www.github.com/adrenak/UnityOpus
  */
-namespace Adrenak.UniVoice {
+namespace Adrenak.UniVoice.Filters {
     /// <summary>
     /// A filter that encodes audio using Opus. Use this as an output filter
     /// to reduce the size of outgoing client audio

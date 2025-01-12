@@ -3,7 +3,7 @@ using System;
 
 using Mirror;
 
-namespace Adrenak.UniVoice {
+namespace Adrenak.UniVoice.Networks {
     /// <summary>
     /// The messages exchanged between the server and client. 
     /// To see how the Mirror implementation of UniVoice uses this struct

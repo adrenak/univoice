@@ -2,7 +2,7 @@
 
 using UnityEngine;
 
-namespace Adrenak.UniVoice {
+namespace Adrenak.UniVoice.Filters {
     /// <summary>
     /// A filter that applies Gaussian blur over audio data to smoothen it.
     /// This is somewhat effective in removing noise from the audio.
