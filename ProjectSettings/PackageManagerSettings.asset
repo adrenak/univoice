@@ -24,7 +24,6 @@ MonoBehaviour:
     m_Name: NPM
     m_Url: https://registry.npmjs.org
     m_Scopes:
-    - com.npmjs
     - com.adrenak.brw
     - com.adrenak.unimic
     - com.adrenak.unityopus
@@ -45,7 +44,6 @@ MonoBehaviour:
       m_Name: NPM
       m_Url: https://registry.npmjs.org
       m_Scopes:
-      - com.npmjs
       - com.adrenak.brw
       - com.adrenak.unimic
       - com.adrenak.unityopus
@@ -54,7 +52,6 @@ MonoBehaviour:
     m_Name: NPM
     m_Url: https://registry.npmjs.org
     m_Scopes:
-    - com.npmjs
     - com.adrenak.brw
     - com.adrenak.unimic
     - com.adrenak.unityopus

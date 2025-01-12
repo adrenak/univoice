@@ -1,4 +1,9 @@
-﻿#if UNIVOICE_MIRROR_NETWORK
+﻿// Notes:
+// In Mirror 89.11.0, the OnServerConnectedWithAddress event was added
+// https://github.com/MirrorNetworking/Mirror/releases/tag/v89.11.0
+// OnServerConnected no longer seems to work?
+
+#if UNIVOICE_MIRROR_NETWORK
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,7 +14,7 @@ using UnityEngine;
 using Mirror;
 using Adrenak.BRW;
 
-namespace Adrenak.UniVoice {
+namespace Adrenak.UniVoice.Networks {
     /// <summary>
     /// Activate this class by including the UNIVOICE_MIRROR_NETWORK compilaton symbol
     /// in your project.
@@ -39,7 +44,12 @@ namespace Adrenak.UniVoice {
             mirrorEvents.ModeChanged += OnModeChanged;
 
             NetworkServer.RegisterHandler<MirrorMessage>(OnReceivedMessage, false);
+
+#if MIRROR_89_OR_NEWER
+            NetworkManager.singleton.transport.OnServerConnectedWithAddress += OnServerConnected;
+#else
             NetworkManager.singleton.transport.OnServerConnected += OnServerConnected;
+#endif
             NetworkManager.singleton.transport.OnServerDisconnected += OnServerDisconnected;
         }
         
@@ -47,7 +57,12 @@ namespace Adrenak.UniVoice {
             mirrorEvents.ModeChanged -= OnModeChanged;
 
             NetworkServer.UnregisterHandler<MirrorMessage>();
+
+#if MIRROR_89_OR_NEWER
+            NetworkManager.singleton.transport.OnServerConnectedWithAddress -= OnServerConnected;
+#else
             NetworkManager.singleton.transport.OnServerConnected -= OnServerConnected;
+#endif            
             NetworkManager.singleton.transport.OnServerDisconnected -= OnServerDisconnected;
         }
 
@@ -126,7 +141,11 @@ namespace Adrenak.UniVoice {
         }
 
         // When a new Mirror client connects
+#if MIRROR_89_OR_NEWER
+        void OnServerConnected(int connId, string addr) {
+#else
         void OnServerConnected(int connId) {
+#endif
             NetworkServer.ReplaceHandler<MirrorMessage>(OnReceivedMessage, false);
 
             Debug.unityLogger.Log(LogType.Log, TAG, $"Client {connId} connected");

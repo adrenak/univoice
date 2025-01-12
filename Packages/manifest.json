@@ -44,7 +44,6 @@
       "name": "NPM",
       "url": "https://registry.npmjs.org",
       "scopes": [
-        "com.npmjs",
         "com.adrenak.brw",
         "com.adrenak.unimic",
         "com.adrenak.unityopus"

@@ -5,7 +5,7 @@ using System;
 
 using UnityEngine;
 
-namespace Adrenak.UniVoice {
+namespace Adrenak.UniVoice.Networks {
     /// <summary>
     /// Observes the mode of the Mirror NetworkManager and fires an event
     /// when it changes

@@ -7,8 +7,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Android;
 
+using Adrenak.UniVoice.Networks;
 using Adrenak.UniVoice.Outputs;
 using Adrenak.UniVoice.Inputs;
+using Adrenak.UniVoice.Filters;
 using Adrenak.UniMic;
 using Adrenak.UnityOpus;
 

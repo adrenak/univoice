@@ -4,10 +4,28 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Adrenak.UniVoice {
+    /// <summary>
+    /// Handles a client session. 
+    /// Requires an implementation of <see cref="IAudioClient{T}"/>, <see cref="IAudioInput"/> and <see cref="IAudioOutputFactory"/> each.
+    /// Allows adding input and output filters and handles their execution.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class ClientSession<T> : IDisposable {
+        /// <summary>
+        /// The <see cref="IAudioOutput"/> instances of each peer in the session
+        /// </summary>
         public Dictionary<T, IAudioOutput> PeerOutputs { get; private set; } = new Dictionary<T, IAudioOutput>();
 
+        /// <summary>
+        /// The input <see cref="IAudioFilter"/> that will be applied to the outgoing audio for all the peers.
+        /// Note that filters are executed in the order they are present in this list
+        /// </summary>
         public List<IAudioFilter> InputFilters { get; set; } = new List<IAudioFilter>();
+
+        /// <summary>
+        /// The output <see cref="IAudioFilter"/> that will be applied to the incoming audio for all the peers.
+        /// Note that filters are executed in the order they are present in this list.
+        /// </summary>
         public List<IAudioFilter> OutputFilters { get; set; } = new List<IAudioFilter>();
 
         public ClientSession(IAudioClient<T> client, IAudioInput input, IAudioOutputFactory outputFactory) {
@@ -16,6 +34,9 @@ namespace Adrenak.UniVoice {
             OutputFactory = outputFactory;
         }
 
+        /// <summary>
+        /// The <see cref="IAudioClient{T}"/> that's used for networking
+        /// </summary>
         IAudioClient<T> client;
         public IAudioClient<T> Client {
             get => client;
@@ -63,6 +84,9 @@ namespace Adrenak.UniVoice {
         }
 
         IAudioInput input;
+        /// <summary>
+        /// The <see cref="IAudioInput"/> that's used for sourcing outgoing audio
+        /// </summary>
         public IAudioInput Input {
             get => input;
             set {
@@ -81,6 +105,9 @@ namespace Adrenak.UniVoice {
         }
 
         IAudioOutputFactory outputFactory;
+        /// <summary>
+        /// The <see cref="IAudioOutputFactory"/> that creates the <see cref="IAudioOutput"/> of peers
+        /// </summary>
         public IAudioOutputFactory OutputFactory {
             get => outputFactory;
             set {
