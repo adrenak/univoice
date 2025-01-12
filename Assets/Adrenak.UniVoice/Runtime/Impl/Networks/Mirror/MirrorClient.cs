@@ -1,4 +1,4 @@
-﻿#if UNIVOICE_MIRROR_NETWORK
+#if UNIVOICE_MIRROR_NETWORK
 using System;
 using System.Linq;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using Mirror;
 using Adrenak.BRW;
 using UnityEngine;
 
-namespace Adrenak.UniVoice {
+namespace Adrenak.UniVoice.Networks {
     /// <summary>
     /// Activate this class by including the UNIVOICE_MIRROR_NETWORK compilaton symbol
     /// in your project.
