@@ -83,7 +83,10 @@
   
   <h1 id="Adrenak_UniVoice_ClientSession_1" data-uid="Adrenak.UniVoice.ClientSession`1" class="text-break">Class ClientSession&lt;T&gt;
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Handles a client session. 
+Requires an implementation of <a class="xref" href="Adrenak.UniVoice.IAudioClient-1.html">IAudioClient&lt;T&gt;</a>, <a class="xref" href="Adrenak.UniVoice.IAudioInput.html">IAudioInput</a> and <a class="xref" href="Adrenak.UniVoice.IAudioOutputFactory.html">IAudioOutputFactory</a> each.
+Allows adding input and output filters and handles their execution.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -181,7 +184,8 @@
   
   <a id="Adrenak_UniVoice_ClientSession_1_Input_" data-uid="Adrenak.UniVoice.ClientSession`1.Input*"></a>
   <h4 id="Adrenak_UniVoice_ClientSession_1_Input" data-uid="Adrenak.UniVoice.ClientSession`1.Input">Input</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The <a class="xref" href="Adrenak.UniVoice.IAudioInput.html">IAudioInput</a> that&apos;s used for sourcing outgoing audio</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -206,7 +210,9 @@
   
   <a id="Adrenak_UniVoice_ClientSession_1_InputFilters_" data-uid="Adrenak.UniVoice.ClientSession`1.InputFilters*"></a>
   <h4 id="Adrenak_UniVoice_ClientSession_1_InputFilters" data-uid="Adrenak.UniVoice.ClientSession`1.InputFilters">InputFilters</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The input <a class="xref" href="Adrenak.UniVoice.IAudioFilter.html">IAudioFilter</a> that will be applied to the outgoing audio for all the peers.
+Note that filters are executed in the order they are present in this list</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -231,7 +237,8 @@
   
   <a id="Adrenak_UniVoice_ClientSession_1_OutputFactory_" data-uid="Adrenak.UniVoice.ClientSession`1.OutputFactory*"></a>
   <h4 id="Adrenak_UniVoice_ClientSession_1_OutputFactory" data-uid="Adrenak.UniVoice.ClientSession`1.OutputFactory">OutputFactory</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The <a class="xref" href="Adrenak.UniVoice.IAudioOutputFactory.html">IAudioOutputFactory</a> that creates the <a class="xref" href="Adrenak.UniVoice.IAudioOutput.html">IAudioOutput</a> of peers</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -256,7 +263,9 @@
   
   <a id="Adrenak_UniVoice_ClientSession_1_OutputFilters_" data-uid="Adrenak.UniVoice.ClientSession`1.OutputFilters*"></a>
   <h4 id="Adrenak_UniVoice_ClientSession_1_OutputFilters" data-uid="Adrenak.UniVoice.ClientSession`1.OutputFilters">OutputFilters</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The output <a class="xref" href="Adrenak.UniVoice.IAudioFilter.html">IAudioFilter</a> that will be applied to the incoming audio for all the peers.
+Note that filters are executed in the order they are present in this list.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -281,7 +290,8 @@
   
   <a id="Adrenak_UniVoice_ClientSession_1_PeerOutputs_" data-uid="Adrenak.UniVoice.ClientSession`1.PeerOutputs*"></a>
   <h4 id="Adrenak_UniVoice_ClientSession_1_PeerOutputs" data-uid="Adrenak.UniVoice.ClientSession`1.PeerOutputs">PeerOutputs</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The <a class="xref" href="Adrenak.UniVoice.IAudioOutput.html">IAudioOutput</a> instances of each peer in the session</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">

@@ -88,19 +88,9 @@
     <h3 id="classes">Classes
   </h3>
       <h4><a class="xref" href="Adrenak.UniVoice.ClientSession-1.html">ClientSession&lt;T&gt;</a></h4>
-      <section></section>
-      <h4><a class="xref" href="Adrenak.UniVoice.Extensions.html">Extensions</a></h4>
-      <section></section>
-      <h4><a class="xref" href="Adrenak.UniVoice.GaussianAudioBlur.html">GaussianAudioBlur</a></h4>
-      <section><p>A filter that applies Gaussian blur over audio data to smoothen it.
-This is somewhat effective in removing noise from the audio.</p>
-</section>
-      <h4><a class="xref" href="Adrenak.UniVoice.OpusDecodeFilter.html">OpusDecodeFilter</a></h4>
-      <section><p>Decodes Opus encoded audio. Use this as a filter for incoming client audio.</p>
-</section>
-      <h4><a class="xref" href="Adrenak.UniVoice.OpusEncodeFilter.html">OpusEncodeFilter</a></h4>
-      <section><p>A filter that encodes audio using Opus. Use this as an output filter
-to reduce the size of outgoing client audio</p>
+      <section><p>Handles a client session. 
+Requires an implementation of <a class="xref" href="Adrenak.UniVoice.IAudioClient-1.html">IAudioClient&lt;T&gt;</a>, <a class="xref" href="Adrenak.UniVoice.IAudioInput.html">IAudioInput</a> and <a class="xref" href="Adrenak.UniVoice.IAudioOutputFactory.html">IAudioOutputFactory</a> each.
+Allows adding input and output filters and handles their execution.</p>
 </section>
       <h4><a class="xref" href="Adrenak.UniVoice.Utils.html">Utils</a></h4>
       <section></section>

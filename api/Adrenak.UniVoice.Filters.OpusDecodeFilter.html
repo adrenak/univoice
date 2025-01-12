@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class Extensions
+    <title>Class OpusDecodeFilter
    | UniVoice documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class Extensions
+    <meta name="title" content="Class OpusDecodeFilter
    | UniVoice documentation ">
     <meta name="generator" content="docfx 2.59.4.0">
     
@@ -78,37 +78,74 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Adrenak.UniVoice.Extensions">
+            <article class="content wrap" id="_content" data-uid="Adrenak.UniVoice.Filters.OpusDecodeFilter">
   
   
-  <h1 id="Adrenak_UniVoice_Extensions" data-uid="Adrenak.UniVoice.Extensions" class="text-break">Class Extensions
+  <h1 id="Adrenak_UniVoice_Filters_OpusDecodeFilter" data-uid="Adrenak.UniVoice.Filters.OpusDecodeFilter" class="text-break">Class OpusDecodeFilter
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Decodes Opus encoded audio. Use this as a filter for incoming client audio.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">Extensions</span></div>
+    <div class="level1"><span class="xref">OpusDecodeFilter</span></div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Adrenak.UniVoice.html">Adrenak.UniVoice</a></h6>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Adrenak.UniVoice.IAudioFilter.html">IAudioFilter</a></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Adrenak.UniVoice.Filters.html">Adrenak.UniVoice.Filters</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
-  <h5 id="Adrenak_UniVoice_Extensions_syntax">Syntax</h5>
+  <h5 id="Adrenak_UniVoice_Filters_OpusDecodeFilter_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class Extensions</code></pre>
+    <pre><code class="lang-csharp hljs">public class OpusDecodeFilter : IAudioFilter</code></pre>
   </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="Adrenak_UniVoice_Filters_OpusDecodeFilter__ctor_" data-uid="Adrenak.UniVoice.Filters.OpusDecodeFilter.#ctor*"></a>
+  <h4 id="Adrenak_UniVoice_Filters_OpusDecodeFilter__ctor_Decoder_System_Int32_" data-uid="Adrenak.UniVoice.Filters.OpusDecodeFilter.#ctor(Decoder,System.Int32)">OpusDecodeFilter(Decoder, Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OpusDecodeFilter(Decoder decoder, int outputBufferLength = 48000)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Decoder</span></td>
+        <td><span class="parametername">decoder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">outputBufferLength</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
   </h3>
   
   
-  <a id="Adrenak_UniVoice_Extensions_EnsureKey_" data-uid="Adrenak.UniVoice.Extensions.EnsureKey*"></a>
-  <h4 id="Adrenak_UniVoice_Extensions_EnsureKey__2_System_Collections_Generic_Dictionary___0___1____0___1_" data-uid="Adrenak.UniVoice.Extensions.EnsureKey``2(System.Collections.Generic.Dictionary{``0,``1},``0,``1)">EnsureKey&lt;T, K&gt;(Dictionary&lt;T, K&gt;, T, K)</h4>
-  <div class="markdown level1 summary"><p>Adds the given key to the dictionary with a value if the key
-is not present before.</p>
-</div>
+  <a id="Adrenak_UniVoice_Filters_OpusDecodeFilter_Run_" data-uid="Adrenak.UniVoice.Filters.OpusDecodeFilter.Run*"></a>
+  <h4 id="Adrenak_UniVoice_Filters_OpusDecodeFilter_Run_Adrenak_UniVoice_AudioFrame_" data-uid="Adrenak.UniVoice.Filters.OpusDecodeFilter.Run(Adrenak.UniVoice.AudioFrame)">Run(AudioFrame)</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void EnsureKey&lt;T, K&gt;(this Dictionary&lt;T, K&gt; dict, T t, K k)</code></pre>
+    <pre><code class="lang-csharp hljs">public AudioFrame Run(AudioFrame input)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -121,102 +158,31 @@ is not present before.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.Dictionary</span>&lt;T, K&gt;</td>
-        <td><span class="parametername">dict</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">t</span></td>
-        <td><p>The key to check and add</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">K</span></td>
-        <td><span class="parametername">k</span></td>
-        <td><p>The value if the key is added</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="parametername">K</span></td>
+        <td><a class="xref" href="Adrenak.UniVoice.AudioFrame.html">AudioFrame</a></td>
+        <td><span class="parametername">input</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  
-  
-  <a id="Adrenak_UniVoice_Extensions_EnsurePair_" data-uid="Adrenak.UniVoice.Extensions.EnsurePair*"></a>
-  <h4 id="Adrenak_UniVoice_Extensions_EnsurePair__2_System_Collections_Generic_Dictionary___0___1____0___1_" data-uid="Adrenak.UniVoice.Extensions.EnsurePair``2(System.Collections.Generic.Dictionary{``0,``1},``0,``1)">EnsurePair&lt;T, K&gt;(Dictionary&lt;T, K&gt;, T, K)</h4>
-  <div class="markdown level1 summary"><p>Ensures a key and value pair are in the dictionary</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void EnsurePair&lt;T, K&gt;(this Dictionary&lt;T, K&gt; dict, T t, K k)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
+  <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
-        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.Dictionary</span>&lt;T, K&gt;</td>
-        <td><span class="parametername">dict</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">t</span></td>
-        <td><p>The key to ensure</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">K</span></td>
-        <td><span class="parametername">k</span></td>
-        <td><p>The value associated with the key</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="parametername">K</span></td>
+        <td><a class="xref" href="Adrenak.UniVoice.AudioFrame.html">AudioFrame</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Adrenak.UniVoice.IAudioFilter.html">IAudioFilter</a>
+  </div>
 </article>
           </div>
           
