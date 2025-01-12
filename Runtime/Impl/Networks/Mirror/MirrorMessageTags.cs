@@ -1,5 +1,5 @@
 ﻿#if UNIVOICE_MIRROR_NETWORK
-namespace Adrenak.UniVoice {
+namespace Adrenak.UniVoice.Networks {
     /// <summary>
     /// The different types of messages we send over Mirror 
     /// to implement the <see cref="IAudioClient{T}"/> and <see cref="IAudioServer{T}"/>
