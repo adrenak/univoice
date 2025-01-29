@@ -1,9 +1,9 @@
 {
     "name": "com.adrenak.univoice",
-    "version": "4.0.0",
+    "version": "4.1.0",
     "displayName": "Adrenak.UniVoice",
-    "description": "Network agnostic voice chat/VoIP framework for Unity.",
-    "unity": "2019.4",
+    "description": "Voice chat/VoIP framework for Unity.",
+    "unity": "2021.2",
     "author": {
         "name": "Vatsal Ambastha",
         "email": "ambastha.vatsal@gmail.com",
@@ -19,7 +19,10 @@
         "Unity3d",
         "VR",
         "AR",
-        "Metaverse"
+        "Metaverse",
+        "mic",
+        "opus",
+        "concentus"
     ],
     "samples": [
 		{
@@ -28,12 +31,9 @@
 			"path": "Samples~"
 		}
 	],
-    "publishConfig": {
-        "registry": "https://registry.npmjs.org"
-    },
     "dependencies": {
         "com.adrenak.brw": "1.0.1",
-        "com.adrenak.unimic": "3.2.1",
-        "com.adrenak.unityopus": "1.0.0"
+        "com.adrenak.unimic": "3.2.2",
+        "com.adrenak.concentus-unity": "1.0.1"
     }
 }

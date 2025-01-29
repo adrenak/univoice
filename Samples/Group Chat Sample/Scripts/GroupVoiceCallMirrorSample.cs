@@ -7,12 +7,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Android;
 
+using Adrenak.UniMic;
 using Adrenak.UniVoice.Networks;
 using Adrenak.UniVoice.Outputs;
 using Adrenak.UniVoice.Inputs;
 using Adrenak.UniVoice.Filters;
-using Adrenak.UniMic;
-using Adrenak.UnityOpus;
 
 namespace Adrenak.UniVoice.Samples {
     public class GroupVoiceCallMirrorSample : MonoBehaviour {
@@ -83,35 +82,14 @@ namespace Adrenak.UniVoice.Samples {
             // We add some filters to the input audio
             // - The first is audio blur, so that the audio that's been captured by this client
             // has lesser noise
-            var outgoingBlur = new GaussianAudioBlur();
-
+            session.InputFilters.Add(new GaussianAudioBlur());
             // - The next one is the Opus encoder filter. This is VERY important. Without this the
             // outgoing data would be very large, usually by a factor of 10 or more.
-            // To do this we first create the encoder, then use it to create an instance of 
-            // of the OpusEncodeFilter class 
-            var encoder = new Encoder(
-                (SamplingFrequency)mic.SamplingFrequency,
-                (NumChannels)mic.ChannelCount,
-                OpusApplication.VoIP
-            );
-            var outgoingEncode = new OpusEncodeFilter(encoder);
+            session.InputFilters.Add(new ConcentusEncodeFilter());
 
-            // Finally, we add both the input filters to the session. Note that session.InputFilters
-            // is a list and the filters are run in the order they are added to it.
-            session.InputFilters.Add(outgoingBlur);
-            session.InputFilters.Add(outgoingEncode);
-
-            // Next, for incoming audio we create some filters.
-            // - first is the decoder, because the audio that we are expecting would be encoded.
-            // So we create a decoder, use that to create a OpusDecodeFilter and add it to the sessions 
-            // output filters
-            var decoder = new Decoder(
-                (SamplingFrequency)mic.SamplingFrequency, 
-                (NumChannels)mic.ChannelCount
-            );
-            var incomingDecode = new OpusDecodeFilter(decoder);
-
-            session.OutputFilters.Add(incomingDecode);
+            // Next, for incoming audio we register the Concentus decode filter as the audio we'd
+            // receive from other clients would be encoded and not readily playable
+            session.OutputFilters.Add(new ConcentusDecodeFilter());
 
             // Subscribe to some server events 
             server.OnServerStart += () => {
