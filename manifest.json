@@ -48,6 +48,42 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.Filters.ConcentusDecodeFilter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.Filters.ConcentusDecodeFilter.html",
+          "hash": "yBUsuwqkVY/9qHVTMbAmUySioG87HGCBmJBvqxdNfMw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.Filters.ConcentusEncodeFilter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.Filters.ConcentusEncodeFilter.html",
+          "hash": "hLLS4W+ZzkanpNDTydaRYWt1r8rpJPz3+kGj1737+g4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.Filters.ConcentusFrequencies.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.Filters.ConcentusFrequencies.html",
+          "hash": "Ei2oYGt69uidWRLkJh670UNdKa2sAOZq6WMr9Avy/pM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Adrenak.UniVoice.Filters.GaussianAudioBlur.yml",
       "output": {
         ".html": {
@@ -60,35 +96,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Adrenak.UniVoice.Filters.OpusDecodeFilter.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Adrenak.UniVoice.Filters.OpusDecodeFilter.html",
-          "hash": "/9hUN5yKUrcot6GZR9FzHhyb+L8ck2C/kItQny2AO0U="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Adrenak.UniVoice.Filters.OpusEncodeFilter.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Adrenak.UniVoice.Filters.OpusEncodeFilter.html",
-          "hash": "hGkUGgZaByicl/3DLglmMa8w93mABy93bYKrzOTu1f0="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/Adrenak.UniVoice.Filters.yml",
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.Filters.html",
-          "hash": "qqpWdh6ksR3FAH9HFJcGzaI1LqP4Nt8QaarPW+odwvw="
+          "hash": "2TuwVNP1AVPeed5l7Ai0oD+najiJRlArqSZXfe+JjyI="
         }
       },
       "is_incremental": false,
@@ -172,7 +184,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.Inputs.UniMicInput.html",
-          "hash": "gS8lxEk/sgb9sxqB/tcQ1timyqJzmq+VLDkleTISO34="
+          "hash": "fxsm6SvenaH0EhlRWzLFEjoAge2gZvs8waQORxIkvd4="
         }
       },
       "is_incremental": false,
@@ -340,7 +352,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "N9+BrVExxYpMwOQx6NGX0R/HxscNuglnC1+WmakwJIs="
+          "hash": "o2wPnIYiUbBbEoi0BDjG6iX/kPVe8bVqGJ10Ky6wWx8="
         }
       },
       "is_incremental": false,
@@ -352,7 +364,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "TEJV/tX0MSurGIyyvLwTrbPkhL6/Amfbjvs2kQzYurw="
+          "hash": "tjrVP/lmkWVDVde8pEpSiRK6p7lpL0JyHisUHD1Q3rE="
         }
       },
       "is_incremental": false,
@@ -391,7 +403,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 26,
+          "total_file_count": 27,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {

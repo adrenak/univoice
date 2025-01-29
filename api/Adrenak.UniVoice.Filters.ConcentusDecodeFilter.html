@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Namespace Adrenak.UniVoice.Filters
+    <title>Class ConcentusDecodeFilter
    | UniVoice documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Namespace Adrenak.UniVoice.Filters
+    <meta name="title" content="Class ConcentusDecodeFilter
    | UniVoice documentation ">
     <meta name="generator" content="docfx 2.59.4.0">
     
@@ -78,31 +78,110 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Adrenak.UniVoice.Filters">
+            <article class="content wrap" id="_content" data-uid="Adrenak.UniVoice.Filters.ConcentusDecodeFilter">
   
-  <h1 id="Adrenak_UniVoice_Filters" data-uid="Adrenak.UniVoice.Filters" class="text-break">Namespace Adrenak.UniVoice.Filters
+  
+  <h1 id="Adrenak_UniVoice_Filters_ConcentusDecodeFilter" data-uid="Adrenak.UniVoice.Filters.ConcentusDecodeFilter" class="text-break">Class ConcentusDecodeFilter
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Decodes Opus encoded audio. Use this as a filter for incoming client audio.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
-  <div class="markdown level0 remarks"></div>
-    <h3 id="classes">Classes
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">ConcentusDecodeFilter</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Adrenak.UniVoice.IAudioFilter.html">IAudioFilter</a></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Adrenak.UniVoice.Filters.html">Adrenak.UniVoice.Filters</a></h6>
+  <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
+  <h5 id="Adrenak_UniVoice_Filters_ConcentusDecodeFilter_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ConcentusDecodeFilter : IAudioFilter</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
   </h3>
-      <h4><a class="xref" href="Adrenak.UniVoice.Filters.ConcentusDecodeFilter.html">ConcentusDecodeFilter</a></h4>
-      <section><p>Decodes Opus encoded audio. Use this as a filter for incoming client audio.</p>
-</section>
-      <h4><a class="xref" href="Adrenak.UniVoice.Filters.ConcentusEncodeFilter.html">ConcentusEncodeFilter</a></h4>
-      <section><p>A filter that encodes audio using Opus. Use this as an output filter
-to reduce the size of outgoing client audio</p>
-</section>
-      <h4><a class="xref" href="Adrenak.UniVoice.Filters.GaussianAudioBlur.html">GaussianAudioBlur</a></h4>
-      <section><p>A filter that applies Gaussian blur over audio data to smoothen it.
-This is somewhat effective in removing noise from the audio.</p>
-</section>
-    <h3 id="enums">Enums
+  
+  
+  <a id="Adrenak_UniVoice_Filters_ConcentusDecodeFilter__ctor_" data-uid="Adrenak.UniVoice.Filters.ConcentusDecodeFilter.#ctor*"></a>
+  <h4 id="Adrenak_UniVoice_Filters_ConcentusDecodeFilter__ctor_System_Int32_" data-uid="Adrenak.UniVoice.Filters.ConcentusDecodeFilter.#ctor(System.Int32)">ConcentusDecodeFilter(Int32)</h4>
+  <div class="markdown level1 summary"><p>Creates a Concentus decode filter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConcentusDecodeFilter(int decodeBufferLength = 11520)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">decodeBufferLength</span></td>
+        <td><p>The length of the decode buffer. Default is 11520 to fit a large sample
+with frequency 48000, duration 120ms and 2 channels. This should be enough
+for almost all scenarios. Increase if you need more.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
   </h3>
-      <h4><a class="xref" href="Adrenak.UniVoice.Filters.ConcentusFrequencies.html">ConcentusFrequencies</a></h4>
-      <section><p>Defines supported sampling frequencies for the Opus codec via Concentus.</p>
-</section>
+  
+  
+  <a id="Adrenak_UniVoice_Filters_ConcentusDecodeFilter_Run_" data-uid="Adrenak.UniVoice.Filters.ConcentusDecodeFilter.Run*"></a>
+  <h4 id="Adrenak_UniVoice_Filters_ConcentusDecodeFilter_Run_Adrenak_UniVoice_AudioFrame_" data-uid="Adrenak.UniVoice.Filters.ConcentusDecodeFilter.Run(Adrenak.UniVoice.AudioFrame)">Run(AudioFrame)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AudioFrame Run(AudioFrame input)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Adrenak.UniVoice.AudioFrame.html">AudioFrame</a></td>
+        <td><span class="parametername">input</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Adrenak.UniVoice.AudioFrame.html">AudioFrame</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Adrenak.UniVoice.IAudioFilter.html">IAudioFilter</a>
+  </div>
 </article>
           </div>
           

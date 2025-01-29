@@ -87,12 +87,14 @@
 </li>
 <li><p>🌐 <strong>Configurable Network</strong>: UniVoice is network agnostic and supports Mirror out of the box. You can implement the <code>IAudioClient</code> and <code>IAudioServer</code> interfaces using the networking plugin of your choice to make it compatible with it.</p>
 </li>
+<li><p>✏️ <strong>Audio Filters</strong>: Modify outgoing and incoming audio by implementing the <code>IAudioFilter</code> interface. Gaussian blurring for denoising and Opus (Concentus) encoding &amp; decoding for lower bandwidth consumption are provided out of the box.</p>
+</li>
 </ul>
 </li>
 </ul>
 <h2 id="installation">Installation</h2>
 <p>⚠️ <a href="https://openupm.com/packages/com.adrenak.univoice/?subPage=versions">OpenUPM</a> may not have up to date releases. Install using NPM registry instead 👇</p>
-<p>Ensure you have the NPM registry in the <code>packages.json</code> file of your Unity project with the following scopes:</p>
+<p>Ensure you have the NPM registry in the <code>manifest.json</code> file of your Unity project with the following scopes:</p>
 <pre><code>&quot;scopedRegistries&quot;: [
     {
         &quot;name&quot;: &quot;npmjs&quot;,
@@ -102,25 +104,26 @@
             &quot;com.adrenak.univoice&quot;,
             &quot;com.adrenak.brw&quot;,
             &quot;com.adrenak.unimic&quot;,
-            &quot;com.adrenak.unityopus&quot;
+            &quot;com.adrenak.concentus-unity&quot;
         ]
     }
 }
-</code></pre><h2 id="docs">Docs</h2>
+</code></pre><p>Then add <code>com.adrenak.univoice:x.y.z</code> to the <code>dependencies</code> in your <code>manifest.json</code> file (where x.y.z is the version you wish to install). The list of versions is available on <a href="https://www.npmjs.com/package/com.adrenak.univoice?activeTab=versions">the UniVoice NPM page</a>.</p>
+<h2 id="docs">Docs</h2>
 <p>Am API reference is available: <a href="http://www.vatsalambastha.com/univoice">http://www.vatsalambastha.com/univoice</a></p>
 <h2 id="samples">Samples</h2>
 <p>This repository contains a sample scene for the Mirror network, which is the best place to see how UniVoice can be integrated into your project.  </p>
 <p>To try the sample, import Mirror and add the <code>UNIVOICE_MIRROR_NETWORK</code> compilation symbol to your project.</p>
 <h2 id="dependencies">Dependencies</h2>
-<p><a href="https://www.github.com/adrenak/brw">com.adrenak.brw</a><code>@1.0.1</code> for reading and writing messages for communication. See <code>MirrorServer.cs</code> and <code>MirrorClient.cs</code> where they&#39;re used.  </p>
-<p><a href="https://www.github.com/adrenak/unimic">com.adrenak.unimic</a><code>@3.2.1</code> for easily capturing audio from any connected mic devices. See <code>UniMicInput.cs</code> for usage.  </p>
-<p><a href="https://www.github.com/adrenak/unityopus">com.adrenak.unityopus</a><code>@1.0.0</code> for Opus encoding and decoding. See <code>OpusFilter.cs</code> for usage</p>
+<p><a href="https://www.github.com/adrenak/brw">com.adrenak.brw</a> for reading and writing messages for communication. See <code>MirrorServer.cs</code> and <code>MirrorClient.cs</code> where they&#39;re used.  </p>
+<p><a href="https://www.github.com/adrenak/unimic">com.adrenak.unimic</a> for easily capturing audio from any connected mic devices. See <code>UniMicInput.cs</code> for usage. Also used for streaming audio playback. See <code>StreamedAudioSourceOutput.cs</code> for usage.</p>
+<p><a href="https://www.github.com/adrenak/concentus-unity">com.adrenak.concentus-unity</a> for Opus encoding and decoding. See <code>ConcentusEncodeFilter.cs</code> and <code>ConcentusDecodeFilter.cs</code> for usage</p>
 <h2 id="license-and-support">License and Support</h2>
 <p>This project is under the <a href="https://github.com/adrenak/univoice/blob/master/LICENSE">MIT license</a>.</p>
 <p>Community contributions are welcome.</p>
 <h2 id="contact">Contact</h2>
 <p>The developer can be reached at the following links:</p>
-<p><a href="http://www.vatsalambastha.com">Website</a><br><a href="https://www.linkedin.com/in/vatsalAmbastha">LinkedIn</a><br><a href="https://www.github.com/adrenak">GitHub</a><br><a href="https://www.twitter.com/vatsalAmbastha">Twitter</a>  </p>
+<p><a href="http://www.vatsalambastha.com">Website</a><br><a href="https://www.linkedin.com/in/vatsalAmbastha">LinkedIn</a><br><a href="https://www.github.com/adrenak">GitHub</a><br><a href="https://www.twitter.com/vatsalAmbastha">Twitter</a><br>Discord: <code>adrenak#1934</code></p>
 </article>
           </div>
           

@@ -189,6 +189,119 @@ references:
   commentId: N:Adrenak.UniVoice.Filters
   fullName: Adrenak.UniVoice.Filters
   nameWithType: Adrenak.UniVoice.Filters
+- uid: Adrenak.UniVoice.Filters.ConcentusDecodeFilter
+  name: ConcentusDecodeFilter
+  href: api/Adrenak.UniVoice.Filters.ConcentusDecodeFilter.html
+  commentId: T:Adrenak.UniVoice.Filters.ConcentusDecodeFilter
+  fullName: Adrenak.UniVoice.Filters.ConcentusDecodeFilter
+  nameWithType: ConcentusDecodeFilter
+- uid: Adrenak.UniVoice.Filters.ConcentusDecodeFilter.#ctor(System.Int32)
+  name: ConcentusDecodeFilter(Int32)
+  href: api/Adrenak.UniVoice.Filters.ConcentusDecodeFilter.html#Adrenak_UniVoice_Filters_ConcentusDecodeFilter__ctor_System_Int32_
+  commentId: M:Adrenak.UniVoice.Filters.ConcentusDecodeFilter.#ctor(System.Int32)
+  fullName: Adrenak.UniVoice.Filters.ConcentusDecodeFilter.ConcentusDecodeFilter(System.Int32)
+  nameWithType: ConcentusDecodeFilter.ConcentusDecodeFilter(Int32)
+- uid: Adrenak.UniVoice.Filters.ConcentusDecodeFilter.#ctor*
+  name: ConcentusDecodeFilter
+  href: api/Adrenak.UniVoice.Filters.ConcentusDecodeFilter.html#Adrenak_UniVoice_Filters_ConcentusDecodeFilter__ctor_
+  commentId: Overload:Adrenak.UniVoice.Filters.ConcentusDecodeFilter.#ctor
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.Filters.ConcentusDecodeFilter.ConcentusDecodeFilter
+  nameWithType: ConcentusDecodeFilter.ConcentusDecodeFilter
+- uid: Adrenak.UniVoice.Filters.ConcentusDecodeFilter.Run(Adrenak.UniVoice.AudioFrame)
+  name: Run(AudioFrame)
+  href: api/Adrenak.UniVoice.Filters.ConcentusDecodeFilter.html#Adrenak_UniVoice_Filters_ConcentusDecodeFilter_Run_Adrenak_UniVoice_AudioFrame_
+  commentId: M:Adrenak.UniVoice.Filters.ConcentusDecodeFilter.Run(Adrenak.UniVoice.AudioFrame)
+  fullName: Adrenak.UniVoice.Filters.ConcentusDecodeFilter.Run(Adrenak.UniVoice.AudioFrame)
+  nameWithType: ConcentusDecodeFilter.Run(AudioFrame)
+- uid: Adrenak.UniVoice.Filters.ConcentusDecodeFilter.Run*
+  name: Run
+  href: api/Adrenak.UniVoice.Filters.ConcentusDecodeFilter.html#Adrenak_UniVoice_Filters_ConcentusDecodeFilter_Run_
+  commentId: Overload:Adrenak.UniVoice.Filters.ConcentusDecodeFilter.Run
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.Filters.ConcentusDecodeFilter.Run
+  nameWithType: ConcentusDecodeFilter.Run
+- uid: Adrenak.UniVoice.Filters.ConcentusEncodeFilter
+  name: ConcentusEncodeFilter
+  href: api/Adrenak.UniVoice.Filters.ConcentusEncodeFilter.html
+  commentId: T:Adrenak.UniVoice.Filters.ConcentusEncodeFilter
+  fullName: Adrenak.UniVoice.Filters.ConcentusEncodeFilter
+  nameWithType: ConcentusEncodeFilter
+- uid: Adrenak.UniVoice.Filters.ConcentusEncodeFilter.#ctor(Adrenak.UniVoice.Filters.ConcentusFrequencies,System.Int32,System.Int32,System.Int32,System.Int32)
+  name: ConcentusEncodeFilter(ConcentusFrequencies, Int32, Int32, Int32, Int32)
+  href: api/Adrenak.UniVoice.Filters.ConcentusEncodeFilter.html#Adrenak_UniVoice_Filters_ConcentusEncodeFilter__ctor_Adrenak_UniVoice_Filters_ConcentusFrequencies_System_Int32_System_Int32_System_Int32_System_Int32_
+  commentId: M:Adrenak.UniVoice.Filters.ConcentusEncodeFilter.#ctor(Adrenak.UniVoice.Filters.ConcentusFrequencies,System.Int32,System.Int32,System.Int32,System.Int32)
+  fullName: Adrenak.UniVoice.Filters.ConcentusEncodeFilter.ConcentusEncodeFilter(Adrenak.UniVoice.Filters.ConcentusFrequencies, System.Int32, System.Int32, System.Int32, System.Int32)
+  nameWithType: ConcentusEncodeFilter.ConcentusEncodeFilter(ConcentusFrequencies, Int32, Int32, Int32, Int32)
+- uid: Adrenak.UniVoice.Filters.ConcentusEncodeFilter.#ctor*
+  name: ConcentusEncodeFilter
+  href: api/Adrenak.UniVoice.Filters.ConcentusEncodeFilter.html#Adrenak_UniVoice_Filters_ConcentusEncodeFilter__ctor_
+  commentId: Overload:Adrenak.UniVoice.Filters.ConcentusEncodeFilter.#ctor
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.Filters.ConcentusEncodeFilter.ConcentusEncodeFilter
+  nameWithType: ConcentusEncodeFilter.ConcentusEncodeFilter
+- uid: Adrenak.UniVoice.Filters.ConcentusEncodeFilter.Run(Adrenak.UniVoice.AudioFrame)
+  name: Run(AudioFrame)
+  href: api/Adrenak.UniVoice.Filters.ConcentusEncodeFilter.html#Adrenak_UniVoice_Filters_ConcentusEncodeFilter_Run_Adrenak_UniVoice_AudioFrame_
+  commentId: M:Adrenak.UniVoice.Filters.ConcentusEncodeFilter.Run(Adrenak.UniVoice.AudioFrame)
+  fullName: Adrenak.UniVoice.Filters.ConcentusEncodeFilter.Run(Adrenak.UniVoice.AudioFrame)
+  nameWithType: ConcentusEncodeFilter.Run(AudioFrame)
+- uid: Adrenak.UniVoice.Filters.ConcentusEncodeFilter.Run*
+  name: Run
+  href: api/Adrenak.UniVoice.Filters.ConcentusEncodeFilter.html#Adrenak_UniVoice_Filters_ConcentusEncodeFilter_Run_
+  commentId: Overload:Adrenak.UniVoice.Filters.ConcentusEncodeFilter.Run
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.Filters.ConcentusEncodeFilter.Run
+  nameWithType: ConcentusEncodeFilter.Run
+- uid: Adrenak.UniVoice.Filters.ConcentusEncodeFilter.SamplingFrequency
+  name: SamplingFrequency
+  href: api/Adrenak.UniVoice.Filters.ConcentusEncodeFilter.html#Adrenak_UniVoice_Filters_ConcentusEncodeFilter_SamplingFrequency
+  commentId: P:Adrenak.UniVoice.Filters.ConcentusEncodeFilter.SamplingFrequency
+  fullName: Adrenak.UniVoice.Filters.ConcentusEncodeFilter.SamplingFrequency
+  nameWithType: ConcentusEncodeFilter.SamplingFrequency
+- uid: Adrenak.UniVoice.Filters.ConcentusEncodeFilter.SamplingFrequency*
+  name: SamplingFrequency
+  href: api/Adrenak.UniVoice.Filters.ConcentusEncodeFilter.html#Adrenak_UniVoice_Filters_ConcentusEncodeFilter_SamplingFrequency_
+  commentId: Overload:Adrenak.UniVoice.Filters.ConcentusEncodeFilter.SamplingFrequency
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.Filters.ConcentusEncodeFilter.SamplingFrequency
+  nameWithType: ConcentusEncodeFilter.SamplingFrequency
+- uid: Adrenak.UniVoice.Filters.ConcentusFrequencies
+  name: ConcentusFrequencies
+  href: api/Adrenak.UniVoice.Filters.ConcentusFrequencies.html
+  commentId: T:Adrenak.UniVoice.Filters.ConcentusFrequencies
+  fullName: Adrenak.UniVoice.Filters.ConcentusFrequencies
+  nameWithType: ConcentusFrequencies
+- uid: Adrenak.UniVoice.Filters.ConcentusFrequencies.Frequency_12000
+  name: Frequency_12000
+  href: api/Adrenak.UniVoice.Filters.ConcentusFrequencies.html#Adrenak_UniVoice_Filters_ConcentusFrequencies_Frequency_12000
+  commentId: F:Adrenak.UniVoice.Filters.ConcentusFrequencies.Frequency_12000
+  fullName: Adrenak.UniVoice.Filters.ConcentusFrequencies.Frequency_12000
+  nameWithType: ConcentusFrequencies.Frequency_12000
+- uid: Adrenak.UniVoice.Filters.ConcentusFrequencies.Frequency_16000
+  name: Frequency_16000
+  href: api/Adrenak.UniVoice.Filters.ConcentusFrequencies.html#Adrenak_UniVoice_Filters_ConcentusFrequencies_Frequency_16000
+  commentId: F:Adrenak.UniVoice.Filters.ConcentusFrequencies.Frequency_16000
+  fullName: Adrenak.UniVoice.Filters.ConcentusFrequencies.Frequency_16000
+  nameWithType: ConcentusFrequencies.Frequency_16000
+- uid: Adrenak.UniVoice.Filters.ConcentusFrequencies.Frequency_24000
+  name: Frequency_24000
+  href: api/Adrenak.UniVoice.Filters.ConcentusFrequencies.html#Adrenak_UniVoice_Filters_ConcentusFrequencies_Frequency_24000
+  commentId: F:Adrenak.UniVoice.Filters.ConcentusFrequencies.Frequency_24000
+  fullName: Adrenak.UniVoice.Filters.ConcentusFrequencies.Frequency_24000
+  nameWithType: ConcentusFrequencies.Frequency_24000
+- uid: Adrenak.UniVoice.Filters.ConcentusFrequencies.Frequency_48000
+  name: Frequency_48000
+  href: api/Adrenak.UniVoice.Filters.ConcentusFrequencies.html#Adrenak_UniVoice_Filters_ConcentusFrequencies_Frequency_48000
+  commentId: F:Adrenak.UniVoice.Filters.ConcentusFrequencies.Frequency_48000
+  fullName: Adrenak.UniVoice.Filters.ConcentusFrequencies.Frequency_48000
+  nameWithType: ConcentusFrequencies.Frequency_48000
+- uid: Adrenak.UniVoice.Filters.ConcentusFrequencies.Frequency_8000
+  name: Frequency_8000
+  href: api/Adrenak.UniVoice.Filters.ConcentusFrequencies.html#Adrenak_UniVoice_Filters_ConcentusFrequencies_Frequency_8000
+  commentId: F:Adrenak.UniVoice.Filters.ConcentusFrequencies.Frequency_8000
+  fullName: Adrenak.UniVoice.Filters.ConcentusFrequencies.Frequency_8000
+  nameWithType: ConcentusFrequencies.Frequency_8000
 - uid: Adrenak.UniVoice.Filters.GaussianAudioBlur
   name: GaussianAudioBlur
   href: api/Adrenak.UniVoice.Filters.GaussianAudioBlur.html
@@ -221,70 +334,6 @@ references:
   isSpec: "True"
   fullName: Adrenak.UniVoice.Filters.GaussianAudioBlur.Run
   nameWithType: GaussianAudioBlur.Run
-- uid: Adrenak.UniVoice.Filters.OpusDecodeFilter
-  name: OpusDecodeFilter
-  href: api/Adrenak.UniVoice.Filters.OpusDecodeFilter.html
-  commentId: T:Adrenak.UniVoice.Filters.OpusDecodeFilter
-  fullName: Adrenak.UniVoice.Filters.OpusDecodeFilter
-  nameWithType: OpusDecodeFilter
-- uid: Adrenak.UniVoice.Filters.OpusDecodeFilter.#ctor(Decoder,System.Int32)
-  name: OpusDecodeFilter(Decoder, Int32)
-  href: api/Adrenak.UniVoice.Filters.OpusDecodeFilter.html#Adrenak_UniVoice_Filters_OpusDecodeFilter__ctor_Decoder_System_Int32_
-  commentId: M:Adrenak.UniVoice.Filters.OpusDecodeFilter.#ctor(Decoder,System.Int32)
-  fullName: Adrenak.UniVoice.Filters.OpusDecodeFilter.OpusDecodeFilter(Decoder, System.Int32)
-  nameWithType: OpusDecodeFilter.OpusDecodeFilter(Decoder, Int32)
-- uid: Adrenak.UniVoice.Filters.OpusDecodeFilter.#ctor*
-  name: OpusDecodeFilter
-  href: api/Adrenak.UniVoice.Filters.OpusDecodeFilter.html#Adrenak_UniVoice_Filters_OpusDecodeFilter__ctor_
-  commentId: Overload:Adrenak.UniVoice.Filters.OpusDecodeFilter.#ctor
-  isSpec: "True"
-  fullName: Adrenak.UniVoice.Filters.OpusDecodeFilter.OpusDecodeFilter
-  nameWithType: OpusDecodeFilter.OpusDecodeFilter
-- uid: Adrenak.UniVoice.Filters.OpusDecodeFilter.Run(Adrenak.UniVoice.AudioFrame)
-  name: Run(AudioFrame)
-  href: api/Adrenak.UniVoice.Filters.OpusDecodeFilter.html#Adrenak_UniVoice_Filters_OpusDecodeFilter_Run_Adrenak_UniVoice_AudioFrame_
-  commentId: M:Adrenak.UniVoice.Filters.OpusDecodeFilter.Run(Adrenak.UniVoice.AudioFrame)
-  fullName: Adrenak.UniVoice.Filters.OpusDecodeFilter.Run(Adrenak.UniVoice.AudioFrame)
-  nameWithType: OpusDecodeFilter.Run(AudioFrame)
-- uid: Adrenak.UniVoice.Filters.OpusDecodeFilter.Run*
-  name: Run
-  href: api/Adrenak.UniVoice.Filters.OpusDecodeFilter.html#Adrenak_UniVoice_Filters_OpusDecodeFilter_Run_
-  commentId: Overload:Adrenak.UniVoice.Filters.OpusDecodeFilter.Run
-  isSpec: "True"
-  fullName: Adrenak.UniVoice.Filters.OpusDecodeFilter.Run
-  nameWithType: OpusDecodeFilter.Run
-- uid: Adrenak.UniVoice.Filters.OpusEncodeFilter
-  name: OpusEncodeFilter
-  href: api/Adrenak.UniVoice.Filters.OpusEncodeFilter.html
-  commentId: T:Adrenak.UniVoice.Filters.OpusEncodeFilter
-  fullName: Adrenak.UniVoice.Filters.OpusEncodeFilter
-  nameWithType: OpusEncodeFilter
-- uid: Adrenak.UniVoice.Filters.OpusEncodeFilter.#ctor(Encoder)
-  name: OpusEncodeFilter(Encoder)
-  href: api/Adrenak.UniVoice.Filters.OpusEncodeFilter.html#Adrenak_UniVoice_Filters_OpusEncodeFilter__ctor_Encoder_
-  commentId: M:Adrenak.UniVoice.Filters.OpusEncodeFilter.#ctor(Encoder)
-  fullName: Adrenak.UniVoice.Filters.OpusEncodeFilter.OpusEncodeFilter(Encoder)
-  nameWithType: OpusEncodeFilter.OpusEncodeFilter(Encoder)
-- uid: Adrenak.UniVoice.Filters.OpusEncodeFilter.#ctor*
-  name: OpusEncodeFilter
-  href: api/Adrenak.UniVoice.Filters.OpusEncodeFilter.html#Adrenak_UniVoice_Filters_OpusEncodeFilter__ctor_
-  commentId: Overload:Adrenak.UniVoice.Filters.OpusEncodeFilter.#ctor
-  isSpec: "True"
-  fullName: Adrenak.UniVoice.Filters.OpusEncodeFilter.OpusEncodeFilter
-  nameWithType: OpusEncodeFilter.OpusEncodeFilter
-- uid: Adrenak.UniVoice.Filters.OpusEncodeFilter.Run(Adrenak.UniVoice.AudioFrame)
-  name: Run(AudioFrame)
-  href: api/Adrenak.UniVoice.Filters.OpusEncodeFilter.html#Adrenak_UniVoice_Filters_OpusEncodeFilter_Run_Adrenak_UniVoice_AudioFrame_
-  commentId: M:Adrenak.UniVoice.Filters.OpusEncodeFilter.Run(Adrenak.UniVoice.AudioFrame)
-  fullName: Adrenak.UniVoice.Filters.OpusEncodeFilter.Run(Adrenak.UniVoice.AudioFrame)
-  nameWithType: OpusEncodeFilter.Run(AudioFrame)
-- uid: Adrenak.UniVoice.Filters.OpusEncodeFilter.Run*
-  name: Run
-  href: api/Adrenak.UniVoice.Filters.OpusEncodeFilter.html#Adrenak_UniVoice_Filters_OpusEncodeFilter_Run_
-  commentId: Overload:Adrenak.UniVoice.Filters.OpusEncodeFilter.Run
-  isSpec: "True"
-  fullName: Adrenak.UniVoice.Filters.OpusEncodeFilter.Run
-  nameWithType: OpusEncodeFilter.Run
 - uid: Adrenak.UniVoice.IAudioClient`1
   name: IAudioClient<T>
   href: api/Adrenak.UniVoice.IAudioClient-1.html
@@ -580,6 +629,12 @@ references:
   isSpec: "True"
   fullName: Adrenak.UniVoice.Inputs.UniMicInput.UniMicInput
   nameWithType: UniMicInput.UniMicInput
+- uid: Adrenak.UniVoice.Inputs.UniMicInput.device
+  name: device
+  href: api/Adrenak.UniVoice.Inputs.UniMicInput.html#Adrenak_UniVoice_Inputs_UniMicInput_device
+  commentId: F:Adrenak.UniVoice.Inputs.UniMicInput.device
+  fullName: Adrenak.UniVoice.Inputs.UniMicInput.device
+  nameWithType: UniMicInput.device
 - uid: Adrenak.UniVoice.Inputs.UniMicInput.Device
   name: Device
   href: api/Adrenak.UniVoice.Inputs.UniMicInput.html#Adrenak_UniVoice_Inputs_UniMicInput_Device

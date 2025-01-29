@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class OpusEncodeFilter
+    <title>Class ConcentusEncodeFilter
    | UniVoice documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class OpusEncodeFilter
+    <meta name="title" content="Class ConcentusEncodeFilter
    | UniVoice documentation ">
     <meta name="generator" content="docfx 2.59.4.0">
     
@@ -78,10 +78,10 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Adrenak.UniVoice.Filters.OpusEncodeFilter">
+            <article class="content wrap" id="_content" data-uid="Adrenak.UniVoice.Filters.ConcentusEncodeFilter">
   
   
-  <h1 id="Adrenak_UniVoice_Filters_OpusEncodeFilter" data-uid="Adrenak.UniVoice.Filters.OpusEncodeFilter" class="text-break">Class OpusEncodeFilter
+  <h1 id="Adrenak_UniVoice_Filters_ConcentusEncodeFilter" data-uid="Adrenak.UniVoice.Filters.ConcentusEncodeFilter" class="text-break">Class ConcentusEncodeFilter
   </h1>
   <div class="markdown level0 summary"><p>A filter that encodes audio using Opus. Use this as an output filter
 to reduce the size of outgoing client audio</p>
@@ -90,7 +90,7 @@ to reduce the size of outgoing client audio</p>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">OpusEncodeFilter</span></div>
+    <div class="level1"><span class="xref">ConcentusEncodeFilter</span></div>
   </div>
   <div class="implements">
     <h5>Implements</h5>
@@ -98,21 +98,22 @@ to reduce the size of outgoing client audio</p>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Adrenak.UniVoice.Filters.html">Adrenak.UniVoice.Filters</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
-  <h5 id="Adrenak_UniVoice_Filters_OpusEncodeFilter_syntax">Syntax</h5>
+  <h5 id="Adrenak_UniVoice_Filters_ConcentusEncodeFilter_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class OpusEncodeFilter : IAudioFilter</code></pre>
+    <pre><code class="lang-csharp hljs">public class ConcentusEncodeFilter : IAudioFilter</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   
   
-  <a id="Adrenak_UniVoice_Filters_OpusEncodeFilter__ctor_" data-uid="Adrenak.UniVoice.Filters.OpusEncodeFilter.#ctor*"></a>
-  <h4 id="Adrenak_UniVoice_Filters_OpusEncodeFilter__ctor_Encoder_" data-uid="Adrenak.UniVoice.Filters.OpusEncodeFilter.#ctor(Encoder)">OpusEncodeFilter(Encoder)</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="Adrenak_UniVoice_Filters_ConcentusEncodeFilter__ctor_" data-uid="Adrenak.UniVoice.Filters.ConcentusEncodeFilter.#ctor*"></a>
+  <h4 id="Adrenak_UniVoice_Filters_ConcentusEncodeFilter__ctor_Adrenak_UniVoice_Filters_ConcentusFrequencies_System_Int32_System_Int32_System_Int32_System_Int32_" data-uid="Adrenak.UniVoice.Filters.ConcentusEncodeFilter.#ctor(Adrenak.UniVoice.Filters.ConcentusFrequencies,System.Int32,System.Int32,System.Int32,System.Int32)">ConcentusEncodeFilter(ConcentusFrequencies, Int32, Int32, Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Creates a Concentus encode filter</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public OpusEncodeFilter(Encoder encoder)</code></pre>
+    <pre><code class="lang-csharp hljs">public ConcentusEncodeFilter(ConcentusFrequencies encodeFrequency = ConcentusFrequencies.Frequency_16000, int resamplerQuality = 2, int encoderComplexity = 3, int encoderBitrate = 64000, int encodeBufferLength = 46080)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -125,8 +126,63 @@ to reduce the size of outgoing client audio</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Encoder</span></td>
-        <td><span class="parametername">encoder</span></td>
+        <td><a class="xref" href="Adrenak.UniVoice.Filters.ConcentusFrequencies.html">ConcentusFrequencies</a></td>
+        <td><span class="parametername">encodeFrequency</span></td>
+        <td><p>The frequency the encoder runs at.
+If the input audio frequency is different from this value, it will be resampled before encode.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">resamplerQuality</span></td>
+        <td><p>Resampler quality [1, 10]</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">encoderComplexity</span></td>
+        <td><p>Encoder complexity [1, 10]</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">encoderBitrate</span></td>
+        <td><p>Encoder bitrate [16000, 256000]. Set to -1 to enable variable bitrate.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">encodeBufferLength</span></td>
+        <td><p>The length of the encode buffer. Default is 46080 to fit a large sample
+with frequency 48000, duration 120ms and 2 channels. This should be enough
+for almost all scenarios. Increase if you need more.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Adrenak_UniVoice_Filters_ConcentusEncodeFilter_SamplingFrequency_" data-uid="Adrenak.UniVoice.Filters.ConcentusEncodeFilter.SamplingFrequency*"></a>
+  <h4 id="Adrenak_UniVoice_Filters_ConcentusEncodeFilter_SamplingFrequency" data-uid="Adrenak.UniVoice.Filters.ConcentusEncodeFilter.SamplingFrequency">SamplingFrequency</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConcentusFrequencies SamplingFrequency { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Adrenak.UniVoice.Filters.ConcentusFrequencies.html">ConcentusFrequencies</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -135,8 +191,8 @@ to reduce the size of outgoing client audio</p>
   </h3>
   
   
-  <a id="Adrenak_UniVoice_Filters_OpusEncodeFilter_Run_" data-uid="Adrenak.UniVoice.Filters.OpusEncodeFilter.Run*"></a>
-  <h4 id="Adrenak_UniVoice_Filters_OpusEncodeFilter_Run_Adrenak_UniVoice_AudioFrame_" data-uid="Adrenak.UniVoice.Filters.OpusEncodeFilter.Run(Adrenak.UniVoice.AudioFrame)">Run(AudioFrame)</h4>
+  <a id="Adrenak_UniVoice_Filters_ConcentusEncodeFilter_Run_" data-uid="Adrenak.UniVoice.Filters.ConcentusEncodeFilter.Run*"></a>
+  <h4 id="Adrenak_UniVoice_Filters_ConcentusEncodeFilter_Run_Adrenak_UniVoice_AudioFrame_" data-uid="Adrenak.UniVoice.Filters.ConcentusEncodeFilter.Run(Adrenak.UniVoice.AudioFrame)">Run(AudioFrame)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
