@@ -7,15 +7,15 @@
       "dependencies": {},
       "url": "https://registry.npmjs.org"
     },
-    "com.adrenak.unimic": {
-      "version": "3.2.1",
+    "com.adrenak.concentus-unity": {
+      "version": "1.0.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
       "url": "https://registry.npmjs.org"
     },
-    "com.adrenak.unityopus": {
-      "version": "1.0.0",
+    "com.adrenak.unimic": {
+      "version": "3.2.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -45,7 +45,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.test-framework": {
-      "version": "1.1.31",
+      "version": "1.1.29",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -204,6 +204,18 @@
       "depth": 0,
       "source": "builtin",
       "dependencies": {
+        "com.unity.modules.ui": "1.0.0",
+        "com.unity.modules.imgui": "1.0.0",
+        "com.unity.modules.jsonserialize": "1.0.0",
+        "com.unity.modules.uielementsnative": "1.0.0"
+      }
+    },
+    "com.unity.modules.uielementsnative": {
+      "version": "1.0.0",
+      "depth": 1,
+      "source": "builtin",
+      "dependencies": {
+        "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0"
       }

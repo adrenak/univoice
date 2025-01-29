@@ -77,8 +77,8 @@ namespace Adrenak.UniVoice {
                         foreach (var filter in OutputFilters)
                             audioFrame = filter.Run(audioFrame);
                     }
-
-                    PeerOutputs[id].Feed(audioFrame);
+                    if(audioFrame.samples.Length > 0)
+                        PeerOutputs[id].Feed(audioFrame);
                 };
             }
         }
@@ -99,7 +99,8 @@ namespace Adrenak.UniVoice {
                             frame = filter.Run(frame);
                     }
 
-                    Client.SendAudioFrame(frame);
+                    if(frame.samples.Length > 0)
+                        Client.SendAudioFrame(frame);
                 };
             }
         }

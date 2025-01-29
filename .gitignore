@@ -6,6 +6,11 @@
 Assets/AssetStoreTools*
 Assets/ParrelSync
 Assets/ParrelSync.meta
+Assets/Mirror
+Assets/Mirror.meta
+Logs/
+Logs/*
+UserSettings/
 
 # Visual Studio cache directory
 .vs/

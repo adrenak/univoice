@@ -11,14 +11,24 @@ namespace Adrenak.UniVoice.Inputs {
     /// </summary>
     public class UniMicInput : IAudioInput {
         const string TAG = "UniMicInput";
-
         public event Action<AudioFrame> OnFrameReady;
 
-        public Mic.Device Device { get; private set; }
+        public Mic.Device device;
+        public Mic.Device Device { 
+            get => device;
+            set {
+                if (device == value)
+                    return;
+                if(device != null)
+                    device.OnFrameCollected -= OnFrameCollected;
+                device = value;
+                if(device != null)
+                    device.OnFrameCollected += OnFrameCollected;
+            } 
+        }
 
         public UniMicInput(Mic.Device device) {
             Device = device;
-            device.OnFrameCollected += OnFrameCollected;
         }
 
         private void OnFrameCollected(int frequency, int channels, float[] samples) {
@@ -32,7 +42,8 @@ namespace Adrenak.UniVoice.Inputs {
         }
 
         public void Dispose() {
-            Device.OnFrameCollected -= OnFrameCollected;
+            if(Device != null)
+                Device.OnFrameCollected -= OnFrameCollected;
             Debug.unityLogger.Log(TAG, "Disposed");
         }
     }
