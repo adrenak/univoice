@@ -4,10 +4,9 @@
 [Bb]uild/
 [Bb]uilds/
 Assets/AssetStoreTools*
-Assets/ParrelSync
-Assets/ParrelSync.meta
-Assets/Mirror
-Assets/Mirror.meta
+Assets/*
+!Assets/Adrenak.UniVoice
+!Assets/Adrenak.UniVoice.meta
 Logs/
 Logs/*
 UserSettings/

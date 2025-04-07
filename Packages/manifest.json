@@ -2,11 +2,10 @@
   "dependencies": {
     "com.adrenak.brw": "1.0.1",
     "com.adrenak.concentus-unity": "1.0.1",
-    "com.adrenak.unimic": "3.2.2",
+    "com.adrenak.unimic": "3.2.4",
     "com.unity.ide.visualstudio": "2.0.22",
     "com.unity.nuget.newtonsoft-json": "3.2.1",
     "com.unity.ugui": "1.0.0",
-    "com.veriorpies.parrelsync": "1.5.1",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
@@ -47,14 +46,6 @@
         "com.adrenak.brw",
         "com.adrenak.unimic",
         "com.adrenak.concentus-unity"
-      ]
-    },
-    {
-      "name": "OpenUPM",
-      "url": "https://package.openupm.com",
-      "scopes": [
-        "com.openupm",
-        "com.veriorpies.parrelsync"
       ]
     }
   ]

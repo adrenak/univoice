@@ -34,34 +34,11 @@ MonoBehaviour:
     - com.adrenak.concentus-unity
     m_IsDefault: 0
     m_Capabilities: 0
-  - m_Id: scoped:OpenUPM
-    m_Name: OpenUPM
-    m_Url: https://package.openupm.com
-    m_Scopes:
-    - com.openupm
-    - com.veriorpies.parrelsync
-    m_IsDefault: 0
-    m_Capabilities: 0
   m_UserSelectedRegistryName: NPM
   m_UserAddingNewScopedRegistry: 0
   m_RegistryInfoDraft:
-    m_ErrorMessage: 
-    m_Original:
-      m_Id: scoped:NPM
-      m_Name: NPM
-      m_Url: https://registry.npmjs.org
-      m_Scopes:
-      - com.adrenak.brw
-      - com.adrenak.unimic
-      - com.adrenak.concentus-unity
-      m_IsDefault: 0
-      m_Capabilities: 0
     m_Modified: 0
-    m_Name: NPM
-    m_Url: https://registry.npmjs.org
-    m_Scopes:
-    - com.adrenak.brw
-    - com.adrenak.unimic
-    - com.adrenak.concentus-unity
-    m_SelectedScopeIndex: 0
+    m_ErrorMessage: 
+    m_UserModificationsInstanceId: -828
+    m_OriginalInstanceId: -832
   m_LoadAssets: 0
