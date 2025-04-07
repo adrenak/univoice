@@ -3,7 +3,7 @@
 // https://github.com/MirrorNetworking/Mirror/releases/tag/v89.11.0
 // OnServerConnected no longer seems to work?
 
-#if UNIVOICE_MIRROR_NETWORK
+#if UNIVOICE_MIRROR_NETWORK || UNIVOICE_NETWORK_MIRROR
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -62,7 +62,7 @@ namespace Adrenak.UniVoice.Networks {
             NetworkManager.singleton.transport.OnServerConnectedWithAddress -= OnServerConnected;
 #else
             NetworkManager.singleton.transport.OnServerConnected -= OnServerConnected;
-#endif            
+#endif
             NetworkManager.singleton.transport.OnServerDisconnected -= OnServerDisconnected;
         }
 

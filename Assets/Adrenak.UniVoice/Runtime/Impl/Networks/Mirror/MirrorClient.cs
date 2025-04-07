@@ -1,4 +1,4 @@
-#if UNIVOICE_MIRROR_NETWORK
+#if UNIVOICE_MIRROR_NETWORK || UNIVOICE_NETWORK_MIRROR
 using System;
 using System.Linq;
 using System.Collections.Generic;
