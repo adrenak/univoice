@@ -77,17 +77,47 @@
 <ul>
 <li><p>👥 Group voice chat. Multiple peers can join a chatroom and exchange audio.  </p>
 </li>
-<li><p>⚙ Peer specific settings. Don&#39;t want to listen to a peer? Mute them. Don&#39;t want someone listening to you? Mute yourself against them.</p>
+<li><p>⚙ Peer specific settings. Don&#39;t want to listen to a peer? Mute them. Don&#39;t want someone listening to you? Deafen them.  </p>
 </li>
-<li><p>🎨 Customize your audio input, output and networking layer. </p>
+<li><p>🎨 Customize your audio input, output and networking layers. </p>
 <ul>
-<li><p>🎤 <strong>Configurable Audio Input</strong>: UniVoice is audio input agnostic. It supports mic audio input out of the box and you can change the source of outgoing audio by implementing the <code>IAudioInput</code> interrace.  </p>
+<li><p>🌐 <strong>Configurable Network</strong>: </p>
+<ul>
+<li>UniVoice is networking agnostic. Implement the <code>IAudioClient</code> and <code>IAudioServer</code> interfaces using the networking plugin of your choice to have it send audio data over any networking solution. </li>
+<li>Built-in support for:<ul>
+<li>Mirror networking.  </li>
+</ul>
 </li>
-<li><p>🔊 <strong>Configurable Audio Output</strong>:  UniVoice is audio output agnostic. Out of the box is supports playing peer audio using Unity AudioSource. You can divert incoming audio to anywhere you want by implementing the <code>IAudioOutput</code> interface.  </p>
+</ul>
 </li>
-<li><p>🌐 <strong>Configurable Network</strong>: UniVoice is network agnostic and supports Mirror out of the box. You can implement the <code>IAudioClient</code> and <code>IAudioServer</code> interfaces using the networking plugin of your choice to make it compatible with it.</p>
+<li><p>🎤 <strong>Configurable Audio Input</strong>: </p>
+<ul>
+<li>UniVoice is audio input agnostic. You can change the source of outgoing audio by implementing the <code>IAudioInput</code> interface.  </li>
+<li>Built-in support for:<ul>
+<li>Capturing Mic audio as device input.  </li>
+</ul>
 </li>
-<li><p>✏️ <strong>Audio Filters</strong>: Modify outgoing and incoming audio by implementing the <code>IAudioFilter</code> interface. Gaussian blurring for denoising and Opus (Concentus) encoding &amp; decoding for lower bandwidth consumption are provided out of the box.</p>
+</ul>
+</li>
+<li><p>🔊 <strong>Configurable Audio Output</strong>:  </p>
+<ul>
+<li>UniVoice is audio output agnostic. You can divert incoming audio to anywhere you want by implementing the <code>IAudioOutput</code> interface.</li>
+<li>Built-in support for:<ul>
+<li>Playing incoming audio using Unity AudioSource.  </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>✏️ <strong>Audio Filters</strong>: </p>
+<ul>
+<li>Modify outgoing and incoming audio by implementing the <code>IAudioFilter</code> interface. </li>
+<li>Built-in support for:<ul>
+<li>Opus (Concentus) encoding &amp; decoding.</li>
+<li>RNNoise based noise removal.</li>
+<li>Gaussian blurring for minor denoising.</li>
+</ul>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -110,14 +140,34 @@
 }
 </code></pre><p>Then add <code>com.adrenak.univoice:x.y.z</code> to the <code>dependencies</code> in your <code>manifest.json</code> file (where x.y.z is the version you wish to install). The list of versions is available on <a href="https://www.npmjs.com/package/com.adrenak.univoice?activeTab=versions">the UniVoice NPM page</a>.</p>
 <h2 id="docs">Docs</h2>
-<p>Am API reference is available: <a href="http://www.vatsalambastha.com/univoice">http://www.vatsalambastha.com/univoice</a></p>
+<p>API reference is available here: <a href="http://www.vatsalambastha.com/univoice">http://www.vatsalambastha.com/univoice</a></p>
 <h2 id="samples">Samples</h2>
 <p>This repository contains a sample scene for the Mirror network, which is the best place to see how UniVoice can be integrated into your project.  </p>
-<p>To try the sample, import Mirror and add the <code>UNIVOICE_MIRROR_NETWORK</code> compilation symbol to your project.</p>
+<blockquote><p>The sample relies on Mirror networking to work. Follow the instructions below for enabling Mirror in your project before trying it out.</p>
+</blockquote>
 <h2 id="dependencies">Dependencies</h2>
 <p><a href="https://www.github.com/adrenak/brw">com.adrenak.brw</a> for reading and writing messages for communication. See <code>MirrorServer.cs</code> and <code>MirrorClient.cs</code> where they&#39;re used.  </p>
 <p><a href="https://www.github.com/adrenak/unimic">com.adrenak.unimic</a> for easily capturing audio from any connected mic devices. See <code>UniMicInput.cs</code> for usage. Also used for streaming audio playback. See <code>StreamedAudioSourceOutput.cs</code> for usage.</p>
 <p><a href="https://www.github.com/adrenak/concentus-unity">com.adrenak.concentus-unity</a> for Opus encoding and decoding. See <code>ConcentusEncodeFilter.cs</code> and <code>ConcentusDecodeFilter.cs</code> for usage</p>
+<h2 id="activating-non-packaged-dependencies">Activating non-packaged dependencies</h2>
+<p>UniVoice includes and installs the dependencies mentioned above along with itself. The following implementations are available out of the box when you install it:</p>
+<ul>
+<li>Opus encoding/decoding filter (via Contentus-Unity)</li>
+<li>GaussianAudioBlur filter (plain C#, no dependencies used)</li>
+<li>Mic audio capture input (via UniMic)</li>
+<li>AudioSource based playback output (via UniMic)</li>
+</ul>
+<p>But the following implementations are based on dependencies that you have to install and enable via compilation symbols as they are <em>not</em> UniVoice dependencies and <em>don&#39;t</em> get installed along with UniVoice. This is because they are either third party modules or based on native libraries (not plain C#) that can pose build issues.  </p>
+<ul>
+<li>Mirror network:<ul>
+<li>To enable, ensure the Mirror package is in your project and add <code>UNIVOICE_NETWORK_MIRROR</code> to activate it</li>
+</ul>
+</li>
+<li>RNNoise Noise removal filter:<ul>
+<li>To enable, ensure the <a href="https://github.com/adrenak/RNNoise4Unity">RNNoise4Unity</a> package is in your project and add <code>UNIVOICE_FILTER_RNNOISE4UNITY</code> to activate it</li>
+</ul>
+</li>
+</ul>
 <h2 id="license-and-support">License and Support</h2>
 <p>This project is under the <a href="https://github.com/adrenak/univoice/blob/master/LICENSE">MIT license</a>.</p>
 <p>Community contributions are welcome.</p>
