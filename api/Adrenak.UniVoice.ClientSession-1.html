@@ -208,6 +208,34 @@ Allows adding input and output filters and handles their execution.</p>
   </table>
   
   
+  <a id="Adrenak_UniVoice_ClientSession_1_InputEnabled_" data-uid="Adrenak.UniVoice.ClientSession`1.InputEnabled*"></a>
+  <h4 id="Adrenak_UniVoice_ClientSession_1_InputEnabled" data-uid="Adrenak.UniVoice.ClientSession`1.InputEnabled">InputEnabled</h4>
+  <div class="markdown level1 summary"><p>Whether input audio will be processed. If set to false, any input audio captured by 
+<a class="xref" href="Adrenak.UniVoice.ClientSession-1.html#Adrenak_UniVoice_ClientSession_1_Input">Input</a> would be ignored and would neither be processed by the <a class="xref" href="Adrenak.UniVoice.ClientSession-1.html#Adrenak_UniVoice_ClientSession_1_InputFilters">InputFilters</a> nor send via the <a class="xref" href="Adrenak.UniVoice.ClientSession-1.html#Adrenak_UniVoice_ClientSession_1_Client">Client</a>
+This can be used to create &quot;Push to talk&quot; style features without having to use <a class="xref" href="Adrenak.UniVoice.IAudioClient-1.html#Adrenak_UniVoice_IAudioClient_1_YourVoiceSettings">YourVoiceSettings</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool InputEnabled { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="Adrenak_UniVoice_ClientSession_1_InputFilters_" data-uid="Adrenak.UniVoice.ClientSession`1.InputFilters*"></a>
   <h4 id="Adrenak_UniVoice_ClientSession_1_InputFilters" data-uid="Adrenak.UniVoice.ClientSession`1.InputFilters">InputFilters</h4>
   <div class="markdown level1 summary"><p>The input <a class="xref" href="Adrenak.UniVoice.IAudioFilter.html">IAudioFilter</a> that will be applied to the outgoing audio for all the peers.
@@ -282,6 +310,36 @@ Note that filters are executed in the order they are present in this list.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="Adrenak.UniVoice.IAudioFilter.html">IAudioFilter</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Adrenak_UniVoice_ClientSession_1_OutputsEnabled_" data-uid="Adrenak.UniVoice.ClientSession`1.OutputsEnabled*"></a>
+  <h4 id="Adrenak_UniVoice_ClientSession_1_OutputsEnabled" data-uid="Adrenak.UniVoice.ClientSession`1.OutputsEnabled">OutputsEnabled</h4>
+  <div class="markdown level1 summary"><p>Whether any incoming audio from peers would be processed. If set to false, all incoming peer audio is ignored, and would
+neither be processed by the <a class="xref" href="Adrenak.UniVoice.ClientSession-1.html#Adrenak_UniVoice_ClientSession_1_OutputFilters">OutputFilters</a> nor outputted to the <a class="xref" href="Adrenak.UniVoice.IAudioOutput.html">IAudioOutput</a> of any peer.
+This can be used to easily mute all the peers on the network.
+Note that this doesn&apos;t stop the audio data from arriving and would consume bandwidth. Do stop reception completely
+use <a class="xref" href="Adrenak.UniVoice.IAudioClient-1.html#Adrenak_UniVoice_IAudioClient_1_YourVoiceSettings">YourVoiceSettings</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool OutputsEnabled { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
         <td></td>
       </tr>
     </tbody>

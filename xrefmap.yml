@@ -115,6 +115,23 @@ references:
   fullName.vb: Adrenak.UniVoice.ClientSession(Of T).Input
   nameWithType: ClientSession<T>.Input
   nameWithType.vb: ClientSession(Of T).Input
+- uid: Adrenak.UniVoice.ClientSession`1.InputEnabled
+  name: InputEnabled
+  href: api/Adrenak.UniVoice.ClientSession-1.html#Adrenak_UniVoice_ClientSession_1_InputEnabled
+  commentId: P:Adrenak.UniVoice.ClientSession`1.InputEnabled
+  fullName: Adrenak.UniVoice.ClientSession<T>.InputEnabled
+  fullName.vb: Adrenak.UniVoice.ClientSession(Of T).InputEnabled
+  nameWithType: ClientSession<T>.InputEnabled
+  nameWithType.vb: ClientSession(Of T).InputEnabled
+- uid: Adrenak.UniVoice.ClientSession`1.InputEnabled*
+  name: InputEnabled
+  href: api/Adrenak.UniVoice.ClientSession-1.html#Adrenak_UniVoice_ClientSession_1_InputEnabled_
+  commentId: Overload:Adrenak.UniVoice.ClientSession`1.InputEnabled
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.ClientSession<T>.InputEnabled
+  fullName.vb: Adrenak.UniVoice.ClientSession(Of T).InputEnabled
+  nameWithType: ClientSession<T>.InputEnabled
+  nameWithType.vb: ClientSession(Of T).InputEnabled
 - uid: Adrenak.UniVoice.ClientSession`1.InputFilters
   name: InputFilters
   href: api/Adrenak.UniVoice.ClientSession-1.html#Adrenak_UniVoice_ClientSession_1_InputFilters
@@ -166,6 +183,23 @@ references:
   fullName.vb: Adrenak.UniVoice.ClientSession(Of T).OutputFilters
   nameWithType: ClientSession<T>.OutputFilters
   nameWithType.vb: ClientSession(Of T).OutputFilters
+- uid: Adrenak.UniVoice.ClientSession`1.OutputsEnabled
+  name: OutputsEnabled
+  href: api/Adrenak.UniVoice.ClientSession-1.html#Adrenak_UniVoice_ClientSession_1_OutputsEnabled
+  commentId: P:Adrenak.UniVoice.ClientSession`1.OutputsEnabled
+  fullName: Adrenak.UniVoice.ClientSession<T>.OutputsEnabled
+  fullName.vb: Adrenak.UniVoice.ClientSession(Of T).OutputsEnabled
+  nameWithType: ClientSession<T>.OutputsEnabled
+  nameWithType.vb: ClientSession(Of T).OutputsEnabled
+- uid: Adrenak.UniVoice.ClientSession`1.OutputsEnabled*
+  name: OutputsEnabled
+  href: api/Adrenak.UniVoice.ClientSession-1.html#Adrenak_UniVoice_ClientSession_1_OutputsEnabled_
+  commentId: Overload:Adrenak.UniVoice.ClientSession`1.OutputsEnabled
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.ClientSession<T>.OutputsEnabled
+  fullName.vb: Adrenak.UniVoice.ClientSession(Of T).OutputsEnabled
+  nameWithType: ClientSession<T>.OutputsEnabled
+  nameWithType.vb: ClientSession(Of T).OutputsEnabled
 - uid: Adrenak.UniVoice.ClientSession`1.PeerOutputs
   name: PeerOutputs
   href: api/Adrenak.UniVoice.ClientSession-1.html#Adrenak_UniVoice_ClientSession_1_PeerOutputs
