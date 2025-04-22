@@ -17,6 +17,22 @@ namespace Adrenak.UniVoice {
         public Dictionary<T, IAudioOutput> PeerOutputs { get; private set; } = new Dictionary<T, IAudioOutput>();
 
         /// <summary>
+        /// Whether input audio will be processed. If set to false, any input audio captured by 
+        /// <see cref="Input"/> would be ignored and would neither be processed by the <see cref="InputFilters"/> nor send via the <see cref="Client"/>
+        /// This can be used to create "Push to talk" style features without having to use <see cref="IAudioClient{T}.YourVoiceSettings"/>
+        /// </summary>
+        public bool InputEnabled { get; set; } = true;
+
+        /// <summary>
+        /// Whether any incoming audio from peers would be processed. If set to false, all incoming peer audio is ignored, and would
+        /// neither be processed by the <see cref="OutputFilters"/> nor outputted to the <see cref="IAudioOutput"/> of any peer.
+        /// This can be used to easily mute all the peers on the network.
+        /// Note that this doesn't stop the audio data from arriving and would consume bandwidth. Do stop reception completely
+        /// use <see cref="IAudioClient{T}.YourVoiceSettings"/>
+        /// </summary>
+        public bool OutputsEnabled { get; set; } = true;
+
+        /// <summary>
         /// The input <see cref="IAudioFilter"/> that will be applied to the outgoing audio for all the peers.
         /// Note that filters are executed in the order they are present in this list
         /// </summary>
@@ -69,7 +85,10 @@ namespace Adrenak.UniVoice {
                     PeerOutputs.Remove(id);
                 };
 
-                client.OnReceivedPeerAudioFrame += (id, audioFrame) => {
+                Client.OnReceivedPeerAudioFrame += (id, audioFrame) => {
+                    if (!OutputsEnabled)
+                        return;
+
                     if (!PeerOutputs.ContainsKey(id))
                         return;
 
@@ -94,6 +113,9 @@ namespace Adrenak.UniVoice {
                     input.Dispose();
                 input = value;
                 input.OnFrameReady += frame => {
+                    if (!InputEnabled) 
+                        return;
+
                     if (InputFilters != null) {
                         foreach (var filter in InputFilters)
                             frame = filter.Run(frame);
