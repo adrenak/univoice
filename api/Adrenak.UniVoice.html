@@ -92,6 +92,13 @@
 Requires an implementation of <a class="xref" href="Adrenak.UniVoice.IAudioClient-1.html">IAudioClient&lt;T&gt;</a>, <a class="xref" href="Adrenak.UniVoice.IAudioInput.html">IAudioInput</a> and <a class="xref" href="Adrenak.UniVoice.IAudioOutputFactory.html">IAudioOutputFactory</a> each.
 Allows adding input and output filters and handles their execution.</p>
 </section>
+      <h4><a class="xref" href="Adrenak.UniVoice.EmptyAudioInput.html">EmptyAudioInput</a></h4>
+      <section><p>An audio input implementation that doesn&apos;t do anything.
+Use this when the device doesn&apos;t have any input mode. 
+This is especially useful when setting up the ClientSession
+object on a dedicated server that likely isn&apos;t going to have 
+and mic or other audio capture devices.</p>
+</section>
       <h4><a class="xref" href="Adrenak.UniVoice.Utils.html">Utils</a></h4>
       <section></section>
       <h4><a class="xref" href="Adrenak.UniVoice.Utils.Audio.html">Utils.Audio</a></h4>

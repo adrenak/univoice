@@ -48,6 +48,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.EmptyAudioInput.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.EmptyAudioInput.html",
+          "hash": "rFnta63OFKrSTKvUzEe/KBlgFyTRblILKB8WY75bhoc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Adrenak.UniVoice.Filters.ConcentusDecodeFilter.yml",
       "output": {
         ".html": {
@@ -264,11 +276,23 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.Samples.UniVoiceMirrorSetupSample.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.Samples.UniVoiceMirrorSetupSample.html",
+          "hash": "5ZsR1a3K8E0ck+W15+FhOWQ1FPX9dM3/I/Jjnf5KggU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Adrenak.UniVoice.Samples.yml",
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.Samples.html",
-          "hash": "NBqzGa0k7HSluqVTixs+S+M9X7cQ3+JOeuvEHE8Vsak="
+          "hash": "k04c1q3Szfc93KVluNAZVHU7s/viSFyAm5m7t4uwRzk="
         }
       },
       "is_incremental": false,
@@ -340,7 +364,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.html",
-          "hash": "+5XdmtXeWdElx7m4vm3wrw83R8dYP4VLFe/v+b5SjV0="
+          "hash": "9iu9uyZ84t1fKNyE36fC+rgYqilq54HN4n0YT62F7MQ="
         }
       },
       "is_incremental": false,
@@ -352,7 +376,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "o2wPnIYiUbBbEoi0BDjG6iX/kPVe8bVqGJ10Ky6wWx8="
+          "hash": "BxQAouMR88hhWh5/JGXfREGalDKZjgdvZ+m/4PfLfSY="
         }
       },
       "is_incremental": false,
@@ -364,7 +388,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "2nuP5B4ZVDY5lwcTVCqz+x7T8UPZgCLfzUb2b0ixqIY="
+          "hash": "qziKffgLfcWPaOoJWzVngs4S7MDnOsTmTTKKObf/GTg="
         }
       },
       "is_incremental": false,
@@ -403,7 +427,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 27,
+          "total_file_count": 29,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {

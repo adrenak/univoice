@@ -85,7 +85,7 @@
 <ul>
 <li>UniVoice is networking agnostic. Implement the <code>IAudioClient</code> and <code>IAudioServer</code> interfaces using the networking plugin of your choice to have it send audio data over any networking solution. </li>
 <li>Built-in support for:<ul>
-<li>Mirror networking.  </li>
+<li>Mirror networking. Note that only Client and Server modes are currently supported. Host mode is not.  </li>
 </ul>
 </li>
 </ul>
@@ -139,11 +139,22 @@
     }
 }
 </code></pre><p>Then add <code>com.adrenak.univoice:x.y.z</code> to the <code>dependencies</code> in your <code>manifest.json</code> file (where x.y.z is the version you wish to install). The list of versions is available on <a href="https://www.npmjs.com/package/com.adrenak.univoice?activeTab=versions">the UniVoice NPM page</a>.</p>
-<h2 id="docs">Docs</h2>
-<p>API reference is available here: <a href="http://www.vatsalambastha.com/univoice">http://www.vatsalambastha.com/univoice</a></p>
+<h2 id="useful-links">Useful links</h2>
+<ul>
+<li>API reference is available here: <a href="http://www.vatsalambastha.com/univoice">http://www.vatsalambastha.com/univoice</a></li>
+<li>UniVoice blog: <a href="https://blog.vatsalambastha.com/search/label/univoice">https://blog.vatsalambastha.com/search/label/univoice</a></li>
+<li>Discord server: <a href="https://discord.gg/Un6Y2sQqqe">https://discord.gg/Un6Y2sQqqe</a></li>
+</ul>
+<h2 id="integration">Integration</h2>
+<p>UniVoice isn&#39;t currently very drag-and-drop/low-code. The best way to integrate is to have some code perform a one time setup when your app starts and provides access to relevant objects that you can use throughout the rest of the apps runtime.</p>
+<p>An example of this is the <code>UniVoiceMirrorSetupSample.cs</code> file that gives you access to an AudioServer that you can use in your server code and a ClientSession that you can use in your client code. For more see the &quot;Samples&quot; section below.</p>
 <h2 id="samples">Samples</h2>
-<p>This repository contains a sample scene for the Mirror network, which is the best place to see how UniVoice can be integrated into your project.  </p>
-<blockquote><p>The sample relies on Mirror networking to work. Follow the instructions below for enabling Mirror in your project before trying it out.</p>
+<p>This repository contains two samples:</p>
+<ul>
+<li><code>UniVoiceMirrorSetupSample.cs</code> is a drag and drop component, a simple integration sample script. You can add it to your Mirror NetworkManager to get voice chat to work. No code required, it&#39;s as simple as that! It&#39;ll work as long as you have setup your project properly. For more instructions see the top of the <code>UniVoiceMirrorSetupSample.cs</code> file.</li>
+<li>A sample scene that shows the other clients in a UI as well as allows you to mute yourself/them. This sample is also Mirror based.</li>
+</ul>
+<blockquote><p>UniVoice currently only supports Mirror out of the box. All the samples rely on Mirror networking to work. Follow the instructions in the &quot;Activating non-packaged dependencies&quot; section below for enabling Mirror in your project before trying it out. Also note that the Host mode is not supported, your server should be in Server mode only.</p>
 </blockquote>
 <h2 id="dependencies">Dependencies</h2>
 <p><a href="https://www.github.com/adrenak/brw">com.adrenak.brw</a> for reading and writing messages for communication. See <code>MirrorServer.cs</code> and <code>MirrorClient.cs</code> where they&#39;re used.  </p>
