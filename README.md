@@ -10,7 +10,7 @@ Some features of UniVoice:
   * 🌐 __Configurable Network__: 
     - UniVoice is networking agnostic. Implement the `IAudioClient` and `IAudioServer` interfaces using the networking plugin of your choice to have it send audio data over any networking solution. 
     - Built-in support for:
-        - Mirror networking. Note that only Client and Server modes are currently supported. Host mode is not.  
+        - Mirror networking
 
   * 🎤 __Configurable Audio Input__: 
     - UniVoice is audio input agnostic. You can change the source of outgoing audio by implementing the `IAudioInput` interface.  
@@ -65,7 +65,7 @@ This repository contains two samples:
 * `UniVoiceMirrorSetupSample.cs` is a drag and drop component, a simple integration sample script. You can add it to your Mirror NetworkManager to get voice chat to work. No code required, it's as simple as that! It'll work as long as you have setup your project properly. For more instructions see the top of the `UniVoiceMirrorSetupSample.cs` file.
 * A sample scene that shows the other clients in a UI as well as allows you to mute yourself/them. This sample is also Mirror based.
   
-> UniVoice currently only supports Mirror out of the box. All the samples rely on Mirror networking to work. Follow the instructions in the "Activating non-packaged dependencies" section below for enabling Mirror in your project before trying it out. Also note that the Host mode is not supported, your server should be in Server mode only.
+> UniVoice currently only supports Mirror out of the box. All the samples rely on Mirror networking to work. Follow the instructions in the "Activating non-packaged dependencies" section below for enabling Mirror in your project before trying it out. 
   
 ## Dependencies
 [com.adrenak.brw](https://www.github.com/adrenak/brw) for reading and writing messages for communication. See `MirrorServer.cs` and `MirrorClient.cs` where they're used.  
