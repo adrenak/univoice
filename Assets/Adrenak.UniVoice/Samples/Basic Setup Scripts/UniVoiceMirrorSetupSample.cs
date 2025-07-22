@@ -117,7 +117,7 @@ namespace Adrenak.UniVoice.Samples {
             // ---- CREATE AUDIO CLIENT AND SUBSCRIBE TO EVENTS ----
             IAudioClient<int> client = new MirrorClient();
             client.OnJoined += (id, peerIds) => {
-                Debug.unityLogger.Log(LogType.Log, TAG, $"You are Peer ID {id} your peers are {string.Join(", ", peerIds)}");
+                Debug.unityLogger.Log(LogType.Log, TAG, $"You are Peer ID {id}");
             };
 
             client.OnLeft += () => {

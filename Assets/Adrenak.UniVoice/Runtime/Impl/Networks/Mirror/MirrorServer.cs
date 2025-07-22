@@ -40,43 +40,64 @@ namespace Adrenak.UniVoice.Networks {
             ClientIDs = new List<int>();
             ClientVoiceSettings = new Dictionary<int, VoiceSettings>();
 
-            mirrorEvents = MirrorModeObserver.New();
+            mirrorEvents = MirrorModeObserver.New("for MirrorServer");
             mirrorEvents.ModeChanged += OnModeChanged;
 
             NetworkServer.RegisterHandler<MirrorMessage>(OnReceivedMessage, false);
+        }
+        
+        public void Dispose() {
+            mirrorEvents.ModeChanged -= OnModeChanged;
+            NetworkServer.UnregisterHandler<MirrorMessage>();
+            OnServerShutdown();
+        }
 
+        void OnServerStarted() {
 #if MIRROR_89_OR_NEWER
             NetworkManager.singleton.transport.OnServerConnectedWithAddress += OnServerConnected;
 #else
             NetworkManager.singleton.transport.OnServerConnected += OnServerConnected;
 #endif
             NetworkManager.singleton.transport.OnServerDisconnected += OnServerDisconnected;
+            OnServerStart?.Invoke();
         }
-        
-        void IDisposable.Dispose() {
-            mirrorEvents.ModeChanged -= OnModeChanged;
 
-            NetworkServer.UnregisterHandler<MirrorMessage>();
-
+        void OnServerShutdown() {
 #if MIRROR_89_OR_NEWER
             NetworkManager.singleton.transport.OnServerConnectedWithAddress -= OnServerConnected;
 #else
             NetworkManager.singleton.transport.OnServerConnected -= OnServerConnected;
-#endif
+#endif            
             NetworkManager.singleton.transport.OnServerDisconnected -= OnServerDisconnected;
+            ClientIDs.Clear();
+            ClientVoiceSettings.Clear();
+            OnServerStop?.Invoke();
         }
 
         void OnModeChanged(NetworkManagerMode oldMode, NetworkManagerMode newMode) {
+            // For some reason, handlers don't always work as expected when the connection mode changes
             NetworkServer.ReplaceHandler<MirrorMessage>(OnReceivedMessage, false);
 
-            if((newMode == NetworkManagerMode.ServerOnly || newMode == NetworkManagerMode.Host)
-            && (oldMode != NetworkManagerMode.ServerOnly && oldMode != NetworkManagerMode.Host)) {
-                OnServerStart?.Invoke();
+            // If in Host mode, the server and internal client have both started and the client connects immediately.
+            // The host client seems to have ID 0 always, so we trigger a new client connection using id 0.
+            if(newMode == NetworkManagerMode.Host) {
+                OnServerStarted();
+                OnServerConnected(0, "localhost");
             }
-            else if(newMode == NetworkManagerMode.Offline) {
-                ClientIDs.Clear();
-                ClientVoiceSettings.Clear();
-                OnServerStop?.Invoke();
+            else if(newMode == NetworkManagerMode.ServerOnly) {
+                // If a Host changes to ServerOnly, we disconnect the internal client
+                if (oldMode == NetworkManagerMode.Host)
+                    OnServerDisconnected(0);
+                // But if this machine is going from Offline to ServerOnly, only the server is starting
+                else if(oldMode == NetworkManagerMode.Offline)
+                    OnServerStarted();
+            }
+            // If a Host or ServerOnly goes offline 
+            else if(newMode == NetworkManagerMode.Offline && (oldMode == NetworkManagerMode.ServerOnly || oldMode == NetworkManagerMode.Host)) {
+                // We check if it was a Host before and disconnect the internal client
+                if (oldMode == NetworkManagerMode.Host)
+                    OnServerDisconnected(0);
+                OnServerShutdown();
             }
         }
 
@@ -146,6 +167,7 @@ namespace Adrenak.UniVoice.Networks {
 #else
         void OnServerConnected(int connId) {
 #endif
+            // Not sure if this needs to be done, but being extra cautious here
             NetworkServer.ReplaceHandler<MirrorMessage>(OnReceivedMessage, false);
 
             Debug.unityLogger.Log(LogType.Log, TAG, $"Client {connId} connected");
@@ -172,9 +194,10 @@ namespace Adrenak.UniVoice.Networks {
                     // required but I faced some issues with immediate initialization earlier.
                     SendToClientDelayed(connId, newClientPacket.Bytes, Channels.Reliable, 100);
 
-                    string peerListString = string.Join(", ", otherPeerIDs);
-                    Debug.unityLogger.Log(LogType.Log, TAG, 
-                        $"Initializing new client with ID {connId} and peer list {peerListString}");
+                    string log = $"Initializing new client with ID {connId}";
+                    if (otherPeerIDs.Length > 0)
+                        log += $" and peer list {string.Join(", ", otherPeerIDs)}";
+                    Debug.unityLogger.Log(LogType.Log, TAG, log);
                 }
                 // To the already existing peers, we let them know a new peer has joined
                 // by sending the new peer ID to them.
@@ -191,11 +214,11 @@ namespace Adrenak.UniVoice.Networks {
         }
 
         void OnServerDisconnected(int connId) {
+            // Not sure if this needs to be done, but being extra cautious here
             NetworkServer.ReplaceHandler<MirrorMessage>(OnReceivedMessage, false);
 
             ClientIDs.Remove(connId);
-            Debug.unityLogger.Log(LogType.Log, TAG,
-                $"Client {connId} disconnected");
+            Debug.unityLogger.Log(LogType.Log, TAG, $"Client {connId} disconnected");
 
             // Notify all remaining peers that a peer has left 
             foreach (var peerId in ClientIDs) {
