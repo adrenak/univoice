@@ -11,6 +11,8 @@ namespace Adrenak.UniVoice.Networks {
     /// when it changes
     /// </summary>
     public class MirrorModeObserver : MonoBehaviour {
+        const string TAG = "[MirrorModeObserver]";
+
         /// <summary>
         /// Event fired when the Mirror NetworkManager changes the mode
         /// </summary>
@@ -25,8 +27,8 @@ namespace Adrenak.UniVoice.Networks {
         /// Creates a new instance of this class on a GameObject
         /// </summary>
         /// <returns></returns>
-        public static MirrorModeObserver New() {
-            var go = new GameObject("MirrorEventProvider");
+        public static MirrorModeObserver New(string name = "") {
+            var go = new GameObject($"MirrorEventProvider {name}");
             DontDestroyOnLoad(go);
             return go.AddComponent<MirrorModeObserver>();
         }
@@ -34,7 +36,12 @@ namespace Adrenak.UniVoice.Networks {
         void Update() {
             var newMode = NetworkManager.singleton.mode;
             if (lastMode != newMode) {
-                ModeChanged?.Invoke(lastMode, newMode);
+                try {
+                    ModeChanged?.Invoke(lastMode, newMode);
+                }
+                catch (Exception e) {
+                    Debug.Log(LogType.Error, TAG, "Exception while handling Mirror Mode change: " + e);
+                }
                 lastMode = newMode;
             }
         }

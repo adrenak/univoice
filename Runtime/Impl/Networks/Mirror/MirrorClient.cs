@@ -29,27 +29,40 @@ namespace Adrenak.UniVoice.Networks {
         public event Action<int> OnPeerLeft;
         public event Action<int, AudioFrame> OnReceivedPeerAudioFrame;
 
+        readonly MirrorModeObserver mirrorEvents;
+
         public MirrorClient() {
             PeerIDs = new List<int>();
             YourVoiceSettings = new VoiceSettings();
 
-            NetworkManager.singleton.transport.OnClientConnected += OnClientConnected;
-            NetworkManager.singleton.transport.OnClientDisconnected += OnClientDisconnected;
+            mirrorEvents = MirrorModeObserver.New("for MirrorClient");
+            mirrorEvents.ModeChanged += OnModeChanged;
+
             NetworkClient.RegisterHandler<MirrorMessage>(OnReceivedMessage, false);
         }
 
         public void Dispose() {
-            NetworkManager.singleton.transport.OnClientConnected -= OnClientConnected;
-            NetworkManager.singleton.transport.OnClientDisconnected -= OnClientDisconnected;
-            NetworkClient.UnregisterHandler<MirrorMessage>();
+            PeerIDs.Clear();
         }
 
-        void OnClientConnected() {
+        void OnModeChanged(NetworkManagerMode oldMode, NetworkManagerMode newMode) {
+            // For some reason, handlers don't always work as expected when the connection mode changes
             NetworkClient.ReplaceHandler<MirrorMessage>(OnReceivedMessage);
+
+            bool clientOnlyToOffline = newMode == NetworkManagerMode.Offline && oldMode == NetworkManagerMode.ClientOnly;
+            bool hostToServerOnlyOrOffline = oldMode == NetworkManagerMode.Host;
+
+            if (clientOnlyToOffline || hostToServerOnlyOrOffline) {
+                // We unregister the handler only when the device was a client.
+                // If it was a Host that's now a ServerOnly, we still need the handler as it's used in MirrorServer
+                if (clientOnlyToOffline)
+                    NetworkClient.UnregisterHandler<MirrorMessage>();
+                
+                OnClientDisconnected();
+            }
         }
 
         void OnClientDisconnected() {
-            NetworkClient.ReplaceHandler<MirrorMessage>(OnReceivedMessage);
             YourVoiceSettings = new VoiceSettings();
             var oldPeerIds = PeerIDs;
             PeerIDs.Clear();
@@ -58,7 +71,6 @@ namespace Adrenak.UniVoice.Networks {
                 OnPeerLeft?.Invoke(peerId);
             OnLeft?.Invoke();
         }
-
 
         void OnReceivedMessage(MirrorMessage msg) {
             var reader = new BytesReader(msg.data);
@@ -69,13 +81,16 @@ namespace Adrenak.UniVoice.Networks {
                 // peers that are already connected to the server
                 case MirrorMessageTags.PEER_INIT:
                     ID = reader.ReadInt();
-                    Debug.unityLogger.Log(LogType.Log, TAG,
-                        $"Initialized with ID {ID}");
-                    OnJoined?.Invoke(ID, PeerIDs);
                     PeerIDs = reader.ReadIntArray().ToList();
-                    if(PeerIDs.Count > 0)
-                        Debug.unityLogger.Log(LogType.Log, TAG,
-                            $"Peers {string.Join(", ", PeerIDs)}");
+
+                    string log = $"Initialized with ID {ID}. ";
+                    if (PeerIDs.Count > 0)
+                        log += $"Peer list: {string.Join(", ", PeerIDs)}";
+                    else
+                        log += "There are currently no peers.";
+                    Debug.unityLogger.Log(LogType.Log, TAG, log);
+
+                    OnJoined?.Invoke(ID, PeerIDs);
                     foreach (var peerId in PeerIDs)
                         OnPeerJoined?.Invoke(peerId);
                     break;
@@ -84,9 +99,9 @@ namespace Adrenak.UniVoice.Networks {
                 case MirrorMessageTags.PEER_JOINED:
                     var newPeerID = reader.ReadInt();
                     if (!PeerIDs.Contains(newPeerID)) {
-                        Debug.unityLogger.Log(LogType.Log, TAG,
-                            $"Peer {newPeerID} has joined");
                         PeerIDs.Add(newPeerID);
+                        Debug.unityLogger.Log(LogType.Log, TAG,
+                            $"Peer {newPeerID} joined. Peer list is now {string.Join(", ", PeerIDs)}");
                         OnPeerJoined?.Invoke(newPeerID);
                     }
                     break;
@@ -95,9 +110,14 @@ namespace Adrenak.UniVoice.Networks {
                 case MirrorMessageTags.PEER_LEFT:
                     var leftPeerID = reader.ReadInt();
                     if (PeerIDs.Contains(leftPeerID)) {
-                        Debug.unityLogger.Log(LogType.Log, TAG,
-                            $"Peer {leftPeerID} has left");
                         PeerIDs.Remove(leftPeerID);
+                        string log2 = $"Peer {leftPeerID} left. ";
+                        if (PeerIDs.Count == 0)
+                            log2 += "There are no peers anymore.";
+                        else
+                            log2 += $"Peer list is now {string.Join(", ", PeerIDs)}";
+
+                        Debug.unityLogger.Log(LogType.Log, TAG, log2);
                         OnPeerLeft?.Invoke(leftPeerID);
                     }
                     break;
