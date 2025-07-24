@@ -40,7 +40,7 @@ namespace Adrenak.UniVoice.Networks {
                     ModeChanged?.Invoke(lastMode, newMode);
                 }
                 catch (Exception e) {
-                    Debug.Log(LogType.Error, TAG, "Exception while handling Mirror Mode change: " + e);
+                    Debug.unityLogger.Log(LogType.Error, TAG, "Exception while handling Mirror Mode change: " + e);
                 }
                 lastMode = newMode;
             }
