@@ -89,8 +89,9 @@
   </h3>
       <h4><a class="xref" href="Adrenak.UniVoice.ClientSession-1.html">ClientSession&lt;T&gt;</a></h4>
       <section><p>Handles a client session. 
-Requires an implementation of <a class="xref" href="Adrenak.UniVoice.IAudioClient-1.html">IAudioClient&lt;T&gt;</a>, <a class="xref" href="Adrenak.UniVoice.IAudioInput.html">IAudioInput</a> and <a class="xref" href="Adrenak.UniVoice.IAudioOutputFactory.html">IAudioOutputFactory</a> each.
-Allows adding input and output filters and handles their execution.</p>
+Requires implementations of <a class="xref" href="Adrenak.UniVoice.IAudioClient-1.html">IAudioClient&lt;T&gt;</a>, <a class="xref" href="Adrenak.UniVoice.IAudioInput.html">IAudioInput</a> and <a class="xref" href="Adrenak.UniVoice.IAudioOutput.html">IAudioOutput</a>.
+Handles input, output along with filters over the entire client lifecycle.
+Adjusts to changes in configuration at runtime.</p>
 </section>
       <h4><a class="xref" href="Adrenak.UniVoice.EmptyAudioInput.html">EmptyAudioInput</a></h4>
       <section><p>An audio input implementation that doesn&apos;t do anything.

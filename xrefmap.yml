@@ -55,6 +55,15 @@ references:
   fullName.vb: Adrenak.UniVoice.ClientSession(Of T).ClientSession(Adrenak.UniVoice.IAudioClient(Of T), Adrenak.UniVoice.IAudioInput, Adrenak.UniVoice.IAudioOutputFactory)
   nameWithType: ClientSession<T>.ClientSession(IAudioClient<T>, IAudioInput, IAudioOutputFactory)
   nameWithType.vb: ClientSession(Of T).ClientSession(IAudioClient(Of T), IAudioInput, IAudioOutputFactory)
+- uid: Adrenak.UniVoice.ClientSession`1.#ctor(Adrenak.UniVoice.IAudioClient{`0},Adrenak.UniVoice.IAudioInput,System.Func{Adrenak.UniVoice.IAudioOutput})
+  name: ClientSession(IAudioClient<T>, IAudioInput, Func<IAudioOutput>)
+  href: api/Adrenak.UniVoice.ClientSession-1.html#Adrenak_UniVoice_ClientSession_1__ctor_Adrenak_UniVoice_IAudioClient__0__Adrenak_UniVoice_IAudioInput_System_Func_Adrenak_UniVoice_IAudioOutput__
+  commentId: M:Adrenak.UniVoice.ClientSession`1.#ctor(Adrenak.UniVoice.IAudioClient{`0},Adrenak.UniVoice.IAudioInput,System.Func{Adrenak.UniVoice.IAudioOutput})
+  name.vb: ClientSession(IAudioClient(Of T), IAudioInput, Func(Of IAudioOutput))
+  fullName: Adrenak.UniVoice.ClientSession<T>.ClientSession(Adrenak.UniVoice.IAudioClient<T>, Adrenak.UniVoice.IAudioInput, System.Func<Adrenak.UniVoice.IAudioOutput>)
+  fullName.vb: Adrenak.UniVoice.ClientSession(Of T).ClientSession(Adrenak.UniVoice.IAudioClient(Of T), Adrenak.UniVoice.IAudioInput, System.Func(Of Adrenak.UniVoice.IAudioOutput))
+  nameWithType: ClientSession<T>.ClientSession(IAudioClient<T>, IAudioInput, Func<IAudioOutput>)
+  nameWithType.vb: ClientSession(Of T).ClientSession(IAudioClient(Of T), IAudioInput, Func(Of IAudioOutput))
 - uid: Adrenak.UniVoice.ClientSession`1.#ctor*
   name: ClientSession
   href: api/Adrenak.UniVoice.ClientSession-1.html#Adrenak_UniVoice_ClientSession_1__ctor_
@@ -64,6 +73,24 @@ references:
   fullName.vb: Adrenak.UniVoice.ClientSession(Of T).ClientSession
   nameWithType: ClientSession<T>.ClientSession
   nameWithType.vb: ClientSession(Of T).ClientSession
+- uid: Adrenak.UniVoice.ClientSession`1.AddOutputFilter*
+  name: AddOutputFilter
+  href: api/Adrenak.UniVoice.ClientSession-1.html#Adrenak_UniVoice_ClientSession_1_AddOutputFilter_
+  commentId: Overload:Adrenak.UniVoice.ClientSession`1.AddOutputFilter
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.ClientSession<T>.AddOutputFilter
+  fullName.vb: Adrenak.UniVoice.ClientSession(Of T).AddOutputFilter
+  nameWithType: ClientSession<T>.AddOutputFilter
+  nameWithType.vb: ClientSession(Of T).AddOutputFilter
+- uid: Adrenak.UniVoice.ClientSession`1.AddOutputFilter``1(System.Func{Adrenak.UniVoice.IAudioFilter})
+  name: AddOutputFilter<TFilter>(Func<IAudioFilter>)
+  href: api/Adrenak.UniVoice.ClientSession-1.html#Adrenak_UniVoice_ClientSession_1_AddOutputFilter__1_System_Func_Adrenak_UniVoice_IAudioFilter__
+  commentId: M:Adrenak.UniVoice.ClientSession`1.AddOutputFilter``1(System.Func{Adrenak.UniVoice.IAudioFilter})
+  name.vb: AddOutputFilter(Of TFilter)(Func(Of IAudioFilter))
+  fullName: Adrenak.UniVoice.ClientSession<T>.AddOutputFilter<TFilter>(System.Func<Adrenak.UniVoice.IAudioFilter>)
+  fullName.vb: Adrenak.UniVoice.ClientSession(Of T).AddOutputFilter(Of TFilter)(System.Func(Of Adrenak.UniVoice.IAudioFilter))
+  nameWithType: ClientSession<T>.AddOutputFilter<TFilter>(Func<IAudioFilter>)
+  nameWithType.vb: ClientSession(Of T).AddOutputFilter(Of TFilter)(Func(Of IAudioFilter))
 - uid: Adrenak.UniVoice.ClientSession`1.Client
   name: Client
   href: api/Adrenak.UniVoice.ClientSession-1.html#Adrenak_UniVoice_ClientSession_1_Client
@@ -98,6 +125,42 @@ references:
   fullName.vb: Adrenak.UniVoice.ClientSession(Of T).Dispose
   nameWithType: ClientSession<T>.Dispose
   nameWithType.vb: ClientSession(Of T).Dispose
+- uid: Adrenak.UniVoice.ClientSession`1.HasInputFilter*
+  name: HasInputFilter
+  href: api/Adrenak.UniVoice.ClientSession-1.html#Adrenak_UniVoice_ClientSession_1_HasInputFilter_
+  commentId: Overload:Adrenak.UniVoice.ClientSession`1.HasInputFilter
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.ClientSession<T>.HasInputFilter
+  fullName.vb: Adrenak.UniVoice.ClientSession(Of T).HasInputFilter
+  nameWithType: ClientSession<T>.HasInputFilter
+  nameWithType.vb: ClientSession(Of T).HasInputFilter
+- uid: Adrenak.UniVoice.ClientSession`1.HasInputFilter``1
+  name: HasInputFilter<TFilter>()
+  href: api/Adrenak.UniVoice.ClientSession-1.html#Adrenak_UniVoice_ClientSession_1_HasInputFilter__1
+  commentId: M:Adrenak.UniVoice.ClientSession`1.HasInputFilter``1
+  name.vb: HasInputFilter(Of TFilter)()
+  fullName: Adrenak.UniVoice.ClientSession<T>.HasInputFilter<TFilter>()
+  fullName.vb: Adrenak.UniVoice.ClientSession(Of T).HasInputFilter(Of TFilter)()
+  nameWithType: ClientSession<T>.HasInputFilter<TFilter>()
+  nameWithType.vb: ClientSession(Of T).HasInputFilter(Of TFilter)()
+- uid: Adrenak.UniVoice.ClientSession`1.HasOutputFilter*
+  name: HasOutputFilter
+  href: api/Adrenak.UniVoice.ClientSession-1.html#Adrenak_UniVoice_ClientSession_1_HasOutputFilter_
+  commentId: Overload:Adrenak.UniVoice.ClientSession`1.HasOutputFilter
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.ClientSession<T>.HasOutputFilter
+  fullName.vb: Adrenak.UniVoice.ClientSession(Of T).HasOutputFilter
+  nameWithType: ClientSession<T>.HasOutputFilter
+  nameWithType.vb: ClientSession(Of T).HasOutputFilter
+- uid: Adrenak.UniVoice.ClientSession`1.HasOutputFilter``1
+  name: HasOutputFilter<TFilter>()
+  href: api/Adrenak.UniVoice.ClientSession-1.html#Adrenak_UniVoice_ClientSession_1_HasOutputFilter__1
+  commentId: M:Adrenak.UniVoice.ClientSession`1.HasOutputFilter``1
+  name.vb: HasOutputFilter(Of TFilter)()
+  fullName: Adrenak.UniVoice.ClientSession<T>.HasOutputFilter<TFilter>()
+  fullName.vb: Adrenak.UniVoice.ClientSession(Of T).HasOutputFilter(Of TFilter)()
+  nameWithType: ClientSession<T>.HasOutputFilter<TFilter>()
+  nameWithType.vb: ClientSession(Of T).HasOutputFilter(Of TFilter)()
 - uid: Adrenak.UniVoice.ClientSession`1.Input
   name: Input
   href: api/Adrenak.UniVoice.ClientSession-1.html#Adrenak_UniVoice_ClientSession_1_Input
@@ -183,6 +246,23 @@ references:
   fullName.vb: Adrenak.UniVoice.ClientSession(Of T).OutputFilters
   nameWithType: ClientSession<T>.OutputFilters
   nameWithType.vb: ClientSession(Of T).OutputFilters
+- uid: Adrenak.UniVoice.ClientSession`1.OutputProvider
+  name: OutputProvider
+  href: api/Adrenak.UniVoice.ClientSession-1.html#Adrenak_UniVoice_ClientSession_1_OutputProvider
+  commentId: P:Adrenak.UniVoice.ClientSession`1.OutputProvider
+  fullName: Adrenak.UniVoice.ClientSession<T>.OutputProvider
+  fullName.vb: Adrenak.UniVoice.ClientSession(Of T).OutputProvider
+  nameWithType: ClientSession<T>.OutputProvider
+  nameWithType.vb: ClientSession(Of T).OutputProvider
+- uid: Adrenak.UniVoice.ClientSession`1.OutputProvider*
+  name: OutputProvider
+  href: api/Adrenak.UniVoice.ClientSession-1.html#Adrenak_UniVoice_ClientSession_1_OutputProvider_
+  commentId: Overload:Adrenak.UniVoice.ClientSession`1.OutputProvider
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.ClientSession<T>.OutputProvider
+  fullName.vb: Adrenak.UniVoice.ClientSession(Of T).OutputProvider
+  nameWithType: ClientSession<T>.OutputProvider
+  nameWithType.vb: ClientSession(Of T).OutputProvider
 - uid: Adrenak.UniVoice.ClientSession`1.OutputsEnabled
   name: OutputsEnabled
   href: api/Adrenak.UniVoice.ClientSession-1.html#Adrenak_UniVoice_ClientSession_1_OutputsEnabled
@@ -217,6 +297,24 @@ references:
   fullName.vb: Adrenak.UniVoice.ClientSession(Of T).PeerOutputs
   nameWithType: ClientSession<T>.PeerOutputs
   nameWithType.vb: ClientSession(Of T).PeerOutputs
+- uid: Adrenak.UniVoice.ClientSession`1.RemoveOutputFilter*
+  name: RemoveOutputFilter
+  href: api/Adrenak.UniVoice.ClientSession-1.html#Adrenak_UniVoice_ClientSession_1_RemoveOutputFilter_
+  commentId: Overload:Adrenak.UniVoice.ClientSession`1.RemoveOutputFilter
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.ClientSession<T>.RemoveOutputFilter
+  fullName.vb: Adrenak.UniVoice.ClientSession(Of T).RemoveOutputFilter
+  nameWithType: ClientSession<T>.RemoveOutputFilter
+  nameWithType.vb: ClientSession(Of T).RemoveOutputFilter
+- uid: Adrenak.UniVoice.ClientSession`1.RemoveOutputFilter``1
+  name: RemoveOutputFilter<TFilter>()
+  href: api/Adrenak.UniVoice.ClientSession-1.html#Adrenak_UniVoice_ClientSession_1_RemoveOutputFilter__1
+  commentId: M:Adrenak.UniVoice.ClientSession`1.RemoveOutputFilter``1
+  name.vb: RemoveOutputFilter(Of TFilter)()
+  fullName: Adrenak.UniVoice.ClientSession<T>.RemoveOutputFilter<TFilter>()
+  fullName.vb: Adrenak.UniVoice.ClientSession(Of T).RemoveOutputFilter(Of TFilter)()
+  nameWithType: ClientSession<T>.RemoveOutputFilter<TFilter>()
+  nameWithType.vb: ClientSession(Of T).RemoveOutputFilter(Of TFilter)()
 - uid: Adrenak.UniVoice.EmptyAudioInput
   name: EmptyAudioInput
   href: api/Adrenak.UniVoice.EmptyAudioInput.html
