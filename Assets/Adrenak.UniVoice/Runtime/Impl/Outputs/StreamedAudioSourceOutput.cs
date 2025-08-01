@@ -33,7 +33,7 @@ namespace Adrenak.UniVoice.Outputs {
         /// </summary>
         /// <param name="frame"></param>
         public void Feed(AudioFrame frame) {
-            Stream.Feed(frame.frequency, frame.channelCount, Utils.Bytes.BytesToFloats(frame.samples), true);
+            Stream.Feed(frame.frequency, frame.channelCount, Utils.Bytes.BytesToFloats(frame.samples));
         }
 
         /// <summary>

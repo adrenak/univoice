@@ -89,7 +89,7 @@ namespace Adrenak.UniVoice.Samples {
 
             // Next, for incoming audio we register the Concentus decode filter as the audio we'd
             // receive from other clients would be encoded and not readily playable
-            session.OutputFilters.Add(new ConcentusDecodeFilter());
+            session.AddOutputFilter<ConcentusDecodeFilter>(() => new ConcentusDecodeFilter());
 
             // Subscribe to some server events 
             server.OnServerStart += () => {
