@@ -185,7 +185,7 @@ namespace Adrenak.UniVoice.Samples {
                 Debug.unityLogger.Log(LogType.Log, TAG, "Registered ConcentusEncodeFilter as an input filter");
 
                 // For incoming audio register the ConcentusDecodeFilter to decode the encoded audio received from other clients 
-                ClientSession.OutputFilters.Add(new ConcentusDecodeFilter());
+                ClientSession.AddOutputFilter<ConcentusDecodeFilter>(() => new ConcentusDecodeFilter());
                 Debug.unityLogger.Log(LogType.Log, TAG, "Registered ConcentusDecodeFilter as an output filter");
             }
 
