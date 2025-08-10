@@ -4,7 +4,16 @@ UniVoice is a voice chat/VoIP solution for Unity.
 Some features of UniVoice:
 - 👥 Group voice chat. Multiple peers can join a chatroom and exchange audio.  
 
-- ⚙ Peer specific settings. Don't want to listen to a peer? Mute them. Don't want someone listening to you? Deafen them.  
+- ⚙ Fine control over audio data flow. 
+    * Don't want to listen to a peer? Mute them. Don't want someone listening to you? Deafen them.  
+    * Group players using tags and control audio flow between them. For example:
+        - "red", "blue" and "spectator" tags for two teams playing against each other.
+            - Red and Blue teams can only hear each other
+            - Spectators can hear everyone
+        - clients with "contestant", "judge" and "audience" tags for a virtual talent show. 
+            - Contestant can be heard by everyone, but don't hear anyone else (for focus) 
+            - Judges can talk to and hear each other for discussions. They can hear the contestant. But not the audience (for less noise)
+            - Audience can hear and talk to each other. They can hear the performer. But they cannot hear the judges.
  
 - 🎨 Customize your audio input, output and networking layers. 
   * 🌐 __Configurable Network__: 

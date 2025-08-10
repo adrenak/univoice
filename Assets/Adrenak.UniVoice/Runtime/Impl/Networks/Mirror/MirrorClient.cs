@@ -171,6 +171,10 @@ namespace Adrenak.UniVoice.Networks {
             writer.WriteIntArray(YourVoiceSettings.mutedPeers.ToArray());
             writer.WriteInt(YourVoiceSettings.deafenAll ? 1 : 0);
             writer.WriteIntArray(YourVoiceSettings.deafenedPeers.ToArray());
+            writer.WriteString(string.Join(",", YourVoiceSettings.myTags));
+            writer.WriteString(string.Join(",", YourVoiceSettings.mutedTags));
+            writer.WriteString(string.Join(",", YourVoiceSettings.deafenedTags));
+
             var message = new MirrorMessage {
                 data = writer.Bytes
             };
