@@ -1,4 +1,4 @@
-﻿// Notes:
+// Notes:
 // In Mirror 89.11.0, the OnServerConnectedWithAddress event was added
 // https://github.com/MirrorNetworking/Mirror/releases/tag/v89.11.0
 // OnServerConnected no longer seems to work?
@@ -106,37 +106,61 @@ namespace Adrenak.UniVoice.Networks {
             var reader = new BytesReader(message.data);
             var tag = reader.ReadString();
 
+            // Server forwards the received audio from a client to other clients based on voice settings.
+            // Client can mute or deafen each other using IDs as well as tags
             if (tag.Equals(MirrorMessageTags.AUDIO_FRAME)) {
                 // We start with all the peers except the one that's
                 // sent the audio 
                 var peersToForwardAudioTo = ClientIDs
                     .Where(x => x != clientId);
 
-                // Consider the voice settings of the sender to see who
-                // the sender doesn't want to send audio to
+                // Check the voice settings of the sender and eliminate any peers the sender
+                // may have deafened
                 if (ClientVoiceSettings.TryGetValue(clientId, out var senderSettings)) {
-                    // If the client sending the audio has deafened everyone
-                    // to their audio, we simply return
+                    // If the client sending the audio has deafened everyone,
+                    // we simply return. Sender's audio should not be forwarded to anyone.
                     if (senderSettings.deafenAll)
                         return;
 
-                    // Else, we remove all the peers that the sender has
-                    // deafened themselves to
+                    // Filter the recipient list by removing all peers that the sender has
+                    // deafened using ID
                     peersToForwardAudioTo = peersToForwardAudioTo
                         .Where(x => !senderSettings.deafenedPeers.Contains(x));
+
+                    // Further filter the recipient list by removing peers that the sender has
+                    // deafened using tags
+                    peersToForwardAudioTo = peersToForwardAudioTo.Where(peer => {
+                        // Get the voice settings of the peer
+                        if (ClientVoiceSettings.TryGetValue(peer, out VoiceSettings peerVoiceSettings)) {
+                            // Check if sender has not deafened peer using tag
+                            var hasDeafenedPeer = senderSettings.deafenedTags.Intersect(peerVoiceSettings.myTags).Count() > 0;
+                            return !hasDeafenedPeer;
+                        }
+                        // If peer doesn't have voice settings, we can keep the peer in the list
+                        else {
+                            return true;
+                        }
+                    });
                 }
 
-                // We iterate through each recipient peer that the sender wants to send
-                // audio to, checking if they have muted the sender in which case
-                // we skip that recipient
-                foreach (var receiver in peersToForwardAudioTo) {
-                    if (ClientVoiceSettings.TryGetValue(receiver, out var receiverSettings)) {
-                        if (receiverSettings.muteAll)
+                // We iterate through each recipient peer that the sender wants to send audio to, checking if
+                // they have muted the sender, before forwarding the audio to them.
+                foreach (var recipient in peersToForwardAudioTo) {
+                    // Get the settings of a potential recipient
+                    if (ClientVoiceSettings.TryGetValue(recipient, out var recipientSettings)) {
+                        // If a peer has muted everyone, don't send audio
+                        if (recipientSettings.muteAll)
                             continue;
-                        if (receiverSettings.mutedPeers.Contains(clientId))
+
+                        // If the peers has muted the sender using ID, skip sending audio
+                        if (recipientSettings.mutedPeers.Contains(clientId))
+                            continue;
+
+                        // If the peer has muted the sender using tag, skip sending audio
+                        if (recipientSettings.mutedTags.Intersect(senderSettings.myTags).Count() > 0)
                             continue;
                     }
-                    SendToClient(receiver, message.data, Channels.Unreliable);
+                    SendToClient(recipient, message.data, Channels.Unreliable);
                 }
             }
             else if (tag.Equals(MirrorMessageTags.VOICE_SETTINGS)) {
@@ -147,11 +171,18 @@ namespace Adrenak.UniVoice.Networks {
                 var mutedPeers = reader.ReadIntArray().ToList();
                 var deafenAll = reader.ReadInt() == 1 ? true : false;
                 var deafenedPeers = reader.ReadIntArray().ToList();
+                var myTags = reader.ReadString().Split(",").ToList();
+                var mutedTags = reader.ReadString().Split(",").ToList();
+                var deafenedTags = reader.ReadString().Split(",").ToList();
+
                 var voiceSettings = new VoiceSettings {
                     muteAll = muteAll,
                     mutedPeers = mutedPeers,
                     deafenAll = deafenAll,
-                    deafenedPeers = deafenedPeers
+                    deafenedPeers = deafenedPeers,
+                    myTags = myTags,
+                    mutedTags = mutedTags,
+                    deafenedTags = deafenedTags
                 };
                 if (ClientVoiceSettings.ContainsKey(clientId))
                     ClientVoiceSettings[clientId] = voiceSettings;

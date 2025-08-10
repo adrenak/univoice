@@ -23,6 +23,26 @@ namespace Adrenak.UniVoice {
         public List<int> deafenedPeers = new List<int>();
 
         /// <summary>
+        /// The tags associated with this client.
+        /// DO NOT USE COMMAS (,)
+        /// </summary>
+        public List<string> myTags = new List<string>();
+
+        /// <summary>
+        /// The tags, which if associated with a peer, would cause
+        /// those the audio of that peer to not be send to this peer
+        /// DO NOT USE COMMAS (,)
+        /// </summary>
+        public List<string> mutedTags = new List<string>();
+
+        /// <summary>
+        /// The tags, which if associated with a peer, would cause
+        /// those peers to not receive audio from this client
+        /// DO NOT USE COMMAS (,)
+        /// </summary>
+        public List<string> deafenedTags = new List<string>();
+
+        /// <summary>
         /// Sets the deaf status of a peer
         /// </summary>
         public void SetDeaf(int peerId, bool state) {
