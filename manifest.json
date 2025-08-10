@@ -216,6 +216,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.Networks.FakeNetwork.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.Networks.FakeNetwork.html",
+          "hash": "cPpj1bj40jO+h2+c+aSy/veEMhyrvu6IuagfdaMK+zo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.Networks.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.Networks.html",
+          "hash": "LK/6ofwqzY+4yxDWoz9NhhP4NXrEpnJfc6R3CXoRPVw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Adrenak.UniVoice.Outputs.StreamedAudioSourceOutput.Factory.yml",
       "output": {
         ".html": {
@@ -352,7 +376,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.VoiceSettings.html",
-          "hash": "d6XfeM0EKTvVQaLWGnpsG0yO1DarFTES7uZVtvZg9rs="
+          "hash": "IwASpNw1tIp4Bcfowat2YXUXvjsQzU2vYRVpaRB5ls8="
         }
       },
       "is_incremental": false,
@@ -376,7 +400,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "BxQAouMR88hhWh5/JGXfREGalDKZjgdvZ+m/4PfLfSY="
+          "hash": "wFwKyqrLYceyE5Es8PBI+20Km9W/c5YkLn9BOszU6Ik="
         }
       },
       "is_incremental": false,
@@ -388,7 +412,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "BVrFUdZVt0fgF7hVrs9mH+KiiKspZPomT8Oojj+CChU="
+          "hash": "R5pvmn4TtguLT3dM8wNUbO0kM0SnPgih2QJeonFxQ9Y="
         }
       },
       "is_incremental": false,
@@ -427,7 +451,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 29,
+          "total_file_count": 31,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {

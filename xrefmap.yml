@@ -863,6 +863,18 @@ references:
   commentId: E:Adrenak.UniVoice.Inputs.UniMicInput.OnFrameReady
   fullName: Adrenak.UniVoice.Inputs.UniMicInput.OnFrameReady
   nameWithType: UniMicInput.OnFrameReady
+- uid: Adrenak.UniVoice.Networks
+  name: Adrenak.UniVoice.Networks
+  href: api/Adrenak.UniVoice.Networks.html
+  commentId: N:Adrenak.UniVoice.Networks
+  fullName: Adrenak.UniVoice.Networks
+  nameWithType: Adrenak.UniVoice.Networks
+- uid: Adrenak.UniVoice.Networks.FakeNetwork
+  name: FakeNetwork
+  href: api/Adrenak.UniVoice.Networks.FakeNetwork.html
+  commentId: T:Adrenak.UniVoice.Networks.FakeNetwork
+  fullName: Adrenak.UniVoice.Networks.FakeNetwork
+  nameWithType: FakeNetwork
 - uid: Adrenak.UniVoice.Outputs
   name: Adrenak.UniVoice.Outputs
   href: api/Adrenak.UniVoice.Outputs.html
@@ -1205,6 +1217,12 @@ references:
   commentId: F:Adrenak.UniVoice.VoiceSettings.deafenedPeers
   fullName: Adrenak.UniVoice.VoiceSettings.deafenedPeers
   nameWithType: VoiceSettings.deafenedPeers
+- uid: Adrenak.UniVoice.VoiceSettings.deafenedTags
+  name: deafenedTags
+  href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_deafenedTags
+  commentId: F:Adrenak.UniVoice.VoiceSettings.deafenedTags
+  fullName: Adrenak.UniVoice.VoiceSettings.deafenedTags
+  nameWithType: VoiceSettings.deafenedTags
 - uid: Adrenak.UniVoice.VoiceSettings.muteAll
   name: muteAll
   href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_muteAll
@@ -1217,6 +1235,18 @@ references:
   commentId: F:Adrenak.UniVoice.VoiceSettings.mutedPeers
   fullName: Adrenak.UniVoice.VoiceSettings.mutedPeers
   nameWithType: VoiceSettings.mutedPeers
+- uid: Adrenak.UniVoice.VoiceSettings.mutedTags
+  name: mutedTags
+  href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_mutedTags
+  commentId: F:Adrenak.UniVoice.VoiceSettings.mutedTags
+  fullName: Adrenak.UniVoice.VoiceSettings.mutedTags
+  nameWithType: VoiceSettings.mutedTags
+- uid: Adrenak.UniVoice.VoiceSettings.myTags
+  name: myTags
+  href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_myTags
+  commentId: F:Adrenak.UniVoice.VoiceSettings.myTags
+  fullName: Adrenak.UniVoice.VoiceSettings.myTags
+  nameWithType: VoiceSettings.myTags
 - uid: Adrenak.UniVoice.VoiceSettings.SetDeaf(System.Int32,System.Boolean)
   name: SetDeaf(Int32, Boolean)
   href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_SetDeaf_System_Int32_System_Boolean_
