@@ -45,6 +45,7 @@
       "scopes": [
         "com.adrenak.brw",
         "com.adrenak.unimic",
+        "com.adrenak.rnnoise4unity",
         "com.adrenak.concentus-unity"
       ]
     }
