@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Namespace Adrenak.UniVoice.Samples
+    <title>Class UniVoiceFishNetSetupSample
    | UniVoice documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Namespace Adrenak.UniVoice.Samples
+    <meta name="title" content="Class UniVoiceFishNetSetupSample
    | UniVoice documentation ">
     <meta name="generator" content="docfx 2.59.4.0">
     
@@ -78,65 +78,126 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Adrenak.UniVoice.Samples">
+            <article class="content wrap" id="_content" data-uid="Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample">
   
-  <h1 id="Adrenak_UniVoice_Samples" data-uid="Adrenak.UniVoice.Samples" class="text-break">Namespace Adrenak.UniVoice.Samples
+  
+  <h1 id="Adrenak_UniVoice_Samples_UniVoiceFishNetSetupSample" data-uid="Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample" class="text-break">Class UniVoiceFishNetSetupSample
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>To get this setup sample to work, ensure that you have done the following:</p>
+<ul>
+<li>Import Mirror and add the UNIVOICE_NETWORK_MIRROR compilation symbol to your project</li>
+<li>If you want to use RNNoise filter, import RNNoise4Unity into your project and add UNIVOICE_FILTER_RNNOISE4UNITY</li>
+<li>Add this component to the first scene of your Unity project</li>
+</ul>
+<p>*** More info on adding and activating non packaged dependencies is here: <a href="https://github.com/adrenak/univoice?tab=readme-ov-file#activating-non-packaged-dependencies">https://github.com/adrenak/univoice?tab=readme-ov-file#activating-non-packaged-dependencies</a> ***</p>
+<p>This is a basic integration script that uses the following to setup UniVoice:</p>
+<ul>
+<li><see cref="!:MirrorServer"></see>, an implementation of <a class="xref" href="Adrenak.UniVoice.IAudioServer-1.html">IAudioServer&lt;T&gt;</a> </li>
+<li><see cref="!:MirrorClient"></see>, an implementation of <a class="xref" href="Adrenak.UniVoice.IAudioClient-1.html">IAudioClient&lt;T&gt;</a> </li>
+<li><see cref="!:UniMicInput"></see>, an implementation of <a class="xref" href="Adrenak.UniVoice.IAudioInput.html">IAudioInput</a> that captures audio from a mic</li>
+<li><a class="xref" href="Adrenak.UniVoice.EmptyAudioInput.html">EmptyAudioInput</a>, an implementation of <a class="xref" href="Adrenak.UniVoice.IAudioInput.html">IAudioInput</a> that is basically
+an idle audio input used when there is no input device</li>
+<li><see cref="!:RNNoiseFilter"></see>, an implementation of <a class="xref" href="Adrenak.UniVoice.IAudioFilter.html">IAudioFilter</a> that removes noise from
+captured audio. </li>
+<li><see cref="!:ConcentusEncodeFilter"></see>, an implementation of <a class="xref" href="Adrenak.UniVoice.IAudioFilter.html">IAudioFilter</a> that encodes captured audio
+using Concentus (C# Opus) to reduce the size of audio frames</li>
+<li><see cref="!:ConcentusDecodeFilter"></see>, an implementation of <a class="xref" href="Adrenak.UniVoice.IAudioFilter.html">IAudioFilter</a> that decodes incoming audio
+using Concentus to decode and make the audio frame playable.</li>
+</ul>
+</div>
   <div class="markdown level0 conceptual"></div>
-  <div class="markdown level0 remarks"></div>
-    <h3 id="classes">Classes
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">UniVoiceFishNetSetupSample</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Adrenak.UniVoice.Samples.html">Adrenak.UniVoice.Samples</a></h6>
+  <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
+  <h5 id="Adrenak_UniVoice_Samples_UniVoiceFishNetSetupSample_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class UniVoiceFishNetSetupSample : MonoBehaviour</code></pre>
+  </div>
+  <h3 id="properties">Properties
   </h3>
-      <h4><a class="xref" href="Adrenak.UniVoice.Samples.PeerView.html">PeerView</a></h4>
-      <section></section>
-      <h4><a class="xref" href="Adrenak.UniVoice.Samples.ToggleExtension.html">ToggleExtension</a></h4>
-      <section></section>
-      <h4><a class="xref" href="Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.html">UniVoiceFishNetSetupSample</a></h4>
-      <section><p>To get this setup sample to work, ensure that you have done the following:</p>
-<ul>
-<li>Import Mirror and add the UNIVOICE_NETWORK_MIRROR compilation symbol to your project</li>
-<li>If you want to use RNNoise filter, import RNNoise4Unity into your project and add UNIVOICE_FILTER_RNNOISE4UNITY</li>
-<li>Add this component to the first scene of your Unity project</li>
-</ul>
-<p>*** More info on adding and activating non packaged dependencies is here: <a href="https://github.com/adrenak/univoice?tab=readme-ov-file#activating-non-packaged-dependencies">https://github.com/adrenak/univoice?tab=readme-ov-file#activating-non-packaged-dependencies</a> ***</p>
-<p>This is a basic integration script that uses the following to setup UniVoice:</p>
-<ul>
-<li><see cref="!:MirrorServer"></see>, an implementation of <a class="xref" href="Adrenak.UniVoice.IAudioServer-1.html">IAudioServer&lt;T&gt;</a> </li>
-<li><see cref="!:MirrorClient"></see>, an implementation of <a class="xref" href="Adrenak.UniVoice.IAudioClient-1.html">IAudioClient&lt;T&gt;</a> </li>
-<li><see cref="!:UniMicInput"></see>, an implementation of <a class="xref" href="Adrenak.UniVoice.IAudioInput.html">IAudioInput</a> that captures audio from a mic</li>
-<li><a class="xref" href="Adrenak.UniVoice.EmptyAudioInput.html">EmptyAudioInput</a>, an implementation of <a class="xref" href="Adrenak.UniVoice.IAudioInput.html">IAudioInput</a> that is basically
-an idle audio input used when there is no input device</li>
-<li><see cref="!:RNNoiseFilter"></see>, an implementation of <a class="xref" href="Adrenak.UniVoice.IAudioFilter.html">IAudioFilter</a> that removes noise from
-captured audio. </li>
-<li><see cref="!:ConcentusEncodeFilter"></see>, an implementation of <a class="xref" href="Adrenak.UniVoice.IAudioFilter.html">IAudioFilter</a> that encodes captured audio
-using Concentus (C# Opus) to reduce the size of audio frames</li>
-<li><see cref="!:ConcentusDecodeFilter"></see>, an implementation of <a class="xref" href="Adrenak.UniVoice.IAudioFilter.html">IAudioFilter</a> that decodes incoming audio
-using Concentus to decode and make the audio frame playable.</li>
-</ul>
-</section>
-      <h4><a class="xref" href="Adrenak.UniVoice.Samples.UniVoiceMirrorSetupSample.html">UniVoiceMirrorSetupSample</a></h4>
-      <section><p>To get this setup sample to work, ensure that you have done the following:</p>
-<ul>
-<li>Import Mirror and add the UNIVOICE_NETWORK_MIRROR compilation symbol to your project</li>
-<li>If you want to use RNNoise filter, import RNNoise4Unity into your project and add UNIVOICE_FILTER_RNNOISE4UNITY</li>
-<li>Add this component to the first scene of your Unity project</li>
-</ul>
-<p>*** More info on adding and activating non packaged dependencies is here: <a href="https://github.com/adrenak/univoice?tab=readme-ov-file#activating-non-packaged-dependencies">https://github.com/adrenak/univoice?tab=readme-ov-file#activating-non-packaged-dependencies</a> ***</p>
-<p>This is a basic integration script that uses the following to setup UniVoice:</p>
-<ul>
-<li><see cref="!:MirrorServer"></see>, an implementation of <a class="xref" href="Adrenak.UniVoice.IAudioServer-1.html">IAudioServer&lt;T&gt;</a> </li>
-<li><see cref="!:MirrorClient"></see>, an implementation of <a class="xref" href="Adrenak.UniVoice.IAudioClient-1.html">IAudioClient&lt;T&gt;</a> </li>
-<li><see cref="!:UniMicInput"></see>, an implementation of <a class="xref" href="Adrenak.UniVoice.IAudioInput.html">IAudioInput</a> that captures audio from a mic</li>
-<li><a class="xref" href="Adrenak.UniVoice.EmptyAudioInput.html">EmptyAudioInput</a>, an implementation of <a class="xref" href="Adrenak.UniVoice.IAudioInput.html">IAudioInput</a> that is basically
-an idle audio input used when there is no input device</li>
-<li><see cref="!:RNNoiseFilter"></see>, an implementation of <a class="xref" href="Adrenak.UniVoice.IAudioFilter.html">IAudioFilter</a> that removes noise from
-captured audio. </li>
-<li><see cref="!:ConcentusEncodeFilter"></see>, an implementation of <a class="xref" href="Adrenak.UniVoice.IAudioFilter.html">IAudioFilter</a> that encodes captured audio
-using Concentus (C# Opus) to reduce the size of audio frames</li>
-<li><see cref="!:ConcentusDecodeFilter"></see>, an implementation of <a class="xref" href="Adrenak.UniVoice.IAudioFilter.html">IAudioFilter</a> that decodes incoming audio
-using Concentus to decode and make the audio frame playable.</li>
-</ul>
-</section>
+  
+  
+  <a id="Adrenak_UniVoice_Samples_UniVoiceFishNetSetupSample_AudioServer_" data-uid="Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.AudioServer*"></a>
+  <h4 id="Adrenak_UniVoice_Samples_UniVoiceFishNetSetupSample_AudioServer" data-uid="Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.AudioServer">AudioServer</h4>
+  <div class="markdown level1 summary"><p>The server object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IAudioServer&lt;int&gt; AudioServer { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Adrenak.UniVoice.IAudioServer-1.html">IAudioServer</a>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Adrenak_UniVoice_Samples_UniVoiceFishNetSetupSample_ClientSession_" data-uid="Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.ClientSession*"></a>
+  <h4 id="Adrenak_UniVoice_Samples_UniVoiceFishNetSetupSample_ClientSession" data-uid="Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.ClientSession">ClientSession</h4>
+  <div class="markdown level1 summary"><p>The client session.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ClientSession&lt;int&gt; ClientSession { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Adrenak.UniVoice.ClientSession-1.html">ClientSession</a>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Adrenak_UniVoice_Samples_UniVoiceFishNetSetupSample_HasSetUp_" data-uid="Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.HasSetUp*"></a>
+  <h4 id="Adrenak_UniVoice_Samples_UniVoiceFishNetSetupSample_HasSetUp" data-uid="Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.HasSetUp">HasSetUp</h4>
+  <div class="markdown level1 summary"><p>Whether UniVoice has been setup successfully. This field will return true if the setup was successful.
+It runs on both server and client.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool HasSetUp { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 </article>
           </div>
           

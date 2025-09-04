@@ -1069,6 +1069,51 @@ references:
   isSpec: "True"
   fullName: Adrenak.UniVoice.Samples.ToggleExtension.SetIsOnWithoutNotify
   nameWithType: ToggleExtension.SetIsOnWithoutNotify
+- uid: Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample
+  name: UniVoiceFishNetSetupSample
+  href: api/Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.html
+  commentId: T:Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample
+  fullName: Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample
+  nameWithType: UniVoiceFishNetSetupSample
+- uid: Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.AudioServer
+  name: AudioServer
+  href: api/Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.html#Adrenak_UniVoice_Samples_UniVoiceFishNetSetupSample_AudioServer
+  commentId: P:Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.AudioServer
+  fullName: Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.AudioServer
+  nameWithType: UniVoiceFishNetSetupSample.AudioServer
+- uid: Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.AudioServer*
+  name: AudioServer
+  href: api/Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.html#Adrenak_UniVoice_Samples_UniVoiceFishNetSetupSample_AudioServer_
+  commentId: Overload:Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.AudioServer
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.AudioServer
+  nameWithType: UniVoiceFishNetSetupSample.AudioServer
+- uid: Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.ClientSession
+  name: ClientSession
+  href: api/Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.html#Adrenak_UniVoice_Samples_UniVoiceFishNetSetupSample_ClientSession
+  commentId: P:Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.ClientSession
+  fullName: Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.ClientSession
+  nameWithType: UniVoiceFishNetSetupSample.ClientSession
+- uid: Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.ClientSession*
+  name: ClientSession
+  href: api/Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.html#Adrenak_UniVoice_Samples_UniVoiceFishNetSetupSample_ClientSession_
+  commentId: Overload:Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.ClientSession
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.ClientSession
+  nameWithType: UniVoiceFishNetSetupSample.ClientSession
+- uid: Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.HasSetUp
+  name: HasSetUp
+  href: api/Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.html#Adrenak_UniVoice_Samples_UniVoiceFishNetSetupSample_HasSetUp
+  commentId: P:Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.HasSetUp
+  fullName: Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.HasSetUp
+  nameWithType: UniVoiceFishNetSetupSample.HasSetUp
+- uid: Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.HasSetUp*
+  name: HasSetUp
+  href: api/Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.html#Adrenak_UniVoice_Samples_UniVoiceFishNetSetupSample_HasSetUp_
+  commentId: Overload:Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.HasSetUp
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.HasSetUp
+  nameWithType: UniVoiceFishNetSetupSample.HasSetUp
 - uid: Adrenak.UniVoice.Samples.UniVoiceMirrorSetupSample
   name: UniVoiceMirrorSetupSample
   href: api/Adrenak.UniVoice.Samples.UniVoiceMirrorSetupSample.html

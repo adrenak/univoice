@@ -300,6 +300,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.Samples.UniVoiceFishNetSetupSample.html",
+          "hash": "C4at+Q4bV+w0gKXMVYVKFWai6vCgFNuXW+h52sW/Q1w="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Adrenak.UniVoice.Samples.UniVoiceMirrorSetupSample.yml",
       "output": {
         ".html": {
@@ -316,7 +328,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.Samples.html",
-          "hash": "k04c1q3Szfc93KVluNAZVHU7s/viSFyAm5m7t4uwRzk="
+          "hash": "lXoBQRVNldjTimKx24hxTwrMZ9s8sL9oCVGlG9exc7c="
         }
       },
       "is_incremental": false,
@@ -400,7 +412,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "wFwKyqrLYceyE5Es8PBI+20Km9W/c5YkLn9BOszU6Ik="
+          "hash": "4dUsjunDtZ7GCZ/bW7xSc8uSL1Z8mEL0Em9mOnPuXYE="
         }
       },
       "is_incremental": false,
@@ -451,7 +463,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 31,
+          "total_file_count": 32,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {
