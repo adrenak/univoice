@@ -90,7 +90,7 @@ namespace Adrenak.UniVoice.Samples {
         }
 
         bool SetupAudioServer() {
-#if UNIVOICE_NETWORK_MIRROR
+#if MIRROR
             // ---- CREATE AUDIO SERVER AND SUBSCRIBE TO EVENTS TO PRINT LOGS ----
             // We create a server. If this code runs in server mode, MirrorServer will take care
             // or automatically handling all incoming messages. On a device connecting as a client,
@@ -113,7 +113,7 @@ namespace Adrenak.UniVoice.Samples {
         }
 
         bool SetupClientSession() {
-#if UNIVOICE_NETWORK_MIRROR
+#if MIRROR
             // ---- CREATE AUDIO CLIENT AND SUBSCRIBE TO EVENTS ----
             IAudioClient<int> client = new MirrorClient();
             client.OnJoined += (id, peerIds) => {

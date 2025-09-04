@@ -1,4 +1,4 @@
-﻿#if UNIVOICE_MIRROR_NETWORK || UNIVOICE_NETWORK_MIRROR
+﻿#if MIRROR
 using System;
 
 using Mirror;

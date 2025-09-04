@@ -1,4 +1,4 @@
-﻿#if UNIVOICE_MIRROR_NETWORK || UNIVOICE_NETWORK_MIRROR
+﻿#if MIRROR
 namespace Adrenak.UniVoice.Networks {
     /// <summary>
     /// The different types of messages we send over Mirror 
