@@ -105,9 +105,16 @@ UniVoice has code that uses dependencies that you have to install and sometimes 
 This project is under the [MIT license](https://github.com/adrenak/univoice/blob/master/LICENSE).
 
 Community contributions are welcome.
+
+Commercial engagements with the author can be arranged, subject to schedule and availability.
+
+## Acknowledgements and contributors
+* [@metater](https://github.com/Metater/) for helping make improvements to audio streaming quality. [A related blog post](https://blog.vatsalambastha.com/2025/07/unimic-330-many-streamedaudiosource.html)
+* [@FrantisekHolubec](https://github.com/FrantisekHolubec) for [FishNet support code](https://github.com/adrenak/univoice/commit/fdc3424180d8991c92b3e092b3edb50b6110c863). Here's a [related blog post](https://blog.vatsalambastha.com/2025/09/univoice-480-fishnet-support.html)
+* [Masaryk University](https://www.muni.cz/en) for using UniVoice in their projects and providing helpful feedback 
   
 ## Contact
-The developer can be reached at the following links:
+The author can be reached at the following links:
   
 [Website](http://www.vatsalambastha.com)  
 [LinkedIn](https://www.linkedin.com/in/vatsalAmbastha)  
