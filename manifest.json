@@ -396,11 +396,23 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.WavFileWriter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.WavFileWriter.html",
+          "hash": "OiBMUxbjn4GblXQo7nxapmWaRdRXHXi6D0uDbw8VBDY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Adrenak.UniVoice.yml",
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.html",
-          "hash": "DHum7PZX3kbY7CIkdR7E4okIlM3UFS+004AcrQuLsvA="
+          "hash": "/FpsjCzeEPFCjD8mH69wPGIykXenF69WJFmHfaUpCsk="
         }
       },
       "is_incremental": false,
@@ -412,7 +424,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "4dUsjunDtZ7GCZ/bW7xSc8uSL1Z8mEL0Em9mOnPuXYE="
+          "hash": "Pdm3r7/cI+SdX1u0Zt29wFhMkWwocSMKzZI38I4z2Kw="
         }
       },
       "is_incremental": false,
@@ -463,7 +475,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 32,
+          "total_file_count": 33,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {

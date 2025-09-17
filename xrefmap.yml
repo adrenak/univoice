@@ -1318,3 +1318,51 @@ references:
   isSpec: "True"
   fullName: Adrenak.UniVoice.VoiceSettings.SetMute
   nameWithType: VoiceSettings.SetMute
+- uid: Adrenak.UniVoice.WavFileWriter
+  name: WavFileWriter
+  href: api/Adrenak.UniVoice.WavFileWriter.html
+  commentId: T:Adrenak.UniVoice.WavFileWriter
+  fullName: Adrenak.UniVoice.WavFileWriter
+  nameWithType: WavFileWriter
+- uid: Adrenak.UniVoice.WavFileWriter.#ctor(System.String)
+  name: WavFileWriter(String)
+  href: api/Adrenak.UniVoice.WavFileWriter.html#Adrenak_UniVoice_WavFileWriter__ctor_System_String_
+  commentId: M:Adrenak.UniVoice.WavFileWriter.#ctor(System.String)
+  fullName: Adrenak.UniVoice.WavFileWriter.WavFileWriter(System.String)
+  nameWithType: WavFileWriter.WavFileWriter(String)
+- uid: Adrenak.UniVoice.WavFileWriter.#ctor*
+  name: WavFileWriter
+  href: api/Adrenak.UniVoice.WavFileWriter.html#Adrenak_UniVoice_WavFileWriter__ctor_
+  commentId: Overload:Adrenak.UniVoice.WavFileWriter.#ctor
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.WavFileWriter.WavFileWriter
+  nameWithType: WavFileWriter.WavFileWriter
+- uid: Adrenak.UniVoice.WavFileWriter.Dispose
+  name: Dispose()
+  href: api/Adrenak.UniVoice.WavFileWriter.html#Adrenak_UniVoice_WavFileWriter_Dispose
+  commentId: M:Adrenak.UniVoice.WavFileWriter.Dispose
+  fullName: Adrenak.UniVoice.WavFileWriter.Dispose()
+  nameWithType: WavFileWriter.Dispose()
+- uid: Adrenak.UniVoice.WavFileWriter.Dispose*
+  name: Dispose
+  href: api/Adrenak.UniVoice.WavFileWriter.html#Adrenak_UniVoice_WavFileWriter_Dispose_
+  commentId: Overload:Adrenak.UniVoice.WavFileWriter.Dispose
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.WavFileWriter.Dispose
+  nameWithType: WavFileWriter.Dispose
+- uid: Adrenak.UniVoice.WavFileWriter.Write(System.Int32,System.Int32,System.Single[])
+  name: Write(Int32, Int32, Single[])
+  href: api/Adrenak.UniVoice.WavFileWriter.html#Adrenak_UniVoice_WavFileWriter_Write_System_Int32_System_Int32_System_Single___
+  commentId: M:Adrenak.UniVoice.WavFileWriter.Write(System.Int32,System.Int32,System.Single[])
+  name.vb: Write(Int32, Int32, Single())
+  fullName: Adrenak.UniVoice.WavFileWriter.Write(System.Int32, System.Int32, System.Single[])
+  fullName.vb: Adrenak.UniVoice.WavFileWriter.Write(System.Int32, System.Int32, System.Single())
+  nameWithType: WavFileWriter.Write(Int32, Int32, Single[])
+  nameWithType.vb: WavFileWriter.Write(Int32, Int32, Single())
+- uid: Adrenak.UniVoice.WavFileWriter.Write*
+  name: Write
+  href: api/Adrenak.UniVoice.WavFileWriter.html#Adrenak_UniVoice_WavFileWriter_Write_
+  commentId: Overload:Adrenak.UniVoice.WavFileWriter.Write
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.WavFileWriter.Write
+  nameWithType: WavFileWriter.Write
