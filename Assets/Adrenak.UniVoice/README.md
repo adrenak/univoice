@@ -59,7 +59,7 @@ Ensure you have the NPM registry in the `manifest.json` file of your Unity proje
             "com.adrenak.concentus-unity"
         ]
     }
-}
+]
 ```
 Then add `com.adrenak.univoice:x.y.z` to the `dependencies` in your `manifest.json` file (where x.y.z is the version you wish to install). The list of versions is available on [the UniVoice NPM page](https://www.npmjs.com/package/com.adrenak.univoice?activeTab=versions).
 
@@ -120,4 +120,5 @@ The author can be reached at the following links:
 [LinkedIn](https://www.linkedin.com/in/vatsalAmbastha)  
 [GitHub](https://www.github.com/adrenak)  
 [Twitter](https://www.twitter.com/vatsalAmbastha)  
+
 Discord: `adrenak#1934`
