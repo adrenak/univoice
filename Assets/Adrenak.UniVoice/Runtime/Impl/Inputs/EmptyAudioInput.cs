@@ -15,7 +15,9 @@ namespace Adrenak.UniVoice {
 
         public int SegmentRate => 1;
 
+        #pragma warning disable CS0067
         public event Action<AudioFrame> OnFrameReady;
+        #pragma warning restore
 
         public void Dispose() { }
     }

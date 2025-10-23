@@ -51,6 +51,8 @@ namespace Adrenak.UniVoice.Samples {
 
         [SerializeField] bool useConcentusEncodeAndDecode = true;
 
+        [SerializeField] bool useVad = true;
+
         void Start() {
             if (HasSetUp) {
                 Debug.unityLogger.Log(LogType.Log, TAG, "UniVoice is already set up. Ignoring...");
@@ -178,6 +180,12 @@ namespace Adrenak.UniVoice.Samples {
                 Debug.unityLogger.Log(LogType.Log, TAG, "Registered RNNoiseFilter as an input filter");
             }
 #endif
+
+            if (useVad) {
+                // We add the VAD filter after RNNoise. 
+                // This way lot of the background noise has been removed, VAD is truly trying to detect voice
+                ClientSession.InputFilters.Add(new SimpleVadFilter(new SimpleVad()));
+            }
 
             if (useConcentusEncodeAndDecode) {
                 // ConcentureEncoder filter to encode captured audio that reduces the audio frame size
