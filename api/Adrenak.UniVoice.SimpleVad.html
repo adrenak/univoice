@@ -1,0 +1,441 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class SimpleVad
+   | UniVoice documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class SimpleVad
+   | UniVoice documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Adrenak.UniVoice.SimpleVad">
+  
+  
+  <h1 id="Adrenak_UniVoice_SimpleVad" data-uid="Adrenak.UniVoice.SimpleVad" class="text-break">Class SimpleVad
+  </h1>
+  <div class="markdown level0 summary"><p>A minimal, adaptive voice activity detector operating on time-domain PCM.
+Supports float [-1,1] and 16-bit samples, with per-call adaptation to
+input frequency and channel count. Multi-channel input is downmixed to mono.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">SimpleVad</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Adrenak.UniVoice.html">Adrenak.UniVoice</a></h6>
+  <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
+  <h5 id="Adrenak_UniVoice_SimpleVad_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class SimpleVad</code></pre>
+  </div>
+  <h5 id="Adrenak_UniVoice_SimpleVad_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>The detector emits <a class="xref" href="Adrenak.UniVoice.SimpleVad.html#Adrenak_UniVoice_SimpleVad_OnVadChanged">OnVadChanged</a> when the speaking state toggles.
+Timings (attack, release, gaps) are maintained in milliseconds and remain
+stable across sample-rate changes.</p>
+</div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="Adrenak_UniVoice_SimpleVad__ctor_" data-uid="Adrenak.UniVoice.SimpleVad.#ctor*"></a>
+  <h4 id="Adrenak_UniVoice_SimpleVad__ctor_Adrenak_UniVoice_SimpleVad_Config_" data-uid="Adrenak.UniVoice.SimpleVad.#ctor(Adrenak.UniVoice.SimpleVad.Config)">SimpleVad(SimpleVad.Config)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="Adrenak.UniVoice.SimpleVad.html">SimpleVad</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SimpleVad(SimpleVad.Config config = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Adrenak.UniVoice.SimpleVad.Config.html">SimpleVad.Config</a></td>
+        <td><span class="parametername">config</span></td>
+        <td><p>Optional configuration. If null, defaults are used.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Adrenak_UniVoice_SimpleVad_IsSpeaking_" data-uid="Adrenak.UniVoice.SimpleVad.IsSpeaking*"></a>
+  <h4 id="Adrenak_UniVoice_SimpleVad_IsSpeaking" data-uid="Adrenak.UniVoice.SimpleVad.IsSpeaking">IsSpeaking</h4>
+  <div class="markdown level1 summary"><p>Current speaking state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsSpeaking { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Adrenak_UniVoice_SimpleVad_Process_" data-uid="Adrenak.UniVoice.SimpleVad.Process*"></a>
+  <h4 id="Adrenak_UniVoice_SimpleVad_Process_System_Int32_System_Int32_System_Int16___" data-uid="Adrenak.UniVoice.SimpleVad.Process(System.Int32,System.Int32,System.Int16[])">Process(Int32, Int32, Int16[])</h4>
+  <div class="markdown level1 summary"><p>Convenience overload for processing fully-filled 16-bit buffers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Process(int frequency, int channels, short[] samples)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">frequency</span></td>
+        <td><p>Input sample rate in Hz.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">channels</span></td>
+        <td><p>Number of interleaved channels.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int16</span>[]</td>
+        <td><span class="parametername">samples</span></td>
+        <td><p>Buffer containing interleaved sample data.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Adrenak_UniVoice_SimpleVad_Process_" data-uid="Adrenak.UniVoice.SimpleVad.Process*"></a>
+  <h4 id="Adrenak_UniVoice_SimpleVad_Process_System_Int32_System_Int32_System_Int16___System_Int32_" data-uid="Adrenak.UniVoice.SimpleVad.Process(System.Int32,System.Int32,System.Int16[],System.Int32)">Process(Int32, Int32, Int16[], Int32)</h4>
+  <div class="markdown level1 summary"><p>Processes interleaved 16-bit PCM with adaptive handling of frequency and channels.
+Multi-channel input is downmixed to mono via averaging.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Process(int frequency, int channels, short[] samples, int count)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">frequency</span></td>
+        <td><p>Input sample rate in Hz. If 0, a default is used.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">channels</span></td>
+        <td><p>Number of interleaved channels. If 0, treated as 1.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int16</span>[]</td>
+        <td><span class="parametername">samples</span></td>
+        <td><p>Buffer containing interleaved sample data.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">count</span></td>
+        <td><p>Number of elements from <code data-dev-comment-type="paramref" class="paramref">samples</code> to process.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Adrenak_UniVoice_SimpleVad_Process_" data-uid="Adrenak.UniVoice.SimpleVad.Process*"></a>
+  <h4 id="Adrenak_UniVoice_SimpleVad_Process_System_Int32_System_Int32_System_Single___" data-uid="Adrenak.UniVoice.SimpleVad.Process(System.Int32,System.Int32,System.Single[])">Process(Int32, Int32, Single[])</h4>
+  <div class="markdown level1 summary"><p>Convenience overload for processing fully-filled float buffers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Process(int frequency, int channels, float[] samples)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">frequency</span></td>
+        <td><p>Input sample rate in Hz.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">channels</span></td>
+        <td><p>Number of interleaved channels.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span>[]</td>
+        <td><span class="parametername">samples</span></td>
+        <td><p>Buffer containing interleaved sample data.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Adrenak_UniVoice_SimpleVad_Process_" data-uid="Adrenak.UniVoice.SimpleVad.Process*"></a>
+  <h4 id="Adrenak_UniVoice_SimpleVad_Process_System_Int32_System_Int32_System_Single___System_Int32_" data-uid="Adrenak.UniVoice.SimpleVad.Process(System.Int32,System.Int32,System.Single[],System.Int32)">Process(Int32, Int32, Single[], Int32)</h4>
+  <div class="markdown level1 summary"><p>Processes interleaved float PCM in the range [-1, 1] with adaptive
+handling of frequency and channels. Multi-channel input is downmixed
+to mono via averaging.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Process(int frequency, int channels, float[] samples, int count)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">frequency</span></td>
+        <td><p>Input sample rate in Hz.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">channels</span></td>
+        <td><p>Number of interleaved channels. If 0, treated as 1 (mono).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span>[]</td>
+        <td><span class="parametername">samples</span></td>
+        <td><p>Buffer containing interleaved sample data.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">count</span></td>
+        <td><p>Number of elements from <code data-dev-comment-type="paramref" class="paramref">samples</code> to process.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Adrenak_UniVoice_SimpleVad_Reset_" data-uid="Adrenak.UniVoice.SimpleVad.Reset*"></a>
+  <h4 id="Adrenak_UniVoice_SimpleVad_Reset_System_Boolean_" data-uid="Adrenak.UniVoice.SimpleVad.Reset(System.Boolean)">Reset(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Resets internal state and timers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Reset(bool isSpeaking = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">isSpeaking</span></td>
+        <td><p>Initial speaking state after reset.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="events">Events
+  </h3>
+  
+  
+  <h4 id="Adrenak_UniVoice_SimpleVad_OnVadChanged" data-uid="Adrenak.UniVoice.SimpleVad.OnVadChanged">OnVadChanged</h4>
+  <div class="markdown level1 summary"><p>Raised when the VAD speaking state changes.
+The event argument is true when entering the speaking state,
+and false when exiting.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action&lt;bool&gt; OnVadChanged</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            UniVoice documentation
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -530,6 +530,38 @@ references:
   isSpec: "True"
   fullName: Adrenak.UniVoice.Filters.GaussianAudioBlur.Run
   nameWithType: GaussianAudioBlur.Run
+- uid: Adrenak.UniVoice.Filters.SimpleVadFilter
+  name: SimpleVadFilter
+  href: api/Adrenak.UniVoice.Filters.SimpleVadFilter.html
+  commentId: T:Adrenak.UniVoice.Filters.SimpleVadFilter
+  fullName: Adrenak.UniVoice.Filters.SimpleVadFilter
+  nameWithType: SimpleVadFilter
+- uid: Adrenak.UniVoice.Filters.SimpleVadFilter.#ctor(Adrenak.UniVoice.SimpleVad)
+  name: SimpleVadFilter(SimpleVad)
+  href: api/Adrenak.UniVoice.Filters.SimpleVadFilter.html#Adrenak_UniVoice_Filters_SimpleVadFilter__ctor_Adrenak_UniVoice_SimpleVad_
+  commentId: M:Adrenak.UniVoice.Filters.SimpleVadFilter.#ctor(Adrenak.UniVoice.SimpleVad)
+  fullName: Adrenak.UniVoice.Filters.SimpleVadFilter.SimpleVadFilter(Adrenak.UniVoice.SimpleVad)
+  nameWithType: SimpleVadFilter.SimpleVadFilter(SimpleVad)
+- uid: Adrenak.UniVoice.Filters.SimpleVadFilter.#ctor*
+  name: SimpleVadFilter
+  href: api/Adrenak.UniVoice.Filters.SimpleVadFilter.html#Adrenak_UniVoice_Filters_SimpleVadFilter__ctor_
+  commentId: Overload:Adrenak.UniVoice.Filters.SimpleVadFilter.#ctor
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.Filters.SimpleVadFilter.SimpleVadFilter
+  nameWithType: SimpleVadFilter.SimpleVadFilter
+- uid: Adrenak.UniVoice.Filters.SimpleVadFilter.Run(Adrenak.UniVoice.AudioFrame)
+  name: Run(AudioFrame)
+  href: api/Adrenak.UniVoice.Filters.SimpleVadFilter.html#Adrenak_UniVoice_Filters_SimpleVadFilter_Run_Adrenak_UniVoice_AudioFrame_
+  commentId: M:Adrenak.UniVoice.Filters.SimpleVadFilter.Run(Adrenak.UniVoice.AudioFrame)
+  fullName: Adrenak.UniVoice.Filters.SimpleVadFilter.Run(Adrenak.UniVoice.AudioFrame)
+  nameWithType: SimpleVadFilter.Run(AudioFrame)
+- uid: Adrenak.UniVoice.Filters.SimpleVadFilter.Run*
+  name: Run
+  href: api/Adrenak.UniVoice.Filters.SimpleVadFilter.html#Adrenak_UniVoice_Filters_SimpleVadFilter_Run_
+  commentId: Overload:Adrenak.UniVoice.Filters.SimpleVadFilter.Run
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.Filters.SimpleVadFilter.Run
+  nameWithType: SimpleVadFilter.Run
 - uid: Adrenak.UniVoice.IAudioClient`1
   name: IAudioClient<T>
   href: api/Adrenak.UniVoice.IAudioClient-1.html
@@ -1159,6 +1191,172 @@ references:
   isSpec: "True"
   fullName: Adrenak.UniVoice.Samples.UniVoiceMirrorSetupSample.HasSetUp
   nameWithType: UniVoiceMirrorSetupSample.HasSetUp
+- uid: Adrenak.UniVoice.SimpleVad
+  name: SimpleVad
+  href: api/Adrenak.UniVoice.SimpleVad.html
+  commentId: T:Adrenak.UniVoice.SimpleVad
+  fullName: Adrenak.UniVoice.SimpleVad
+  nameWithType: SimpleVad
+- uid: Adrenak.UniVoice.SimpleVad.#ctor(Adrenak.UniVoice.SimpleVad.Config)
+  name: SimpleVad(SimpleVad.Config)
+  href: api/Adrenak.UniVoice.SimpleVad.html#Adrenak_UniVoice_SimpleVad__ctor_Adrenak_UniVoice_SimpleVad_Config_
+  commentId: M:Adrenak.UniVoice.SimpleVad.#ctor(Adrenak.UniVoice.SimpleVad.Config)
+  fullName: Adrenak.UniVoice.SimpleVad.SimpleVad(Adrenak.UniVoice.SimpleVad.Config)
+  nameWithType: SimpleVad.SimpleVad(SimpleVad.Config)
+- uid: Adrenak.UniVoice.SimpleVad.#ctor*
+  name: SimpleVad
+  href: api/Adrenak.UniVoice.SimpleVad.html#Adrenak_UniVoice_SimpleVad__ctor_
+  commentId: Overload:Adrenak.UniVoice.SimpleVad.#ctor
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.SimpleVad.SimpleVad
+  nameWithType: SimpleVad.SimpleVad
+- uid: Adrenak.UniVoice.SimpleVad.Config
+  name: SimpleVad.Config
+  href: api/Adrenak.UniVoice.SimpleVad.Config.html
+  commentId: T:Adrenak.UniVoice.SimpleVad.Config
+  fullName: Adrenak.UniVoice.SimpleVad.Config
+  nameWithType: SimpleVad.Config
+- uid: Adrenak.UniVoice.SimpleVad.Config.AttackMs
+  name: AttackMs
+  href: api/Adrenak.UniVoice.SimpleVad.Config.html#Adrenak_UniVoice_SimpleVad_Config_AttackMs
+  commentId: F:Adrenak.UniVoice.SimpleVad.Config.AttackMs
+  fullName: Adrenak.UniVoice.SimpleVad.Config.AttackMs
+  nameWithType: SimpleVad.Config.AttackMs
+- uid: Adrenak.UniVoice.SimpleVad.Config.EnergyFloor
+  name: EnergyFloor
+  href: api/Adrenak.UniVoice.SimpleVad.Config.html#Adrenak_UniVoice_SimpleVad_Config_EnergyFloor
+  commentId: F:Adrenak.UniVoice.SimpleVad.Config.EnergyFloor
+  fullName: Adrenak.UniVoice.SimpleVad.Config.EnergyFloor
+  nameWithType: SimpleVad.Config.EnergyFloor
+- uid: Adrenak.UniVoice.SimpleVad.Config.MaxGapMs
+  name: MaxGapMs
+  href: api/Adrenak.UniVoice.SimpleVad.Config.html#Adrenak_UniVoice_SimpleVad_Config_MaxGapMs
+  commentId: F:Adrenak.UniVoice.SimpleVad.Config.MaxGapMs
+  fullName: Adrenak.UniVoice.SimpleVad.Config.MaxGapMs
+  nameWithType: SimpleVad.Config.MaxGapMs
+- uid: Adrenak.UniVoice.SimpleVad.Config.MinNoiseRms
+  name: MinNoiseRms
+  href: api/Adrenak.UniVoice.SimpleVad.Config.html#Adrenak_UniVoice_SimpleVad_Config_MinNoiseRms
+  commentId: F:Adrenak.UniVoice.SimpleVad.Config.MinNoiseRms
+  fullName: Adrenak.UniVoice.SimpleVad.Config.MinNoiseRms
+  nameWithType: SimpleVad.Config.MinNoiseRms
+- uid: Adrenak.UniVoice.SimpleVad.Config.NoDropWindowMs
+  name: NoDropWindowMs
+  href: api/Adrenak.UniVoice.SimpleVad.Config.html#Adrenak_UniVoice_SimpleVad_Config_NoDropWindowMs
+  commentId: F:Adrenak.UniVoice.SimpleVad.Config.NoDropWindowMs
+  fullName: Adrenak.UniVoice.SimpleVad.Config.NoDropWindowMs
+  nameWithType: SimpleVad.Config.NoDropWindowMs
+- uid: Adrenak.UniVoice.SimpleVad.Config.NonSpeechNoiseUpdateRate
+  name: NonSpeechNoiseUpdateRate
+  href: api/Adrenak.UniVoice.SimpleVad.Config.html#Adrenak_UniVoice_SimpleVad_Config_NonSpeechNoiseUpdateRate
+  commentId: F:Adrenak.UniVoice.SimpleVad.Config.NonSpeechNoiseUpdateRate
+  fullName: Adrenak.UniVoice.SimpleVad.Config.NonSpeechNoiseUpdateRate
+  nameWithType: SimpleVad.Config.NonSpeechNoiseUpdateRate
+- uid: Adrenak.UniVoice.SimpleVad.Config.ReleaseMs
+  name: ReleaseMs
+  href: api/Adrenak.UniVoice.SimpleVad.Config.html#Adrenak_UniVoice_SimpleVad_Config_ReleaseMs
+  commentId: F:Adrenak.UniVoice.SimpleVad.Config.ReleaseMs
+  fullName: Adrenak.UniVoice.SimpleVad.Config.ReleaseMs
+  nameWithType: SimpleVad.Config.ReleaseMs
+- uid: Adrenak.UniVoice.SimpleVad.Config.SnrEnterDb
+  name: SnrEnterDb
+  href: api/Adrenak.UniVoice.SimpleVad.Config.html#Adrenak_UniVoice_SimpleVad_Config_SnrEnterDb
+  commentId: F:Adrenak.UniVoice.SimpleVad.Config.SnrEnterDb
+  fullName: Adrenak.UniVoice.SimpleVad.Config.SnrEnterDb
+  nameWithType: SimpleVad.Config.SnrEnterDb
+- uid: Adrenak.UniVoice.SimpleVad.Config.SnrExitDb
+  name: SnrExitDb
+  href: api/Adrenak.UniVoice.SimpleVad.Config.html#Adrenak_UniVoice_SimpleVad_Config_SnrExitDb
+  commentId: F:Adrenak.UniVoice.SimpleVad.Config.SnrExitDb
+  fullName: Adrenak.UniVoice.SimpleVad.Config.SnrExitDb
+  nameWithType: SimpleVad.Config.SnrExitDb
+- uid: Adrenak.UniVoice.SimpleVad.Config.SpeechNoiseUpdateRate
+  name: SpeechNoiseUpdateRate
+  href: api/Adrenak.UniVoice.SimpleVad.Config.html#Adrenak_UniVoice_SimpleVad_Config_SpeechNoiseUpdateRate
+  commentId: F:Adrenak.UniVoice.SimpleVad.Config.SpeechNoiseUpdateRate
+  fullName: Adrenak.UniVoice.SimpleVad.Config.SpeechNoiseUpdateRate
+  nameWithType: SimpleVad.Config.SpeechNoiseUpdateRate
+- uid: Adrenak.UniVoice.SimpleVad.Config.TargetFrameMs
+  name: TargetFrameMs
+  href: api/Adrenak.UniVoice.SimpleVad.Config.html#Adrenak_UniVoice_SimpleVad_Config_TargetFrameMs
+  commentId: F:Adrenak.UniVoice.SimpleVad.Config.TargetFrameMs
+  fullName: Adrenak.UniVoice.SimpleVad.Config.TargetFrameMs
+  nameWithType: SimpleVad.Config.TargetFrameMs
+- uid: Adrenak.UniVoice.SimpleVad.IsSpeaking
+  name: IsSpeaking
+  href: api/Adrenak.UniVoice.SimpleVad.html#Adrenak_UniVoice_SimpleVad_IsSpeaking
+  commentId: P:Adrenak.UniVoice.SimpleVad.IsSpeaking
+  fullName: Adrenak.UniVoice.SimpleVad.IsSpeaking
+  nameWithType: SimpleVad.IsSpeaking
+- uid: Adrenak.UniVoice.SimpleVad.IsSpeaking*
+  name: IsSpeaking
+  href: api/Adrenak.UniVoice.SimpleVad.html#Adrenak_UniVoice_SimpleVad_IsSpeaking_
+  commentId: Overload:Adrenak.UniVoice.SimpleVad.IsSpeaking
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.SimpleVad.IsSpeaking
+  nameWithType: SimpleVad.IsSpeaking
+- uid: Adrenak.UniVoice.SimpleVad.OnVadChanged
+  name: OnVadChanged
+  href: api/Adrenak.UniVoice.SimpleVad.html#Adrenak_UniVoice_SimpleVad_OnVadChanged
+  commentId: E:Adrenak.UniVoice.SimpleVad.OnVadChanged
+  fullName: Adrenak.UniVoice.SimpleVad.OnVadChanged
+  nameWithType: SimpleVad.OnVadChanged
+- uid: Adrenak.UniVoice.SimpleVad.Process(System.Int32,System.Int32,System.Int16[])
+  name: Process(Int32, Int32, Int16[])
+  href: api/Adrenak.UniVoice.SimpleVad.html#Adrenak_UniVoice_SimpleVad_Process_System_Int32_System_Int32_System_Int16___
+  commentId: M:Adrenak.UniVoice.SimpleVad.Process(System.Int32,System.Int32,System.Int16[])
+  name.vb: Process(Int32, Int32, Int16())
+  fullName: Adrenak.UniVoice.SimpleVad.Process(System.Int32, System.Int32, System.Int16[])
+  fullName.vb: Adrenak.UniVoice.SimpleVad.Process(System.Int32, System.Int32, System.Int16())
+  nameWithType: SimpleVad.Process(Int32, Int32, Int16[])
+  nameWithType.vb: SimpleVad.Process(Int32, Int32, Int16())
+- uid: Adrenak.UniVoice.SimpleVad.Process(System.Int32,System.Int32,System.Int16[],System.Int32)
+  name: Process(Int32, Int32, Int16[], Int32)
+  href: api/Adrenak.UniVoice.SimpleVad.html#Adrenak_UniVoice_SimpleVad_Process_System_Int32_System_Int32_System_Int16___System_Int32_
+  commentId: M:Adrenak.UniVoice.SimpleVad.Process(System.Int32,System.Int32,System.Int16[],System.Int32)
+  name.vb: Process(Int32, Int32, Int16(), Int32)
+  fullName: Adrenak.UniVoice.SimpleVad.Process(System.Int32, System.Int32, System.Int16[], System.Int32)
+  fullName.vb: Adrenak.UniVoice.SimpleVad.Process(System.Int32, System.Int32, System.Int16(), System.Int32)
+  nameWithType: SimpleVad.Process(Int32, Int32, Int16[], Int32)
+  nameWithType.vb: SimpleVad.Process(Int32, Int32, Int16(), Int32)
+- uid: Adrenak.UniVoice.SimpleVad.Process(System.Int32,System.Int32,System.Single[])
+  name: Process(Int32, Int32, Single[])
+  href: api/Adrenak.UniVoice.SimpleVad.html#Adrenak_UniVoice_SimpleVad_Process_System_Int32_System_Int32_System_Single___
+  commentId: M:Adrenak.UniVoice.SimpleVad.Process(System.Int32,System.Int32,System.Single[])
+  name.vb: Process(Int32, Int32, Single())
+  fullName: Adrenak.UniVoice.SimpleVad.Process(System.Int32, System.Int32, System.Single[])
+  fullName.vb: Adrenak.UniVoice.SimpleVad.Process(System.Int32, System.Int32, System.Single())
+  nameWithType: SimpleVad.Process(Int32, Int32, Single[])
+  nameWithType.vb: SimpleVad.Process(Int32, Int32, Single())
+- uid: Adrenak.UniVoice.SimpleVad.Process(System.Int32,System.Int32,System.Single[],System.Int32)
+  name: Process(Int32, Int32, Single[], Int32)
+  href: api/Adrenak.UniVoice.SimpleVad.html#Adrenak_UniVoice_SimpleVad_Process_System_Int32_System_Int32_System_Single___System_Int32_
+  commentId: M:Adrenak.UniVoice.SimpleVad.Process(System.Int32,System.Int32,System.Single[],System.Int32)
+  name.vb: Process(Int32, Int32, Single(), Int32)
+  fullName: Adrenak.UniVoice.SimpleVad.Process(System.Int32, System.Int32, System.Single[], System.Int32)
+  fullName.vb: Adrenak.UniVoice.SimpleVad.Process(System.Int32, System.Int32, System.Single(), System.Int32)
+  nameWithType: SimpleVad.Process(Int32, Int32, Single[], Int32)
+  nameWithType.vb: SimpleVad.Process(Int32, Int32, Single(), Int32)
+- uid: Adrenak.UniVoice.SimpleVad.Process*
+  name: Process
+  href: api/Adrenak.UniVoice.SimpleVad.html#Adrenak_UniVoice_SimpleVad_Process_
+  commentId: Overload:Adrenak.UniVoice.SimpleVad.Process
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.SimpleVad.Process
+  nameWithType: SimpleVad.Process
+- uid: Adrenak.UniVoice.SimpleVad.Reset(System.Boolean)
+  name: Reset(Boolean)
+  href: api/Adrenak.UniVoice.SimpleVad.html#Adrenak_UniVoice_SimpleVad_Reset_System_Boolean_
+  commentId: M:Adrenak.UniVoice.SimpleVad.Reset(System.Boolean)
+  fullName: Adrenak.UniVoice.SimpleVad.Reset(System.Boolean)
+  nameWithType: SimpleVad.Reset(Boolean)
+- uid: Adrenak.UniVoice.SimpleVad.Reset*
+  name: Reset
+  href: api/Adrenak.UniVoice.SimpleVad.html#Adrenak_UniVoice_SimpleVad_Reset_
+  commentId: Overload:Adrenak.UniVoice.SimpleVad.Reset
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.SimpleVad.Reset
+  nameWithType: SimpleVad.Reset
 - uid: Adrenak.UniVoice.Utils
   name: Utils
   href: api/Adrenak.UniVoice.Utils.html
