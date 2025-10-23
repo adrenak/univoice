@@ -204,11 +204,14 @@ namespace Adrenak.UniVoice {
                         return;
 
                     if (InputFilters != null) {
-                        foreach (var filter in InputFilters)
+                        foreach (var filter in InputFilters) {
                             frame = filter.Run(frame);
+                            if (frame.samples == null)
+                                break;
+                        }
                     }
 
-                    if (frame.samples.Length > 0)
+                    if (frame.samples != null && frame.samples.Length > 0)
                         Client.SendAudioFrame(frame);
                 };
             }
