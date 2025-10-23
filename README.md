@@ -24,6 +24,7 @@ Some features of UniVoice:
     - Built-in support for:
         - Opus (Concentus) encoding & decoding.
         - RNNoise based noise removal.
+        - Energy based VAD (Voice Activity Detection)
         - Gaussian blurring for minor denoising.
 
 - 👥 Easy integration with your existing networking solution
