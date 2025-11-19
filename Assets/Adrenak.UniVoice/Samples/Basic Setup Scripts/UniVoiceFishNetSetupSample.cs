@@ -47,11 +47,13 @@ namespace Adrenak.UniVoice.Samples {
         /// </summary>
         public static ClientSession<int> ClientSession { get; private set; }
 
+#pragma warning disable CS0414
         [SerializeField] bool useRNNoise4UnityIfAvailable = true;
 
         [SerializeField] bool useConcentusEncodeAndDecode = true;
 
         [SerializeField] bool useVad = true;
+#pragma warning restore
 
         void Start() {
             if (HasSetUp) {
