@@ -44,7 +44,7 @@ namespace Adrenak.UniVoice.Networks
         
         public void Dispose()
         {
-            if (_networkManager)
+            if (_networkManager != null)
             {
                 _networkManager.ClientManager.OnClientConnectionState -= OnClientConnectionStateChanged;
                 _networkManager.ClientManager.OnAuthenticated -= OnClientAuthenticated;

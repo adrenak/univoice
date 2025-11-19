@@ -97,7 +97,6 @@ namespace Adrenak.UniVoice.Networks
 
         private void OnClientConnectionStateChanged(ClientConnectionStateArgs args)
         {
-            // TODO - do we need to check if host or is this enough?
             if (args.ConnectionState == LocalConnectionState.Started)
             {
                 OnServerConnected(0);
@@ -150,7 +149,7 @@ namespace Adrenak.UniVoice.Networks
                         return true;
                     });
                 }
-                
+
                 // We iterate through each recipient peer that the sender wants to send audio to, checking if
                 // they have muted the sender, before forwarding the audio to them.
                 foreach (var recipient in peersToForwardAudioTo) {
@@ -199,14 +198,16 @@ namespace Adrenak.UniVoice.Networks
 
         private void OnServerConnected(int connId)
         {
-            Debug.unityLogger.Log(LogType.Log, TAG, $"Client {connId} connected");
+            if (ClientIDs.Contains(connId))
+                return;
             ClientIDs.Add(connId);
+            Debug.unityLogger.Log(LogType.Log, TAG, $"Client {connId} connected. IDs now: {string.Join(", ", ClientIDs)}");
         }
 
         private void OnServerDisconnected(int connId)
         {
             ClientIDs.Remove(connId);
-            Debug.unityLogger.Log(LogType.Log, TAG, $"Client {connId} disconnected");
+            Debug.unityLogger.Log(LogType.Log, TAG, $"Client {connId} disconnected. IDs now: {string.Join(", ", ClientIDs)}");
         }
 
         private void SendToClient(int clientConnId, byte[] bytes, Channel channel)
