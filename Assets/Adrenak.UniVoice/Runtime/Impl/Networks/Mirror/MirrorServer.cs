@@ -45,7 +45,7 @@ namespace Adrenak.UniVoice.Networks {
 
             NetworkServer.RegisterHandler<MirrorMessage>(OnReceivedMessage, false);
         }
-        
+
         public void Dispose() {
             mirrorEvents.ModeChanged -= OnModeChanged;
             NetworkServer.UnregisterHandler<MirrorMessage>();
@@ -80,20 +80,20 @@ namespace Adrenak.UniVoice.Networks {
 
             // If in Host mode, the server and internal client have both started and the client connects immediately.
             // The host client seems to have ID 0 always, so we trigger a new client connection using id 0.
-            if(newMode == NetworkManagerMode.Host) {
+            if (newMode == NetworkManagerMode.Host) {
                 OnServerStarted();
                 OnServerConnected(0, "localhost");
             }
-            else if(newMode == NetworkManagerMode.ServerOnly) {
+            else if (newMode == NetworkManagerMode.ServerOnly) {
                 // If a Host changes to ServerOnly, we disconnect the internal client
                 if (oldMode == NetworkManagerMode.Host)
                     OnServerDisconnected(0);
                 // But if this machine is going from Offline to ServerOnly, only the server is starting
-                else if(oldMode == NetworkManagerMode.Offline)
+                else if (oldMode == NetworkManagerMode.Offline)
                     OnServerStarted();
             }
             // If a Host or ServerOnly goes offline 
-            else if(newMode == NetworkManagerMode.Offline && (oldMode == NetworkManagerMode.ServerOnly || oldMode == NetworkManagerMode.Host)) {
+            else if (newMode == NetworkManagerMode.Offline && (oldMode == NetworkManagerMode.ServerOnly || oldMode == NetworkManagerMode.Host)) {
                 // We check if it was a Host before and disconnect the internal client
                 if (oldMode == NetworkManagerMode.Host)
                     OnServerDisconnected(0);
@@ -164,17 +164,22 @@ namespace Adrenak.UniVoice.Networks {
                 }
             }
             else if (tag.Equals(MirrorMessageTags.VOICE_SETTINGS)) {
-                //Debug.unityLogger.Log(LogType.Log, TAG, "Mirror server stopped");
                 // We create the VoiceSettings object by reading from the reader
                 // and update the peer voice settings map
                 var muteAll = reader.ReadInt() == 1 ? true : false;
                 var mutedPeers = reader.ReadIntArray().ToList();
                 var deafenAll = reader.ReadInt() == 1 ? true : false;
                 var deafenedPeers = reader.ReadIntArray().ToList();
-                var myTags = reader.ReadString().Split(",").ToList();
-                var mutedTags = reader.ReadString().Split(",").ToList();
-                var deafenedTags = reader.ReadString().Split(",").ToList();
 
+                var myTagsVal = reader.ReadString();
+                var myTags = myTagsVal.Equals(",") ? new List<string>() : myTagsVal.Split(",").ToList();
+                
+                var mutedTagsVal = reader.ReadString();
+                var mutedTags = mutedTagsVal.Equals(",") ? new List<string>() : mutedTagsVal.Split(",").ToList();
+                
+                var deafenedTagsVal = reader.ReadString();
+                var deafenedTags = deafenedTagsVal.Equals(",") ? new List<string>() : deafenedTagsVal.Split(",").ToList();
+                
                 var voiceSettings = new VoiceSettings {
                     muteAll = muteAll,
                     mutedPeers = mutedPeers,
@@ -278,7 +283,7 @@ namespace Adrenak.UniVoice.Networks {
         }
 
         NetworkConnectionToClient GetConnectionToClient(int connId) {
-            foreach(var conn in NetworkServer.connections) 
+            foreach (var conn in NetworkServer.connections)
                 if (conn.Key == connId)
                     return conn.Value;
             return null;
