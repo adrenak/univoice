@@ -183,9 +183,15 @@ namespace Adrenak.UniVoice.Networks
             writer.WriteIntArray(YourVoiceSettings.mutedPeers.ToArray());
             writer.WriteInt(YourVoiceSettings.deafenAll ? 1 : 0);
             writer.WriteIntArray(YourVoiceSettings.deafenedPeers.ToArray());
-            writer.WriteString(string.Join(",", YourVoiceSettings.myTags));
-            writer.WriteString(string.Join(",", YourVoiceSettings.mutedTags));
-            writer.WriteString(string.Join(",", YourVoiceSettings.deafenedTags));
+            
+            var myTags = YourVoiceSettings.myTags;
+            writer.WriteString(myTags.Count == 0 ? "," : string.Join(",", myTags));
+            
+            var mutedTags = YourVoiceSettings.mutedTags;
+            writer.WriteString(mutedTags.Count == 0 ? "," : string.Join(",", mutedTags));
+
+            var deafenedTags = YourVoiceSettings.deafenedTags;
+            writer.WriteString(deafenedTags.Count == 0 ? "," : string.Join(",", deafenedTags));
 
             var message = new FishNetBroadcast() {
                 data = writer.Bytes

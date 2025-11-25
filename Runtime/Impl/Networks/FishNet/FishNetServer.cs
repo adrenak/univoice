@@ -178,9 +178,15 @@ namespace Adrenak.UniVoice.Networks
                 var mutedPeers = reader.ReadIntArray().ToList();
                 var deafenAll = reader.ReadInt() == 1;
                 var deafenedPeers = reader.ReadIntArray().ToList();
-                var myTags = reader.ReadString().Split(",").ToList();
-                var mutedTags = reader.ReadString().Split(",").ToList();
-                var deafenedTags = reader.ReadString().Split(",").ToList();
+                
+                var myTagsVal = reader.ReadString();
+                var myTags = myTagsVal.Equals(",") ? new List<string>() : myTagsVal.Split(",").ToList();
+                
+                var mutedTagsVal = reader.ReadString();
+                var mutedTags = mutedTagsVal.Equals(",") ? new List<string>() : mutedTagsVal.Split(",").ToList();
+                
+                var deafenedTagsVal = reader.ReadString();
+                var deafenedTags = deafenedTagsVal.Equals(",") ? new List<string>() : deafenedTagsVal.Split(",").ToList();
 
                 var voiceSettings = new VoiceSettings {
                     muteAll = muteAll,
