@@ -164,7 +164,7 @@ namespace Adrenak.UniVoice.Networks
                             continue;
 
                         // If the peer has muted the sender using tag, skip sending audio
-                        if (recipientSettings.mutedTags.Intersect(senderSettings.myTags).Any())
+                        if (senderSettings != null && recipientSettings.mutedTags.Intersect(senderSettings.myTags).Any())
                             continue;
                     }
                     SendToClient(recipient, message.data, Channel.Unreliable);
