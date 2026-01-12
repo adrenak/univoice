@@ -171,22 +171,15 @@ namespace Adrenak.UniVoice.Networks
                 }
             }
             else if (tag.Equals(FishNetBroadcastTags.VOICE_SETTINGS)) {
-                //Debug.unityLogger.Log(LogType.Log, TAG, "FishNet server stopped");
                 // We create the VoiceSettings object by reading from the reader
                 // and update the peer voice settings map
                 var muteAll = reader.ReadInt() == 1;
                 var mutedPeers = reader.ReadIntArray().ToList();
                 var deafenAll = reader.ReadInt() == 1;
                 var deafenedPeers = reader.ReadIntArray().ToList();
-                
-                var myTagsVal = reader.ReadString();
-                var myTags = myTagsVal.Equals(",") ? new List<string>() : myTagsVal.Split(",").ToList();
-                
-                var mutedTagsVal = reader.ReadString();
-                var mutedTags = mutedTagsVal.Equals(",") ? new List<string>() : mutedTagsVal.Split(",").ToList();
-                
-                var deafenedTagsVal = reader.ReadString();
-                var deafenedTags = deafenedTagsVal.Equals(",") ? new List<string>() : deafenedTagsVal.Split(",").ToList();
+                var myTags = reader.ReadStringArray().ToList();
+                var mutedTags = reader.ReadStringArray().ToList();
+                var deafenedTags = reader.ReadStringArray().ToList();
 
                 var voiceSettings = new VoiceSettings {
                     muteAll = muteAll,
