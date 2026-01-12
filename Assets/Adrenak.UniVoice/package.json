@@ -1,6 +1,6 @@
 {
     "name": "com.adrenak.univoice",
-    "version": "4.10.5",
+    "version": "4.11.0",
     "displayName": "Adrenak.UniVoice",
     "description": "Voice chat/VoIP framework for Unity.",
     "unity": "2021.2",
@@ -32,7 +32,7 @@
 		}
 	],
     "dependencies": {
-        "com.adrenak.brw": "1.0.1",
+        "com.adrenak.brw": "1.2.0",
         "com.adrenak.unimic": "3.4.0",
         "com.adrenak.concentus-unity": "1.0.1"
     }

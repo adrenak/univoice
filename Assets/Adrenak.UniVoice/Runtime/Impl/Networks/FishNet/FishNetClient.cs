@@ -177,26 +177,28 @@ namespace Adrenak.UniVoice.Networks
         {
             if (ID == -1)
                 return;
+
+            Debug.unityLogger.Log(TAG, "Submitting : " + YourVoiceSettings);
+
             var writer = new BytesWriter();
             writer.WriteString(FishNetBroadcastTags.VOICE_SETTINGS);
             writer.WriteInt(YourVoiceSettings.muteAll ? 1 : 0);
             writer.WriteIntArray(YourVoiceSettings.mutedPeers.ToArray());
             writer.WriteInt(YourVoiceSettings.deafenAll ? 1 : 0);
             writer.WriteIntArray(YourVoiceSettings.deafenedPeers.ToArray());
-            
-            var myTags = YourVoiceSettings.myTags;
-            writer.WriteString(myTags.Count == 0 ? "," : string.Join(",", myTags));
-            
-            var mutedTags = YourVoiceSettings.mutedTags;
-            writer.WriteString(mutedTags.Count == 0 ? "," : string.Join(",", mutedTags));
-
-            var deafenedTags = YourVoiceSettings.deafenedTags;
-            writer.WriteString(deafenedTags.Count == 0 ? "," : string.Join(",", deafenedTags));
+            writer.WriteStringArray(YourVoiceSettings.myTags.ToArray());
+            writer.WriteStringArray(YourVoiceSettings.mutedTags.ToArray());
+            writer.WriteStringArray(YourVoiceSettings.deafenedTags.ToArray());
 
             var message = new FishNetBroadcast() {
                 data = writer.Bytes
             };
             _networkManager.ClientManager.Broadcast(message);
+        }
+
+        public void UpdateVoiceSettings(Action<VoiceSettings> modification) {
+            modification?.Invoke(YourVoiceSettings);
+            SubmitVoiceSettings();
         }
     }
 }

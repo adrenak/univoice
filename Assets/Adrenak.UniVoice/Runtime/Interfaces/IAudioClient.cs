@@ -70,8 +70,14 @@ namespace Adrenak.UniVoice {
         void SendAudioFrame(AudioFrame frame);
 
         /// <summary>
-        /// Submits <see cref="YourVoiceSettings"/> to the server
+        /// Submits voice settings to the server
         /// </summary>
         void SubmitVoiceSettings();
+
+        /// <summary>
+        /// Modifies and submits voice settings to the server
+        /// </summary>
+        /// <param name="modification"></param>
+        void UpdateVoiceSettings(Action<VoiceSettings> modification);
     }
 }
