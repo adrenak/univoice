@@ -136,7 +136,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.IAudioClient-1.html",
-          "hash": "7PEbJljJxQd0Uvm0SHlt9/exo40s2bxWTp+JkSkHefg="
+          "hash": "hEA6aucZpmm9IHNqDq7QjpphdUobumIaNAbz08I0KMg="
         }
       },
       "is_incremental": false,
@@ -288,6 +288,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.Samples.FishnetTagsSample.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.Samples.FishnetTagsSample.html",
+          "hash": "SdVwOy9hwxT/UNZFK4swlscskZcoVRFi3FcUMAYmNwQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Adrenak.UniVoice.Samples.MirrorTagsSample.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Adrenak.UniVoice.Samples.MirrorTagsSample.html",
+          "hash": "saCTlgyd/FeyscmpN0p7/mHBkzdbIu1ySy2uOcy0y58="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Adrenak.UniVoice.Samples.PeerView.yml",
       "output": {
         ".html": {
@@ -340,7 +364,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.Samples.html",
-          "hash": "lXoBQRVNldjTimKx24hxTwrMZ9s8sL9oCVGlG9exc7c="
+          "hash": "boQp3k4qMxX9N3MFORia5B1cJU9OnL8XyErdzm+Ncik="
         }
       },
       "is_incremental": false,
@@ -424,7 +448,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Adrenak.UniVoice.VoiceSettings.html",
-          "hash": "IwASpNw1tIp4Bcfowat2YXUXvjsQzU2vYRVpaRB5ls8="
+          "hash": "Aoa0Ez4tiZS4YQA20ht1DZTYcbHqXcZdq5dNhHrCAFM="
         }
       },
       "is_incremental": false,
@@ -460,7 +484,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "mtR1J6w7SQ7LH2ILUO4keiLwWFAqPIZZDGufDxO/u9s="
+          "hash": "3Ru8wGqfKGnqSb++nD/mIs0hYzYsY4SySMEXgKraQns="
         }
       },
       "is_incremental": false,
@@ -511,7 +535,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 36,
+          "total_file_count": 38,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {

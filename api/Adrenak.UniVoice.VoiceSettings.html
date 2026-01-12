@@ -150,33 +150,6 @@
   </table>
   
   
-  <h4 id="Adrenak_UniVoice_VoiceSettings_deafenedTags" data-uid="Adrenak.UniVoice.VoiceSettings.deafenedTags">deafenedTags</h4>
-  <div class="markdown level1 summary"><p>The tags, which if associated with a peer, would cause
-those peers to not receive audio from this client
-DO NOT USE COMMAS (,)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;string&gt; deafenedTags</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
   <h4 id="Adrenak_UniVoice_VoiceSettings_muteAll" data-uid="Adrenak.UniVoice.VoiceSettings.muteAll">muteAll</h4>
   <div class="markdown level1 summary"><p>If true, we don&apos;t want to listen to any peer</p>
 </div>
@@ -225,19 +198,22 @@ DO NOT USE COMMAS (,)</p>
       </tr>
     </tbody>
   </table>
+  <h3 id="properties">Properties
+  </h3>
   
   
-  <h4 id="Adrenak_UniVoice_VoiceSettings_mutedTags" data-uid="Adrenak.UniVoice.VoiceSettings.mutedTags">mutedTags</h4>
-  <div class="markdown level1 summary"><p>The tags, which if associated with a peer, would cause
-those the audio of that peer to not be send to this peer
-DO NOT USE COMMAS (,)</p>
+  <a id="Adrenak_UniVoice_VoiceSettings_deafenedTags_" data-uid="Adrenak.UniVoice.VoiceSettings.deafenedTags*"></a>
+  <h4 id="Adrenak_UniVoice_VoiceSettings_deafenedTags" data-uid="Adrenak.UniVoice.VoiceSettings.deafenedTags">deafenedTags</h4>
+  <div class="markdown level1 summary"><p>List of tags deafened by this client.
+Use <a class="xref" href="Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_AddDeafenedTag_System_String_">AddDeafenedTag(String)</a> and <a class="xref" href="Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_RemoveDeafenedTag_System_String_">RemoveDeafenedTag(String)</a>
+to add or remove tags.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;string&gt; mutedTags</code></pre>
+    <pre><code class="lang-csharp hljs">public List&lt;string&gt; deafenedTags { get; set; }</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -254,16 +230,46 @@ DO NOT USE COMMAS (,)</p>
   </table>
   
   
-  <h4 id="Adrenak_UniVoice_VoiceSettings_myTags" data-uid="Adrenak.UniVoice.VoiceSettings.myTags">myTags</h4>
-  <div class="markdown level1 summary"><p>The tags associated with this client.
-DO NOT USE COMMAS (,)</p>
+  <a id="Adrenak_UniVoice_VoiceSettings_mutedTags_" data-uid="Adrenak.UniVoice.VoiceSettings.mutedTags*"></a>
+  <h4 id="Adrenak_UniVoice_VoiceSettings_mutedTags" data-uid="Adrenak.UniVoice.VoiceSettings.mutedTags">mutedTags</h4>
+  <div class="markdown level1 summary"><p>List of tags muted by this client.
+Use <a class="xref" href="Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_AddMutedTag_System_String_">AddMutedTag(String)</a> and <a class="xref" href="Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_RemoveMutedTag_System_String_">RemoveMutedTag(String)</a>
+to add or remove tags.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;string&gt; myTags</code></pre>
+    <pre><code class="lang-csharp hljs">public List&lt;string&gt; mutedTags { get; set; }</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Adrenak_UniVoice_VoiceSettings_myTags_" data-uid="Adrenak.UniVoice.VoiceSettings.myTags*"></a>
+  <h4 id="Adrenak_UniVoice_VoiceSettings_myTags" data-uid="Adrenak.UniVoice.VoiceSettings.myTags">myTags</h4>
+  <div class="markdown level1 summary"><p>List of tags associated with this client.
+Use <a class="xref" href="Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_AddMyTag_System_String_">AddMyTag(String)</a> and <a class="xref" href="Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_RemoveMyTag_System_String_">RemoveMyTag(String)</a>
+to add or remove tags.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;string&gt; myTags { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -280,6 +286,282 @@ DO NOT USE COMMAS (,)</p>
   </table>
   <h3 id="methods">Methods
   </h3>
+  
+  
+  <a id="Adrenak_UniVoice_VoiceSettings_AddDeafenedTag_" data-uid="Adrenak.UniVoice.VoiceSettings.AddDeafenedTag*"></a>
+  <h4 id="Adrenak_UniVoice_VoiceSettings_AddDeafenedTag_System_String_" data-uid="Adrenak.UniVoice.VoiceSettings.AddDeafenedTag(System.String)">AddDeafenedTag(String)</h4>
+  <div class="markdown level1 summary"><p>Adds a tag to the deafenedTags list. Commas (&apos;,&apos;) and null/empty values are not allowed!</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AddDeafenedTag(string tag)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">tag</span></td>
+        <td><p>The tag to add.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>TRUE: If the tag was accepted and added.
+FALSE: If tag wasn&apos;t added because the tag is not allowed or was already in the deafenedTags list</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Adrenak_UniVoice_VoiceSettings_AddMutedTag_" data-uid="Adrenak.UniVoice.VoiceSettings.AddMutedTag*"></a>
+  <h4 id="Adrenak_UniVoice_VoiceSettings_AddMutedTag_System_String_" data-uid="Adrenak.UniVoice.VoiceSettings.AddMutedTag(System.String)">AddMutedTag(String)</h4>
+  <div class="markdown level1 summary"><p>Adds a tag to the mutedTags list. Commas (&apos;,&apos;) and null/empty values are not allowed!</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AddMutedTag(string tag)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">tag</span></td>
+        <td><p>The tag to add.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>TRUE: If the tag was accepted and added.
+FALSE: If tag wasn&apos;t added because the tag is not allowed or was already in the mutedTags list</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Adrenak_UniVoice_VoiceSettings_AddMyTag_" data-uid="Adrenak.UniVoice.VoiceSettings.AddMyTag*"></a>
+  <h4 id="Adrenak_UniVoice_VoiceSettings_AddMyTag_System_String_" data-uid="Adrenak.UniVoice.VoiceSettings.AddMyTag(System.String)">AddMyTag(String)</h4>
+  <div class="markdown level1 summary"><p>Adds a tag to the myTags list. Commas (&apos;,&apos;) and null/empty values are not allowed!</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AddMyTag(string tag)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">tag</span></td>
+        <td><p>The tag to add.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>TRUE: If the tag was accepted and added.
+FALSE: If tag wasn&apos;t added because the tag is not allowed or was already in the myTags list</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Adrenak_UniVoice_VoiceSettings_RemoveDeafenedTag_" data-uid="Adrenak.UniVoice.VoiceSettings.RemoveDeafenedTag*"></a>
+  <h4 id="Adrenak_UniVoice_VoiceSettings_RemoveDeafenedTag_System_String_" data-uid="Adrenak.UniVoice.VoiceSettings.RemoveDeafenedTag(System.String)">RemoveDeafenedTag(String)</h4>
+  <div class="markdown level1 summary"><p>Removes a tag from the deafenedTags list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RemoveDeafenedTag(string tag)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">tag</span></td>
+        <td><p>The tag to be removed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>TRUE: If the tag was removed.
+FALSE: If the tag was not removed because it&apos;s not in the deafenedTags list</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Adrenak_UniVoice_VoiceSettings_RemoveMutedTag_" data-uid="Adrenak.UniVoice.VoiceSettings.RemoveMutedTag*"></a>
+  <h4 id="Adrenak_UniVoice_VoiceSettings_RemoveMutedTag_System_String_" data-uid="Adrenak.UniVoice.VoiceSettings.RemoveMutedTag(System.String)">RemoveMutedTag(String)</h4>
+  <div class="markdown level1 summary"><p>Removes a tag from the mutedTags list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RemoveMutedTag(string tag)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">tag</span></td>
+        <td><p>The tag to be removed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>TRUE: If the tag was removed.
+FALSE: If the tag was not removed because it&apos;s not in the mutedTags list</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Adrenak_UniVoice_VoiceSettings_RemoveMyTag_" data-uid="Adrenak.UniVoice.VoiceSettings.RemoveMyTag*"></a>
+  <h4 id="Adrenak_UniVoice_VoiceSettings_RemoveMyTag_System_String_" data-uid="Adrenak.UniVoice.VoiceSettings.RemoveMyTag(System.String)">RemoveMyTag(String)</h4>
+  <div class="markdown level1 summary"><p>Removes a tag from the myTags list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RemoveMyTag(string tag)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">tag</span></td>
+        <td><p>The tag to be removed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>TRUE: If the tag was removed.
+FALSE: If the tag was not removed because it&apos;s not in the myTags list</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="Adrenak_UniVoice_VoiceSettings_SetDeaf_" data-uid="Adrenak.UniVoice.VoiceSettings.SetDeaf*"></a>
@@ -309,6 +591,54 @@ DO NOT USE COMMAS (,)</p>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
         <td><span class="parametername">state</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Adrenak_UniVoice_VoiceSettings_SetDeafenedTag_" data-uid="Adrenak.UniVoice.VoiceSettings.SetDeafenedTag*"></a>
+  <h4 id="Adrenak_UniVoice_VoiceSettings_SetDeafenedTag_System_String_System_Boolean_" data-uid="Adrenak.UniVoice.VoiceSettings.SetDeafenedTag(System.String,System.Boolean)">SetDeafenedTag(String, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds/Removes a tag from deafenedTags list</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SetDeafenedTag(string tag, bool enable)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">tag</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">enable</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -346,6 +676,129 @@ DO NOT USE COMMAS (,)</p>
       </tr>
     </tbody>
   </table>
+  
+  
+  <a id="Adrenak_UniVoice_VoiceSettings_SetMutedTag_" data-uid="Adrenak.UniVoice.VoiceSettings.SetMutedTag*"></a>
+  <h4 id="Adrenak_UniVoice_VoiceSettings_SetMutedTag_System_String_System_Boolean_" data-uid="Adrenak.UniVoice.VoiceSettings.SetMutedTag(System.String,System.Boolean)">SetMutedTag(String, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds/Removes a tag from mutedTags list</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SetMutedTag(string tag, bool enable)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">tag</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">enable</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Adrenak_UniVoice_VoiceSettings_SetMyTag_" data-uid="Adrenak.UniVoice.VoiceSettings.SetMyTag*"></a>
+  <h4 id="Adrenak_UniVoice_VoiceSettings_SetMyTag_System_String_System_Boolean_" data-uid="Adrenak.UniVoice.VoiceSettings.SetMyTag(System.String,System.Boolean)">SetMyTag(String, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds/Removes a tag from myTags list</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SetMyTag(string tag, bool enable)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">tag</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">enable</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Adrenak_UniVoice_VoiceSettings_ToString_" data-uid="Adrenak.UniVoice.VoiceSettings.ToString*"></a>
+  <h4 id="Adrenak_UniVoice_VoiceSettings_ToString" data-uid="Adrenak.UniVoice.VoiceSettings.ToString">ToString()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.ToString()</span></div>
 </article>
           </div>
           

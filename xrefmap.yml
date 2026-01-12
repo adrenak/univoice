@@ -679,6 +679,24 @@ references:
   fullName.vb: Adrenak.UniVoice.IAudioClient(Of T).SubmitVoiceSettings
   nameWithType: IAudioClient<T>.SubmitVoiceSettings
   nameWithType.vb: IAudioClient(Of T).SubmitVoiceSettings
+- uid: Adrenak.UniVoice.IAudioClient`1.UpdateVoiceSettings(System.Action{Adrenak.UniVoice.VoiceSettings})
+  name: UpdateVoiceSettings(Action<VoiceSettings>)
+  href: api/Adrenak.UniVoice.IAudioClient-1.html#Adrenak_UniVoice_IAudioClient_1_UpdateVoiceSettings_System_Action_Adrenak_UniVoice_VoiceSettings__
+  commentId: M:Adrenak.UniVoice.IAudioClient`1.UpdateVoiceSettings(System.Action{Adrenak.UniVoice.VoiceSettings})
+  name.vb: UpdateVoiceSettings(Action(Of VoiceSettings))
+  fullName: Adrenak.UniVoice.IAudioClient<T>.UpdateVoiceSettings(System.Action<Adrenak.UniVoice.VoiceSettings>)
+  fullName.vb: Adrenak.UniVoice.IAudioClient(Of T).UpdateVoiceSettings(System.Action(Of Adrenak.UniVoice.VoiceSettings))
+  nameWithType: IAudioClient<T>.UpdateVoiceSettings(Action<VoiceSettings>)
+  nameWithType.vb: IAudioClient(Of T).UpdateVoiceSettings(Action(Of VoiceSettings))
+- uid: Adrenak.UniVoice.IAudioClient`1.UpdateVoiceSettings*
+  name: UpdateVoiceSettings
+  href: api/Adrenak.UniVoice.IAudioClient-1.html#Adrenak_UniVoice_IAudioClient_1_UpdateVoiceSettings_
+  commentId: Overload:Adrenak.UniVoice.IAudioClient`1.UpdateVoiceSettings
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.IAudioClient<T>.UpdateVoiceSettings
+  fullName.vb: Adrenak.UniVoice.IAudioClient(Of T).UpdateVoiceSettings
+  nameWithType: IAudioClient<T>.UpdateVoiceSettings
+  nameWithType.vb: IAudioClient(Of T).UpdateVoiceSettings
 - uid: Adrenak.UniVoice.IAudioClient`1.YourVoiceSettings
   name: YourVoiceSettings
   href: api/Adrenak.UniVoice.IAudioClient-1.html#Adrenak_UniVoice_IAudioClient_1_YourVoiceSettings
@@ -1009,6 +1027,18 @@ references:
   commentId: N:Adrenak.UniVoice.Samples
   fullName: Adrenak.UniVoice.Samples
   nameWithType: Adrenak.UniVoice.Samples
+- uid: Adrenak.UniVoice.Samples.FishnetTagsSample
+  name: FishnetTagsSample
+  href: api/Adrenak.UniVoice.Samples.FishnetTagsSample.html
+  commentId: T:Adrenak.UniVoice.Samples.FishnetTagsSample
+  fullName: Adrenak.UniVoice.Samples.FishnetTagsSample
+  nameWithType: FishnetTagsSample
+- uid: Adrenak.UniVoice.Samples.MirrorTagsSample
+  name: MirrorTagsSample
+  href: api/Adrenak.UniVoice.Samples.MirrorTagsSample.html
+  commentId: T:Adrenak.UniVoice.Samples.MirrorTagsSample
+  fullName: Adrenak.UniVoice.Samples.MirrorTagsSample
+  nameWithType: MirrorTagsSample
 - uid: Adrenak.UniVoice.Samples.PeerView
   name: PeerView
   href: api/Adrenak.UniVoice.Samples.PeerView.html
@@ -1448,6 +1478,45 @@ references:
   commentId: T:Adrenak.UniVoice.VoiceSettings
   fullName: Adrenak.UniVoice.VoiceSettings
   nameWithType: VoiceSettings
+- uid: Adrenak.UniVoice.VoiceSettings.AddDeafenedTag(System.String)
+  name: AddDeafenedTag(String)
+  href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_AddDeafenedTag_System_String_
+  commentId: M:Adrenak.UniVoice.VoiceSettings.AddDeafenedTag(System.String)
+  fullName: Adrenak.UniVoice.VoiceSettings.AddDeafenedTag(System.String)
+  nameWithType: VoiceSettings.AddDeafenedTag(String)
+- uid: Adrenak.UniVoice.VoiceSettings.AddDeafenedTag*
+  name: AddDeafenedTag
+  href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_AddDeafenedTag_
+  commentId: Overload:Adrenak.UniVoice.VoiceSettings.AddDeafenedTag
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.VoiceSettings.AddDeafenedTag
+  nameWithType: VoiceSettings.AddDeafenedTag
+- uid: Adrenak.UniVoice.VoiceSettings.AddMutedTag(System.String)
+  name: AddMutedTag(String)
+  href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_AddMutedTag_System_String_
+  commentId: M:Adrenak.UniVoice.VoiceSettings.AddMutedTag(System.String)
+  fullName: Adrenak.UniVoice.VoiceSettings.AddMutedTag(System.String)
+  nameWithType: VoiceSettings.AddMutedTag(String)
+- uid: Adrenak.UniVoice.VoiceSettings.AddMutedTag*
+  name: AddMutedTag
+  href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_AddMutedTag_
+  commentId: Overload:Adrenak.UniVoice.VoiceSettings.AddMutedTag
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.VoiceSettings.AddMutedTag
+  nameWithType: VoiceSettings.AddMutedTag
+- uid: Adrenak.UniVoice.VoiceSettings.AddMyTag(System.String)
+  name: AddMyTag(String)
+  href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_AddMyTag_System_String_
+  commentId: M:Adrenak.UniVoice.VoiceSettings.AddMyTag(System.String)
+  fullName: Adrenak.UniVoice.VoiceSettings.AddMyTag(System.String)
+  nameWithType: VoiceSettings.AddMyTag(String)
+- uid: Adrenak.UniVoice.VoiceSettings.AddMyTag*
+  name: AddMyTag
+  href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_AddMyTag_
+  commentId: Overload:Adrenak.UniVoice.VoiceSettings.AddMyTag
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.VoiceSettings.AddMyTag
+  nameWithType: VoiceSettings.AddMyTag
 - uid: Adrenak.UniVoice.VoiceSettings.deafenAll
   name: deafenAll
   href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_deafenAll
@@ -1463,7 +1532,14 @@ references:
 - uid: Adrenak.UniVoice.VoiceSettings.deafenedTags
   name: deafenedTags
   href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_deafenedTags
-  commentId: F:Adrenak.UniVoice.VoiceSettings.deafenedTags
+  commentId: P:Adrenak.UniVoice.VoiceSettings.deafenedTags
+  fullName: Adrenak.UniVoice.VoiceSettings.deafenedTags
+  nameWithType: VoiceSettings.deafenedTags
+- uid: Adrenak.UniVoice.VoiceSettings.deafenedTags*
+  name: deafenedTags
+  href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_deafenedTags_
+  commentId: Overload:Adrenak.UniVoice.VoiceSettings.deafenedTags
+  isSpec: "True"
   fullName: Adrenak.UniVoice.VoiceSettings.deafenedTags
   nameWithType: VoiceSettings.deafenedTags
 - uid: Adrenak.UniVoice.VoiceSettings.muteAll
@@ -1481,15 +1557,68 @@ references:
 - uid: Adrenak.UniVoice.VoiceSettings.mutedTags
   name: mutedTags
   href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_mutedTags
-  commentId: F:Adrenak.UniVoice.VoiceSettings.mutedTags
+  commentId: P:Adrenak.UniVoice.VoiceSettings.mutedTags
+  fullName: Adrenak.UniVoice.VoiceSettings.mutedTags
+  nameWithType: VoiceSettings.mutedTags
+- uid: Adrenak.UniVoice.VoiceSettings.mutedTags*
+  name: mutedTags
+  href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_mutedTags_
+  commentId: Overload:Adrenak.UniVoice.VoiceSettings.mutedTags
+  isSpec: "True"
   fullName: Adrenak.UniVoice.VoiceSettings.mutedTags
   nameWithType: VoiceSettings.mutedTags
 - uid: Adrenak.UniVoice.VoiceSettings.myTags
   name: myTags
   href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_myTags
-  commentId: F:Adrenak.UniVoice.VoiceSettings.myTags
+  commentId: P:Adrenak.UniVoice.VoiceSettings.myTags
   fullName: Adrenak.UniVoice.VoiceSettings.myTags
   nameWithType: VoiceSettings.myTags
+- uid: Adrenak.UniVoice.VoiceSettings.myTags*
+  name: myTags
+  href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_myTags_
+  commentId: Overload:Adrenak.UniVoice.VoiceSettings.myTags
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.VoiceSettings.myTags
+  nameWithType: VoiceSettings.myTags
+- uid: Adrenak.UniVoice.VoiceSettings.RemoveDeafenedTag(System.String)
+  name: RemoveDeafenedTag(String)
+  href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_RemoveDeafenedTag_System_String_
+  commentId: M:Adrenak.UniVoice.VoiceSettings.RemoveDeafenedTag(System.String)
+  fullName: Adrenak.UniVoice.VoiceSettings.RemoveDeafenedTag(System.String)
+  nameWithType: VoiceSettings.RemoveDeafenedTag(String)
+- uid: Adrenak.UniVoice.VoiceSettings.RemoveDeafenedTag*
+  name: RemoveDeafenedTag
+  href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_RemoveDeafenedTag_
+  commentId: Overload:Adrenak.UniVoice.VoiceSettings.RemoveDeafenedTag
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.VoiceSettings.RemoveDeafenedTag
+  nameWithType: VoiceSettings.RemoveDeafenedTag
+- uid: Adrenak.UniVoice.VoiceSettings.RemoveMutedTag(System.String)
+  name: RemoveMutedTag(String)
+  href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_RemoveMutedTag_System_String_
+  commentId: M:Adrenak.UniVoice.VoiceSettings.RemoveMutedTag(System.String)
+  fullName: Adrenak.UniVoice.VoiceSettings.RemoveMutedTag(System.String)
+  nameWithType: VoiceSettings.RemoveMutedTag(String)
+- uid: Adrenak.UniVoice.VoiceSettings.RemoveMutedTag*
+  name: RemoveMutedTag
+  href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_RemoveMutedTag_
+  commentId: Overload:Adrenak.UniVoice.VoiceSettings.RemoveMutedTag
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.VoiceSettings.RemoveMutedTag
+  nameWithType: VoiceSettings.RemoveMutedTag
+- uid: Adrenak.UniVoice.VoiceSettings.RemoveMyTag(System.String)
+  name: RemoveMyTag(String)
+  href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_RemoveMyTag_System_String_
+  commentId: M:Adrenak.UniVoice.VoiceSettings.RemoveMyTag(System.String)
+  fullName: Adrenak.UniVoice.VoiceSettings.RemoveMyTag(System.String)
+  nameWithType: VoiceSettings.RemoveMyTag(String)
+- uid: Adrenak.UniVoice.VoiceSettings.RemoveMyTag*
+  name: RemoveMyTag
+  href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_RemoveMyTag_
+  commentId: Overload:Adrenak.UniVoice.VoiceSettings.RemoveMyTag
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.VoiceSettings.RemoveMyTag
+  nameWithType: VoiceSettings.RemoveMyTag
 - uid: Adrenak.UniVoice.VoiceSettings.SetDeaf(System.Int32,System.Boolean)
   name: SetDeaf(Int32, Boolean)
   href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_SetDeaf_System_Int32_System_Boolean_
@@ -1503,6 +1632,19 @@ references:
   isSpec: "True"
   fullName: Adrenak.UniVoice.VoiceSettings.SetDeaf
   nameWithType: VoiceSettings.SetDeaf
+- uid: Adrenak.UniVoice.VoiceSettings.SetDeafenedTag(System.String,System.Boolean)
+  name: SetDeafenedTag(String, Boolean)
+  href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_SetDeafenedTag_System_String_System_Boolean_
+  commentId: M:Adrenak.UniVoice.VoiceSettings.SetDeafenedTag(System.String,System.Boolean)
+  fullName: Adrenak.UniVoice.VoiceSettings.SetDeafenedTag(System.String, System.Boolean)
+  nameWithType: VoiceSettings.SetDeafenedTag(String, Boolean)
+- uid: Adrenak.UniVoice.VoiceSettings.SetDeafenedTag*
+  name: SetDeafenedTag
+  href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_SetDeafenedTag_
+  commentId: Overload:Adrenak.UniVoice.VoiceSettings.SetDeafenedTag
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.VoiceSettings.SetDeafenedTag
+  nameWithType: VoiceSettings.SetDeafenedTag
 - uid: Adrenak.UniVoice.VoiceSettings.SetMute(System.Int32,System.Boolean)
   name: SetMute(Int32, Boolean)
   href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_SetMute_System_Int32_System_Boolean_
@@ -1516,6 +1658,45 @@ references:
   isSpec: "True"
   fullName: Adrenak.UniVoice.VoiceSettings.SetMute
   nameWithType: VoiceSettings.SetMute
+- uid: Adrenak.UniVoice.VoiceSettings.SetMutedTag(System.String,System.Boolean)
+  name: SetMutedTag(String, Boolean)
+  href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_SetMutedTag_System_String_System_Boolean_
+  commentId: M:Adrenak.UniVoice.VoiceSettings.SetMutedTag(System.String,System.Boolean)
+  fullName: Adrenak.UniVoice.VoiceSettings.SetMutedTag(System.String, System.Boolean)
+  nameWithType: VoiceSettings.SetMutedTag(String, Boolean)
+- uid: Adrenak.UniVoice.VoiceSettings.SetMutedTag*
+  name: SetMutedTag
+  href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_SetMutedTag_
+  commentId: Overload:Adrenak.UniVoice.VoiceSettings.SetMutedTag
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.VoiceSettings.SetMutedTag
+  nameWithType: VoiceSettings.SetMutedTag
+- uid: Adrenak.UniVoice.VoiceSettings.SetMyTag(System.String,System.Boolean)
+  name: SetMyTag(String, Boolean)
+  href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_SetMyTag_System_String_System_Boolean_
+  commentId: M:Adrenak.UniVoice.VoiceSettings.SetMyTag(System.String,System.Boolean)
+  fullName: Adrenak.UniVoice.VoiceSettings.SetMyTag(System.String, System.Boolean)
+  nameWithType: VoiceSettings.SetMyTag(String, Boolean)
+- uid: Adrenak.UniVoice.VoiceSettings.SetMyTag*
+  name: SetMyTag
+  href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_SetMyTag_
+  commentId: Overload:Adrenak.UniVoice.VoiceSettings.SetMyTag
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.VoiceSettings.SetMyTag
+  nameWithType: VoiceSettings.SetMyTag
+- uid: Adrenak.UniVoice.VoiceSettings.ToString
+  name: ToString()
+  href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_ToString
+  commentId: M:Adrenak.UniVoice.VoiceSettings.ToString
+  fullName: Adrenak.UniVoice.VoiceSettings.ToString()
+  nameWithType: VoiceSettings.ToString()
+- uid: Adrenak.UniVoice.VoiceSettings.ToString*
+  name: ToString
+  href: api/Adrenak.UniVoice.VoiceSettings.html#Adrenak_UniVoice_VoiceSettings_ToString_
+  commentId: Overload:Adrenak.UniVoice.VoiceSettings.ToString
+  isSpec: "True"
+  fullName: Adrenak.UniVoice.VoiceSettings.ToString
+  nameWithType: VoiceSettings.ToString
 - uid: Adrenak.UniVoice.WavFileWriter
   name: WavFileWriter
   href: api/Adrenak.UniVoice.WavFileWriter.html
