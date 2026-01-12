@@ -1,0 +1,36 @@
+name: Publish to NPM
+
+on:
+  workflow_dispatch:
+
+env:
+  RELEASE_BRANCH: upm
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    
+    steps:
+      - name: Checkout upm branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.RELEASE_BRANCH }}
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+
+      - name: Configure npm authentication
+        run: |
+          npm whoami
+
+      - name: Publish to npm
+        run: npm publish
+

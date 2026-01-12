@@ -1,0 +1,144 @@
+name: Sync README and Update UPM Branch
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+env:
+  SUBDIRECTORY_PATH: Assets/Adrenak.UniVoice
+  UPM_BRANCH: upm
+
+jobs:
+  sync-readme:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Check if README needs update
+        id: check-readme
+        run: |
+          ROOT_README="README.md"
+          SUB_README="${{ env.SUBDIRECTORY_PATH }}/README.md"
+          
+          if [ ! -f "$ROOT_README" ]; then
+            echo "Root README.md not found. Exiting."
+            exit 1
+          fi
+          
+          if [ ! -f "$SUB_README" ]; then
+            echo "needs_update=true" >> $GITHUB_OUTPUT
+            echo "Subdirectory README.md does not exist. Will create it."
+          elif ! cmp -s "$ROOT_README" "$SUB_README"; then
+            echo "needs_update=true" >> $GITHUB_OUTPUT
+            echo "README.md files differ. Will update subdirectory README."
+          else
+            echo "needs_update=false" >> $GITHUB_OUTPUT
+            echo "README.md files are identical. No update needed."
+          fi
+
+      - name: Copy README to subdirectory
+        if: steps.check-readme.outputs.needs_update == 'true'
+        run: |
+          mkdir -p "${{ env.SUBDIRECTORY_PATH }}"
+          cp README.md "${{ env.SUBDIRECTORY_PATH }}/README.md"
+          echo "Copied README.md to ${{ env.SUBDIRECTORY_PATH }}/"
+
+      - name: Commit and push changes
+        if: steps.check-readme.outputs.needs_update == 'true'
+        run: |
+          git add "${{ env.SUBDIRECTORY_PATH }}/README.md"
+          
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: sync README.md to ${{ env.SUBDIRECTORY_PATH }}/"
+            git push origin master
+            echo "Committed and pushed README.md update."
+          fi
+
+  update-upm-branch:
+    needs: sync-readme
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout master branch
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+          ref: master
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Check if subdirectory exists
+        id: check-subdir
+        run: |
+          if [ ! -d "${{ env.SUBDIRECTORY_PATH }}" ]; then
+            echo "Subdirectory ${{ env.SUBDIRECTORY_PATH }} not found. Exiting."
+            exit 1
+          fi
+          echo "Subdirectory found: ${{ env.SUBDIRECTORY_PATH }}"
+
+      - name: Copy subdirectory to temporary location
+        run: |
+          # Copy subdirectory contents to a temp location before switching branches
+          mkdir -p /tmp/package-contents
+          cp -r "${{ env.SUBDIRECTORY_PATH }}"/* /tmp/package-contents/ 2>/dev/null || true
+          cp -r "${{ env.SUBDIRECTORY_PATH }}"/.[!.]* /tmp/package-contents/ 2>/dev/null || true
+          echo "Copied contents to temporary location"
+
+      - name: Create or checkout upm-latest branch
+        run: |
+          # Check if branch exists
+          if git ls-remote --heads origin ${{ env.UPM_BRANCH }} | grep -q "${{ env.UPM_BRANCH }}"; then
+            echo "Branch ${{ env.UPM_BRANCH }} exists. Checking out..."
+            git fetch origin ${{ env.UPM_BRANCH }}:${{ env.UPM_BRANCH }}
+            git checkout ${{ env.UPM_BRANCH }}
+          else
+            echo "Branch ${{ env.UPM_BRANCH }} does not exist. Creating..."
+            git checkout --orphan ${{ env.UPM_BRANCH }}
+            git rm -rf --cached . || true
+          fi
+
+      - name: Clear branch contents
+        run: |
+          # Remove all files except .git
+          find . -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
+
+      - name: Copy subdirectory contents to branch root
+        run: |
+          # Copy from temporary location to branch root
+          cp -r /tmp/package-contents/* .
+          echo "Copied contents from temporary location to branch root"
+
+      - name: Commit and push changes
+        run: |
+          git add -A
+          
+          if git diff --staged --quiet && git diff --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: update upm-latest branch with latest package contents"
+            git push origin ${{ env.UPM_BRANCH }}
+            echo "Committed and pushed to ${{ env.UPM_BRANCH }} branch."
+          fi
+

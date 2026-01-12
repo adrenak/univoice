@@ -1,0 +1,134 @@
+name: Update Package Version
+
+on:
+  workflow_dispatch:
+    inputs:
+      major:
+        description: 'Major version number'
+        required: true
+        type: number
+        default: 0
+      minor:
+        description: 'Minor version number'
+        required: true
+        type: number
+        default: 0
+      patch:
+        description: 'Patch version number'
+        required: true
+        type: number
+        default: 0
+      update_method:
+        description: 'Update method'
+        required: true
+        type: choice
+        options:
+          - increment
+          - set
+        default: 'set'
+
+env:
+  PACKAGE_JSON_PATH: Assets/Adrenak.UniVoice/package.json
+
+jobs:
+  bump-version:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Read current version
+        id: current-version
+        run: |
+          if [ ! -f "${{ env.PACKAGE_JSON_PATH }}" ]; then
+            echo "Error: package.json not found at ${{ env.PACKAGE_JSON_PATH }}"
+            exit 1
+          fi
+          
+          CURRENT_VERSION=$(node -p "require('./${{ env.PACKAGE_JSON_PATH }}').version")
+          echo "current_version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
+          echo "Current version: $CURRENT_VERSION"
+          
+          # Parse version components
+          IFS='.' read -r CURRENT_MAJOR CURRENT_MINOR CURRENT_PATCH <<< "$CURRENT_VERSION"
+          echo "current_major=$CURRENT_MAJOR" >> $GITHUB_OUTPUT
+          echo "current_minor=$CURRENT_MINOR" >> $GITHUB_OUTPUT
+          echo "current_patch=$CURRENT_PATCH" >> $GITHUB_OUTPUT
+
+      - name: Calculate new version
+        id: new-version
+        run: |
+          CURRENT_MAJOR=${{ steps.current-version.outputs.current_major }}
+          CURRENT_MINOR=${{ steps.current-version.outputs.current_minor }}
+          CURRENT_PATCH=${{ steps.current-version.outputs.current_patch }}
+          
+          INPUT_MAJOR=${{ inputs.major }}
+          INPUT_MINOR=${{ inputs.minor }}
+          INPUT_PATCH=${{ inputs.patch }}
+          UPDATE_METHOD="${{ inputs.update_method }}"
+          
+          if [ "$UPDATE_METHOD" = "increment" ]; then
+            # Increment mode: add values to current version
+            NEW_MAJOR=$((CURRENT_MAJOR + INPUT_MAJOR))
+            NEW_MINOR=$((CURRENT_MINOR + INPUT_MINOR))
+            NEW_PATCH=$((CURRENT_PATCH + INPUT_PATCH))
+            
+            # Validate no negative values
+            if [ $NEW_MAJOR -lt 0 ] || [ $NEW_MINOR -lt 0 ] || [ $NEW_PATCH -lt 0 ]; then
+              echo "Error: Version cannot be negative. Result would be: $NEW_MAJOR.$NEW_MINOR.$NEW_PATCH"
+              exit 1
+            fi
+          else
+            # Set mode: use input values directly
+            NEW_MAJOR=$INPUT_MAJOR
+            NEW_MINOR=$INPUT_MINOR
+            NEW_PATCH=$INPUT_PATCH
+            
+            # Validate no negative values
+            if [ $NEW_MAJOR -lt 0 ] || [ $NEW_MINOR -lt 0 ] || [ $NEW_PATCH -lt 0 ]; then
+              echo "Error: Version cannot be negative. Input: $NEW_MAJOR.$NEW_MINOR.$NEW_PATCH"
+              exit 1
+            fi
+          fi
+          
+          NEW_VERSION="$NEW_MAJOR.$NEW_MINOR.$NEW_PATCH"
+          echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
+          echo "New version: $NEW_VERSION"
+
+      - name: Update package.json
+        run: |
+          NEW_VERSION="${{ steps.new-version.outputs.new_version }}"
+          node -e "
+            const fs = require('fs');
+            const path = '${{ env.PACKAGE_JSON_PATH }}';
+            const pkg = JSON.parse(fs.readFileSync(path, 'utf8'));
+            pkg.version = '$NEW_VERSION';
+            fs.writeFileSync(path, JSON.stringify(pkg, null, '\t') + '\n');
+          "
+          echo "Updated ${{ env.PACKAGE_JSON_PATH }} to version $NEW_VERSION"
+
+      - name: Commit and push changes
+        run: |
+          git add "${{ env.PACKAGE_JSON_PATH }}"
+          
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            CURRENT_VERSION="${{ steps.current-version.outputs.current_version }}"
+            NEW_VERSION="${{ steps.new-version.outputs.new_version }}"
+            git commit -m "chore: bump version from $CURRENT_VERSION to $NEW_VERSION"
+            git push origin master
+            echo "Committed and pushed version bump: $CURRENT_VERSION -> $NEW_VERSION"
+          fi
+
