@@ -65,8 +65,8 @@ Ensure you have the NPM registry in the `manifest.json` file of your Unity proje
 Then add `com.adrenak.univoice:x.y.z` to the `dependencies` in your `manifest.json` file (where x.y.z is the version you wish to install). The list of versions is available on [the UniVoice NPM page](https://www.npmjs.com/package/com.adrenak.univoice?activeTab=versions).
 
 ## Useful links
-* API reference is available here: http://www.vatsalambastha.com/univoice
-* UniVoice blog: https://blog.vatsalambastha.com/search/label/univoice
+* API reference is available here: http://adrenak.github.io/univoice
+* UniVoice blog: https://vatsalambastha.com/?tag=univoice
 * Discord server: https://discord.gg/NGvkEVbdjQ
 
 ## Integration
@@ -123,3 +123,4 @@ The author can be reached at the following links:
 [Twitter](https://www.twitter.com/vatsalAmbastha)  
 
 Discord: `adrenak#1934`
+
