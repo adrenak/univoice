@@ -12,6 +12,12 @@
     "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [],
-    "versionDefines": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.netcode.gameobjects",
+            "expression": "[1.0.0,100.0.0]",
+            "define": "UNITY_NETCODE_GAMEOBJECTS"
+        }
+    ],
     "noEngineReferences": false
 }

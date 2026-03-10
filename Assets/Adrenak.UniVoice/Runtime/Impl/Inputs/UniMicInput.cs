@@ -33,7 +33,7 @@ namespace Adrenak.UniVoice.Inputs {
 
         private void OnFrameCollected(int frequency, int channels, float[] samples) {
             var frame = new AudioFrame {
-                timestamp = 0,
+                timestamp = DateTime.UtcNow.Ticks,
                 frequency = frequency,
                 channelCount = channels,
                 samples = Utils.Bytes.FloatsToBytes(samples)
