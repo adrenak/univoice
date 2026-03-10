@@ -8,6 +8,7 @@ Some features of UniVoice:
     - Built-in support for:
         - [Mirror networking](https://mirror-networking.com/)
         - [Fish Networking](https://fish-networking.gitbook.io/docs)
+        - [Netcode for GameObjects](https://github.com/Unity-Technologies/com.unity.netcode.gameobjects)
 
   * 🎤 __Configurable Audio Input__: 
     - UniVoice is audio input agnostic. You can change the source of outgoing audio by implementing the `IAudioInput` interface.  
@@ -73,9 +74,9 @@ Then add `com.adrenak.univoice:x.y.z` to the `dependencies` in your `manifest.js
 UniVoice isn't currently very drag-and-drop/low-code. The best way to integrate is to have some code perform a one time setup when your app starts and provides access to relevant objects that you can use throughout the rest of the apps runtime.
 
 ## Samples
-This repository contains two samples:
+This repository contains these samples:
 * `UniVoiceMirrorSetupSample.cs` is a drag and drop component, a simple integration sample script. You can add it to your Mirror NetworkManager to get voice chat to work. No code required, it's as simple as that! It'll work as long as you have setup your project properly. For more instructions see the top of the `UniVoiceMirrorSetupSample.cs` file. 
-* `UniVoiceFishNetSetypSample.cs` is also very similar. Just drag and drop and it should work!
+* `UniVoiceFishNetSetupSample.cs` and `UniVoiceNGOSetupSample.cs` are also very similar. Just drag and drop and it should work!
 * A sample scene that shows the other clients in a UI as well as allows you to mute yourself/them. This sample is Mirror based.
   
 > UniVoice currently only supports Mirror and FishNetworking out of the box. Follow the instructions in the "Activating non-packaged dependencies" section below before trying it out the samples. 
@@ -97,10 +98,12 @@ UniVoice includes and installs the dependencies mentioned above along with itsel
 UniVoice has code that uses dependencies that you have to install and sometimes enable via compilation symbols as they are _not_ UniVoice dependencies and _don't_ get installed along with UniVoice. This is because they are either third party modules or based on native libraries (not plain C#) that can pose build issues.  
 * RNNoise Noise removal filter:
     * To enable, ensure the [RNNoise4Unity](https://github.com/adrenak/RNNoise4Unity) package is in your project and add `UNIVOICE_FILTER_RNNOISE4UNITY` to activate it
-* Mirror network:
+* Mirror Networking:
     * Just add the Mirror package to your project. UniVoice will detect it.
 * Fish Networking:
     * Just install FishNet package in your project. UniVoice will detect it.
+* Netcode for GameObjects:
+    * Just install the pacakge, UniVoice will detect it too!
 
 ## License and Support
 This project is under the [MIT license](https://github.com/adrenak/univoice/blob/master/LICENSE).
