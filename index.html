@@ -83,6 +83,7 @@
 <li>Built-in support for:<ul>
 <li><a href="https://mirror-networking.com/">Mirror networking</a></li>
 <li><a href="https://fish-networking.gitbook.io/docs">Fish Networking</a></li>
+<li><a href="https://github.com/Unity-Technologies/com.unity.netcode.gameobjects">Netcode for GameObjects</a></li>
 </ul>
 </li>
 </ul>
@@ -172,10 +173,10 @@
 <h2 id="integration">Integration</h2>
 <p>UniVoice isn&#39;t currently very drag-and-drop/low-code. The best way to integrate is to have some code perform a one time setup when your app starts and provides access to relevant objects that you can use throughout the rest of the apps runtime.</p>
 <h2 id="samples">Samples</h2>
-<p>This repository contains two samples:</p>
+<p>This repository contains these samples:</p>
 <ul>
 <li><code>UniVoiceMirrorSetupSample.cs</code> is a drag and drop component, a simple integration sample script. You can add it to your Mirror NetworkManager to get voice chat to work. No code required, it&#39;s as simple as that! It&#39;ll work as long as you have setup your project properly. For more instructions see the top of the <code>UniVoiceMirrorSetupSample.cs</code> file. </li>
-<li><code>UniVoiceFishNetSetypSample.cs</code> is also very similar. Just drag and drop and it should work!</li>
+<li><code>UniVoiceFishNetSetupSample.cs</code> and <code>UniVoiceNGOSetupSample.cs</code> are also very similar. Just drag and drop and it should work!</li>
 <li>A sample scene that shows the other clients in a UI as well as allows you to mute yourself/them. This sample is Mirror based.</li>
 </ul>
 <blockquote><p>UniVoice currently only supports Mirror and FishNetworking out of the box. Follow the instructions in the &quot;Activating non-packaged dependencies&quot; section below before trying it out the samples. </p>
@@ -198,12 +199,16 @@
 <li>To enable, ensure the <a href="https://github.com/adrenak/RNNoise4Unity">RNNoise4Unity</a> package is in your project and add <code>UNIVOICE_FILTER_RNNOISE4UNITY</code> to activate it</li>
 </ul>
 </li>
-<li>Mirror network:<ul>
+<li>Mirror Networking:<ul>
 <li>Just add the Mirror package to your project. UniVoice will detect it.</li>
 </ul>
 </li>
 <li>Fish Networking:<ul>
 <li>Just install FishNet package in your project. UniVoice will detect it.</li>
+</ul>
+</li>
+<li>Netcode for GameObjects:<ul>
+<li>Just install the pacakge, UniVoice will detect it too!</li>
 </ul>
 </li>
 </ul>
