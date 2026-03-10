@@ -178,7 +178,7 @@ namespace Adrenak.UniVoice.Samples {
 #if UNIVOICE_FILTER_RNNOISE4UNITY
             if(useRNNoise4UnityIfAvailable) {
                 // RNNoiseFilter to remove noise from captured audio
-                session.InputFilters.Add(new RNNoiseFilter());
+                ClientSession.InputFilters.Add(new RNNoiseFilter());
                 Debug.unityLogger.Log(LogType.Log, TAG, "Registered RNNoiseFilter as an input filter");
             }
 #endif

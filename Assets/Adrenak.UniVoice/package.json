@@ -31,9 +31,9 @@
 			"path": "Samples~"
 		}
 	],
-    "dependencies": {
-        "com.adrenak.brw": "1.2.0",
-        "com.adrenak.unimic": "3.4.0",
-        "com.adrenak.concentus-unity": "1.0.1"
-    }
+	"dependencies": {
+		"com.adrenak.brw": "1.2.0",
+		"com.adrenak.unimic": "3.4.0",
+		"com.adrenak.concentus-unity": "1.0.1"
+	}
 }
