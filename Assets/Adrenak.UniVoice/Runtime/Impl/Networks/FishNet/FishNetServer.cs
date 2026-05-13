@@ -1,9 +1,4 @@
-﻿#if FISHNET
-using System;
-using System.Linq;
-using System.Collections.Generic;
-using UnityEngine;
-using Adrenak.BRW;
+#if FISHNET
 using FishNet;
 using FishNet.Connection;
 using FishNet.Managing;
@@ -12,28 +7,18 @@ using FishNet.Transporting;
 namespace Adrenak.UniVoice.Networks
 {
     /// <summary>
-    /// This is an implementation of the <see cref="IAudioServer{T}"/> interface for FishNet.
-    /// It uses the FishNet to send and receive UniVoice audio data to and from clients.
+    /// FishNet implementation of <see cref="IAudioServer{T}"/>.
+    /// Inherits the forwarding/filtering protocol from <see cref="AAudioServerBase"/>;
+    /// only the framework wiring lives here.
     /// </summary>
-    public class FishNetServer : IAudioServer<int>
+    public class FishNetServer : AAudioServerBase
     {
-        private const string TAG = "[FishNetServer]";
+        protected override string Tag => "[FishNetServer]";
 
-        public event Action OnServerStart;
-        public event Action OnServerStop;
-        public event Action OnClientVoiceSettingsUpdated;
-
-        public List<int> ClientIDs { get; private set; }
-        public Dictionary<int, VoiceSettings> ClientVoiceSettings { get; private set; }
-        
-        private NetworkManager _networkManager;
-        private List<int> _startedTransports = new();
+        private readonly NetworkManager _networkManager;
 
         public FishNetServer()
         {
-            ClientIDs = new List<int>();
-            ClientVoiceSettings = new Dictionary<int, VoiceSettings>();
-
             _networkManager = InstanceFinder.NetworkManager;
             _networkManager.ServerManager.OnServerConnectionState += OnServerConnectionStateChanged;
             _networkManager.ServerManager.OnRemoteConnectionState += OnServerRemoteConnectionStateChanged;
@@ -41,7 +26,7 @@ namespace Adrenak.UniVoice.Networks
             _networkManager.ServerManager.RegisterBroadcast<FishNetBroadcast>(OnReceivedMessage, false);
         }
 
-        public void Dispose()
+        public override void Dispose()
         {
             if (_networkManager)
             {
@@ -50,172 +35,44 @@ namespace Adrenak.UniVoice.Networks
                 _networkManager.ClientManager.OnClientConnectionState -= OnClientConnectionStateChanged;
                 _networkManager.ServerManager.UnregisterBroadcast<FishNetBroadcast>(OnReceivedMessage);
             }
-            OnServerShutdown();
+            base.Dispose();
         }
 
-        private void OnServerStarted()
+        protected override void SendToClient(int clientId, byte[] data, bool reliable)
         {
-            OnServerStart?.Invoke();
+            if (!TryGetConnectionToClient(clientId, out var connection)) return;
+            var message = new FishNetBroadcast { data = data };
+            _networkManager.ServerManager.Broadcast(connection, message, false,
+                reliable ? Channel.Reliable : Channel.Unreliable);
         }
 
-        private void OnServerShutdown()
-        {
-            ClientIDs.Clear();
-            ClientVoiceSettings.Clear();
-            OnServerStop?.Invoke();
-        }
-        
         private void OnServerRemoteConnectionStateChanged(NetworkConnection connection, RemoteConnectionStateArgs args)
         {
             if (args.ConnectionState == RemoteConnectionState.Started)
-            {
-                OnServerConnected(connection.ClientId);
-            }
+                HandleClientConnected(connection.ClientId);
             else if (args.ConnectionState == RemoteConnectionState.Stopped)
-            {
-                OnServerDisconnected(connection.ClientId);
-            }
+                HandleClientDisconnected(connection.ClientId);
         }
 
         private void OnServerConnectionStateChanged(ServerConnectionStateArgs args)
         {
-            // Connection can change for each transport, so we need to track them
-            if (args.ConnectionState == LocalConnectionState.Started)
-            {
-                var wasStarted = _startedTransports.Count != 0;
-                _startedTransports.Add(args.TransportIndex);
-                if (!wasStarted) 
-                    OnServerStarted();
-            }
-            else if (args.ConnectionState == LocalConnectionState.Stopped)
-            {
-                _startedTransports.Remove(args.TransportIndex);
-                if(_startedTransports.Count == 0)
-                    OnServerShutdown();
-            }
+            if (args.ConnectionState == LocalConnectionState.Started && InstanceFinder.ServerManager.IsOnlyOneServerStarted())
+                RaiseServerStarted();
+            else if (args.ConnectionState == LocalConnectionState.Stopped && !InstanceFinder.ServerManager.IsAnyServerStarted()) 
+                RaiseServerStopped();
         }
 
         private void OnClientConnectionStateChanged(ClientConnectionStateArgs args)
         {
             if (args.ConnectionState == LocalConnectionState.Started)
-            {
-                OnServerConnected(0);
-            }
+                HandleClientConnected(0);
             else if (args.ConnectionState == LocalConnectionState.Stopped)
-            {
-                OnServerDisconnected(0);
-            }
+                HandleClientDisconnected(0);
         }
 
         private void OnReceivedMessage(NetworkConnection connection, FishNetBroadcast message, Channel channel)
         {
-            var clientId = connection.ClientId;
-            var reader = new BytesReader(message.data);
-            var tag = reader.ReadString();
-
-            if (tag.Equals(FishNetBroadcastTags.AUDIO_FRAME))
-            {
-                // We start with all the peers except the one that's
-                // sent the audio 
-                var peersToForwardAudioTo = ClientIDs
-                    .Where(x => x != clientId);
-
-                // Check the voice settings of the sender and eliminate any peers the sender
-                // may have deafened
-                if (ClientVoiceSettings.TryGetValue(clientId, out var senderSettings))
-                {
-                    // If the client sending the audio has deafened everyone,
-                    // we simply return. Sender's audio should not be forwarded to anyone.
-                    if (senderSettings.deafenAll)
-                        return;
-
-                    // Filter the recipient list by removing all peers that the sender has
-                    // deafened using ID
-                    peersToForwardAudioTo = peersToForwardAudioTo
-                        .Where(x => !senderSettings.deafenedPeers.Contains(x));
-
-                    // Further filter the recipient list by removing peers that the sender has
-                    // deafened using tags
-                    peersToForwardAudioTo = peersToForwardAudioTo.Where(peer =>
-                    {
-                        // Get the voice settings of the peer
-                        if (ClientVoiceSettings.TryGetValue(peer, out var peerVoiceSettings))
-                        {
-                            // Check if sender has not deafened peer using tag
-                            var hasDeafenedPeer = senderSettings.deafenedTags.Intersect(peerVoiceSettings.myTags).Any();
-                            return !hasDeafenedPeer;
-                        }
-                        // If peer doesn't have voice settings, we can keep the peer in the list
-                        return true;
-                    });
-                }
-
-                // We iterate through each recipient peer that the sender wants to send audio to, checking if
-                // they have muted the sender, before forwarding the audio to them.
-                foreach (var recipient in peersToForwardAudioTo) {
-                    // Get the settings of a potential recipient
-                    if (ClientVoiceSettings.TryGetValue(recipient, out var recipientSettings)) {
-                        // If a peer has muted everyone, don't send audio
-                        if (recipientSettings.muteAll)
-                            continue;
-
-                        // If the peers has muted the sender using ID, skip sending audio
-                        if (recipientSettings.mutedPeers.Contains(clientId))
-                            continue;
-
-                        // If the peer has muted the sender using tag, skip sending audio
-                        if (senderSettings != null && recipientSettings.mutedTags.Intersect(senderSettings.myTags).Any())
-                            continue;
-                    }
-                    SendToClient(recipient, message.data, Channel.Unreliable);
-                }
-            }
-            else if (tag.Equals(FishNetBroadcastTags.VOICE_SETTINGS)) {
-                // We create the VoiceSettings object by reading from the reader
-                // and update the peer voice settings map
-                var muteAll = reader.ReadInt() == 1;
-                var mutedPeers = reader.ReadIntArray().ToList();
-                var deafenAll = reader.ReadInt() == 1;
-                var deafenedPeers = reader.ReadIntArray().ToList();
-                var myTags = reader.ReadStringArray().ToList();
-                var mutedTags = reader.ReadStringArray().ToList();
-                var deafenedTags = reader.ReadStringArray().ToList();
-
-                var voiceSettings = new VoiceSettings {
-                    muteAll = muteAll,
-                    mutedPeers = mutedPeers,
-                    deafenAll = deafenAll,
-                    deafenedPeers = deafenedPeers,
-                    myTags = myTags,
-                    mutedTags = mutedTags,
-                    deafenedTags = deafenedTags
-                };
-                ClientVoiceSettings[clientId] = voiceSettings;
-                OnClientVoiceSettingsUpdated?.Invoke();
-            }
-        }
-
-        private void OnServerConnected(int connId)
-        {
-            if (ClientIDs.Contains(connId))
-                return;
-            ClientIDs.Add(connId);
-            Debug.unityLogger.Log(LogType.Log, TAG, $"Client {connId} connected. IDs now: {string.Join(", ", ClientIDs)}");
-        }
-
-        private void OnServerDisconnected(int connId)
-        {
-            ClientIDs.Remove(connId);
-            Debug.unityLogger.Log(LogType.Log, TAG, $"Client {connId} disconnected. IDs now: {string.Join(", ", ClientIDs)}");
-        }
-
-        private void SendToClient(int clientConnId, byte[] bytes, Channel channel)
-        {
-            if (!TryGetConnectionToClient(clientConnId, out var connection)) 
-                return;
-            
-            var message = new FishNetBroadcast {data = bytes};
-            _networkManager.ServerManager.Broadcast(connection, message, false, channel);
+            HandleIncomingPayload(connection.ClientId, message.data);
         }
 
         private bool TryGetConnectionToClient(int desiredClientID, out NetworkConnection resultConnection)
@@ -227,7 +84,7 @@ namespace Adrenak.UniVoice.Networks
                 {
                     resultConnection = conn;
                     return true;
-                } 
+                }
             }
             return false;
         }

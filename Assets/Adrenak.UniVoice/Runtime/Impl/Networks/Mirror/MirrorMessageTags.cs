@@ -1,16 +1,17 @@
-﻿#if MIRROR
-namespace Adrenak.UniVoice.Networks {
+#if MIRROR
+namespace Adrenak.UniVoice.Networks
+{
     /// <summary>
-    /// The different types of messages we send over Mirror 
-    /// to implement the <see cref="IAudioClient{T}"/> and <see cref="IAudioServer{T}"/>
-    /// interfaces for Mirror
+    /// Mirror-specific protocol tags. Because Mirror does not expose remote-client
+    /// lifecycle events to peers natively, <see cref="MirrorServer"/> drives these
+    /// extra notifications and <see cref="MirrorClient"/> consumes them in addition
+    /// to the shared <see cref="AudioBroadcastTags"/>.
     /// </summary>
-    public class MirrorMessageTags {
+    public static class MirrorMessageTags
+    {
         public const string PEER_INIT = "PEER_INIT";
         public const string PEER_JOINED = "PEER_JOINED";
         public const string PEER_LEFT = "PEER_LEFT";
-        public const string AUDIO_FRAME = "AUDIO_FRAME";
-        public const string VOICE_SETTINGS = "VOICE_SETTINGS";
     }
 }
 #endif
