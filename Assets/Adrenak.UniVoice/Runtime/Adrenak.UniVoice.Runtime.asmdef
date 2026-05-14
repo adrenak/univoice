@@ -2,14 +2,15 @@
     "name": "Adrenak.UniVoice.Runtime",
     "rootNamespace": "",
     "references": [
-        "GUID:1f776cd02c03a7b4280b6b649d7758e2",
-        "GUID:f87ecb857e752164ab814a3de8eb0262",
-        "GUID:b118fd5a40c85ad4e9b38e8c4a42bbb1",
-        "GUID:4653938bfdb5cf8409322ce17219d5f7",
-        "GUID:30817c1a0e6d646d99c048fc403f5979",
-        "GUID:7c88a4a7926ee5145ad2dfa06f454c67",
-        "GUID:1491147abca9d7d4bb7105af628b223e",
-        "GUID:e0cd26848372d4e5c891c569017e11f1"
+        "Adrenak.BRW",
+        "Adrenak.UniMic.Runtime",
+        "Concentus-Unity.Runtime",
+        "Adrenak.RNNoise4Unity.Runtime",
+        "Mirror",
+        "FishNet.Runtime",
+        "Unity.Netcode.Runtime",
+        "Unity.Collections",
+        "PurrNet.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -23,6 +24,11 @@
             "name": "com.unity.netcode.gameobjects",
             "expression": "[1.0.0,100.0.0]",
             "define": "UNITY_NETCODE_GAMEOBJECTS"
+        },
+        {
+            "name": "dev.purrnet.purrnet",
+            "expression": "",
+            "define": "PURRNET"
         }
     ],
     "noEngineReferences": false
