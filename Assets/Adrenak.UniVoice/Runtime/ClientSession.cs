@@ -146,17 +146,17 @@ namespace Adrenak.UniVoice {
                     try {
                         if (OutputProvider != null) {
                             var output = OutputProvider();
-                            PeerOutputs.Add(id, output);
+                            PeerOutputs[id] = output;
                         }
                         else if (OutputFactory != null) {
                             var output = OutputFactory.Create();
-                            PeerOutputs.Add(id, output);
+                            PeerOutputs[id] = output;
                         }
 
                         var filters = outputFilterFactories
                             .Select(entry => entry.Factory())
                             .ToList();
-                        peerOutputFilters.Add(id, filters);
+                        peerOutputFilters[id] = filters;
                     }
                     catch (Exception e) {
                         Debug.LogException(e);
@@ -238,7 +238,7 @@ namespace Adrenak.UniVoice {
                     foreach (var id in Client.PeerIDs) {
                         try {
                             var output = outputProvider();
-                            PeerOutputs.Add(id, output);
+                            PeerOutputs[id] = output;
                         }
                         catch (Exception e) {
                             Debug.LogException(e);
@@ -267,7 +267,7 @@ namespace Adrenak.UniVoice {
                     foreach (var id in Client.PeerIDs) {
                         try {
                             var output = outputFactory.Create();
-                            PeerOutputs.Add(id, output);
+                            PeerOutputs[id] = output;
                         }
                         catch (Exception e) {
                             Debug.LogException(e);
