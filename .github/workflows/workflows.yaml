@@ -104,7 +104,28 @@ jobs:
           mkdir -p /tmp/package-contents
           cp -r "${{ env.SUBDIRECTORY_PATH }}"/* /tmp/package-contents/ 2>/dev/null || true
           cp -r "${{ env.SUBDIRECTORY_PATH }}"/.[!.]* /tmp/package-contents/ 2>/dev/null || true
-          echo "Copied contents to temporary location"
+
+          # The source Unity project keeps samples visible as `Samples`, but
+          # package.json declares the hidden UPM sample path `Samples~`.
+          if [ -d /tmp/package-contents/Samples ]; then
+            if [ -e /tmp/package-contents/Samples~ ] || [ -e /tmp/package-contents/Samples~.meta ]; then
+              echo "Both Samples and Samples~ exist in the package source; refusing ambiguous packaging."
+              exit 1
+            fi
+            mv /tmp/package-contents/Samples /tmp/package-contents/Samples~
+            if [ -e /tmp/package-contents/Samples.meta ]; then
+              mv /tmp/package-contents/Samples.meta /tmp/package-contents/Samples~.meta
+            fi
+          elif [ ! -d /tmp/package-contents/Samples~ ]; then
+            echo "Neither Samples nor the declared Samples~ package directory exists."
+            exit 1
+          fi
+          if [ -e /tmp/package-contents/Samples.meta ]; then
+            echo "Samples.meta remained after normalizing the package sample directory."
+            exit 1
+          fi
+
+          echo "Copied and normalized package contents to temporary location"
 
       - name: Create or checkout upm-latest branch
         run: |
